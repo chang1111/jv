@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- 콘솔 로그 -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <param name="Threshold" value="DEBUG" />
+        <!-- 출력 패턴 설정 -->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p] [%d{HH:mm:ss.SSS}] %m%n" />
+        </layout>
+    </appender>
+    
+    <!-- 일별 로그 : 날짜별로  로그를 남김. Log file에 날짜를 붙여 백업하는 방식 -->   
+    <appender name="rolling" class="org.apache.log4j.DailyRollingFileAppender">  
+
+        <!-- Tomcat Restart시 새로쓸껀지 말껀지 : True 기존파일에 추가, False 새로씀 -->
+        <param name="Append" value="true"/> 
+
+        <!-- Log File 뒤에 날짜 패턴 추가 -->
+        <param name="DatePattern" value="'.'yyyyMMdd"/>
+        
+        <!-- Log File 위치 -->
+        <param name="File" value="logs/kiwi.log"/>  
+
+        <!-- 출력 패턴 설정 -->
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n"/>  
+        </layout>  
+    </appender>  
+    
+    <appender name="file" class="org.apache.log4j.FileAppender">
+        <param name="File" value="logs/test.log" />
+        <param name="Append" value="false" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p] [%d{HH:mm:ss.SSS}] %m%n" />
+        </layout>
+    </appender>
+    
+    <!-- Application Loggers -->
+    <logger name="com.spring67.upload">
+        <level value="info" />
+    </logger>
+    
+    <!-- 3rdparty Loggers -->
+    <logger name="org.springframework.core">
+        <level value="info" />
+    </logger>
+    
+    <logger name="org.springframework.beans">
+        <level value="info" />
+    </logger>
+    
+    <logger name="org.springframework.context">
+        <level value="info" />
+    </logger>
+
+    <logger name="org.springframework.web">
+        <level value="info" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="debug" />
+        <appender-ref ref="console" />
+        <appender-ref ref="rolling" />
+    </root>
+    
+</log4j:configuration>

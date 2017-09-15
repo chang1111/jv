@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { margin:10px; }
+        div,span { background: #FFF; padding: 10px; margin: 10px; }
+    </style>
+    
+    
+</head>
+<body>
+    <h2>DOM Selector</h2>
+
+    <div>
+        <h3>첫번째 ul</h3>
+        <ul class="siteUrl">
+            <li>Sqler : http://www.sqler.com</li>
+            <li>jQuery : http://jquery.com</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>두번째 ul</h3>
+        <ul  id="siteUrl"  class="siteUrl">
+            <li>Sqler : http://www.sqler.com</li>
+            <li>jQuery : http://jquery.com</li>
+            <li>
+                <ul>
+                    <li>Blog : http://www.hows.kr</li>
+                    <li>Community : http://www.hoons.kr</li>
+                </ul>
+            </li>
+            <li>Items</li>
+            <li>Items</li>
+            <li>Items</li>
+        </ul>
+    </div>
+
+
+    <div>
+        <h3>세번째 ul</h3>
+        <ul  class="siteUrl">
+            <li>Items</li>
+            <li>Items</li>
+        </ul>
+    </div>
+    <hr>
+    <input id='children'   type='button' value='자식 li 찾기'>
+    <input id='descendant' type='button' value='자손 li 찾기'>
+</body>
+</html>
+
+
+
+

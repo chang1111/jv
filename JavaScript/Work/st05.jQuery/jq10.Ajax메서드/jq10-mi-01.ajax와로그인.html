@@ -1,0 +1,79 @@
+<!--
+http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>폼 데이터를 JSON 형태로 변환</title>
+    <style>
+        div { font-weight: bold; color:red; }
+
+        .profile { position: relative; z-index: 10; zoom: 1; border: 1px solid #dcdcdc; border-bottom: 0; height: 99px; _width: 298px }
+        .profile .user_area { background-color: #f3f4f3; border-bottom: 1px solid #dcdcdc; height: 54px; position: relative; z-index: 10 }
+        .profile .user_info { position: relative; padding: 8px 0 4px 58px; zoom: 1 }
+        .profile .user_thumbnail { position: absolute; left: 11px; top: 5px; width: 42px; height: 42px; overflow: hidden }
+        .profile .user_thumbnail img { width: auto; height: auto; max-width: 100%; max-height: 100% }
+        .profile .user_thumbnail .mask { width: 100%; height: 100%; position: absolute; left: 0; top: 0 }
+
+        .profile .private { margin-bottom: 5px; line-height: 19px; white-space: nowrap; position: relative }
+        .profile .private .user_name { max-width: 90px; *width: 90px; vertical-align: middle; position: relative; overflow: hidden; box-sizing: content-box; margin-right: 6px }
+        .profile .private .user_name a { color: #2f3743; font-weight: bold }
+        .profile .private .user_name a:hover { text-decoration: none }
+        .profile .private .user_name a strong { max-width: 79px; *width: 79px; vertical-align: top; *vertical-align: middle }
+        .profile .private .user_name a:hover strong { text-decoration: underline }
+        .profile .private .login_on { width: 17px; height: 11px; margin: 4px 2px 0 0; overflow: hidden; background-position: -20px -340px; vertical-align: top }
+        .profile .private .link_myinfo { color: #848688; text-decoration: underline }
+        .profile .private .set_login_protect { width: 12px; height: 18px; background-position: -58px 4px; vertical-align: top; margin-left: -1px }
+        .profile .private .btn_logout { position: absolute; right: 12px; border: 1px solid #d1d1d1; color: #848688; height: 16px; overflow: hidden; vertical-align: top }
+        .profile .private .btn_logout .btn_inr { border: 1px solid #fff; border-right: 0; border-bottom: 0; background-color: #f6f7f8; padding: 0 4px 0; height: 15px; line-height: 15px; vertical-align: top; *line-height: 17px }
+
+        .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }
+
+    </style>
+    
+    
+</head>
+<body>
+
+    <div class="login">
+        <form>
+            <input type="hidden" name="seq" value="1">
+            <label> 이름을 입력하세요 : </label>
+            <input type="text" name="username"/>  <br/>
+            <label> 패스워드를 입력하세요 :</label>
+            <input type="password"  name="password"/>  <br/>
+            <input type="checkbox" name="hobby" value="music"> music
+            <input type="checkbox" name="hobby" value="yoga"> yoga
+            <input type="checkbox" name="hobby" value="reading"> reading <br/>
+            <input type="button" id="submit" value="전송"/>
+        </form>
+    </div>
+
+    <div class="profile" style="display: none;">
+        <div class="user_area">
+            <div class="user_info">
+                <a href="#" class="user_thumbnail">
+                    <span class="mask"></span>
+                    <img id="profile_image" src="myInfo.gif">
+                </a>
+                <div class="private">
+                    <span class="user_name"><a href="#"><strong id="user_name">???</strong>님</a></span>
+                    <a href="#" target="_parent" class="link_myinfo">내정보</a>
+                    <a href="http://nid.naver.com/nidlogin.logout?returl=http://www.naver.com" target="_parent" class="btn_logout">
+                        <span class="btn_inr">로그아웃</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
+
+
+
+

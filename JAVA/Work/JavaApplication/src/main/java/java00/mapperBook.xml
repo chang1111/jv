@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperBook">
+
+    <select id="selectAll" resultType="ModelBook" >
+        SELECT * FROM book ORDER BY bookid ASC
+    </select>
+    
+    <select id="selectLike" parameterType="String" resultType="ModelBook">
+        SELECT * FROM book where bookname like #{bookname}
+    </select>
+    
+    <select id="selectEqual" parameterType="String" resultType="ModelBook">
+        SELECT * FROM book where bookname = #{bookname}
+    </select>
+    
+    <insert id="insert" parameterType="ModelBook" >
+        INSERT INTO BOOK(  BOOKNAME  ,PUBLISHER   ,YEAR   ,PRICE   ,DTM   ,USE_YN   ,AUTHID)
+                  VALUES( #{bookname},#{publisher},#{year},#{price},#{dtm},#{use_yn},#{authid} )
+    </insert>
+        
+    <update id="update" parameterType="hashmap" >
+         UPDATE BOOK
+            SET BOOKNAME    = #{updateValue.bookname}
+              , PUBLISHER   = #{updateValue.publisher}
+              , YEAR        = #{updateValue.year}
+              , PRICE       = #{updateValue.price}
+              , DTM         = #{updateValue.dtm}
+              , USE_YN      = #{updateValue.use_yn}
+              , AUTHID      = #{updateValue.authid}
+            WHERE 1 = 1 
+              <if test="searchValue.bookid != null" >
+              AND BOOKID    = #{searchValue.bookid}
+              </if>
+              <if test="searchValue.bookname != null">
+              AND BOOKNAME  = #{searchValue.bookname}
+              </if>
+    </update>
+    
+</mapper>

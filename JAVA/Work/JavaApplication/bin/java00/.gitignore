@@ -1,0 +1,79 @@
+# 이것은 코멘트
+# http://trend21c.tistory.com/1471
+# https://hyeonseok.com/soojung/dev/2016/07/12/797.html
+# http://rapapa.net/?p=85
+# https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
+
+# /로 끝나면 해당 디렉토리 전체를 무시
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+
+# 파일이름을 넣으면 모든 디렉토리에서 해당 파일 무시
+ignore-file.txt
+
+# 와일드카드도 사용가능
+*.log
+
+# 무시된 디렉토리 안의 특정 파일과 폴더만 추가하는 방법
+!JavaApplication/src/main/java/
+JavaApplication/src/main/java/*
+!JavaApplication/src/main/java/java24/
+
+!JavaApplication/src/main/resources/
+JavaApplication/src/main/resources/*
+!JavaApplication/src/main/resources/*.xml
+!JavaApplication/src/main/resources/*.properties
+!JavaApplication/src/main/resources/java24/
+
+!JavaApplication/src/test/java/
+JavaApplication/src/test/java/*
+!JavaApplication/src/test/java/java24/
+
+########
+*.iml
+.gradle
+local.properties
+.idea/workspace.xml
+.idea/libraries
+.DS_Store
+build/
+captures/
+
+
+# Compiled source  제외
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+?
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+?
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+?
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+

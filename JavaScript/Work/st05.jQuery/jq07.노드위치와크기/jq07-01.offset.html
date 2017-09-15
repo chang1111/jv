@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>해당 엘리먼트의 현재 위치 알아내기</title>
+    <style>
+    div.abs{ width: 50px; height: 50px; position: absolute;
+         left:220px; top:35px; background-color: green;
+         cursor: pointer;
+    }
+    div { position: relative; left:0px; top:200px; }
+    .bt {
+        cursor:pointer;
+        margin:2px;
+        display:block;
+        padding:4px 8px;
+        height:16px;
+        border:1px solid #d7d7d7;
+        text-align:left;
+        text-decoration: none;
+        background-repeat:repeat-x;
+        background:#fcfcfc;
+        color:#9b9b9b;
+        font-size:11px;
+        font-family:"돋움,dotum,굴림,gulim,Vertical,Arial";
+    }
+    </style>
+    
+    
+
+
+
+</head>
+<body>
+    <span id="result"></span>
+    <div class="abs"></div>
+    <div id="addboarder" class="bt">border 추가 후 위치와 크기 -->  border : 4px solid red  </div>
+    <div id="addpadding" class="bt">padding 추가 후 위치와 크기  --> padding : 40px </div>
+    <div id="addmargin" class="bt">margine 추가 후 위치와 크기  --> margin : 40px </div>
+</body>
+</html>
+
+
+
+
+

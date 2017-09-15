@@ -1,0 +1,20 @@
+
+$.ajax({
+    url : '',
+    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+    type: 'get',       // get, post
+    timeout: 30000,    // 30초
+    dataType: 'json',  // text, html, xml, json, jsonp, script
+    beforeSend : function() {
+        // 통신이 시작되기 전에 이 함수를 타게 된다.
+    }
+}).done( function(data, textStatus, xhr ){
+    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+}).fail( function(xhr, textStatus, error ) {
+    // 통신이 실패했을 때 이 함수를 타게 된다.
+}).always( function(data, textStatus, xhr ) {
+    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+});
+
+
+
