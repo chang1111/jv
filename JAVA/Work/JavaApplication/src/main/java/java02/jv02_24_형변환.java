@@ -12,10 +12,10 @@ public class jv02_24_형변환 {
         result = '2' + (true ? 1 : 0);
         System.out.println(result);
         
-        result = Integer.parseInt("15") - 5;
+        result = Integer.valueOf("15") - 5;
         System.out.println(result);
         
-        result = Integer.parseInt("1") + '2';
+        result = Integer.valueOf("1") + '2';
         System.out.println(result);
         
         result = (false ? 1 : 0) + (true ? 1 : 0);
