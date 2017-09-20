@@ -1,4 +1,4 @@
-# 이것은 코멘트
+﻿# 이것은 코멘트
 # http://trend21c.tistory.com/1471
 # https://hyeonseok.com/soojung/dev/2016/07/12/797.html
 # http://rapapa.net/?p=85
@@ -43,6 +43,7 @@
 
 **/.git/
 **/.svn/
+**/JavaTest/
 
 # eclipse 설저정 파일 무시
 **/.metadata/
