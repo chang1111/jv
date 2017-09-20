@@ -19,7 +19,7 @@ public class ex04_01_n1부터n2합계구하기 {
             if (i != n2) {
                 System.out.print('+');
             }
-            else {
+            else{
                 System.out.print('=');
             }
         }
