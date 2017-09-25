@@ -6,7 +6,7 @@ public class ex05_11_369게임 {
         for (int i = 1;i <= 1000000;i++) {
             int n = i, count = 0;
             for (;;) {
-                if (n % 10 % 3 == 0 && n % 10 != 0){
+                if (n % 10 % 3 == 0 && n % 10 != 0) {
                     count++;
                 }
                 if (n / 10 != 0) {
