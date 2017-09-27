@@ -2,23 +2,24 @@ package java07;
 
 import java.util.Scanner;
 
-public class jv07_03_반평균구하기1 {
+public class jv07_03_반평균구하기3 {
     
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        int[] score = new int[3];
+        System.out.print("학생수를 입력하시오 : ");
+        int size = keyboard.nextInt();
+        int[] score = new int[size];
         for (int i = 0;i < score.length;i++) {
             System.out.print("숫자를 입력하시오 : ");
             score[i] = keyboard.nextInt();
         }
         
-        System.out.print("배열의 값은 : ");
         int sum = 0;
-        for (int i = 0;i < score.length-1;i++) {
+        for (int i = 0;i < score.length;i++) {
             sum = sum + score[i];
-            System.out.print(score[i] + ", ");
         }
-        System.out.println(score[score.length-1]);
+        System.out.println("합계 : " + sum);
+        System.out.printf("평균 : %.2f\n", ((double)sum / size));
         
     }
     
