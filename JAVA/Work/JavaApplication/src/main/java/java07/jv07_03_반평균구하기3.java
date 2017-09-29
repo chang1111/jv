@@ -19,7 +19,7 @@ public class jv07_03_반평균구하기3 {
             sum = sum + score[i];
         }
         System.out.println("합계 : " + sum);
-        System.out.printf("평균 : %.2f\n", ((double)sum / size));
+        System.out.printf("평균 : %.2f\n", (double)sum / score.length);
         
     }
     
