@@ -1,26 +1,26 @@
 -- ########################
--- í”„ë¡œì‹œì € ë§Œë“¤ê¸°
+-- ÇÁ·Î½ÃÀú ¸¸µé±â
 -- 
--- sql í”„ë¡œê·¸ëž˜ëª…
---  1. ë³€ìˆ˜ ì„ ì–¸
---  2. ì„ íƒë¬¸
---  3. ë°˜ë³µë¬¸
+-- sql ÇÁ·Î±×·¡¸í
+--  1. º¯¼ö ¼±¾ð
+--  2. ¼±ÅÃ¹®
+--  3. ¹Ýº¹¹®
 -- 
--- í”„ë¡œì‹œì € ì¢…ë¥˜
---  1. ë§¤ê°œë³€ìˆ˜ ì—†ëŠ” í”„ë¡œì‹œì € ë§Œë“¤ê¸°
---  2. ë§¤ê°œë³€ìˆ˜ ìžˆëŠ” í”„ë¡œì‹œì € ë§Œë“¤ê¸°
---  3. ê²°ê³¼ ë°˜í™˜ ë°›ëŠ” í”„ë¡œì‹œì € ë§Œë“¤ê¸°
+-- ÇÁ·Î½ÃÀú Á¾·ù
+--  1. ¸Å°³º¯¼ö ¾ø´Â ÇÁ·Î½ÃÀú ¸¸µé±â
+--  2. ¸Å°³º¯¼ö ÀÖ´Â ÇÁ·Î½ÃÀú ¸¸µé±â
+--  3. °á°ú ¹ÝÈ¯ ¹Þ´Â ÇÁ·Î½ÃÀú ¸¸µé±â
 -- 
--- í”„ë¡œì‹œì € ë§¤ê°œë³€ìˆ˜ : í”„ë¡œì‹œì €ì˜ íŒŒë¼ë¯¸í„°ëŠ” IN, OUT, INOUTì„ ì •ì˜í•  ìˆ˜ ìžˆë‹¤.
+-- ÇÁ·Î½ÃÀú ¸Å°³º¯¼ö : ÇÁ·Î½ÃÀúÀÇ ÆÄ¶ó¹ÌÅÍ´Â IN, OUT, INOUTÀ» Á¤ÀÇÇÒ ¼ö ÀÖ´Ù.
 --  IN    : read-only
 --  INOUT : read-write
 --  OUT   : write-only
---  ìž…ë ¥ë˜ì–´ì•¼ í•˜ëŠ” ë§¤ê°œë³€ìˆ˜ì—ëŠ” inì„ ì‚¬ìš©í•˜ë‚˜ inì„ ìƒëžµ í•  ìˆ˜ ìžˆë‹¤.
---  ë˜ëŒë ¤ ë°›ì•„ì•¼ í•˜ëŠ” ë§¤ê°œë³€ìˆ˜ì—ëŠ” outì´ë‚˜ inoutì„ ì§€ì •í•œë‹¤.
+--  ÀÔ·ÂµÇ¾î¾ß ÇÏ´Â ¸Å°³º¯¼ö¿¡´Â inÀ» »ç¿ëÇÏ³ª inÀ» »ý·« ÇÒ ¼ö ÀÖ´Ù.
+--  µÇµ¹·Á ¹Þ¾Æ¾ß ÇÏ´Â ¸Å°³º¯¼ö¿¡´Â outÀÌ³ª inoutÀ» ÁöÁ¤ÇÑ´Ù.
 -- 
--- í”„ë¡œì‹œì € ì‹¤í–‰í•˜ê¸°
---  1. call ë¡œ í”„ë¡œì‹œì € ì‹¤í–‰
---  2. í”„ë¡œì‹œì €ì—ì„œ í”„ë¡œì‹œì € ì‹¤í–‰ 
+-- ÇÁ·Î½ÃÀú ½ÇÇàÇÏ±â
+--  1. call ·Î ÇÁ·Î½ÃÀú ½ÇÇà
+--  2. ÇÁ·Î½ÃÀú¿¡¼­ ÇÁ·Î½ÃÀú ½ÇÇà 
 -- 
 -- http://m.egloos.zum.com/it79/v/1032459
 -- http://thesunrises.tistory.com/m/511
@@ -29,24 +29,24 @@
 
 
 -- ########################
--- ë§¤ê°œë³€ìˆ˜ ì—†ëŠ” í”„ë¡œì‹œì € ë§Œë“¤ê¸°
+-- ¸Å°³º¯¼ö ¾ø´Â ÇÁ·Î½ÃÀú ¸¸µé±â
 -- ########################
--- 'hello' ì¶œ ì¶œë ¥í•˜ëŠ” helloworld í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
+-- 'hello' Ãâ Ãâ·ÂÇÏ´Â helloworld ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
 
 
-
-
--- ########################
--- í”„ë¡œì‹œì € ì•ˆì—ì„œ ë³€ìˆ˜ ì„ ì–¸
--- declare  ë³€ìˆ˜ëª…  ë³€ìˆ˜íƒ€ìž…;
--- ########################
-
--- variable_demo í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- ì§€ì—­ë³€ìˆ˜ my_integerë¥¼ ë§Œë“¤ê³  20 ëŒ€ìž…í•˜ê³  my_integer ê°’ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 
 
 -- ########################
--- ì„ íƒë¬¸
+-- ÇÁ·Î½ÃÀú ¾È¿¡¼­ º¯¼ö ¼±¾ð
+-- declare  º¯¼ö¸í  º¯¼öÅ¸ÀÔ;
+-- ########################
+
+-- variable_demo ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- Áö¿ªº¯¼ö my_integer¸¦ ¸¸µé°í 20 ´ëÀÔÇÏ°í my_integer °ªÀ» Ãâ·ÂÇÏ½Ã¿À.
+
+
+-- ########################
+-- ¼±ÅÃ¹®
 -- 
 -- if search_condition then statement_list
 -- [elseif search_condition then statement_list]
@@ -57,11 +57,11 @@
 -- ########################
 
 -- @@@@@
--- simplecompare í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- ë§¤ê°œë³€ìˆ˜ n --> int
--- ë§¤ê°œë³€ìˆ˜ m --> int
--- ì¶œë ¥: call simplecompare(1,2);
--- n > m ==> large, n<m ==> small ì¶œë ¥
+-- simplecompare ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- ¸Å°³º¯¼ö n --> int
+-- ¸Å°³º¯¼ö m --> int
+-- Ãâ·Â: call simplecompare(1,2);
+-- n > m ==> large, n<m ==> small Ãâ·Â
 -- +------+------+-------+
 -- | n    | m    | s     |
 -- +------+------+-------+
@@ -70,9 +70,9 @@
 -- @@@@
 
 -- @@@@@
--- ë°˜ë³µë¬¸
+-- ¹Ýº¹¹®
 -- 
--- cursorì—ì„œ ì£¼ë¡œ ì‚¬ìš©ë¨.
+-- cursor¿¡¼­ ÁÖ·Î »ç¿ëµÊ.
 -- 
 -- WHILE search_condition DO
 --    statement_list
@@ -82,44 +82,44 @@
 -- @@@@@
 
 -- @@@@
--- simple_loop í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- ì €ìž¥ í”„ë¡œì‹œì ¸ ì•ˆì— ê°„ë‹¨í•œ ë£¨í”„.
--- ë§¤ê°œë³€ìˆ˜ëŠ” ì—†ë‹¤
--- í”„ë¡œì‹œì € ë‚´ì˜ ì •ìˆ˜ ë³€ìˆ˜: counterë§Œë“¤ê³  ê¸°ë³¸ê°’ì„ 0ìœ¼ë¡œ ì„¤ì •.
--- counterê°€ 10ì´ ë  ë•Œê¹Œì§€ counter ë¥¼ 1ì”© ì¦ê°€ì‹œí‚¤ë©´ì„œ counter ê°’ì„ ì¶œë ¥í•˜ì‹œì˜¤.
+-- simple_loop ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- ÀúÀå ÇÁ·Î½ÃÁ® ¾È¿¡ °£´ÜÇÑ ·çÇÁ.
+-- ¸Å°³º¯¼ö´Â ¾ø´Ù
+-- ÇÁ·Î½ÃÀú ³»ÀÇ Á¤¼ö º¯¼ö: counter¸¸µé°í ±âº»°ªÀ» 0À¸·Î ¼³Á¤.
+-- counter°¡ 10ÀÌ µÉ ¶§±îÁö counter ¸¦ 1¾¿ Áõ°¡½ÃÅ°¸é¼­ counter °ªÀ» Ãâ·ÂÇÏ½Ã¿À.
 -- @@@@
 
 
 
 -- @@@@
--- ë¬¸ì œ. emp í…Œì´ë¸”ì˜ ëª¨ë“  ë°ì´í„°ë¥¼ ì‚­ì œí•˜ëŠ” del_all í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
+-- ¹®Á¦. emp Å×ÀÌºíÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ´Â del_all ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
 -- delete from emp;
 -- @@@@
 
 
--- ë§¤ê°œë³€ìˆ˜ 1ê°œë¥¼ ìž…ë ¥ ë°›ê³  ìž…ë ¥ ë°›ì€ ê°’ì„ ì¶œë ¥í•˜ëŠ” usp_test í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
+-- ¸Å°³º¯¼ö 1°³¸¦ ÀÔ·Â ¹Þ°í ÀÔ·Â ¹ÞÀº °ªÀ» Ãâ·ÂÇÏ´Â usp_test ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
 
 
 
 -- @@@@@
--- ë¬¸ì œ. ê°’ì„ ìž…ë ¥ ë°›ê³  ì œê³±ê·¼ì„ êµ¬í•˜ëŠ” usp_sqrt_in í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- MySQL ë‚´ìž¥ í•¨ìˆ˜ sqrt ë¥¼ ì‚¬ìš©í•˜ë©´ ë©ë‹ˆë‹¤.
+-- ¹®Á¦. °ªÀ» ÀÔ·Â ¹Þ°í Á¦°ö±ÙÀ» ±¸ÇÏ´Â usp_sqrt_in ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- MySQL ³»Àå ÇÔ¼ö sqrt ¸¦ »ç¿ëÇÏ¸é µË´Ï´Ù.
 -- @@@@
 
 
 -- @@@@
--- ë¬¸ì œ. ë§¤ê°œë³€ìˆ˜ë¡œ ë„˜ê²¨ì§„ enameì„ emp í…Œì´ë¸”ì—ì„œ ì°¾ì•„ì„œ deleteí•˜ëŠ” usp_del_ename í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
---       usp_del_ename í”„ë¡œì‹œì €ë¥¼ ì´ìš©í•˜ì—¬ 'ê¹€ì‚¬ëž‘'ì„ ì‚­ì œí•˜ì‹œì˜¤.
+-- ¹®Á¦. ¸Å°³º¯¼ö·Î ³Ñ°ÜÁø enameÀ» emp Å×ÀÌºí¿¡¼­ Ã£¾Æ¼­ deleteÇÏ´Â usp_del_ename ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+--       usp_del_ename ÇÁ·Î½ÃÀú¸¦ ÀÌ¿ëÇÏ¿© '±è»ç¶û'À» »èÁ¦ÇÏ½Ã¿À.
 -- @@@@
 
 
 -- @@@@
--- ë¬¸ì œ. ì™¸ëž˜í‚¤ë¥¼ ì¡°íšŒí•˜ëŠ” usp_foreignkey í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
---       ë§¤ê°œë³€ìˆ˜ 2ê°œ ì‚¬ìš©. 
---       ì²«ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ëŠ” ë°ì´í„°ë² ì´ìŠ¤ì´ë¦„.
---       ë‘ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ëŠ” í…Œì´ë¸”ì´ë¦„.
+-- ¹®Á¦. ¿Ü·¡Å°¸¦ Á¶È¸ÇÏ´Â usp_foreignkey ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+--       ¸Å°³º¯¼ö 2°³ »ç¿ë. 
+--       Ã¹¹øÂ° ¸Å°³º¯¼ö´Â µ¥ÀÌÅÍº£ÀÌ½ºÀÌ¸§.
+--       µÎ¹øÂ° ¸Å°³º¯¼ö´Â Å×ÀÌºíÀÌ¸§.
 -- 
--- ì™¸ëž˜í‚¤ë¥¼ ì¡°íšŒí•˜ëŠ” SQL ë¬¸.
+-- ¿Ü·¡Å°¸¦ Á¶È¸ÇÏ´Â SQL ¹®.
 --       select
 --             table_name,column_name,referenced_table_name,referenced_column_name
 --       from
@@ -128,15 +128,15 @@
 --         and table_schema = 'test' 
 --         and table_name = 'assign'
 -- 
--- ì‹¤í–‰
---  call usp_foreignkey('test', 'emp'); --> test ë””ë¹„ì˜ emp í…Œì´ë¸”ì˜ ì™¸ëž˜í‚¤ ì •ë³´ê°€ ì¶œë ¥
+-- ½ÇÇà
+--  call usp_foreignkey('test', 'emp'); --> test µðºñÀÇ emp Å×ÀÌºíÀÇ ¿Ü·¡Å° Á¤º¸°¡ Ãâ·Â
 --  +------------+-------------+-----------------------+------------------------+
 --  | table_name | column_name | referenced_table_name | referenced_column_name |
 --  +------------+-------------+-----------------------+------------------------+
 --  | emp        | DEPTNO      | dept                  | DEPTNO                 |
 --  +------------+-------------+-----------------------+------------------------+
 --  
---  call usp_foreignkey('test', ''   ); --> test ë””ë¹„ì˜ ëª¨ë“   ì™¸ëž˜í‚¤ ì •ë³´ê°€ ì¶œë ¥
+--  call usp_foreignkey('test', ''   ); --> test µðºñÀÇ ¸ðµç  ¿Ü·¡Å° Á¤º¸°¡ Ãâ·Â
 --  +------------+-------------+-----------------------+------------------------+
 --  | table_name | column_name | referenced_table_name | referenced_column_name |
 --  +------------+-------------+-----------------------+------------------------+
@@ -147,7 +147,7 @@
 --  | specialty  | emp_no      | employee              | emp_no                 |
 --  +------------+-------------+-----------------------+------------------------+
 --  
---  call usp_foreignkey('test', null ); --> test ë””ë¹„ì˜ ëª¨ë“   ì™¸ëž˜í‚¤ ì •ë³´ê°€ ì¶œë ¥
+--  call usp_foreignkey('test', null ); --> test µðºñÀÇ ¸ðµç  ¿Ü·¡Å° Á¤º¸°¡ Ãâ·Â
 --  +------------+-------------+-----------------------+------------------------+
 --  | table_name | column_name | referenced_table_name | referenced_column_name |
 --  +------------+-------------+-----------------------+------------------------+
@@ -162,10 +162,10 @@
   
   
 -- ########################
--- ëª¨ë“  ì¸ë±ìŠ¤ë¥¼ ì¶œë ¥í•˜ëŠ” usp_indexall í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- ë§¤ê°œë³€ìˆ˜ 2ê°œ ì‚¬ìš©. 
---   ì²«ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ëŠ” ë°ì´í„°ë² ì´ìŠ¤ì´ë¦„.
---   ë‘ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ëŠ” í…Œì´ë¸”ì´ë¦„.
+-- ¸ðµç ÀÎµ¦½º¸¦ Ãâ·ÂÇÏ´Â usp_indexall ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- ¸Å°³º¯¼ö 2°³ »ç¿ë. 
+--   Ã¹¹øÂ° ¸Å°³º¯¼ö´Â µ¥ÀÌÅÍº£ÀÌ½ºÀÌ¸§.
+--   µÎ¹øÂ° ¸Å°³º¯¼ö´Â Å×ÀÌºíÀÌ¸§.
 --  
 -- SELECT table_name AS `Table`,
 --        index_name AS `Index`,
@@ -176,18 +176,18 @@
 --   AND table_name   = 'emp'
 -- GROUP BY 1, 2;
 -- 
--- ì‹¤í–‰
---  call usp_indexall('test', 'emp'); --> test ë””ë¹„ì˜ emp í…Œì´ë¸”ì˜ ì¸ë±ìŠ¤ ì •ë³´ê°€ ì¶œë ¥  
---  call usp_indexall('test', ''   ); --> test ë””ë¹„ì˜ ëª¨ë“  ì¸ë±ìŠ¤ ì •ë³´ê°€ ì¶œë ¥  
---  call usp_indexall('test', null ); --> test ë””ë¹„ì˜ ëª¨ë“  ì¸ë”•ìŠ¤ ì •ë³´ê°€ ì¶œë ¥
+-- ½ÇÇà
+--  call usp_indexall('test', 'emp'); --> test µðºñÀÇ emp Å×ÀÌºíÀÇ ÀÎµ¦½º Á¤º¸°¡ Ãâ·Â  
+--  call usp_indexall('test', ''   ); --> test µðºñÀÇ ¸ðµç ÀÎµ¦½º Á¤º¸°¡ Ãâ·Â  
+--  call usp_indexall('test', null ); --> test µðºñÀÇ ¸ðµç ÀÎµñ½º Á¤º¸°¡ Ãâ·Â
 -- ########################
 
 
 -- ########################
--- í…Œì´ë¸”ì˜ ì¸ë±ìŠ¤ë¥¼ ì‚­ì œí•˜ëŠ” usp_indexdrop í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
+-- Å×ÀÌºíÀÇ ÀÎµ¦½º¸¦ »èÁ¦ÇÏ´Â usp_indexdrop ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
 -- drop all non-unique indexes
--- 1. drop index ì¿¼ë¦¬ë¬¸ ìž„ì‹œí…Œì´ë¸” insert
--- 2. ì»¤ì„œë¥¼ ì´ìš©í•œ ë™ì  ì¿¼ë¦¬ ì‹¤í–‰
+-- 1. drop index Äõ¸®¹® ÀÓ½ÃÅ×ÀÌºí insert
+-- 2. Ä¿¼­¸¦ ÀÌ¿ëÇÑ µ¿Àû Äõ¸® ½ÇÇà
 -- 
 -- set session group_concat_max_len=10240;
 -- 
@@ -208,50 +208,50 @@
 
 
 -- ########################
--- ê²°ê³¼ë¥¼ ë°˜í™˜ ë°›ëŠ” í”„ë¡œì‹œì € ë§Œë“¤ê¸° 
+-- °á°ú¸¦ ¹ÝÈ¯ ¹Þ´Â ÇÁ·Î½ÃÀú ¸¸µé±â 
 -- 
--- MySQLì—ì„œ íŒŒë¼ë¯¸í„°ëŠ” IN, OUT, INOUTì„ ì •ì˜í•  ìˆ˜ ìžˆë‹¤.
+-- MySQL¿¡¼­ ÆÄ¶ó¹ÌÅÍ´Â IN, OUT, INOUTÀ» Á¤ÀÇÇÒ ¼ö ÀÖ´Ù.
 -- IN    : read-only
 -- INOUT : read-write
 -- OUT   : write-only
 -- 
--- ë˜ëŒë ¤ ë°›ì•„ì•¼ í•˜ëŠ” ë§¤ê°œë³€ìˆ˜ì—ëŠ” outì„ ì§€ì •í•œë‹¤.
+-- µÇµ¹·Á ¹Þ¾Æ¾ß ÇÏ´Â ¸Å°³º¯¼ö¿¡´Â outÀ» ÁöÁ¤ÇÑ´Ù.
 -- ########################
 
 -- @@@@@
--- ê°’ì„ ìž…ë ¥ ë°›ê³  ì œê³±ê·¼ì„ êµ¬í•˜ì—¬ ê²°ê³¼ë¥¼ ë¦¬í„´í•˜ëŠ” usp_sqrt_out í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- MySQL ë‚´ìž¥ í•¨ìˆ˜ sqrt ë¥¼ ì‚¬ìš©í•˜ë©´ ë©ë‹ˆë‹¤.
--- IN ë§¤ê°œë³€ìˆ˜   : inum, íƒ€ìž…ì€ ì‹¤ìˆ˜ë¡œ
--- OUT ë§¤ê°œë³€ìˆ˜  : onum, íƒ€ìž…ì€ ì‹¤ìˆ˜ë¡œ
+-- °ªÀ» ÀÔ·Â ¹Þ°í Á¦°ö±ÙÀ» ±¸ÇÏ¿© °á°ú¸¦ ¸®ÅÏÇÏ´Â usp_sqrt_out ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- MySQL ³»Àå ÇÔ¼ö sqrt ¸¦ »ç¿ëÇÏ¸é µË´Ï´Ù.
+-- IN ¸Å°³º¯¼ö   : inum, Å¸ÀÔÀº ½Ç¼ö·Î
+-- OUT ¸Å°³º¯¼ö  : onum, Å¸ÀÔÀº ½Ç¼ö·Î
 -- @@@@
 
 
 
 -- @@@@@
--- INOUT ë§¤ê°œë³€ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ 
--- ê°’ì„ ìž…ë ¥ ë°›ê³  ì œê³±ê·¼ ê²°ê³¼ë¥¼ ë¦¬í„´í•˜ëŠ” usp_sqrt_inout í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- MySQL ë‚´ìž¥ í•¨ìˆ˜ sqrt ë¥¼ ì‚¬ìš©í•˜ë©´ ë©ë‹ˆë‹¤.
--- INOUT ë§¤ê°œë³€ìˆ˜   : num, íƒ€ìž…ì€ ì‹¤ìˆ˜ë¡œ
+-- INOUT ¸Å°³º¯¼ö¸¦ »ç¿ëÇÏ¿© 
+-- °ªÀ» ÀÔ·Â ¹Þ°í Á¦°ö±Ù °á°ú¸¦ ¸®ÅÏÇÏ´Â usp_sqrt_inout ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- MySQL ³»Àå ÇÔ¼ö sqrt ¸¦ »ç¿ëÇÏ¸é µË´Ï´Ù.
+-- INOUT ¸Å°³º¯¼ö   : num, Å¸ÀÔÀº ½Ç¼ö·Î
 -- @@@@
 
 
 
 -- @@@@@@@
--- ë¬¸ì œ. empnoë¥¼ ì¸ìžë¡œ ë„˜ê¸°ë©´ ename, sal, job ì„ ëŒë ¤ ë°›ëŠ” í”„ë¡œì‹œì €, sel_empnoë¥¼ ë§Œë“œì‹œì˜¤.
--- in  ë§¤ê°œë³€ìˆ˜: empno ê°’ì€ 1001ë¶€í„° 1010 ì‚¬ì´ì˜ ìž„ì˜ì˜ ê°’ì„ ì‚¬ìš©í•˜ì‹œê³ ,
--- out ë§¤ê°œë³€ìˆ˜: ename, sal, job ì„ ë˜ëŒë ¤ ë°›ì•„ ê°’ì„ ì¶œë ¥í•˜ì‹œì˜¤. 
+-- ¹®Á¦. empno¸¦ ÀÎÀÚ·Î ³Ñ±â¸é ename, sal, job À» µ¹·Á ¹Þ´Â ÇÁ·Î½ÃÀú, sel_empno¸¦ ¸¸µå½Ã¿À.
+-- in  ¸Å°³º¯¼ö: empno °ªÀº 1001ºÎÅÍ 1010 »çÀÌÀÇ ÀÓÀÇÀÇ °ªÀ» »ç¿ëÇÏ½Ã°í,
+-- out ¸Å°³º¯¼ö: ename, sal, job À» µÇµ¹·Á ¹Þ¾Æ °ªÀ» Ãâ·ÂÇÏ½Ã¿À. 
 -- @@@@@@@
 
 
 
 -- @@@@@@@
--- ë¬¸ì œ. ì»¬ëŸ¼ ì¡´ìž¬ ì—¬ë¶€ ì²´í¬í•˜ëŠ” í”„ë¡œì‹œì € ë¥¼ ë§Œë“œì‹œì˜¤.
---       usp_col_length('ë°ì´í„°ë² ì´ìŠ¤ëª…', 'í…Œì´ë¸”ëª…', 'ì»¬ëŸ¼ëª…') ;
+-- ¹®Á¦. ÄÃ·³ Á¸Àç ¿©ºÎ Ã¼Å©ÇÏ´Â ÇÁ·Î½ÃÀú ¸¦ ¸¸µå½Ã¿À.
+--       usp_col_length('µ¥ÀÌÅÍº£ÀÌ½º¸í', 'Å×ÀÌºí¸í', 'ÄÃ·³¸í') ;
 -- 
--- ë°˜í™˜ê°’ : ì»¬ëŸ¼ì´ ì¡´ìž¬í•˜ë©´ 1 ë°˜í™˜
---          ì»¬ëŸ¼ì´ ì¡´ìž¬í•˜ì§€ ì•Šìœ¼ë©´ 0 ë°˜í™˜
+-- ¹ÝÈ¯°ª : ÄÃ·³ÀÌ Á¸ÀçÇÏ¸é 1 ¹ÝÈ¯
+--          ÄÃ·³ÀÌ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é 0 ¹ÝÈ¯
 -- 
--- ì»¬ëŸ¼ ì¡´ìž¬ ì—¬ë¶€ë¥¼ ì¡°íšŒí•˜ëŠ” SQLë¬¸.
+-- ÄÃ·³ Á¸Àç ¿©ºÎ¸¦ Á¶È¸ÇÏ´Â SQL¹®.
 -- select * 
 --   from information_schema.columns 
 --  where table_schema = 'db_name' 
@@ -262,38 +262,38 @@
 
 
 -- ########################
--- í”„ë¡œì‹œì €ì—ì„œ í”„ë¡œì‹œì € ì½œí•˜ê¸°
+-- ÇÁ·Î½ÃÀú¿¡¼­ ÇÁ·Î½ÃÀú ÄÝÇÏ±â
 -- ########################
 
--- usp_callproc í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- ì €ìž¥ í”„ë¡œì‹œì €ì—ì„œ ë˜ ë‹¤ë¥¸ ì €ìž¥ í”„ëŸ¬ì‹œì € í˜¸ì¶œ
--- ì²«ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ê°€ 0ì´ë©´ usp_foreignkey('test', 'emp') ë¥¼ í˜¸ì¶œ
--- ì²«ë²ˆì§¸ ë§¤ê°œë³€ìˆ˜ê°€ 1ì´ë©´ usp_indexall('test', 'emp') ë¥¼ í˜¸ì¶œ
-
-
-
-
--- ########################
--- cursorë¥¼ ì‚¬ìš©í•˜ëŠ” í”„ë¡œì‹œì € cursor_exampleì„ ë§Œë“œì‹œì˜¤.
--- 1. ì»¤ì„œ declare
--- 2 .ì»¤ì„œ open
--- 3. ì»¤ì„œ fetch
--- 4. ì»¤ì„œ close
--- ########################
+-- usp_callproc ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- ÀúÀå ÇÁ·Î½ÃÀú¿¡¼­ ¶Ç ´Ù¸¥ ÀúÀå ÇÁ·¯½ÃÀú È£Ãâ
+-- Ã¹¹øÂ° ¸Å°³º¯¼ö°¡ 0ÀÌ¸é usp_foreignkey('test', 'emp') ¸¦ È£Ãâ
+-- Ã¹¹øÂ° ¸Å°³º¯¼ö°¡ 1ÀÌ¸é usp_indexall('test', 'emp') ¸¦ È£Ãâ
 
 
 
 
 -- ########################
--- InsertUpdate í”„ë¡œì‹œì € vs MERGE êµ¬ë¬¸
+-- cursor¸¦ »ç¿ëÇÏ´Â ÇÁ·Î½ÃÀú cursor_exampleÀ» ¸¸µå½Ã¿À.
+-- 1. Ä¿¼­ declare
+-- 2 .Ä¿¼­ open
+-- 3. Ä¿¼­ fetch
+-- 4. Ä¿¼­ close
+-- ########################
+
+
+
+
+-- ########################
+-- InsertUpdate ÇÁ·Î½ÃÀú vs MERGE ±¸¹®
 -- ########################
 
 -- @@@@@
--- ë¬¸ì œ. usp_emp_insertupdate í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
--- emp í…Œì´ë¸”ì— ë§¤ê°œë³€ìˆ˜ë¡œ ë„˜ê²¨ì§„ empno ë°ì´í„°ê°€ ì—†ìœ¼ë©´ insert,
---                                empno ë°ì´í„°ê°€ ìžˆìœ¼ë©´ update.
+-- ¹®Á¦. usp_emp_insertupdate ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+-- emp Å×ÀÌºí¿¡ ¸Å°³º¯¼ö·Î ³Ñ°ÜÁø empno µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é insert,
+--                                empno µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é update.
 -- 
--- ë§¤ê°œë³€ìˆ˜
+-- ¸Å°³º¯¼ö
 --   vempno     int 
 --   vename     nvarchar(20)
 --   vjob       nvarchar(20)
@@ -303,9 +303,9 @@
 
 
 -- @@@@@
--- ë¬¸ì œ. usp_merge í”„ë¡œì‹œì €ë¥¼ ë§Œë“œì‹œì˜¤.
---  emp í…Œì´ë¸”ì— ë§¤ê°œë³€ìˆ˜ë¡œ ë„˜ê²¨ì§„ empno ë°ì´í„°ê°€ ì—†ìœ¼ë©´ insert,
---                                 empno ë°ì´í„°ê°€ ìžˆìœ¼ë©´ update.
---  MERGE êµ¬ë¬¸ ì‚¬ìš©
+-- ¹®Á¦. usp_merge ÇÁ·Î½ÃÀú¸¦ ¸¸µå½Ã¿À.
+--  emp Å×ÀÌºí¿¡ ¸Å°³º¯¼ö·Î ³Ñ°ÜÁø empno µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é insert,
+--                                 empno µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é update.
+--  MERGE ±¸¹® »ç¿ë
 -- @@@@@
 

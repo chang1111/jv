@@ -1,25 +1,25 @@
 -- @@@@@@@@@@@@@@
--- ë‹¤ì°¨ì› ì§‘ê³„  
---    ROLLUP     : ì†Œê³„ êµ¬í•˜ê¸°.Oracle, MySQL, MsSQL ì§€ì›
---    CUBE 	     : ì†Œê³„ì™€ ì´ê³„ êµ¬í•˜ê¸°.Oracle, MySQL, MsSQL ì§€ì›
---    COMPUTE	 : .Oracleì§€ì›. MySQL, MsSQL ë¯¸ì§€ì›
---    COMPUTE BY : .Oracleì§€ì›. MySQL, MsSQL ë¯¸ì§€ì›
+-- ´ÙÂ÷¿ø Áý°è  
+--    ROLLUP     : ¼Ò°è ±¸ÇÏ±â.Oracle, MySQL, MsSQL Áö¿ø
+--    CUBE 	     : ¼Ò°è¿Í ÃÑ°è ±¸ÇÏ±â.Oracle, MySQL, MsSQL Áö¿ø
+--    COMPUTE	 : .OracleÁö¿ø. MySQL, MsSQL ¹ÌÁö¿ø
+--    COMPUTE BY : .OracleÁö¿ø. MySQL, MsSQL ¹ÌÁö¿ø
 --  
 -- @@@@@@@@@@@@@@
 
 -- ====================
--- rollup : ì£¼ì–´ì§„ ë°ì´í„°ë“¤ì˜ ì†Œê³„ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
--- ROLLUPì˜ ì¸ìˆ˜ëŠ” ê³„ì¸µ êµ¬ì¡°ì´ë¯€ë¡œ ì¸ìˆ˜ ìˆœì„œê°€ ë°”ë€Œë©´ ìˆ˜í–‰ ê²°ê³¼ë„ ë°”ë€Œëœë‹¤
+-- rollup : ÁÖ¾îÁø µ¥ÀÌÅÍµéÀÇ ¼Ò°è¸¦ ±¸ÇÏ´Â ÇÔ¼ö
+-- ROLLUPÀÇ ÀÎ¼ö´Â °èÃþ ±¸Á¶ÀÌ¹Ç·Î ÀÎ¼ö ¼ø¼­°¡ ¹Ù²î¸é ¼öÇà °á°úµµ ¹Ù²îµÈ´Ù
 -- http://antkdi.tistory.com/27
--- MySQL 5.5 ë¶€í„° ì§€ì›
+-- MySQL 5.5 ºÎÅÍ Áö¿ø
 -- ====================
 
 
 -- ====================
--- cube : ì£¼ì–´ì§„ ë°ì´í„°ì˜ ì†Œê³„ì™€ ì´ê³„ê¹Œì§€ êµ¬í•˜ëŠ” í•¨ìˆ˜
--- ROLLUPì— ë¹„í•´ ë‹¤ì–‘í•œ ë°ì´í„°ë¥¼ ì–»ì§€ë§Œ ì‹œìŠ¤í…œì— ë¶€í•˜ë¥¼ ë§Žì´ì¤€ë‹¤.
+-- cube : ÁÖ¾îÁø µ¥ÀÌÅÍÀÇ ¼Ò°è¿Í ÃÑ°è±îÁö ±¸ÇÏ´Â ÇÔ¼ö
+-- ROLLUP¿¡ ºñÇØ ´Ù¾çÇÑ µ¥ÀÌÅÍ¸¦ ¾òÁö¸¸ ½Ã½ºÅÛ¿¡ ºÎÇÏ¸¦ ¸¹ÀÌÁØ´Ù.
 -- http://antkdi.tistory.com/27
--- MySQL 5.6 ì—ì„œ ì§€ì› í•˜ì§€ ì•ŠìŒ.
+-- MySQL 5.6 ¿¡¼­ Áö¿ø ÇÏÁö ¾ÊÀ½.
 -- ====================
 SELECT b.dname, a.job, SUM(a.sal) sal, COUNT(a.empno) emp_count, 
        GROUPING(b.dname) "D", GROUPING(a.job) "S"
@@ -33,13 +33,13 @@ GROUP BY b.dname, a.job with CUBE
 
  
 -- @@@@@@@@@@@@@@
--- ë‹¤ì°¨ì› ì§‘ê³„ í•¨ìˆ˜ 
+-- ´ÙÂ÷¿ø Áý°è ÇÔ¼ö 
 -- PIVOT() / UNPIVOT() / GROUPING / GROUP_ID / GROUP SETS / LISTAGG
 -- 
--- PIVOT ()  : ë°ì´í„°ë¥¼ ê²€ìƒ‰í•  ë•Œ í–‰ ì§‘í•©ì„ ì—´ ì§‘í•©ìœ¼ë¡œ ë³´ì—¬ì£¼ëŠ” ì—­í• ì„
--- UNPIVOT() : ë°ì´í„°ë¥¼ ê²€ìƒ‰í•  ë•Œ ì—´ ì§‘í•©ì„ í–‰ ì§‘í•©ìœ¼ë¡œ ë³´ì—¬ì£¼ëŠ” ì—­í• ì„
+-- PIVOT ()  : µ¥ÀÌÅÍ¸¦ °Ë»öÇÒ ¶§ Çà ÁýÇÕÀ» ¿­ ÁýÇÕÀ¸·Î º¸¿©ÁÖ´Â ¿ªÇÒÀ»
+-- UNPIVOT() : µ¥ÀÌÅÍ¸¦ °Ë»öÇÒ ¶§ ¿­ ÁýÇÕÀ» Çà ÁýÇÕÀ¸·Î º¸¿©ÁÖ´Â ¿ªÇÒÀ»
 -- oracle 
--- http://godreem.tistory.com/entry/í–‰ì„-ì—´ë¡œ-ë°”ê¾¸ê¸°-PIVOT-11g-ì´ìƒ-ì§€ì›
+-- http://godreem.tistory.com/entry/ÇàÀ»-¿­·Î-¹Ù²Ù±â-PIVOT-11g-ÀÌ»ó-Áö¿ø
 -- 
 -- MySql
 -- http://stackoverflow.com/questions/12382771/mysql-pivot-crosstab-query
@@ -57,13 +57,13 @@ GROUP BY b.dname, a.job with CUBE
 
 
 
--- ê°€ìƒí…Œì´ë¸”(2014ë…„ ëª¨ë“ ì¼ìž)
+-- °¡»óÅ×ÀÌºí(2014³â ¸ðµçÀÏÀÚ)
 
  
--- ì›”ë³„ ìš”ì¼ê±´ìˆ˜ (PIVOT ì´ìš©)
+-- ¿ùº° ¿äÀÏ°Ç¼ö (PIVOT ÀÌ¿ë)
 
 
--- ì§ê¸‰ë³„ ì§ì›ìˆ˜ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤
+-- Á÷±Þº° Á÷¿ø¼ö¸¦ Ãâ·ÂÇÏ½Ã¿À
 
 
 
@@ -76,7 +76,7 @@ GROUP BY b.dname, a.job with CUBE
 
 
 -- @@@@@@@@@@@@@@
--- RANKS í•¨ìˆ˜ : ROW_NUMBER() / RANK() / DENSE_RANK() / NTILE() / PARTION BY
+-- RANKS ÇÔ¼ö : ROW_NUMBER() / RANK() / DENSE_RANK() / NTILE() / PARTION BY
 -- http://egloos.zum.com/entireboy/v/4433510
 -- @@@@@@@@@@@@@@
 
@@ -85,11 +85,11 @@ GROUP BY b.dname, a.job with CUBE
 -- ROW_NUMBER()
 -- =============
 
--- deptnoë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì‹œì˜¤.
+-- deptno¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÏ½Ã¿À.
 
 
 
--- deptnoì— ROW_NUMBER()ë¥¼ ì ìš©í•˜ì‹œì˜¤
+-- deptno¿¡ ROW_NUMBER()¸¦ Àû¿ëÇÏ½Ã¿À
 
 
 
@@ -97,21 +97,11 @@ GROUP BY b.dname, a.job with CUBE
 -- RANK ()
 -- =============
 
--- enameì„ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì‹œì˜¤.
+-- enameÀ» ±âÁØÀ¸·Î ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ½Ã¿À.
 
 
 
--- enameì— rank()ë¥¼ ì ìš©í•˜ì‹œì˜¤
-
-
-
-
-
-
--- @@@@@@@@@@@@@@
--- SECECTë¥¼ ì´ìš©í•˜ì—¬ ì†Œê³„ì™€ ì´ê³„ êµ¬í•˜ê¸°
--- @@@@@@@@@@@@@@
--- ORACLE ëˆ„ì í•© ( ì§‘ê³„ í•¨ìˆ˜ì˜ ìœˆë„ìš° ì˜µì…˜ )
+-- ename¿¡ rank()¸¦ Àû¿ëÇÏ½Ã¿À
 
 
 
@@ -119,7 +109,17 @@ GROUP BY b.dname, a.job with CUBE
 
 
 -- @@@@@@@@@@@@@@
--- ë¯¸ì…˜
+-- SECECT¸¦ ÀÌ¿ëÇÏ¿© ¼Ò°è¿Í ÃÑ°è ±¸ÇÏ±â
+-- @@@@@@@@@@@@@@
+-- ORACLE ´©ÀûÇÕ ( Áý°è ÇÔ¼öÀÇ À©µµ¿ì ¿É¼Ç )
+
+
+
+
+
+
+-- @@@@@@@@@@@@@@
+-- ¹Ì¼Ç
 -- @@@@@@@@@@@@@@
 
 
