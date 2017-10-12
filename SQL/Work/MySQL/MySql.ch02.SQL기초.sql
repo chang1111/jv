@@ -103,11 +103,11 @@
  
 -- 문제1.
 -- ename 이 '이문세'인 경우만 출력
-select * from emp where ename='이문세';
+
 
 -- 문제2.
 -- ename 이 '이문세'가 아닌 경우만 출력
-select * from emp where ename != '이문세';
+
 
 
 -- @@@@@@@@@@@@@@@@@@@@@@@@
