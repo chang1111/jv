@@ -12,10 +12,14 @@ public class OperTest {
         int n2 = keyboard.nextInt();
         
         Oper op = new Oper(n1, n2);
-        op.Add();
-        op.Minus();
-        op.Mul();
-        op.Div();
+        int add = op.Add();
+        int minus = op.Minus();
+        int mul = op.Mul();
+        double div = op.Div();
+        op.printResult("Add", add);
+        op.printResult("Minus", minus);
+        op.printResult("Mul", mul);
+        op.printResult("Double", div);
 
     }
     

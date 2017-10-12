@@ -10,17 +10,23 @@ public class Oper {
         this.n2 = n2;
     }
     
-    public void Add() {
-        System.out.println("Add : " + (n1 + n2));
-        
+    public int Add() {
+        return n1 + n2;
     }
-    public void Minus() {
-        System.out.println("Minus : " + (n1 - n2));
+    public int Minus() {
+        return n1 - n2;
     }
-    public void Mul() {
-        System.out.println("Mul : " + (n1 * n2));
+    public int Mul() {
+        return n1 * n2;
     }
-    public void Div() {
-        System.out.printf("Div : %.6f\n ", (double)n1 / n2);
+    public double Div() {
+        return (double)n1 / n2;
     }
+    public void printResult(String oper, int result) {
+        System.out.println(oper + " : " + result);
+    }
+    public void printResult(String oper, double result) {
+        System.out.printf("%s : %.6f\n", oper, result);
+    }
+
 }
