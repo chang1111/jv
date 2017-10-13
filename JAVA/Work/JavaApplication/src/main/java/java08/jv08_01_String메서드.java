@@ -20,7 +20,7 @@ public class jv08_01_String메서드 {
         // "A barking dog"에서 마지막 g 빼고 "A barking do" 를 출력하시오.
         String dog = prov.substring(0, 12);
         System.out.println(dog);
-
+        
         // 한개 문자 추출 
         // substring() --> 문자열 반환: 
         // charAt()    --> 문자 한개 반환:
@@ -45,7 +45,7 @@ public class jv08_01_String메서드 {
         // 문자열 포함 여부 확인: contains()
         boolean contains = prov.contains("Dog");
         System.out.println("문자열 포함 여부 확인 : " + contains);
-                
+        
         // 문자열 치환 : replace()
         // Dog --> Cat 으로 바꾸시오
         String s07 = prov.replace("Dog", "Cat");

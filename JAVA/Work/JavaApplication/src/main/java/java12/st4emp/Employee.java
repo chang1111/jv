@@ -27,6 +27,12 @@ public class Employee {
     public int getSalary() {
         return salary;
     }
+    
+    @Override
+    public String toString() {
+        return "Employee [name=" + name + ", salary=" + salary + "]";
+    }
+    
     public static int getCount() {
         return count;
     }
