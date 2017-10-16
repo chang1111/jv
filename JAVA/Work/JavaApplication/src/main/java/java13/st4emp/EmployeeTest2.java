@@ -2,7 +2,7 @@ package java13.st4emp;
 
 import java.util.Scanner;
 
-public class EmployeeTest {
+public class EmployeeTest2 {
     
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -20,16 +20,13 @@ public class EmployeeTest {
             System.out.print("월급 : ");
             int salary = keyboard.nextInt();
             System.out.println();
-            employees[i] = new Employee();
-            employees[i].setName(name);
-            employees[i].setAddress(address);
-            employees[i].setRrn(rrn);
-            employees[i].setSalary(salary);
+            employees[i] = new Employee(name, address, salary, rrn);
         }
         
-        for (int i = 0;i < employees.length;i++) {
-            System.out.println((i + 1) + ". " + employees[i].toString());
+        for (Employee i : employees) {
+            System.out.println(i.toString());
         }
+
     }
     
 }

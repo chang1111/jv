@@ -9,6 +9,13 @@ public class Employee {
     public Employee() {
         super();
     }
+    public Employee(String name, String address, int salary, String rrn) {
+        super();
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.rrn = rrn;
+    }
     public String getName() {
         return name;
     }
