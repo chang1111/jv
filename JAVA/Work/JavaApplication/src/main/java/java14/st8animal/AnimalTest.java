@@ -1,4 +1,4 @@
-package java14.st5animal;
+package java14.st8animal;
 
 public class AnimalTest {
     
