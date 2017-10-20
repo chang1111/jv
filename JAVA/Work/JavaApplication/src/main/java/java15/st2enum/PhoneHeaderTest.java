@@ -36,20 +36,6 @@ public class PhoneHeaderTest {
         else if (header.equals(PhoneHeaderEnum.P019.getValue())) {
             System.out.println("lg");
         }
-
-        
-        if (header.equals(PhoneHeaderInterface.P010)) {
-            System.out.println("general");
-        }
-        else if (header.equals(PhoneHeaderInterface.P011)) {
-            System.out.println("sk");
-        }
-        else if (header.equals(PhoneHeaderInterface.P016)) {
-            System.out.println("kt");
-        }
-        else if (header.equals(PhoneHeaderInterface.P019)) {
-            System.out.println("lg");
-        }
     }
     
 }
