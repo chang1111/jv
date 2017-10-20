@@ -1,4 +1,4 @@
-package java16.st2interface;
+package java15.st4anonymous;
 
 public interface RemoteControl {
     
