@@ -16,5 +16,12 @@ public class ShapeTest2 {
         s = r;
         
         System.out.println("s " + s);
+        
+        s.x = 10;
+        s.y = 10;
+//        s.width = 100;
+//        s.height = 100;
+        System.out.println("s " + s);
+        System.out.println("r " + r);
     }
 }
