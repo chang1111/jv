@@ -42,7 +42,6 @@ public class ex18_05_Date {
         
         // 날짜는 "yyyy-MM-dd" 형태로 출력하시오
         // 시간은 'HH:mm:ss" 형태로 출력하시오
-        
     }
     
 }
