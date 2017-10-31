@@ -2,6 +2,7 @@ package java31.swing;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.TextArea;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,9 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JTextArea;
 
 public class frmEmail extends JFrame {
     
@@ -20,13 +27,12 @@ public class frmEmail extends JFrame {
     private JLabel lblNewLabel;
     private JLabel lblNewLabel_1;
     private JLabel lblNewLabel_2;
-    private JTextField textField;
-    private JTextField textField_1;
+    private JTextField textName;
+    private JTextField textJob;
     private JLabel lblNewLabel_3;
-    private JTextField textField_2;
+    private JTextField textId;
     private JLabel lblNewLabel_4;
-    private JTextField textField_3;
-    private JList list;
+    private JTextField textEmail;
     private JButton btnNewButton;
     private JButton btnNewButton_1;
     private JButton btnNewButton_2;
@@ -36,6 +42,10 @@ public class frmEmail extends JFrame {
     private JRadioButton rdbtnNewRadioButton_1;
     private JRadioButton rdbtnNewRadioButton_2;
     private final ButtonGroup buttonGroup = new ButtonGroup();
+    private JLabel lblEmail;
+    private JButton btnNewButton_4;
+    private JButton btnNewButton_5;
+    private JTextArea textArea;
     
     /**
      * Launch the application.
@@ -66,13 +76,12 @@ public class frmEmail extends JFrame {
         contentPane.add(getLblNewLabel());
         contentPane.add(getLblNewLabel_1());
         contentPane.add(getLblNewLabel_2());
-        contentPane.add(getTextField());
-        contentPane.add(getTextField_1());
+        contentPane.add(getTextName());
+        contentPane.add(getTextJob());
         contentPane.add(getLblNewLabel_3());
-        contentPane.add(getTextField_2());
+        contentPane.add(getTextId());
         contentPane.add(getLblNewLabel_4());
-        contentPane.add(getTextField_3());
-        contentPane.add(getList());
+        contentPane.add(getTextEmail());
         contentPane.add(getBtnNewButton());
         contentPane.add(getBtnNewButton_1());
         contentPane.add(getBtnNewButton_2());
@@ -81,6 +90,10 @@ public class frmEmail extends JFrame {
         contentPane.add(getRdbtnNewRadioButton());
         contentPane.add(getRdbtnNewRadioButton_1());
         contentPane.add(getRdbtnNewRadioButton_2());
+        contentPane.add(getLblEmail());
+        contentPane.add(getBtnNewButton_4());
+        contentPane.add(getBtnNewButton_5());
+        contentPane.add(getTextArea());
     }
     private JLabel getLblNewLabel() {
         if (lblNewLabel == null) {
@@ -103,21 +116,21 @@ public class frmEmail extends JFrame {
         }
         return lblNewLabel_2;
     }
-    private JTextField getTextField() {
-        if (textField == null) {
-        	textField = new JTextField();
-        	textField.setBounds(100, 70, 82, 21);
-        	textField.setColumns(10);
+    private JTextField getTextName() {
+        if (textName == null) {
+        	textName = new JTextField();
+        	textName.setBounds(100, 70, 82, 21);
+        	textName.setColumns(10);
         }
-        return textField;
+        return textName;
     }
-    private JTextField getTextField_1() {
-        if (textField_1 == null) {
-        	textField_1 = new JTextField();
-        	textField_1.setBounds(100, 106, 82, 21);
-        	textField_1.setColumns(10);
+    private JTextField getTextJob() {
+        if (textJob == null) {
+        	textJob = new JTextField();
+        	textJob.setBounds(100, 106, 82, 21);
+        	textJob.setColumns(10);
         }
-        return textField_1;
+        return textJob;
     }
     private JLabel getLblNewLabel_3() {
         if (lblNewLabel_3 == null) {
@@ -126,13 +139,13 @@ public class frmEmail extends JFrame {
         }
         return lblNewLabel_3;
     }
-    private JTextField getTextField_2() {
-        if (textField_2 == null) {
-        	textField_2 = new JTextField();
-        	textField_2.setBounds(287, 106, 82, 21);
-        	textField_2.setColumns(10);
+    private JTextField getTextId() {
+        if (textId == null) {
+        	textId = new JTextField();
+        	textId.setBounds(287, 106, 82, 21);
+        	textId.setColumns(10);
         }
-        return textField_2;
+        return textId;
     }
     private JLabel getLblNewLabel_4() {
         if (lblNewLabel_4 == null) {
@@ -141,24 +154,23 @@ public class frmEmail extends JFrame {
         }
         return lblNewLabel_4;
     }
-    private JTextField getTextField_3() {
-        if (textField_3 == null) {
-        	textField_3 = new JTextField();
-        	textField_3.setBounds(100, 208, 202, 21);
-        	textField_3.setColumns(10);
+    private JTextField getTextEmail() {
+        if (textEmail == null) {
+        	textEmail = new JTextField();
+        	textEmail.setBounds(109, 208, 193, 21);
+        	textEmail.setColumns(10);
         }
-        return textField_3;
-    }
-    private JList getList() {
-        if (list == null) {
-        	list = new JList();
-        	list.setBounds(36, 251, 266, 132);
-        }
-        return list;
+        return textEmail;
     }
     private JButton getBtnNewButton() {
         if (btnNewButton == null) {
         	btnNewButton = new JButton("Add");
+        	btnNewButton.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        String text = textArea.getText() + textEmail.getText() + "\n"; 
+        	        textArea.setText(text);
+        	    }
+        	});
         	btnNewButton.setBounds(314, 207, 97, 31);
         }
         return btnNewButton;
@@ -186,8 +198,8 @@ public class frmEmail extends JFrame {
     }
     private JLabel getLblNewLabel_5() {
         if (lblNewLabel_5 == null) {
-        	lblNewLabel_5 = new JLabel("New label");
-        	lblNewLabel_5.setBounds(36, 393, 57, 15);
+        	lblNewLabel_5 = new JLabel("Mail Format");
+        	lblNewLabel_5.setBounds(36, 393, 73, 15);
         }
         return lblNewLabel_5;
     }
@@ -214,5 +226,46 @@ public class frmEmail extends JFrame {
         	rdbtnNewRadioButton_2.setBounds(196, 414, 82, 23);
         }
         return rdbtnNewRadioButton_2;
+    }
+    private JLabel getLblEmail() {
+        if (lblEmail == null) {
+        	lblEmail = new JLabel("E-mail");
+        	lblEmail.setBounds(36, 186, 57, 15);
+        }
+        return lblEmail;
+    }
+    private JButton getBtnNewButton_4() {
+        if (btnNewButton_4 == null) {
+        	btnNewButton_4 = new JButton("OK");
+        	btnNewButton_4.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        String msg = "";
+        	        msg += textArea.getText() + "\r\n";
+        	        JOptionPane.showMessageDialog(null, msg);
+        	    }
+        	});
+        	btnNewButton_4.setBounds(178, 475, 97, 47);
+        }
+        return btnNewButton_4;
+    }
+    private JButton getBtnNewButton_5() {
+        if (btnNewButton_5 == null) {
+        	btnNewButton_5 = new JButton("Cancel");
+        	btnNewButton_5.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        System.exit(0);
+//        	        dispose();
+        	    }
+        	});
+        	btnNewButton_5.setBounds(314, 475, 97, 47);
+        }
+        return btnNewButton_5;
+    }
+    private JTextArea getTextArea() {
+        if (textArea == null) {
+        	textArea = new JTextArea();
+        	textArea.setBounds(36, 236, 264, 135);
+        }
+        return textArea;
     }
 }
