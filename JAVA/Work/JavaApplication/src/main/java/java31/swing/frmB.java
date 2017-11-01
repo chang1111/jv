@@ -62,7 +62,10 @@ public class frmB extends JFrame {
     public void setBField(String val) {
         bField.setText(val);
     }
-
+    
+    public void setParent(frmA parent) {
+        this.parent = parent;
+    }
     private JTextField getBField() {
         if (bField == null) {
         	bField = new JTextField();

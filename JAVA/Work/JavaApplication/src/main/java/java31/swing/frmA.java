@@ -16,8 +16,8 @@ public class frmA extends JFrame {
     private JPanel contentPane;
     private JTextField aField;
     private JButton btnNewButton;
-    private static frmA frame = null;
     private JButton btnNewButton_1;
+    private static frmA frame = null;
     
     /**
      * Launch the application.
@@ -82,10 +82,11 @@ public class frmA extends JFrame {
         	btnNewButton_1 = new JButton("새창띄우기 - 세터");
         	btnNewButton_1.addActionListener(new ActionListener() {
         	    public void actionPerformed(ActionEvent e) {
-        	        frmB frm = new frmB(frame);
+        	        frmB frm = new frmB();
         	        frm.setVisible(true);
         	        String value = aField.getText();
         	        frm.setBField(value);
+        	        frm.setParent(frame);
         	    }
         	});
         	btnNewButton_1.setBounds(48, 40, 182, 23);
