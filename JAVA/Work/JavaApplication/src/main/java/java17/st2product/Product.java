@@ -52,7 +52,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "고유식별자>>" + 고유식별자 + "\n상품설명>>" + 상품설명 + "\n생산자>>" + 생산자 + "\n가격>>" + 가격;
+        return "고유식별자>>" + 고유식별자 + "\n상품설명>>" + 상품설명 + "\n생산자>>" + 생산자 + "\n가격>>" + 가격 + "\n";
     }
     
 }

@@ -3,8 +3,8 @@ package java17.st2product;
 import java.util.Scanner;
 
 public class TestTemp {
-    static Scanner keyboard = new Scanner(System.in);
-    static int count = 0;
+    private static Scanner keyboard = new Scanner(System.in);
+    private static int count = 0;
     public static void main(String[] args) {
         Product[] prod = new Product[10];
         for (;;) {
