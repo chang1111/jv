@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
@@ -25,9 +26,15 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import java31.st2table.Book;
+
 import java.awt.Component;
 import java.util.List;
 import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
 
 public class 도서관리 extends JFrame {
     
@@ -48,55 +55,63 @@ public class 도서관리 extends JFrame {
     private JLabel lblNewLabel_3;
     private JLabel lblNewLabel_4;
     private JLabel lblNewLabel_5;
-    private JTextField 책제목;
-    private JTextField 출판사;
-    private JTextField 저자;
-    private JTextField 가격;
-    private JTextField 상품;
-    private JTextField 검색;
-    private JTextField 책번호;
+    private JTextField txt책제목;
+    private JTextField txt출판사;
+    private JTextField txt저자;
+    private JTextField txt가격;
+    private JTextField txt장르;
+    private JTextField txt책검색;
+    private JTextField txt책번호;
     private JComboBox comboBox;
-    private JButton btnNewButton_4;
-    private JButton btnNewButton_5;
-    private JButton btnNewButton_6;
-    private JButton btnNewButton_7;
+    private JButton btn대여하기;
+    private JButton btn책수정;
+    private JButton btn책삭제;
+    private JButton btn책취소;
     private JLabel lblNewLabel_6;
     private JLabel lblNewLabel_7;
     private JLabel lblNewLabel_8;
     private JLabel lblNewLabel_9;
     private JLabel lblNewLabel_10;
-    private JTextField 이름;
-    private JTextField 주민번호1;
-    private JTextField 전화번호1;
-    private JTextField 메일주소1;
-    private JTextField 주민번호2;
-    private JTextField 전화번호2;
-    private JTextField 메일주소2;
-    private JTextField 검색1;
-    private JTextField 전화번호3;
+    private JTextField txt이름;
+    private JTextField txt주민번호0;
+    private JTextField txt전화번호0;
+    private JTextField txt메일주소0;
+    private JTextField txt주민번호1;
+    private JTextField txt전화번호1;
+    private JTextField txt메일주소1;
+    private JTextField txt회원검색;
+    private JTextField txt전화번호2;
     private JLabel label_2;
     private JLabel lblNewLabel_11;
     private JLabel label_3;
     private JLabel label_4;
     private JComboBox comboBox_1;
     private JScrollPane scrollPane_1;
-    private JTable table_1;
+    static JTable bookTable;
     private JScrollPane scrollPane_2;
-    private JTable table_2;
+    private static JTable memberTable;
     private JScrollPane scrollPane_3;
-    private JTable table_3;
+    static JTable rentTable;
     private JButton btnNewButton_8;
     private JPanel panel_1;
     private JLabel lblNewLabel_12;
     private JScrollPane scrollPane;
     private JTable table;
-    private JButton btnNewButton_9;
-    private JButton btnNewButton_10;
-    private JButton btnNewButton_11;
+    private JButton btn회원삭제;
+    private JButton btn회원수정;
+    private JButton btn회원취소;
     private JButton button;
     private JButton btnNewButton_12;
-    private static List<책정보> books = null;
-    private static List<회원정보> members = null;
+    private static 도서관리 frame = null;
+    static List<책정보> books = null;
+    static List<회원정보> members = null;
+    static List<대여목록> rents = null;
+    static Integer 책 = 0;
+    static Integer 회원 = 0;
+    static Integer 대여 = 0;
+    static int bookRow = 0;
+    private static int memberRow = 0;
+    private static int rentRow = 0;
     
     /**
      * Launch the application.
@@ -105,13 +120,16 @@ public class 도서관리 extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    도서관리 frame = new 도서관리();
+                    frame = new 도서관리();
                     frame.setVisible(true);
+                    init책정보();
+                    refresh책정보(books, bookTable);
+                    init회원정보();
+                    refresh회원정보(members, memberTable);
+                    rents = new ArrayList<대여목록>();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                init회원정보();
-                init책정보();
             }
         });
     }
@@ -130,6 +148,7 @@ public class 도서관리 extends JFrame {
         contentPane.add(getTabbedPane());
         contentPane.add(getPanel_1());
     }
+    
     private JPanel getPanel() {
         if (panel == null) {
         	panel = new JPanel();
@@ -151,8 +170,9 @@ public class 도서관리 extends JFrame {
         	        EventQueue.invokeLater(new Runnable() {
         	            public void run() {
         	                try {
-        	                    회원등록 frame = new 회원등록();
+        	                    회원등록 frame = new 회원등록(도서관리.frame, members, memberTable);
         	                    frame.setVisible(true);
+        	                    
         	                } catch (Exception e) {
         	                    e.printStackTrace();
         	                }
@@ -172,7 +192,7 @@ public class 도서관리 extends JFrame {
         	        EventQueue.invokeLater(new Runnable() {
         	            public void run() {
         	                try {
-        	                    책등록 frame = new 책등록();
+        	                    책등록 frame = new 책등록(도서관리.frame, books, bookTable);
         	                    frame.setVisible(true);
         	                } catch (Exception e) {
         	                    e.printStackTrace();
@@ -234,26 +254,26 @@ public class 도서관리 extends JFrame {
         	memberPanel.add(getLblNewLabel_8());
         	memberPanel.add(getLblNewLabel_9());
         	memberPanel.add(getLblNewLabel_10());
-        	memberPanel.add(get이름());
-        	memberPanel.add(get주민번호1());
-        	memberPanel.add(get전화번호1());
-        	memberPanel.add(get메일주소1());
-        	memberPanel.add(get주민번호2());
-        	memberPanel.add(get전화번호2());
-        	memberPanel.add(get메일주소2());
-        	memberPanel.add(get검색1());
-        	memberPanel.add(get전화번호3());
+        	memberPanel.add(getTxt이름());
+        	memberPanel.add(getTxt주민번호0());
+        	memberPanel.add(getTxt전화번호0());
+        	memberPanel.add(getTxt메일주소0());
+        	memberPanel.add(getTxt주민번호1());
+        	memberPanel.add(getTxt전화번호1());
+        	memberPanel.add(getTxt메일주소1());
+        	memberPanel.add(getTxt회원검색());
+        	memberPanel.add(getTxt전화번호2());
         	memberPanel.add(getLabel_2());
         	memberPanel.add(getLblNewLabel_11());
         	memberPanel.add(getLabel_3());
         	memberPanel.add(getLabel_4());
         	memberPanel.add(getComboBox_1());
         	memberPanel.add(getScrollPane_2());
-        	memberPanel.add(getBtnNewButton_9());
-        	memberPanel.add(getBtnNewButton_10());
-        	memberPanel.add(getBtnNewButton_11());
+        	memberPanel.add(getBtn회원삭제());
+        	memberPanel.add(getBtn회원수정());
+        	memberPanel.add(getBtn회원취소());
         	memberPanel.add(getButton());
-        	memberPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{get이름(), get주민번호1(), get주민번호2(), get전화번호1(), get전화번호2(), get전화번호3(), get메일주소1(), get메일주소2(), getComboBox_1(), get검색1(), getButton(), getBtnNewButton_9(), getBtnNewButton_10(), getBtnNewButton_11()}));
+        	memberPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{getTxt이름(), getTxt주민번호0(), getTxt주민번호1(), getTxt전화번호0(), getTxt전화번호1(), getTxt전화번호2(), getTxt메일주소0(), getTxt메일주소1(), getComboBox_1(), getTxt회원검색(), getButton(), getBtn회원삭제(), getBtn회원수정(), getBtn회원취소()}));
         }
         return memberPanel;
     }
@@ -269,21 +289,21 @@ public class 도서관리 extends JFrame {
         	bookPanel.add(getLblNewLabel_3());
         	bookPanel.add(getLblNewLabel_4());
         	bookPanel.add(getLblNewLabel_5());
-        	bookPanel.add(get책제목());
-        	bookPanel.add(get출판사());
-        	bookPanel.add(get저자());
-        	bookPanel.add(get가격());
-        	bookPanel.add(get상품());
-        	bookPanel.add(get검색());
-        	bookPanel.add(get책번호());
+        	bookPanel.add(getTxt책제목());
+        	bookPanel.add(getTxt출판사());
+        	bookPanel.add(getTxt저자());
+        	bookPanel.add(getTxt가격());
+        	bookPanel.add(getTxt장르());
+        	bookPanel.add(getTxt책검색());
+        	bookPanel.add(getTxt책번호());
         	bookPanel.add(getComboBox());
-        	bookPanel.add(getBtnNewButton_4());
-        	bookPanel.add(getBtnNewButton_5());
-        	bookPanel.add(getBtnNewButton_6());
-        	bookPanel.add(getBtnNewButton_7());
+        	bookPanel.add(getBtn대여하기());
+        	bookPanel.add(getBtn책수정());
+        	bookPanel.add(getBtn책삭제());
+        	bookPanel.add(getBtn책취소());
         	bookPanel.add(getScrollPane_1());
         	bookPanel.add(getBtnNewButton_12());
-        	bookPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{get책제목(), get책번호(), get출판사(), get저자(), get가격(), get상품(), getComboBox(), get검색(), getBtnNewButton_12(), getBtnNewButton_4(), getBtnNewButton_5(), getBtnNewButton_6(), getBtnNewButton_7()}));
+        	bookPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{getTxt책제목(), getTxt책번호(), getTxt출판사(), getTxt저자(), getTxt가격(), getTxt장르(), getComboBox(), getTxt책검색(), getBtnNewButton_12(), getBtn대여하기(), getBtn책수정(), getBtn책삭제(), getBtn책취소()}));
         }
         return bookPanel;
     }
@@ -321,7 +341,7 @@ public class 도서관리 extends JFrame {
     }
     private JLabel getLblNewLabel_3() {
         if (lblNewLabel_3 == null) {
-        	lblNewLabel_3 = new JLabel("상품");
+        	lblNewLabel_3 = new JLabel("장르");
         	lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
         	lblNewLabel_3.setBounds(256, 176, 57, 15);
         }
@@ -342,61 +362,61 @@ public class 도서관리 extends JFrame {
         }
         return lblNewLabel_5;
     }
-    private JTextField get책제목() {
-        if (책제목 == null) {
-        	책제목 = new JTextField();
-        	책제목.setBounds(338, 10, 154, 21);
-        	책제목.setColumns(10);
+    private JTextField getTxt책제목() {
+        if (txt책제목 == null) {
+        	txt책제목 = new JTextField();
+        	txt책제목.setBounds(338, 10, 154, 21);
+        	txt책제목.setColumns(10);
         }
-        return 책제목;
+        return txt책제목;
     }
-    private JTextField get출판사() {
-        if (출판사 == null) {
-        	출판사 = new JTextField();
-        	출판사.setBounds(338, 46, 154, 21);
-        	출판사.setColumns(10);
+    private JTextField getTxt출판사() {
+        if (txt출판사 == null) {
+        	txt출판사 = new JTextField();
+        	txt출판사.setBounds(338, 46, 154, 21);
+        	txt출판사.setColumns(10);
         }
-        return 출판사;
+        return txt출판사;
     }
-    private JTextField get저자() {
-        if (저자 == null) {
-        	저자 = new JTextField();
-        	저자.setBounds(338, 89, 154, 21);
-        	저자.setColumns(10);
+    private JTextField getTxt저자() {
+        if (txt저자 == null) {
+        	txt저자 = new JTextField();
+        	txt저자.setBounds(338, 89, 154, 21);
+        	txt저자.setColumns(10);
         }
-        return 저자;
+        return txt저자;
     }
-    private JTextField get가격() {
-        if (가격 == null) {
-        	가격 = new JTextField();
-        	가격.setBounds(338, 132, 116, 21);
-        	가격.setColumns(10);
+    private JTextField getTxt가격() {
+        if (txt가격 == null) {
+        	txt가격 = new JTextField();
+        	txt가격.setBounds(338, 132, 116, 21);
+        	txt가격.setColumns(10);
         }
-        return 가격;
+        return txt가격;
     }
-    private JTextField get상품() {
-        if (상품 == null) {
-        	상품 = new JTextField();
-        	상품.setBounds(338, 176, 116, 21);
-        	상품.setColumns(10);
+    private JTextField getTxt장르() {
+        if (txt장르 == null) {
+        	txt장르 = new JTextField();
+        	txt장르.setBounds(338, 176, 116, 21);
+        	txt장르.setColumns(10);
         }
-        return 상품;
+        return txt장르;
     }
-    private JTextField get검색() {
-        if (검색 == null) {
-        	검색 = new JTextField();
-        	검색.setBounds(440, 219, 154, 21);
-        	검색.setColumns(10);
+    private JTextField getTxt책검색() {
+        if (txt책검색 == null) {
+        	txt책검색 = new JTextField();
+        	txt책검색.setBounds(440, 219, 154, 21);
+        	txt책검색.setColumns(10);
         }
-        return 검색;
+        return txt책검색;
     }
-    private JTextField get책번호() {
-        if (책번호 == null) {
-        	책번호 = new JTextField();
-        	책번호.setBounds(607, 10, 57, 21);
-        	책번호.setColumns(10);
+    private JTextField getTxt책번호() {
+        if (txt책번호 == null) {
+        	txt책번호 = new JTextField();
+        	txt책번호.setBounds(607, 10, 57, 21);
+        	txt책번호.setColumns(10);
         }
-        return 책번호;
+        return txt책번호;
     }
     private JComboBox getComboBox() {
         if (comboBox == null) {
@@ -406,33 +426,81 @@ public class 도서관리 extends JFrame {
         }
         return comboBox;
     }
-    private JButton getBtnNewButton_4() {
-        if (btnNewButton_4 == null) {
-        	btnNewButton_4 = new JButton("대여하기");
-        	btnNewButton_4.setBounds(267, 260, 97, 44);
+    private JButton getBtn대여하기() {
+        if (btn대여하기 == null) {
+        	btn대여하기 = new JButton("대여하기");
+        	btn대여하기.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        if (books.get(bookRow).get대여정보()) {
+            	        책대여 frame = new 책대여(도서관리.frame, books.get(bookRow), members, rents);
+            	        frame.setVisible(true);
+        	        }
+        	        else {
+        	            JOptionPane.showMessageDialog(null, "대여불가");
+        	        }
+        	    }
+        	});
+        	btn대여하기.setBounds(267, 260, 97, 44);
         }
-        return btnNewButton_4;
+        return btn대여하기;
     }
-    private JButton getBtnNewButton_5() {
-        if (btnNewButton_5 == null) {
-        	btnNewButton_5 = new JButton("수정");
-        	btnNewButton_5.setBounds(376, 260, 97, 44);
+    private JButton getBtn책수정() {
+        if (btn책수정 == null) {
+        	btn책수정 = new JButton("수정");
+        	btn책수정.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        
+        	        bookRow = bookTable.getSelectedRow();
+        	        
+        	        Integer 책번호 = Integer.valueOf(txt책번호.getText());
+                    String 책제목 = txt책제목.getText();
+                    String 출판사 = txt출판사.getText();
+                    String 장르 = txt장르.getText();
+                    String 저자 = txt저자.getText();
+                    Integer 가격 = Integer.valueOf(txt가격.getText());
+                    Boolean 대여정보 = books.get(bookRow).get대여정보();
+        	        
+                    books.set(bookRow, new 책정보(책번호, 책제목, 출판사, 장르, 저자, 가격, 대여정보));
+                    
+                    refresh책정보(books, bookTable);
+                    
+                    JOptionPane.showMessageDialog(null, "수정완료");
+        	    }
+        	});
+        	btn책수정.setBounds(376, 260, 97, 44);
         }
-        return btnNewButton_5;
+        return btn책수정;
     }
-    private JButton getBtnNewButton_6() {
-        if (btnNewButton_6 == null) {
-        	btnNewButton_6 = new JButton("삭제");
-        	btnNewButton_6.setBounds(485, 260, 97, 44);
+    private JButton getBtn책삭제() {
+        if (btn책삭제 == null) {
+        	btn책삭제 = new JButton("삭제");
+        	btn책삭제.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+                    // 선택한 row를 리턴
+                    bookRow = bookTable.getSelectedRow();
+                    
+                    books.remove(bookRow);
+                    
+                    refresh책정보(books, bookTable);
+                    
+                    JOptionPane.showMessageDialog(null, "삭제완료");
+        	    }
+        	});
+        	btn책삭제.setBounds(485, 260, 97, 44);
         }
-        return btnNewButton_6;
+        return btn책삭제;
     }
-    private JButton getBtnNewButton_7() {
-        if (btnNewButton_7 == null) {
-        	btnNewButton_7 = new JButton("취소");
-        	btnNewButton_7.setBounds(594, 260, 97, 44);
+    private JButton getBtn책취소() {
+        if (btn책취소 == null) {
+        	btn책취소 = new JButton("취소");
+        	btn책취소.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+                    refresh책정보(books, bookTable);
+        	    }
+        	});
+        	btn책취소.setBounds(594, 260, 97, 44);
         }
-        return btnNewButton_7;
+        return btn책취소;
     }
     private JLabel getLblNewLabel_6() {
         if (lblNewLabel_6 == null) {
@@ -474,77 +542,77 @@ public class 도서관리 extends JFrame {
         }
         return lblNewLabel_10;
     }
-    private JTextField get이름() {
-        if (이름 == null) {
-        	이름 = new JTextField();
-        	이름.setBounds(85, 31, 83, 21);
-        	이름.setColumns(10);
+    private JTextField getTxt이름() {
+        if (txt이름 == null) {
+        	txt이름 = new JTextField();
+        	txt이름.setBounds(85, 31, 83, 21);
+        	txt이름.setColumns(10);
         }
-        return 이름;
+        return txt이름;
     }
-    private JTextField get주민번호1() {
-        if (주민번호1 == null) {
-        	주민번호1 = new JTextField();
-        	주민번호1.setBounds(85, 68, 83, 21);
-        	주민번호1.setColumns(10);
+    private JTextField getTxt주민번호0() {
+        if (txt주민번호0 == null) {
+        	txt주민번호0 = new JTextField();
+        	txt주민번호0.setBounds(85, 68, 83, 21);
+        	txt주민번호0.setColumns(10);
         }
-        return 주민번호1;
+        return txt주민번호0;
     }
-    private JTextField get전화번호1() {
-        if (전화번호1 == null) {
-        	전화번호1 = new JTextField();
-        	전화번호1.setBounds(85, 107, 83, 21);
-        	전화번호1.setColumns(10);
+    private JTextField getTxt전화번호0() {
+        if (txt전화번호0 == null) {
+        	txt전화번호0 = new JTextField();
+        	txt전화번호0.setBounds(85, 107, 83, 21);
+        	txt전화번호0.setColumns(10);
         }
-        return 전화번호1;
+        return txt전화번호0;
     }
-    private JTextField get메일주소1() {
-        if (메일주소1 == null) {
-        	메일주소1 = new JTextField();
-        	메일주소1.setBounds(85, 143, 83, 21);
-        	메일주소1.setColumns(10);
+    private JTextField getTxt메일주소0() {
+        if (txt메일주소0 == null) {
+        	txt메일주소0 = new JTextField();
+        	txt메일주소0.setBounds(85, 143, 83, 21);
+        	txt메일주소0.setColumns(10);
         }
-        return 메일주소1;
+        return txt메일주소0;
     }
-    private JTextField get주민번호2() {
-        if (주민번호2 == null) {
-        	주민번호2 = new JTextField();
-        	주민번호2.setBounds(190, 68, 82, 21);
-        	주민번호2.setColumns(10);
+    private JTextField getTxt주민번호1() {
+        if (txt주민번호1 == null) {
+        	txt주민번호1 = new JTextField();
+        	txt주민번호1.setBounds(190, 68, 82, 21);
+        	txt주민번호1.setColumns(10);
         }
-        return 주민번호2;
+        return txt주민번호1;
     }
-    private JTextField get전화번호2() {
-        if (전화번호2 == null) {
-        	전화번호2 = new JTextField();
-        	전화번호2.setBounds(190, 107, 82, 21);
-        	전화번호2.setColumns(10);
+    private JTextField getTxt전화번호1() {
+        if (txt전화번호1 == null) {
+        	txt전화번호1 = new JTextField();
+        	txt전화번호1.setBounds(190, 107, 82, 21);
+        	txt전화번호1.setColumns(10);
         }
-        return 전화번호2;
+        return txt전화번호1;
     }
-    private JTextField get메일주소2() {
-        if (메일주소2 == null) {
-        	메일주소2 = new JTextField();
-        	메일주소2.setBounds(190, 143, 82, 21);
-        	메일주소2.setColumns(10);
+    private JTextField getTxt메일주소1() {
+        if (txt메일주소1 == null) {
+        	txt메일주소1 = new JTextField();
+        	txt메일주소1.setBounds(190, 143, 82, 21);
+        	txt메일주소1.setColumns(10);
         }
-        return 메일주소2;
+        return txt메일주소1;
     }
-    private JTextField get검색1() {
-        if (검색1 == null) {
-        	검색1 = new JTextField();
-        	검색1.setBounds(190, 178, 82, 21);
-        	검색1.setColumns(10);
+    private JTextField getTxt회원검색() {
+        if (txt회원검색 == null) {
+        	txt회원검색 = new JTextField();
+        	txt회원검색.setBounds(190, 178, 82, 21);
+        	txt회원검색.setColumns(10);
         }
-        return 검색1;
+        return txt회원검색;
     }
-    private JTextField get전화번호3() {
-        if (전화번호3 == null) {
-        	전화번호3 = new JTextField();
-        	전화번호3.setBounds(295, 107, 83, 21);
-        	전화번호3.setColumns(10);
+    private JTextField getTxt전화번호2() {
+        if (txt전화번호2 == null) {
+        	txt전화번호2 = new JTextField();
+        	txt전화번호2.setBounds(295, 107, 83, 21);
+        	txt전화번호2.setColumns(10);
         }
-        return 전화번호3;
+        return txt전화번호2;
     }
     private JLabel getLabel_2() {
         if (label_2 == null) {
@@ -595,9 +663,30 @@ public class 도서관리 extends JFrame {
         return scrollPane_1;
     }
     private JTable getTable_1_2() {
-        if (table_1 == null) {
-        	table_1 = new JTable();
-        	table_1.setModel(new DefaultTableModel(
+        if (bookTable == null) {
+        	bookTable = new JTable();
+        	bookTable.addMouseListener(new MouseAdapter() {
+        	    @Override
+        	    public void mouseClicked(MouseEvent e) {
+                    // 선택한 row를 리턴
+                    bookRow = bookTable.getSelectedRow();
+                    
+                    String 책번호 = bookTable.getValueAt(bookRow, 0).toString();
+                    String 책제목 = bookTable.getValueAt(bookRow, 1).toString();
+                    String 출판사 = bookTable.getValueAt(bookRow, 2).toString();
+                    String 장르 = bookTable.getValueAt(bookRow, 3).toString();
+                    String 저자 = bookTable.getValueAt(bookRow, 4).toString();
+                    String 가격 = bookTable.getValueAt(bookRow, 5).toString();
+                    
+                    txt책번호.setText(책번호);
+                    txt책제목.setText(책제목);
+                    txt출판사.setText(출판사);
+                    txt저자.setText(저자);
+                    txt가격.setText(가격);
+                    txt장르.setText(장르);
+        	    }
+        	});
+        	bookTable.setModel(new DefaultTableModel(
         	    new Object[][] {
         	    },
         	    new String[] {
@@ -612,20 +701,44 @@ public class 도서관리 extends JFrame {
         	    }
         	});
         }
-        return table_1;
+        return bookTable;
     }
     private JScrollPane getScrollPane_2() {
         if (scrollPane_2 == null) {
         	scrollPane_2 = new JScrollPane();
         	scrollPane_2.setBounds(12, 274, 538, 268);
-        	scrollPane_2.setViewportView(getTable_2());
+        	scrollPane_2.setViewportView(getMemberTable());
         }
         return scrollPane_2;
     }
-    private JTable getTable_2() {
-        if (table_2 == null) {
-        	table_2 = new JTable();
-        	table_2.setModel(new DefaultTableModel(
+    private JTable getMemberTable() {
+        if (memberTable == null) {
+        	memberTable = new JTable();
+        	memberTable.addMouseListener(new MouseAdapter() {
+        	    @Override
+        	    public void mouseClicked(MouseEvent e) {
+                    // 선택한 row를 리턴
+                    memberRow = memberTable.getSelectedRow();
+                    
+                    String 이름 = memberTable.getValueAt(memberRow, 1).toString();
+                    String[] 주민번호 = new String[2];
+                    주민번호 = memberTable.getValueAt(memberRow, 2).toString().split("-");
+                    String[] 전화번호 = new String[3];
+                    전화번호 = memberTable.getValueAt(memberRow, 3).toString().split("-");
+                    String[] 메일주소 = new String[2];
+                    메일주소 = memberTable.getValueAt(memberRow, 4).toString().split("@");
+                    
+                    txt이름.setText(이름);
+                    txt주민번호0.setText(주민번호[0]);
+                    txt주민번호1.setText(주민번호[1]);
+                    txt전화번호0.setText(전화번호[0]);
+                    txt전화번호1.setText(전화번호[1]);
+                    txt전화번호2.setText(전화번호[2]);
+                    txt메일주소0.setText(메일주소[0]);
+                    txt메일주소1.setText(메일주소[1]);
+        	    }
+        	});
+        	memberTable.setModel(new DefaultTableModel(
         	    new Object[][] {
         	    },
         	    new String[] {
@@ -640,35 +753,35 @@ public class 도서관리 extends JFrame {
         	    }
         	});
         }
-        return table_2;
+        return memberTable;
     }
     private JScrollPane getScrollPane_3() {
         if (scrollPane_3 == null) {
         	scrollPane_3 = new JScrollPane();
         	scrollPane_3.setBounds(12, 131, 705, 393);
-        	scrollPane_3.setViewportView(getTable_3());
+        	scrollPane_3.setViewportView(getRentTable());
         }
         return scrollPane_3;
     }
-    private JTable getTable_3() {
-        if (table_3 == null) {
-        	table_3 = new JTable();
-        	table_3.setModel(new DefaultTableModel(
+    private JTable getRentTable() {
+        if (rentTable == null) {
+        	rentTable = new JTable();
+        	rentTable.setModel(new DefaultTableModel(
         	    new Object[][] {
         	    },
         	    new String[] {
-        	        "No", "\uC774\uB984", "\uC804\uD654\uBC88\uD638", "\uC8FC\uBBFC\uBC88\uD638", "\uBA54\uC77C\uC8FC\uC18C", "\uCC45 \uC81C\uBAA9", "\uCD9C\uD310\uC0AC", "\uC7A5\uB974", "\uC800\uC790", "\uCC45 \uBC88\uD638", "\uB300\uC5EC\uB0A0\uC9DC"
+        	        "No", "\uC774\uB984", "\uC804\uD654\uBC88\uD638", "\uC8FC\uBBFC\uBC88\uD638", "\uBA54\uC77C\uC8FC\uC18C", "\uCC45 \uC81C\uBAA9", "\uCD9C\uD310\uC0AC", "\uC7A5\uB974", "\uC800\uC790", "\uCC45 \uBC88\uD638"
         	    }
         	) {
         	    Class[] columnTypes = new Class[] {
-        	        String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
+        	        String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
         	    };
         	    public Class getColumnClass(int columnIndex) {
         	        return columnTypes[columnIndex];
         	    }
         	});
         }
-        return table_3;
+        return rentTable;
     }
     private JButton getBtnNewButton_8() {
         if (btnNewButton_8 == null) {
@@ -723,26 +836,56 @@ public class 도서관리 extends JFrame {
         }
         return table;
     }
-    private JButton getBtnNewButton_9() {
-        if (btnNewButton_9 == null) {
-        	btnNewButton_9 = new JButton("회원삭제");
-        	btnNewButton_9.setBounds(22, 219, 97, 45);
+    private JButton getBtn회원삭제() {
+        if (btn회원삭제 == null) {
+        	btn회원삭제 = new JButton("회원삭제");
+        	btn회원삭제.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+                    memberRow = memberTable.getSelectedRow();
+                    
+                    members.remove(memberRow);
+                    
+                    refresh회원정보(members, memberTable);
+        	    }
+        	});
+        	btn회원삭제.setBounds(22, 219, 97, 45);
         }
-        return btnNewButton_9;
+        return btn회원삭제;
     }
-    private JButton getBtnNewButton_10() {
-        if (btnNewButton_10 == null) {
-        	btnNewButton_10 = new JButton("회원수정");
-        	btnNewButton_10.setBounds(152, 219, 97, 45);
+    private JButton getBtn회원수정() {
+        if (btn회원수정 == null) {
+        	btn회원수정 = new JButton("회원수정");
+        	btn회원수정.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+                    
+                    memberRow = memberTable.getSelectedRow();
+                    
+                    Integer 회원번호 = members.get(memberRow).get회원번호();
+                    String 이름 = txt이름.getText();
+                    String 주민번호 = txt주민번호0.getText() + "-" + txt주민번호1.getText();
+                    String 전화번호 = txt전화번호0.getText() + "-" + txt전화번호1.getText() + "-" + txt전화번호2.getText();
+                    String 메일주소 = txt메일주소0.getText() + "@" + txt메일주소1.getText();
+                    
+                    members.set(memberRow, new 회원정보(회원번호, 이름, 주민번호, 전화번호, 메일주소));
+                    
+                    refresh회원정보(members, memberTable);
+        	    }
+        	});
+        	btn회원수정.setBounds(152, 219, 97, 45);
         }
-        return btnNewButton_10;
+        return btn회원수정;
     }
-    private JButton getBtnNewButton_11() {
-        if (btnNewButton_11 == null) {
-        	btnNewButton_11 = new JButton("취소");
-        	btnNewButton_11.setBounds(281, 219, 97, 45);
+    private JButton getBtn회원취소() {
+        if (btn회원취소 == null) {
+        	btn회원취소 = new JButton("취소");
+        	btn회원취소.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+                    refresh회원정보(members, memberTable);
+        	    }
+        	});
+        	btn회원취소.setBounds(281, 219, 97, 45);
         }
-        return btnNewButton_11;
+        return btn회원취소;
     }
     private JButton getButton() {
         if (button == null) {
@@ -759,15 +902,6 @@ public class 도서관리 extends JFrame {
         return btnNewButton_12;
     }
     
-    public static void init회원정보() {
-        members = new ArrayList<회원정보>(); 
-        members.add(new 회원정보(0, "김철수", "******-*******", "010-****-****", "asdasd@naver.com"));
-        members.add(new 회원정보(1, "박상아", "******-*******", "010-****-****", "qweqwe@naver.com"));
-        members.add(new 회원정보(2, "이상근", "******-*******", "010-****-****", "cxvwer@hanmail.net"));
-        members.add(new 회원정보(3, "존슨"  , "******-*******", "010-****-****", "gf232sdf@naver.com"));
-        members.add(new 회원정보(4, "이용갑", "******-*******", "010-****-****", "aa34@naver.com"));
-    }
-    
     public static void init책정보() {
         books = new ArrayList<책정보>();
         books.add(new 책정보(1, "호랑이와 토끼"   , "한국미디어", "소설", "김호랑"       , 5000 , true));
@@ -775,5 +909,87 @@ public class 도서관리 extends JFrame {
         books.add(new 책정보(3, "독한사전"        , "한국미디어", "교육", "김독일 외 3명", 35000, true));
         books.add(new 책정보(4, "중학교3학년 수학", "교사사"    , "교육", "교과서팀일동" , 15000, true));
         books.add(new 책정보(5, "플레이보이 2"    , "플레이보이", "기타", "플레이보이"   , 15000, true));
+        책 = books.size() + 1;
     }
+    public static void init회원정보() {
+        members = new ArrayList<회원정보>(); 
+        members.add(new 회원정보(0, "김철수", "******-*******", "010-****-****", "asdasd@naver.com"));
+        members.add(new 회원정보(1, "박상아", "******-*******", "010-****-****", "qweqwe@naver.com"));
+        members.add(new 회원정보(2, "이상근", "******-*******", "010-****-****", "cxvwer@hanmail.net"));
+        members.add(new 회원정보(3, "존슨"  , "******-*******", "010-****-****", "gf232sdf@naver.com"));
+        members.add(new 회원정보(4, "이용갑", "******-*******", "010-****-****", "aa34@naver.com"));
+        회원 = members.size();
+    }
+    public static void refresh책정보(List<책정보> list, JTable table) {
+        Object[] tempObject = new Object[7];
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        model.setRowCount(0); // 테이블의 위치를 0부터 시작하도록 설정
+        
+        for (책정보 obj : list) {
+            tempObject[0] = obj.get책번호();
+            tempObject[1] = obj.get제목();
+            tempObject[2] = obj.get출판사();
+            tempObject[3] = obj.get장르();
+            tempObject[4] = obj.get저자();
+            tempObject[5] = obj.get가격();
+            if (obj.get대여정보()) {
+                tempObject[6] = "대여가능";
+            }
+            else {
+                tempObject[6] = "대여불가";
+            }
+            model.addRow(tempObject);
+        }
+        // JTable 첫번쨰 로우에 focus 주기
+        if (model.getRowCount() > 0) {
+            table.setRowSelectionInterval(0, 0);
+            table.setModel(model);
+        }
+    }
+    public static void refresh회원정보(List<회원정보> list, JTable table) {
+        Object[] tempObject = new Object[5];
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        model.setRowCount(0); // 테이블의 위치를 0부터 시작하도록 설정
+        
+        for (회원정보 obj : list) {
+            tempObject[0] = obj.get회원번호();
+            tempObject[1] = obj.get이름();
+            tempObject[2] = obj.get주민번호();
+            tempObject[3] = obj.get전화번호();
+            tempObject[4] = obj.get메일주소();
+            model.addRow(tempObject);
+        }
+        // JTable 첫번쨰 로우에 focus 주기
+        if (model.getRowCount() > 0) {
+            table.setRowSelectionInterval(0, 0);
+            table.setModel(model);
+        }
+    }
+    public static void refresh대여목록(List<대여목록> list, JTable table) {
+        Object[] tempObject = new Object[10];
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        model.setRowCount(0); // 테이블의 위치를 0부터 시작하도록 설정
+        
+        for (대여목록 obj : list) {
+            tempObject[0] = obj.get대여번호();
+            tempObject[1] = obj.get이름();
+            tempObject[2] = obj.get전화번호();
+            tempObject[3] = obj.get주민번호();
+            tempObject[4] = obj.get메일주소();
+            tempObject[5] = obj.get책제목();
+            tempObject[6] = obj.get출판사();
+            tempObject[7] = obj.get장르();
+            tempObject[8] = obj.get저자();
+            tempObject[9] = obj.get책번호();
+//            tempObject[10] = obj.get대여날짜();
+            
+            model.addRow(tempObject);
+        }
+        // JTable 첫번쨰 로우에 focus 주기
+        if (model.getRowCount() > 0) {
+            table.setRowSelectionInterval(0, 0);
+            table.setModel(model);
+        }
+    }
+        
 }

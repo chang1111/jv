@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -12,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 
@@ -24,13 +26,16 @@ public class 책등록 extends JFrame {
     private JLabel lblNewLabel_3;
     private JLabel lblNewLabel_4;
     private JLabel lblNewLabel_5;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    private JComboBox comboBox;
-    private JButton btnNewButton;
-    private JButton btnNewButton_1;
+    private JTextField txt책제목;
+    private JTextField txt출판사;
+    private JTextField txt저자;
+    private JTextField txt가격;
+    private JComboBox cb장르;
+    private JButton btn등록;
+    private JButton btn취소;
+    private 도서관리 parent = null;
+    private List<책정보> books = null;
+    private JTable table = null;
     
     /**
      * Launch the application.
@@ -64,14 +69,22 @@ public class 책등록 extends JFrame {
         contentPane.add(getLblNewLabel_3());
         contentPane.add(getLblNewLabel_4());
         contentPane.add(getLblNewLabel_5());
-        contentPane.add(getTextField());
-        contentPane.add(getTextField_1());
-        contentPane.add(getTextField_2());
-        contentPane.add(getTextField_3());
-        contentPane.add(getComboBox());
-        contentPane.add(getBtnNewButton());
-        contentPane.add(getBtnNewButton_1());
+        contentPane.add(getTxt책제목());
+        contentPane.add(getTxt출판사());
+        contentPane.add(getTxt저자());
+        contentPane.add(getTxt가격());
+        contentPane.add(getCb장르());
+        contentPane.add(getBtn등록());
+        contentPane.add(getBtn취소());
     }
+    
+    public 책등록(도서관리 parent, List<책정보> books, JTable table) {
+        this();
+        this.parent = parent;
+        this.books = books;
+        this.table = table;
+    }
+    
     private JLabel getLblNewLabel() {
         if (lblNewLabel == null) {
         	lblNewLabel = new JLabel("책 정보 입력");
@@ -119,63 +132,79 @@ public class 책등록 extends JFrame {
         }
         return lblNewLabel_5;
     }
-    private JTextField getTextField() {
-        if (textField == null) {
-        	textField = new JTextField();
-        	textField.setBounds(95, 41, 184, 21);
-        	textField.setColumns(10);
+    private JTextField getTxt책제목() {
+        if (txt책제목 == null) {
+        	txt책제목 = new JTextField();
+        	txt책제목.setBounds(95, 41, 184, 21);
+        	txt책제목.setColumns(10);
         }
-        return textField;
+        return txt책제목;
     }
-    private JTextField getTextField_1() {
-        if (textField_1 == null) {
-        	textField_1 = new JTextField();
-        	textField_1.setBounds(95, 78, 184, 21);
-        	textField_1.setColumns(10);
+    private JTextField getTxt출판사() {
+        if (txt출판사 == null) {
+        	txt출판사 = new JTextField();
+        	txt출판사.setBounds(95, 78, 184, 21);
+        	txt출판사.setColumns(10);
         }
-        return textField_1;
+        return txt출판사;
     }
-    private JTextField getTextField_2() {
-        if (textField_2 == null) {
-        	textField_2 = new JTextField();
-        	textField_2.setBounds(95, 117, 184, 21);
-        	textField_2.setColumns(10);
+    private JTextField getTxt저자() {
+        if (txt저자 == null) {
+        	txt저자 = new JTextField();
+        	txt저자.setBounds(95, 117, 184, 21);
+        	txt저자.setColumns(10);
         }
-        return textField_2;
+        return txt저자;
     }
-    private JTextField getTextField_3() {
-        if (textField_3 == null) {
-        	textField_3 = new JTextField();
-        	textField_3.setBounds(95, 154, 85, 21);
-        	textField_3.setColumns(10);
+    private JTextField getTxt가격() {
+        if (txt가격 == null) {
+        	txt가격 = new JTextField();
+        	txt가격.setBounds(95, 154, 85, 21);
+        	txt가격.setColumns(10);
         }
-        return textField_3;
+        return txt가격;
     }
-    private JComboBox getComboBox() {
-        if (comboBox == null) {
-        	comboBox = new JComboBox();
-        	comboBox.setModel(new DefaultComboBoxModel(new String[] {"소설", "교육", "문학", "해외", "기타"}));
-        	comboBox.setBounds(95, 191, 85, 21);
+    private JComboBox getCb장르() {
+        if (cb장르 == null) {
+        	cb장르 = new JComboBox();
+        	cb장르.setModel(new DefaultComboBoxModel(new String[] {"소설", "교육", "문학", "해외", "기타"}));
+        	cb장르.setBounds(95, 191, 85, 21);
         }
-        return comboBox;
+        return cb장르;
     }
-    private JButton getBtnNewButton() {
-        if (btnNewButton == null) {
-        	btnNewButton = new JButton("등록");
-        	btnNewButton.setBounds(59, 235, 97, 40);
+    private JButton getBtn등록() {
+        if (btn등록 == null) {
+        	btn등록 = new JButton("등록");
+        	btn등록.addActionListener(new ActionListener() {
+        	    public void actionPerformed(ActionEvent e) {
+        	        Integer 책번호 = 도서관리.책++;
+        	        String 책제목 = txt책제목.getText();
+        	        String 출판사 = txt출판사.getText();
+        	        String 저자 = txt저자.getText();
+        	        Integer 가격 = Integer.valueOf(txt가격.getText());
+        	        String 장르 = (String)cb장르.getSelectedItem();
+        	        Boolean 대여정보 = true;
+        	        
+        	        books.add(new 책정보(책번호, 책제목, 출판사, 장르, 저자, 가격, 대여정보));
+        	        
+        	        도서관리.refresh책정보(books, table);
+        	        
+        	    }
+        	});
+        	btn등록.setBounds(59, 235, 97, 40);
         }
-        return btnNewButton;
+        return btn등록;
     }
-    private JButton getBtnNewButton_1() {
-        if (btnNewButton_1 == null) {
-        	btnNewButton_1 = new JButton("취소");
-        	btnNewButton_1.addActionListener(new ActionListener() {
+    private JButton getBtn취소() {
+        if (btn취소 == null) {
+        	btn취소 = new JButton("취소");
+        	btn취소.addActionListener(new ActionListener() {
         	    public void actionPerformed(ActionEvent e) {
         	        dispose();
         	    }
         	});
-        	btnNewButton_1.setBounds(182, 235, 97, 40);
+        	btn취소.setBounds(182, 235, 97, 40);
         }
-        return btnNewButton_1;
+        return btn취소;
     }
 }
