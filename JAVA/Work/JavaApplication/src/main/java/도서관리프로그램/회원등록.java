@@ -213,7 +213,7 @@ public class 회원등록 extends JFrame {
     private JComboBox getCb메일주소1() {
         if (cb메일주소1 == null) {
         	cb메일주소1 = new JComboBox();
-        	cb메일주소1.setModel(new DefaultComboBoxModel(new String[] {"naver.com", "gmail.com", "hanmail.net", "nate.com", "직접입력"}));
+        	cb메일주소1.setModel(new DefaultComboBoxModel(new String[] {"naver.com", "gmail.com", "hanmail.net", "nate.com"}));
         	cb메일주소1.setBounds(212, 153, 94, 21);
         }
         return cb메일주소1;

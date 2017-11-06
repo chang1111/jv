@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -177,17 +178,25 @@ public class 책등록 extends JFrame {
         	btn등록 = new JButton("등록");
         	btn등록.addActionListener(new ActionListener() {
         	    public void actionPerformed(ActionEvent e) {
-        	        Integer 책번호 = 도서관리.책++;
-        	        String 책제목 = txt책제목.getText();
-        	        String 출판사 = txt출판사.getText();
-        	        String 저자 = txt저자.getText();
-        	        Integer 가격 = Integer.valueOf(txt가격.getText());
-        	        String 장르 = (String)cb장르.getSelectedItem();
-        	        Boolean 대여정보 = true;
-        	        
-        	        books.add(new 책정보(책번호, 책제목, 출판사, 장르, 저자, 가격, 대여정보));
-        	        
-        	        도서관리.refresh책정보(books, table);
+        	        if (txt책제목.getText().length() != 0 && txt출판사.getText().length() != 0 && txt저자.getText().length() != 0) {
+            	        Integer 책번호 = 도서관리.책++;
+            	        String 책제목 = txt책제목.getText();
+            	        String 출판사 = txt출판사.getText();
+            	        String 저자 = txt저자.getText();
+            	        Integer 가격 = Integer.valueOf(txt가격.getText());
+            	        String 장르 = (String)cb장르.getSelectedItem();
+            	        Boolean 대여정보 = true;
+            	        
+            	        books.add(new 책정보(책번호, 책제목, 출판사, 장르, 저자, 가격, 대여정보));
+            	        
+            	        도서관리.refresh책정보(books, table);
+            	        
+            	        JOptionPane.showMessageDialog(null, "등록완료");
+            	        dispose();
+        	        }
+        	        else {
+        	            JOptionPane.showMessageDialog(null, "잘못된 입력");
+        	        }
         	        
         	    }
         	});

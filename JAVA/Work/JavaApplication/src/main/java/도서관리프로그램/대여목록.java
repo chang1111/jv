@@ -14,6 +14,7 @@ public class 대여목록 {
     private String 저자;
     private Integer 책번호;
     private String 대여날짜;
+    private Integer 회원번호;
     
     public 대여목록() {
         super();
@@ -21,7 +22,7 @@ public class 대여목록 {
 
     public 대여목록(Integer 대여번호, String 이름, String 전화번호, String 주민번호, String 메일주소,
             String 책제목, String 출판사, String 장르, String 저자, Integer 책번호,
-            String 대여날짜) {
+            String 대여날짜, Integer 회원번호) {
         super();
         this.대여번호 = 대여번호;
         this.이름 = 이름;
@@ -34,6 +35,7 @@ public class 대여목록 {
         this.저자 = 저자;
         this.책번호 = 책번호;
         this.대여날짜 = 대여날짜;
+        this.회원번호 = 회원번호;
     }
 
     public Integer get대여번호() {
@@ -122,6 +124,14 @@ public class 대여목록 {
 
     public void set대여날짜(String 대여날짜) {
         this.대여날짜 = 대여날짜;
+    }
+
+    public Integer get회원번호() {
+        return 회원번호;
+    }
+
+    public void set회원번호(Integer 회원번호) {
+        this.회원번호 = 회원번호;
     }
     
 }

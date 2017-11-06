@@ -179,12 +179,14 @@ public class 책대여 extends JFrame {
         	        Date date = new Date();
         	        SimpleDateFormat tf = new SimpleDateFormat("yyyy-MM-dd");
         	        String 대여날짜 = tf.format(date);
+        	        Integer 회원번호 = (Integer) table.getValueAt(table.getSelectedRow(), 0);
         	        
         	        book.set대여정보(false);
         	        
-        	        rents.add(new 대여목록(대여번호, 이름, 전화번호, 주민번호, 메일주소, 책제목, 출판사, 장르, 저자, 책번호, 대여날짜));
+        	        rents.add(new 대여목록(대여번호, 이름, 전화번호, 주민번호, 메일주소, 책제목, 출판사, 장르, 저자, 책번호, 대여날짜, 회원번호));
         	        도서관리.refresh책정보(도서관리.books, 도서관리.bookTable);
         	        도서관리.refresh대여목록(rents, 도서관리.rentTable);
+        	        도서관리.refresh대출상황(rents, 도서관리.frontTable);
         	        
         	        JOptionPane.showMessageDialog(null, "대여완료");
         	        

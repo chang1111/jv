@@ -10,30 +10,34 @@ public class TestOper2 {
     
     @Test
     public void test_add() {
-        Oper op = new Oper(5, 5);
+        Oper op = new Oper(2, 4);
         int r = op.add();
-        assertEquals(10, r);
+        assertEquals(6, r);
+        assertNotEquals(5, r);
+        assertTrue(r == 6);
+        assertFalse(r != 6);
+        assertNotNull(r);
     }
     
     @Test
     public void test_minus() {
-        Oper op = new Oper(5, 5);
+        Oper op = new Oper(2, 4);
         int r = op.minus();
-        assertEquals(0, r);
+        assertEquals(-2, r);
     }
     
     @Test
     public void test_mul() {
-        Oper op = new Oper(5, 5);
+        Oper op = new Oper(2, 4);
         int r = op.mul();
-        assertEquals(25, r);
+        assertEquals(8, r);
     }
     
     @Test
     public void test_div() {
-        Oper op = new Oper(5, 5);
+        Oper op = new Oper(2, 4);
         double r = op.div();
-        assertEquals(1, r, 0.0);
+        assertEquals(0.5, r, 0.0);
     }
     
 }
