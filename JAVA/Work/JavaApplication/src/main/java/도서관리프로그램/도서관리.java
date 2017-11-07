@@ -101,7 +101,7 @@ public class 도서관리 extends JFrame {
     private JButton btn회원취소;
     private JButton button;
     private JButton btnNewButton_12;
-    private static 도서관리 frame = null;
+    static 도서관리 frame = null;
     static List<책정보> books = null;
     static List<회원정보> members = null;
     static List<대여목록> rents = null;
