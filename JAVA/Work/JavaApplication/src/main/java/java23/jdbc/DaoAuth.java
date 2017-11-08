@@ -5,21 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.hamcrest.core.IsNull;
-
-public class DaoBook implements IBook {
+public class DaoAuth implements IAuth {
     private Connection conn = null;
     
-    public DaoBook(Connection conn) {
+    public DaoAuth(Connection conn) {
         this.conn = conn;
     }
-
+    
     @Override
-    public int getCount(ModelBook book) {
+    public int getCount(ModelAuth auth) throws SQLException {
         int result = -1;
         
         //SQL 문장
-        String query = "SELECT count(*) as total from book where 1 = 1";
+        String query = "SELECT count(*) as total from auth where 1 = 1";
         
         try {
             //문장 객체 생성
@@ -38,12 +36,12 @@ public class DaoBook implements IBook {
         
         return result;
     }
-
+    
     @Override
-    public int getMaxBookid() throws SQLException {
+    public int getMaxAuthid() throws SQLException {
         int result = -1;
         
-        String query = "SELECT max(Bookid) max from book"; 
+        String query = "SELECT max(authid) max from auth"; 
         try {
             //문장 객체 생성
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -60,12 +58,12 @@ public class DaoBook implements IBook {
         }
         return result;
     }
-
+    
     @Override
     public ResultSet selectAll() throws SQLException {
         ResultSet rs = null;
         
-        String query = "SELECT * FROM book ORDER BY bookid ASC";
+        String query = "SELECT * FROM auth ORDER BY authid ASC";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -77,16 +75,16 @@ public class DaoBook implements IBook {
         }
         return rs;
     }
-
+    
     @Override
-    public ResultSet selectLike(ModelBook book) throws SQLException {
+    public ResultSet selectLike(ModelAuth auth) throws SQLException {
         ResultSet rs = null;
         
-        String query = "SELECT * FROM book where bookname like ?";
+        String query = "SELECT * FROM auth where name like ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, "%" + book.getBookname() + "%");
+            stmt.setString(1, "%" + auth.getName() + "%");
             
             rs = stmt.executeQuery();
         }
@@ -96,16 +94,16 @@ public class DaoBook implements IBook {
         }
         return rs;
     }
-
+    
     @Override
-    public ResultSet selectEqual(ModelBook book) throws SQLException {
+    public ResultSet selectEqual(ModelAuth auth) throws SQLException {
         ResultSet rs = null;
         
-        String query = "SELECT * FROM book where bookname = ?";
+        String query = "SELECT * FROM auth where name = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, book.getBookname());
+            stmt.setString(1, auth.getName());
             
             rs = stmt.executeQuery();
         }
@@ -115,21 +113,21 @@ public class DaoBook implements IBook {
         }
         return rs;
     }
-
+    
     @Override
-    public ResultSet selectDynamic(ModelBook book) throws SQLException {
+    public ResultSet selectDynamic(ModelAuth auth) throws SQLException {
         ResultSet rs = null;
         
         try {
-            String query = "SELECT * FROM book where 1 = 1";
-            if (book.getBookid() != null) query += " and bookid = ?";
-            if (!book.getBookname().isEmpty()) query += " and bookname = ?";
+            String query = "SELECT * FROM auth where 1 = 1";
+            if (auth.getAuthid() != null) query += " and authid = ?";
+            if (!auth.getName().isEmpty()) query += " and name = ?";
             
             PreparedStatement stmt = conn.prepareStatement(query);
             
             int c = 1;
-            if (book.getBookid() != null) stmt.setInt(c++, book.getBookid());
-            if (!book.getBookname().isEmpty()) stmt.setString(c++, book.getBookname());
+            if (auth.getAuthid() != null) stmt.setInt(c++, auth.getAuthid());
+            if (!auth.getName().isEmpty()) stmt.setString(c++, auth.getName());
             
             rs = stmt.executeQuery();
         }
@@ -139,24 +137,18 @@ public class DaoBook implements IBook {
         
         return rs;
     }
-
+    
     @Override
-    public int insertBook(ModelBook book) throws SQLException {
+    public int insertAuth(ModelAuth auth) throws SQLException {
         int rs = -1;
         
         try {
             String query = "INSERT INTO ";
-            query += "book(bookname, publisher, year, price, dtm, use_yn, authid) ";
-            query += "VALUES(?, ?, ?, ?, ?, ?, ?)";
+            query += "auth(name, birth) ";
+            query += "VALUES(?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, book.getBookname());
-            stmt.setString(2, book.getPublisher());
-            stmt.setString(3, book.getYear());
-            stmt.setInt(4, book.getPrice());
-            stmt.setDate(5, (java.sql.Date)book.getDtm());
-//            stmt.setDate(5, null);
-            stmt.setBoolean(6, book.getUse_yn());
-            stmt.setInt(7, book.getAuthid());
+            stmt.setString(1, auth.getName());
+            stmt.setString(2, auth.getBirth());
             rs = stmt.executeUpdate();
         }
         catch (SQLException e) {
@@ -165,18 +157,18 @@ public class DaoBook implements IBook {
         }
         return rs;
     }
-
+    
     @Override
-    public int updateBook(ModelBook wherebook, ModelBook setbook) throws SQLException {
+    public int updateAuth(ModelAuth whereauth, ModelAuth setauth) throws SQLException {
         int rs = -1;
         
         try {
-            String query = "UPDATE book SET year = ?, price = ?";
-            query += " WHERE bookname = ?";
+            String query = "UPDATE auth SET name = ?, birth = ?";
+            query += " WHERE name = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, setbook.getYear());
-            stmt.setInt(2, setbook.getPrice());
-            stmt.setString(3, wherebook.getBookname());
+            stmt.setString(1, setauth.getName());
+            stmt.setString(2, setauth.getBirth());
+            stmt.setString(3, whereauth.getName());
             rs = stmt.executeUpdate();
         }
         catch (Exception e) {
@@ -185,15 +177,15 @@ public class DaoBook implements IBook {
         }
         return rs;
     }
-
+    
     @Override
-    public int deleteBook(ModelBook book) throws SQLException {
+    public int deleteAuth(ModelAuth auth) throws SQLException {
         int rs = -1;
         try {
-            String query = "DELETE FROM book";
-            query += " WHERE bookname = ?";
+            String query = "DELETE FROM auth";
+            query += " WHERE name = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, book.getBookname());
+            stmt.setString(1, auth.getName());
             rs = stmt.executeUpdate();
         }
         catch (Exception e) {

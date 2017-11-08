@@ -111,7 +111,6 @@ public class 도서관리 extends JFrame {
     private static int bookRow = 0;
     private static int memberRow = 0;
     private static int rentRow = 0;
-    private JTree tree;
     
     /**
      * Launch the application.
@@ -344,7 +343,6 @@ public class 도서관리 extends JFrame {
         	bookPanel.add(getBtn책취소());
         	bookPanel.add(getScrollPane_1());
         	bookPanel.add(getBtnNewButton_12());
-        	bookPanel.add(getTree());
         	bookPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{getTxt책제목(), getTxt책번호(), getTxt출판사(), getTxt저자(), getTxt가격(), getTxt장르(), getCbBook(), getTxt책검색(), getBtnNewButton_12(), getBtn대여하기(), getBtn책수정(), getBtn책삭제(), getBtn책취소()}));
         }
         return bookPanel;
@@ -549,6 +547,21 @@ public class 도서관리 extends JFrame {
                     books.remove(row);
                     
                     refresh책정보(books, bookTable);
+                    bookRow = bookTable.getSelectedRow();
+                    
+                    String 책번호 = bookTable.getValueAt(bookRow, 0).toString();
+                    String 책제목 = bookTable.getValueAt(bookRow, 1).toString();
+                    String 출판사 = bookTable.getValueAt(bookRow, 2).toString();
+                    String 장르 = bookTable.getValueAt(bookRow, 3).toString();
+                    String 저자 = bookTable.getValueAt(bookRow, 4).toString();
+                    String 가격 = bookTable.getValueAt(bookRow, 5).toString();
+                    
+                    txt책번호.setText(책번호);
+                    txt책제목.setText(책제목);
+                    txt출판사.setText(출판사);
+                    txt저자.setText(저자);
+                    txt가격.setText(가격);
+                    txt장르.setText(장르);
                     
                     JOptionPane.showMessageDialog(null, "삭제완료");
         	    }
@@ -946,6 +959,26 @@ public class 도서관리 extends JFrame {
                     members.remove(row);
                     
                     refresh회원정보(members, memberTable);
+                    
+                    memberRow = memberTable.getSelectedRow();
+                    
+                    String 이름 = memberTable.getValueAt(memberRow, 1).toString();
+                    String[] 주민번호 = new String[2];
+                    주민번호 = memberTable.getValueAt(memberRow, 2).toString().split("-");
+                    String[] 전화번호 = new String[3];
+                    전화번호 = memberTable.getValueAt(memberRow, 3).toString().split("-");
+                    String[] 메일주소 = new String[2];
+                    메일주소 = memberTable.getValueAt(memberRow, 4).toString().split("@");
+                    
+                    txt이름.setText(이름);
+                    txt주민번호0.setText(주민번호[0]);
+                    txt주민번호1.setText(주민번호[1]);
+                    txt전화번호0.setText(전화번호[0]);
+                    txt전화번호1.setText(전화번호[1]);
+                    txt전화번호2.setText(전화번호[2]);
+                    txt메일주소0.setText(메일주소[0]);
+                    txt메일주소1.setText(메일주소[1]);
+
                     JOptionPane.showMessageDialog(null, "삭제완료");
         	    }
         	});
@@ -1273,24 +1306,6 @@ public class 도서관리 extends JFrame {
             table.setRowSelectionInterval(0, 0);
             table.setModel(model);
         }
-    }
-    private JTree getTree() {
-        if (tree == null) {
-        	tree = new JTree();
-        	tree.setModel(new DefaultTreeModel(
-        	    new DefaultMutableTreeNode("장르") {
-        	        {
-        	            add(new DefaultMutableTreeNode("소설"));
-        	            add(new DefaultMutableTreeNode("교육"));
-        	            add(new DefaultMutableTreeNode("문학"));
-        	            add(new DefaultMutableTreeNode("해외"));
-        	            add(new DefaultMutableTreeNode("기타"));
-        	        }
-        	    }
-        	));
-        	tree.setBounds(22, 10, 222, 294);
-        }
-        return tree;
     }
 }
 

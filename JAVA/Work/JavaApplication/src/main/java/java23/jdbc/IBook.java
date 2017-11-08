@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface IBook {
-    int getCount(ModelBook book);
+    int getCount(ModelBook book) throws SQLException;
     int getMaxBookid() throws SQLException;
     ResultSet selectAll() throws SQLException;
     ResultSet selectLike(ModelBook book) throws SQLException;
