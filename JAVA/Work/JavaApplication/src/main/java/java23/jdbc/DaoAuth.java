@@ -122,12 +122,14 @@ public class DaoAuth implements IAuth {
             String query = "SELECT * FROM auth where 1 = 1";
             if (auth.getAuthid() != null) query += " and authid = ?";
             if (!auth.getName().isEmpty()) query += " and name = ?";
+            if (!auth.getBirth().isEmpty()) query += " and birth = ?";
             
             PreparedStatement stmt = conn.prepareStatement(query);
             
             int c = 1;
             if (auth.getAuthid() != null) stmt.setInt(c++, auth.getAuthid());
             if (!auth.getName().isEmpty()) stmt.setString(c++, auth.getName());
+            if (!auth.getBirth().isEmpty()) stmt.setString(c++, auth.getBirth());
             
             rs = stmt.executeQuery();
         }
@@ -144,11 +146,12 @@ public class DaoAuth implements IAuth {
         
         try {
             String query = "INSERT INTO ";
-            query += "auth(name, birth) ";
-            query += "VALUES(?, ?)";
+            query += "auth(authid, name, birth) ";
+            query += "VALUES(?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, auth.getName());
-            stmt.setString(2, auth.getBirth());
+            stmt.setInt(1, auth.getAuthid());
+            stmt.setString(2, auth.getName());
+            stmt.setString(3, auth.getBirth());
             rs = stmt.executeUpdate();
         }
         catch (SQLException e) {
