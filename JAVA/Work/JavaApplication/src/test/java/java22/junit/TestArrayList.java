@@ -34,7 +34,7 @@ public class TestArrayList {
     @Test
     public void test03() {
         int result = elist.indexOf("10");
-//        assertEquals(-1, result);
+        assertEquals(-1, result);
         assertFalse(elist.contains("10"));
     }
 

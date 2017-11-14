@@ -57,7 +57,7 @@ public class TestMyUnit {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetEmptyList() {
         java.util.ArrayList<String> list = myUnit.getEmptyList();
-        String s = list.get(0);
+        list.get(0);
     }
     
 }

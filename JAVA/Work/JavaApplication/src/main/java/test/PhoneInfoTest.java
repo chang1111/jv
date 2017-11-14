@@ -17,6 +17,9 @@ public class PhoneInfoTest {
             int n = keyboard.nextInt();
             if (n == 1) {
                 System.out.println("데이터 입력을 시작합니다.");
+                System.out.println("1. 일반, 2. 대학, 3. 회사");
+                System.out.print("선택>> ");
+                int n1 = keyboard.nextInt();
                 System.out.print("이름 : ");
                 String name = keyboard.next();
                 if (map.containsKey(name)) {
@@ -25,10 +28,23 @@ public class PhoneInfoTest {
                 else {
                     System.out.print("전화번호 : ");
                     String phoneNumber = keyboard.next();
-                    System.out.print("생년월일 : ");
-                    String birthday = keyboard.next();
-                    map.put(name, new PhoneInfo(name, phoneNumber, birthday));
+                    if (n1 == 1) {
+                        map.put(name, new PhoneInfo(name, phoneNumber));
+                    }
+                    else if (n1 == 2) {
+                        System.out.print("전공 : ");
+                        String major = keyboard.next();
+                        System.out.print("학년 : ");
+                        int year = keyboard.nextInt();
+                        map.put(name, new PhoneUnivInfo(name, phoneNumber, major, year));
+                    }
+                    else if (n1 == 3) {
+                        System.out.print("회사 : ");
+                        String company = keyboard.next();
+                        map.put(name, new PhoneCompanyInfo(name, phoneNumber, company));
+                    }
                     System.out.println("데이터 입력이 완료되었습니다.");
+
                 }
                 System.out.println();
             }
@@ -60,6 +76,10 @@ public class PhoneInfoTest {
             else if (n == 4) {
                 System.out.println("종료합니다.");
                 break;
+            }
+            else {
+                System.out.println(n + "에 해당하는 선택은 존재하지 않습니다.");
+                System.out.println("메뉴 선택을 처음부터 다시 진행합니다.");
             }
         }
     }
