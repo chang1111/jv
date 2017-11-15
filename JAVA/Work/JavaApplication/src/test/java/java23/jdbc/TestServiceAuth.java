@@ -26,7 +26,6 @@ public class TestServiceAuth {
     
     @Test
     public void testGetMaxAuthid() throws SQLException {
-        ModelAuth auth = new ModelAuth();
         int result = svr.getMaxAuthid();
         assertEquals(7, result);
     }
