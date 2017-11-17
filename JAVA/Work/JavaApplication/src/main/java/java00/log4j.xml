@@ -40,7 +40,7 @@
 
     <!-- Root Logger -->
     <root>
-        <priority value="debug" />
+        <level value="debug" />
         <appender-ref ref="console" />
         <appender-ref ref="rolling" />
     </root>
