@@ -37,9 +37,32 @@
     .ui-tooltip-conversation .ui-tooltip-icon .ui-icon{ background-color: #859900; color: #555; }
 </style>
 
-
-
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="qtip2/jquery.qtip.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#navigation a').qtip({
+            position: {
+                my: 'top center',
+                at: 'bottom center'
+            },
+            show: {
+                effect: function(offset)	{
+                    $(this).slideDown(300);
+                }
+            },
+            hide: {
+                effect: function(offset)	{
+                    $(this).slideUp(100);
+                }
+            },
+            style: {
+                classes: 'ui-tooltip-conversation',
+                width: '150px'
+            }
+        });
+    });
+</script>
 </head>
 <body>
 
@@ -62,6 +85,3 @@
 
 </body>
 </html>
-
-
-

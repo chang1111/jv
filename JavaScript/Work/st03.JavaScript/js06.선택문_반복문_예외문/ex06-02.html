@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>if~else 예제</title>
-    
+    <script>
+        var value = prompt('숫자를 입력하세요', '0');
+        console.log( value ); // vaule 는 문자다.
+
+        // 문자열인 value를 숫자로 바꾼다.
+        // 변수 선언 : n
+        var n = Number( value );
+
+        // n가 60이상이면 합격 출력.
+        if( n  >= 100 ) {
+            console.log('large');
+        }
+        else {
+            console.log('small');
+        }
+    </script>
 </head>
 <body>
 </body>
 </html>
-
-
-
-

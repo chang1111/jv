@@ -5,8 +5,37 @@
     <style>
         div,span { background: #FFF; padding: 10px; margin: 10px; }
     </style>
-    
-    
+    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
+    <script>
+        var MYAPP = {};
+        MYAPP.init = function () {
+            $('*').css('border', '');
+        };
+
+        $(document).ready( function() {
+
+            $('#firstSibling').click( function(event){
+                MYAPP.init();
+                $('#current').css('border', '2px dotted blue');
+                $('#current').parent().find('div:first').css('border', '2px solid red');
+            });
+            $('#prevSibling').click( function(event){
+                MYAPP.init();
+                $('#current').css('border', '2px dotted blue');
+                $('#current').prev().css('border', '2px solid red');
+            });
+            $('#nextSibling').click( function(event){
+                MYAPP.init();
+                $('#current').css('border', '2px dotted blue');
+                $('#current').next().css('border', '2px solid red');
+            });
+            $('#lastSibling').click( function(event){
+                MYAPP.init();
+                $('#current').css('border', '2px dotted blue');
+                $('#current').parent().find('div:last').css('border', '2px solid red');
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>DOM Selector</h2>
@@ -28,7 +57,3 @@
     <input id='lastSibling' type='button' value='막내 동생(last) 찾기'>
 </body>
 </html>
-
-
-
-

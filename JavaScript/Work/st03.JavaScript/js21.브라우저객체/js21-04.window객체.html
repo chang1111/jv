@@ -3,7 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var MYAPP = {};
+
+        // 페이지 로드 시에 이벤트 핸들러를 등록
+        window.onload = function () {
+
+            // alert 이벤트 핸들러 등록
+            MYAPP.alert = document.getElementById('alert');
+            MYAPP.alert.onclick = function (event) {
+                window.alert('페이지가 표시되었습니다');
+            };
+            // confirm 이벤트 핸들러 등록
+            MYAPP.confirm = document.getElementById('confirm');
+            MYAPP.confirm.onclick = function (event) {
+                var input = window.confirm('페이지를 송신해도 좋겠습니까?');
+                window.alert('입력값：' + input);
+            };
+            // prompt 이벤트 핸들러 등록
+            MYAPP.prompt = document.getElementById('prompt');
+            MYAPP.prompt.onclick = function (event) {
+                var input = window.prompt('문자열을 입력해주세요.', '야마다' );
+                window.alert('입력값：' + input);
+            };
+
+            // win_open 이벤트 핸들러 등록
+            MYAPP.win_open = document.getElementById('win_open');
+            MYAPP.win_open.onclick = function (event) {
+                MYAPP.subwin = window.open('http://www.naver.com', '새창열기', 'location=yes');
+                MYAPP.win_close.disabled = false;
+            };
+			
+            // win_close 이벤트 핸들러 등록
+            MYAPP.win_close = document.getElementById('win_close');
+            MYAPP.win_close.onclick = function (event) {
+                // 변수 subwin이 비어 있지 않고, 서브 윈도우가 닫혀 있지 않을 때에만 클로즈
+                if( MYAPP.subwin !== null && MYAPP.subwin.closed === false ) {
+                    MYAPP.subwin.close();// 새창을 닫는 함수.
+                    MYAPP.win_close.disabled = true; // 버튼 비활성화
+                }
+            };
+        };
+    </script>
 </head>
 
 <body>
@@ -17,7 +58,3 @@
     </p>
 </body>
 </html>
-
-
-
-

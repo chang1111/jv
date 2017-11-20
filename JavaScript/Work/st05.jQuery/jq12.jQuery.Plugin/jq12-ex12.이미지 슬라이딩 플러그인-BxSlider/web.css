@@ -1,23 +1,23 @@
 @font-face {
 	font-family: NG;
-	src: local("ï¿½ï¿½"), url(/static/font/NanumGothic.woff) format("woff");
+	src: local("¡Ø"), url(/static/font/NanumGothic.woff) format("woff");
 }
 @font-face {
 	font-family: NGB;
-	src: local("ï¿½ï¿½"), url(/static/font/NanumGothicBold.woff) format("woff");
+	src: local("¡Ø"), url(/static/font/NanumGothicBold.woff) format("woff");
 }
 @font-face {
 	font-family: NGEB;
-	src: local("ï¿½ï¿½"), url(/static/font/NanumGothicExtraBold.woff) format("woff");
+	src: local("¡Ø"), url(/static/font/NanumGothicExtraBold.woff) format("woff");
 }
 .NG {
-	font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",NG,sans-serif;
+	font-family: "³ª´®°íµñ",NG,sans-serif;
 }
 .NGB {
-	font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Bold",NGB,sans-serif;
+	font-family: "³ª´®°íµñ Bold",NGB,sans-serif;
 }
 .NGEB {
-	font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ExtraBold",NGEB,sans-serif;
+	font-family: "³ª´®°íµñ ExtraBold",NGEB,sans-serif;
 }
 html {
 	background: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%; vertical-align: baseline;
@@ -305,13 +305,13 @@ textarea {
 	outline: 0px; -webkit-appearance: none;
 }
 input {
-	font-family: "Dotum","ï¿½ï¿½ï¿½ï¿½"; font-size: 12px;
+	font-family: "Dotum","µ¸¿ò"; font-size: 12px;
 }
 textarea {
-	font-family: "Dotum","ï¿½ï¿½ï¿½ï¿½"; font-size: 12px;
+	font-family: "Dotum","µ¸¿ò"; font-size: 12px;
 }
 body {
-	color: rgb(0, 0, 0); font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",NG,sans-serif; background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0); font-family: "³ª´®°íµñ",NG,sans-serif; background-color: rgb(255, 255, 255);
 }
 #container {
 	padding: 0px 0px 0px; width: 100%;
@@ -343,7 +343,3 @@ a {
 button {
 	cursor: pointer;
 }
-
-
-
-

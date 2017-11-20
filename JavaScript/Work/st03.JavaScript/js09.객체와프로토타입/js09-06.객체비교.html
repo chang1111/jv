@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-	
+	<script>
+	    // 참조 타입 객체 비교 : === 의미
+	    var a = 100;
+	    var b = 100;
+	    console.log(a === b); // 
+
+	    var objA = { value: 100 };
+	    var objB = { value: 100 };
+
+	    var objC = objB;
+
+	    console.log( 'objA===objB : ' + ( objA === objB ) ); //
+	    console.log( 'objB===objC : ' + ( objB === objC ) ); //
+	</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var value1;
+        var value2;
+        var sum     = 0;
+        var average = 0;
+
+        value1 = window.prompt('첫번째 과목 점수를 입력하세요', '0');
+        value2 = prompt('두번째 과목 점수를 입력하세요', '0');
+
+        value1 = eval(value1);
+        value2 = eval(value2);
+        sum = value1 + value2;
+        average = sum / 2;
+
+        document.write('--------------------<br>');
+
+        if (average >= 95) {
+            document.write('very Good' + '<br>');
+        }
+		else {
+            document.write('just Good' + '<br>');
+		}
+        document.write('--------------------<br>');
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

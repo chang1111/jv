@@ -1,0 +1,523 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"axis",
+				"scale()\td3-axis.scale()"
+			],
+			[
+				"sele",
+				"select()\td3.select()"
+			],
+			[
+				"duration",
+				"duration()\td3-transition.duration()"
+			],
+			[
+				"dela",
+				"delay()\td3-transition.delay()"
+			],
+			[
+				"Mathr",
+				"Math_random\t(): number Math"
+			],
+			[
+				"Math",
+				"Math_round\t( x: number ): number Math"
+			],
+			[
+				"data",
+				"dataset"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"wi",
+				"width\t.width()"
+			],
+			[
+				"parseI",
+				"parseInt"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"en",
+				"enter()\td3-selection.enter()"
+			],
+			[
+				"ap",
+				"append()\td3-selection.append()"
+			],
+			[
+				"ht",
+				"html()\td3-selection.html()"
+			],
+			[
+				"s",
+				"select"
+			],
+			[
+				"select",
+				"select()\td3.select()"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"t",
+				"text"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "st01.Hthm&CSS/ch01.html/ht04-01.테이블태그.html",
+			"settings":
+			{
+				"buffer_size": 1165,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/ch01.html/ht04-01-ex1.html",
+			"settings":
+			{
+				"buffer_size": 1379,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"sidebar",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"install pa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			]
+		],
+		"width": 624.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/workspace/Lecture/JavaScript/Work",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html"
+	],
+	"file_history":
+	[
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01-ex2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01.목록태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-01.HTML페이지구조.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht02-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht02-01-ex1.txt",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht02-01.텍스트태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-02.helloworld.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-03.dom-tree.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-00.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-09.SVG element와 css.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-07.SVG element와 css.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-03.SVG element.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-05.SVG element와 style.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-01.SVG 좌표 시스템.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-01.SVG element.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-03.SVG element와 style.html",
+		"/D/DevTool/sublimetext/Data/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-02.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-03.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-04.SVG엘리먼트-circle.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-05.SVG엘리먼트-polygon.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-07.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-08.SVG엘리먼트-g.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-01.SVG엘리먼트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-02.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-03.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-03.SVG엘리먼트-roundrect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-06.SVG엘리먼트-path.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트와어트리뷰트/ad02-06.SVG엘리먼트-path.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트와어트리뷰트/ad02-11.눈금그리기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-17.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-16.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-15.SVG엘리먼트-polygon.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-14.SVG엘리먼트-circle.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-19.SVG엘리먼트-CSS.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-28.SVG에동적도형추가.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-12.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-13.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.데이터다루기/d02-22.가로막대그래프업데이트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-11.SVG엘리먼트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq11.유틸메서드/example08_09.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq11.유틸메서드/example08_10.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/advanced/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st09.AngularJS/aj02/ja02-01.todo.jquery.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-01.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-03.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-05.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex07.우편번호검색/postcodify.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step00_풀이전코드.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step01_랜덤하게이미지출력.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_01_기본드래그기능_구현.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_02_선택한_이미지위치를_기준으로_드래그처리.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_03_선택한_이미지깊이를_최상위로처리.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_04_01_문제점파악.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_04_02_문제점해결.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step03.드래그앤드드롭만들기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_01_방법1_일반함수.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_02_방법2_콜백함수.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_03_방법3_이벤트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-01.마우스이벤트/jQuery최고의교과서-chapter04.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-03.사이드바/jQuery최고의교과서-ch04-04.사이드바.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-97.스크롤스파이만들기/스크롤스파이만들기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_01_방법1_left속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_02_방법2_marginlef속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_03_방법3_scroll속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_04_방법4_animate를_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex01.회원가입/step1.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/company1.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/company2.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/company3.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/notice1.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/notice2.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/project.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/recruit.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/request.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq41.프로젝트/ex05.갤러리페이지/jQuery최고의교과서-ch06-05.갤러리.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/jQuery최고의교과서-ch07-01.로딩진행률표시/jQuery최고의교과서-ch07-01.로딩진행률표시.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/jQuery최고의교과서-ch07-02.이미지시퀀스애니메이션/jQuery최고의교과서-ch07-02.이미지시퀀스애니메이션.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/jQuery최고의교과서-ch07-03.인포그래픽/jQuery최고의교과서-ch07-03.인포그래픽.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/01/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/02/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/03/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/04/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/05/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/06/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/07/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/08/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st03.JavaScript/js22.DOM/js22-06.jquery.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq01.jQuery개요/ex01-1.class변경하기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq01.jQuery개요/jq01-02.jquery임포트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq01.jQuery개요/jq01-03.jquery페이지로딩순서.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq01.jQuery개요/jq01-12.jquery로테이블행색깔반복.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq02.노드찾기/jq02-01.기본셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq02.노드찾기/jq02-02-ex1.Attribute셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq02.노드찾기/jq02-02.속성셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq02.노드찾기/jq02-03.폼셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-01.element설정.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-02-ex1.이미지조작.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-02-ex2.링크아이콘달기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-02.attribute설정.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-03-ex1.폼유효성검사.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-03.input태그설정.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-mi-01.새창으로링크열기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-mi-02.연습문제풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq03.노드설정/jq03-mi-03.랜덤물고기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq04.노드탐색/jq04-01.DOM탐색메서드.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq04.노드탐색/jq04-02-ex1.DOM셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq04.노드탐색/jq04-02.DOM셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq04.노드탐색/jq04-mi-01.탭메뉴아이템.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-01.필터셀렉터.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-02.필터메서드.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-03-ex1.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-03.노드재검색.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-mi-01.이미지애니메이션뷰어.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq05.노드필터링/jq05-mi-02.스트라이프테이블.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-01.dom_manipulation.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-02-ex1.slice.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-mi-01.랜덤스타일적용.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq06.노드조작/jq06-mi-02.todo.jquery.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq07.노드위치와크기/편집1.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq07.노드위치와크기/jq07-01.offset.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq07.노드위치와크기/jq07-02-ex1.임의의크기와위치,색깔.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq07.노드위치와크기/jq07-02.이미지를2배로.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq07.노드위치와크기/jq07-03.outerWidth-outerHeight.1.html"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"D:\\DevTool\\workspace\\Lecture\\JavaScript\\Source"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"jquery-3.1.0.js",
+			"3.1.0",
+			"3.1.",
+			"3.1.0",
+			"\"",
+			"all",
+			"button",
+			"aaa"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"jquery-3.1.1.js",
+			"'",
+			"total"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "D:\\workspace\\Lecture\\JavaScript\\Work"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "st01.Hthm&CSS/ch01.html/ht04-01.테이블태그.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1078,
+								1078
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "st01.Hthm&CSS/ch01.html/ht04-01-ex1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								604,
+								604
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 129.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 308.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

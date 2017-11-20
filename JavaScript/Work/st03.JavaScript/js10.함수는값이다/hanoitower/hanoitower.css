@@ -1,4 +1,4 @@
-body {
+﻿body {
     margin: 0 auto;
     width: 750px;
 }
@@ -37,7 +37,3 @@ div#step-control button {
 span#breakpoints {
     float: right;
 }
-
-
-
-

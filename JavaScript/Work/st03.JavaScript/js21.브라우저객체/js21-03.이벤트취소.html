@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<script>
+    // 이벤트를 연결합니다.
+    window.onload = function (e) {
+        // 문서 객체를 선택합니다.
+        var button = document.getElementById('button');
 
+        // 이벤트를 연결합니다.
+        button.onclick = function (e) {
+            window.alert('링크 클릭');
+            // 이벤트를 취소합니다.
+            return false;
+        };
+    };
+</script>
 </head>
 <body>
     <a href="http://www.naver.com"/>이벤트 발생</a>
@@ -11,7 +24,3 @@
     <a href="http://www.naver.com" id="button"/>이벤트 취소</a>
 </body>
 </html>
-
-
-
-

@@ -24,8 +24,16 @@
     </style>
 
 
-    
-    
+    <script src="../jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            $('ul.menu li').mouseover( function(e){
+                $(this).children('ul').show();
+            }).mouseout( function(e){
+                $(this).children('ul').hide();
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -87,8 +95,4 @@
     </div>
 </body>
 </html>
-
-
-
-
 

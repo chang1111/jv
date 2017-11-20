@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
+<script>
+    var x = 'global';
 
+    var f = function ( ) {
+        console.log(x);           // global
+        console.log(window.x);    // global
+        console.log(this.x);      // global
+        var y = 'local';
+        console.log(y);           // local
+    }
+	
+    var g = function ( ) {
+        console.log(x);           // undefined
+        console.log(window.x);    // global
+        var x = 'local';
+        console.log(x);           // local
+    }
+    f();
+    console.log('-----------------');
+    g();
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

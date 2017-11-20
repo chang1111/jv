@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>생성자 프로토타입</title>
+<script>
+    // 생성자 함수로 객체 생성
+    function Ninja(){
+        this.swung = true;
+    }
+    var ninja = new Ninja();
+    Ninja.prototype.swingSword = function(){
+        return this.swung;
+    };
 
+    console.dir( ninja.constructor );
+    console.dir( ninja.swingSword() );
+//    console.dir( Ninja );
+//    console.dir( Ninja.prototype);
+//    console.dir( Ninja.prototype.constructor);
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

@@ -41,7 +41,7 @@
     <!-- @Controller 어노테이션이 지정된 클래스를 컨테이너에 자동으로 등록 되게 하는 설정 -->
     <!-- base-package 속성에 자동 스캔할 패키지 경로를 입력                             -->
     <!-- 복수의 패키지를 사용하고 싶은 경우 <context:component-scan> 태그를 복수개 작성  -->
-    <context:component-scan base-package="java23.mybatis" /> 
+    <context:component-scan base-package="java24.mybatis" /> 
     
     <!-- step3. 데이터베이스 커넥션 설정 -->
     <beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -58,7 +58,7 @@
     <!-- SessionFactory 설정 :: MyBatis가 사용할 Database에 연결하도록 설정 -->
     <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <beans:property name="dataSource"         ref="dataSource" />
-        <beans:property name="configLocation"     value="classpath:Configuration.xml" />
+        <!-- <beans:property name="configLocation"     value="classpath:Configuration.xml" /> -->
         
         <!-- mybatis 디렉토리에 xml 파일만 추가해주면 알아서 xml내의 쿼리 자동 인식 -->
         <!-- <beans:property name="mapperLocations"    value="classpath*:mybatis/**/mapper*.xml" />  -->

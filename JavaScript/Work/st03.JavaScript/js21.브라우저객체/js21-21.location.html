@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+		MYAPP = {};
+		
+        window.onload = function ( event ) {
+
+            MYAPP.site = document.getElementById('site');
+            MYAPP.site.onchange = function (event) {
+	            if( this.value ) {
+	                // 선택 상자의 값을 기초로 링크할 곳의 URL을 생성
+	                location.href = 'http://' + this.value + '.naver.com/';
+	            }
+            };
+
+            MYAPP.naver = document.getElementById('naver');
+            MYAPP.naver.onclick = function (event) {
+	        	location.href = 'http://www.naver.com/';
+            };
+
+            MYAPP.p = document.getElementsByClassName('google');
+            MYAPP.p[0].onclick = function (event) {
+                location.href = 'http://www.imbc.com';
+            };
+        };
+
+    </script>
 </head>
 <body>
     <form name="fm">
@@ -23,10 +47,6 @@
     <p class="google">www.google.com</p>
 </body>
 </html>
-
-
-
-
 
 
 

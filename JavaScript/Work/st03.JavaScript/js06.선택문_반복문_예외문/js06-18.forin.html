@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var member = ['야마다','스즈키','사토'];
+        for (var i in member) {
+            console.log('이름은 '+ member[i]);
+        }
+
+        var book = {
+              title : "JavaScript 레퍼런스"
+            , publish : "기술평론사"
+            , price : 3000
+        };
+
+        for (var j in book) {
+            console.log( j + '=' + book[j] );
+        }
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

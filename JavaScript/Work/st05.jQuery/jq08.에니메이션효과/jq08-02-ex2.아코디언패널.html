@@ -23,8 +23,25 @@
         dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow:hidden; }
         dd  p{ width:655px; text-indent:1em; padding:20px; }
     </style>
-    
-	
+    <script src="../jquery-3.1.1.js"></script>
+	<script>
+	    $(document).ready(function () {
+	        $("dd:not(:first)").css("width","0px");
+	        $("dt:first span").addClass("selected");
+	        $("dl dt").click(function(){
+	            if($("+dd",this).css("width")=="0px"){
+	                $("dt:has(.selected) +dd").animate({"width":"0px"});
+	                $("+dd",this).animate({"width":"695px"});
+	                $("dt span").removeClass("selected");
+	                $("span",this).addClass("selected");
+	            }
+	        }).mouseover(function(){
+	            $("span",this).addClass("over");
+	        }).mouseout(function(){
+	            $("span",this).removeClass("over");
+	        });
+	    });
+	</script>
 </head>
 <body>
     <div>
@@ -39,7 +56,3 @@
     </div>
 </body>
 </html>
-
-
-
-

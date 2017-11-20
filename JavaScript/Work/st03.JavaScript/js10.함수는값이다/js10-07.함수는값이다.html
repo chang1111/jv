@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
-    
+    <script>
+        // 변수에 함수 대입
+        var plus = function (a, b) {
+            return a + b;
+        };
+        console.log(plus(1,2) ) ;
+
+        //프로퍼티에 함수 대입
+        var obj = {
+            add : function (a, b) {
+                return a + b;
+            }
+        };
+        console.log( obj.add(2, 3) ) ;
+
+        //배열 요소로 함수 사용
+        var arr = [ 273, plus ];
+        console.log( arr[1](3, 4) );
+
+
+        // 매개변수로 함수 사용
+        var alarm = function ( func ) {
+            console.log('alarm start');
+            func();
+            console.log('alarm end');
+        };
+        alarm(
+               function() {
+                   console.log('매개변수로 함수 사용');
+               }
+        );
+
+        // 리턴값으로 함수 사용
+        function doWork(x) {
+            return function calculate(y) { return x + y; };
+        }
+        var func = doWork(5);
+        console.log( func(6) );
+    </script>
 
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

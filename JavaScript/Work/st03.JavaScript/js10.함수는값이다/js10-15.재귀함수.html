@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Insert title here</title>
-
+<script>
+    var factorial = function factorial(i, a) {
+        a = a || 1;
+        if( i<2) {
+            return a;
+        }
+        return factorial(i-1, a*i);
+    };
+    console.log( factorial(4) ); //
+    console.log( factorial(4, 2) ); //
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

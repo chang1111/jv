@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8" />
     <title>생성자 호출시 this 바인딩</title>
+<script>
+    // Create a variable called add and store a function
+    // in it that adds two numbers.
+    var add = function (a, b) {
+        return a + b;
+    };
 
+    // Make an array of 2 numbers and add them.
+    var array = [3, 4];
+    var sum = add.apply(null, array); // sum is 7
+    console.log(sum);
+
+
+    // statusObject does not inherit from Quo.prototype,
+    // but we can invoke the getStatus method on statusObject
+    // even though statusObject does not have a getStatus method.
+
+    // Make an object with a status member.
+    var statusObject = {
+        status: 'A-OK'
+    };
+
+    // Create a constructor function called Quo.
+    var Quo = function (string) {
+        this.status = string;
+    };
+
+    // Give all instances of Quo a public method called getStatus.
+    Quo.prototype.getStatus = function ( ) {
+        return this.status;
+    };
+
+    var status = Quo.prototype.getStatus.apply(statusObject); // status is 'A-OK'
+    console.log(status);
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

@@ -13,8 +13,52 @@
         }
         hr { clear:both; }
     </style>
-    
-    
+    <script src='../jquery-3.1.1.js'></script>
+    <script>
+        var MYAPP = {};  // === window.MyApp;
+        MYAPP.init = function(){
+
+		   $('*').css('border', '');
+           $('*').css('background', '');
+
+            /*
+             $('*').css('border', '').css('background', '');
+             */
+
+            /*
+            var style = {
+                'border': '',
+                'background' : ''
+            };
+
+            $('*').css( style );
+            */
+        };
+
+        $(document).ready( function(e) {
+
+            $('#all').click( function(e) {
+                MYAPP.init();
+                $('*').css('border', '1px dotted red');
+            });
+            $('#id').click( function(e) {
+                MYAPP.init();
+                $('#content').css('background', 'yellow');
+            });
+            $('#element').click( function(event) {
+            	MYAPP.init();
+                $('div').css('border', '2px solid red');
+            });
+            $('#class').click( function(event) {
+            	MYAPP.init();
+                $('.myClass').css( 'border', '2px dashed blue');
+            });
+            $('#multi').click( function(event) {
+            	MYAPP.init();
+                $('#content, p').css('border', '2px dashed blue');
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>jQuery Selector</h2>
@@ -36,7 +80,3 @@
     <input id='multi'   type='button' value="multi">
 </body>
 </html>
-
-
-
-

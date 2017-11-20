@@ -4,9 +4,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>텍스트 박스 자동 완성 기능</title>
 <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css"/>
-
-
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>
+$(document).ready(function() { 
+	var availableTags = [
+	       "ActionScript",
+	       "AppleScript",
+	       "Asp",
+	       "BASIC",
+	       "C",
+	       "C++",
+	       "Clojure",
+	       "COBOL",
+	       "ColdFusion",
+	       "Erlang",
+	       "Fortran",
+	       "Groovy",
+	       "Haskell",
+	       "Java",
+	       "JavaScript",
+	       "Lisp",
+	       "Perl",
+	       "PHP",
+	       "Python",
+	       "Ruby",
+	       "Scala",
+	       "Scheme"
+	         		];
+	$( "#tags" ).autocomplete({
+		source: availableTags
+	});
+});
+</script>
 </head> 
 <body>
 <div class="ui-widget">
@@ -15,6 +45,3 @@
 </div>
 </body> 
 </HTML>  
-
-
-

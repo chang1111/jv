@@ -3,12 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script>
+	    // 객체 리터럴을 이용한 객체 생성
+        var foo = {
+            name     : 'foo',     /* 프로퍼티 name = 'foo'  */
+            age      : 30,        /* 프로퍼티 age = 30      */
+            'age-34' : 'fa',      /* 프로퍼티 age-34 = 'fa' */
+            array    : [1,4,5,5], /* 프로퍼티 array = [1,4,5,5] */
+            run      : function () { return this.name; }  /* 메서드 */
+        };
+        console.log( typeof foo, foo);
+
+        // CRUD : R. 읽기- 마침표 표기법
+        console.log( foo.name ); //
+        console.log( foo.age  );
+        console.log( foo.nickname  ); // undefined 출력		
+
+        // CRUD : R. 읽기- 대괄호 표기법
+        console.log( foo[ 1 ] ); //
+        console.log( foo['age']  );
+        console.log( foo['nickname']  ); // undefined 출력
+
+        // CRUD : U. 수정
+        foo.name = 'bar';
+        foo.age = 50;
+        console.log( foo.name ); //
+        console.log( foo.age ); //
+
+        // CRUD : C. 추가
+        foo.gender = 'male';
+        foo.nickname = '별명';
+        console.log( foo.nickname );
+
+        // CRUD : D. 삭제
+        delete foo.age;
+        delete foo.gender;
+        console.log( foo.age ); // undefined 출력
+        console.log( foo.gender ); // undefined 출력
+
+        // 객체의 열거: for~in
+        for( var i  in foo ) {
+            console.log(typeof i, i + ' : ' + foo[i], typeof foo[i] );
+        }
+
+        console.log('함수를 제외한 열거');
+        for ( var i in foo ) {
+            if(typeof foo[i] !== 'function' ) {
+                console.log(i+':' + foo[i]);
+            }
+        }
+
+        console.log('배열만 열거');
+        for (var i in foo ) {
+            if( typeof foo[i] === 'object' && foo[i].hasOwnProperty('length')  ) {
+                console.log( i + ':' + foo[i] );
+            }
+        }
+
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

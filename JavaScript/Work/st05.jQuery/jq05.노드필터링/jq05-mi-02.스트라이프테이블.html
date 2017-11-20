@@ -11,8 +11,28 @@
 	    .even{ background:#F2F2F2; }
 	    .hover{ background:#B2D8FF; }
 	</style>
-    
-    
+    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --> </script>
+    <script>
+        $(document).ready( function(e) {
+
+            $('tr:odd').addClass('odd');
+            $('tr:even').addClass('even');
+
+	        $('tr').mouseover( function (event) {
+	            $(this).addClass('hover');
+	        }).mouseout(function(event){
+	            $(this).removeClass('hover');
+	        });
+
+            $('td').mouseenter( function(e) {
+                var index = $(this).index()+1;
+                $('td:nth-child('+ index + ')').addClass('hover');
+            }).mouseleave( function (e) {
+                var index = $(this).index()+1;
+                $('td:nth-child('+ index + ')').removeClass('hover');
+            });
+	    });
+	</script>
 </head>
 <body>
 
@@ -52,7 +72,3 @@
 
 </body>
 </html>
-
-
-
-

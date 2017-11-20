@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var str = 'wings프로젝트';
+
+        // 문자 추출
+        var str2 = str.substr(5, 3); // 프로젝
+        console.log( str2 );
+
+        // 문자 추출
+        var str3 = str.substring(5, 8); // 프로젝
+        console.log( str3 );
+
+        // 문자열 분할
+        var str4 = str.split('s');
+        console.log( str4 );
+
+        // 문자열 치환
+        var str5= str.replace('프로젝트', ' project');
+        console.log( str5 );
+
+        // 문자열 결합
+        var str6 = str + ' test';
+        console.log( str6 );
+
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

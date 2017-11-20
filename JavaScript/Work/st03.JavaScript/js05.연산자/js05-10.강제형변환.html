@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        // 숫자를 문자로 바꿀 때: String()
+        var result1 = String( 1 ) + '2';
+        console.log( result1, typeof  result1 );
+
+        // 문자를 숫자로 바꿀 때: Number()
+        var result2 = Number( '15' ) - 5;
+        console.log( result2, typeof  result1  );
+
+        var result3 = Boolean('2') + true;
+        console.log( result3, typeof  result1  );
+
+        var result4 = Boolean('2') - true;
+        console.log( result4, typeof  result1  );
+
+        var result5 = Boolean('2') + 'true';
+        console.log( result5, typeof  result1  );
+		
+		// 불린형변환 : Boolean()
+        console.log( Boolean('2') );
+        console.log( Boolean('0') );
+        console.log( Boolean('') );
+
+        console.log( Boolean(2) );
+        console.log( Boolean(0) );
+        console.log( Boolean(-2) );
+		console.log( Boolean(NaN) );
+        console.log( Boolean(null) );
+        console.log( Boolean(undefined) );
+        console.log( Boolean(' ') );
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

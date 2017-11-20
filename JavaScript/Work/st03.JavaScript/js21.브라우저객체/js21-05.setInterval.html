@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+	<script>
+        var MYAPP = { timer: null /* 타이머 ID를 대입하기 위한 글로벌 변수 */ };
+
+	    // 페이지 로드 시에 타이머 처리를 등록
+	    window.onload = function () {
+
+            // start 에 이벤트 핸들러 설정
+            MYAPP.start = document.getElementById('start');
+            MYAPP.start.onclick = function (event) {
+                // stop 버튼 활성화
+                MYAPP.stop.disabled = false;
+
+                // start 버튼 비활성화
+                MYAPP.start.disabled = true;
+
+                MYAPP.timer = window.setInterval(
+                        // 현재 시각을 <div id="result"> 태그에 표시(1000밀리초마다 갱신)
+                        function () {
+                            var dat = new Date();
+                            document.getElementById("result").innerHTML = dat.toLocaleTimeString();
+                        },
+                        1000
+                );
+            };
+
+
+            // stop 에 이벤트 핸들러 설정
+            MYAPP.stop = document.getElementById('stop');
+            MYAPP.stop.onclick = function (event) {
+                // stop 버튼 비활성화
+                MYAPP.stop.disabled = true;
+
+                // start 버튼 활성화
+                MYAPP.start.disabled = false;
+
+                window.clearInterval( MYAPP.timer );
+            };
+		};
+
+	</script>
 </head>
 
 <body>
@@ -15,7 +54,3 @@
 </p>
 </body>
 </html>
-
-
-
-

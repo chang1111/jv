@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <title>페이지 이벤트 실행 순서</title>
 
-    
-    
+    <script src="../jquery-3.1.0.js"><!-- jquery 임포트 --></script>
+    <script>
+        $( document).ready( function(event) {
+            alert('document.ready');
+        });
+
+        window.onload = function(event) {
+            alert('window.load');
+        };
+    </script>
 </head>
 <body>
 
@@ -15,6 +23,3 @@
 
 </body>
 </html>
-
-
-

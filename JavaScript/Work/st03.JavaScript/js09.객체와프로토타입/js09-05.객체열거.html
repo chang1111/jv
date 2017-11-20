@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    
+    <script>
+        var stoog = {
+            name: 'Jerome. Howard', number: 815, glasses: true,
+            array: [2, 4, 5, 6], depart: {i: 'SD', year: 2016},
+            getName: function () {
+                return this.name;
+            }
+        };
+
+        for (var name in stoog) {
+            console.log(name + ':' + stoog[name]);
+        }
+
+
+        console.log('함수를 제외한 열거');
+        for (var name in stoog) {
+            if (typeof stoog[name] != 'function') {
+                console.log(name + ':' + stoog[name]);
+            }
+        }
+
+        console.log('배열만 열거');
+        for (var name in stoog) {
+            if (typeof stoog[name] == 'object' &&
+                stoog[name].hasOwnProperty('length')) {
+                console.log(name + ':' + stoog[name]);
+            }
+        }
+
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

@@ -3,7 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var MYAPP = { timer: null, count : 0 };
+
+        MYAPP.images = [
+              'images/00.png'  // counter = 0
+            , 'images/01.png'  // counter = 1
+            , 'images/02.png'  // counter = 2
+            , 'images/03.png'  // counter = 3
+            , 'images/04.png'  // counter = 4
+            , 'images/05.png'  // counter = 5
+            , 'images/06.png'  // counter = 6
+            , 'images/07.png'  // counter = 7
+            , 'images/08.png'  // counter = 8
+            , 'images/09.png'  // counter = 9
+            , 'images/10.png'  // counter = 10
+            , 'images/11.png'  // counter = 11
+            , 'images/12.png'  // counter = 12
+            , 'images/13.png'  // counter = 13
+            , 'images/14.png'  // counter = 14
+        ];
+
+        window.onload = function(e) {
+
+            MYAPP.img = document.getElementById('img');
+
+            // next 버튼에 이벤트 핸들러 설정
+            MYAPP.next = document.getElementById('next');
+            MYAPP.next.onclick = function (e) {
+                var sno = MYAPP.img.src.substr(MYAPP.img.src.length-6, 2);
+                var ino = Number( sno ) + 1 ;
+
+                // ino == 15 이면 ino=0;
+                if( ino === MYAPP.images.length ){
+                    ino = 0;
+                }
+
+                MYAPP.img.src = MYAPP.images[ino];
+            };
+
+            // prev 버튼에 이벤트 핸들러 설정
+            MYAPP.prev = document.getElementById('prev');
+            MYAPP.prev.onclick = function (e) {
+                var sno = MYAPP.img.src.substr(MYAPP.img.src.length-6,2);
+                var ino = Number(sno)-1;
+
+                // ino == -1 이면 ino=14;
+                if( ino === -1 ){
+                    ino =  MYAPP.images.length -1 ;
+                }
+
+                MYAPP.img.src = MYAPP.images[ino];
+            };
+
+            // start 에 이벤트 핸들러 설정
+            MYAPP.start = document.getElementById('start');
+            MYAPP.start.onclick = function (event) {
+                // stop 활성화, start 버튼 비활성화
+                MYAPP.start.disabled = true;
+                MYAPP.stop.disabled = false;
+
+                MYAPP.timer = window.setInterval(  MYAPP.next.onclick , 100 );
+            };
+
+
+            // stop 에 이벤트 핸들러 설정
+            MYAPP.stop = document.getElementById('stop');
+            MYAPP.stop.onclick = function (event) {
+                // stop 비활성화, start 버튼 활성화
+                MYAPP.start.disabled = false;
+                MYAPP.stop.disabled = true;
+
+                window.clearInterval( MYAPP.timer );
+            };
+        };
+
+    </script>
     
 </head>
 <body>
@@ -17,7 +92,3 @@
 
 </body>
 </html>
-
-
-
-

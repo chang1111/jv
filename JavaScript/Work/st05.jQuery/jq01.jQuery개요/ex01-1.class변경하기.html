@@ -16,8 +16,31 @@
             float: none;
         }
     </style>
-	
-	
+	<script src="../jquery-3.1.1.js"></script>
+	<script>
+	    window.onload = function(event) {
+
+	        var btn1 = document.getElementById('btn1');
+	        btn1.onclick = function(event) {
+	            // 태그 찾기
+	            var menu2 = document.getElementById('menu1');
+	            var lilist = menu2.getElementsByTagName('li');
+
+	            // 속성 설정
+	            for( var i =0; i<lilist.length; i=i+1) {
+
+	                var li = lilist[i];
+	                li.style.color = "red";
+	            }
+	        }
+
+	        var btn2 = document.getElementById('btn2');
+	        btn2.onclick = function(event) {
+	            // 찾기 & 속성 설정
+	            $('#menu2 > li').css('color', 'blue');
+	        }
+	    }
+	</script>
 </head>
 <body>
     <div>
@@ -36,7 +59,3 @@
     </ul>
 </body>
 </html>
-
-
-
-

@@ -10,8 +10,134 @@
         li.select { background-color: #ccc; }
     </style>
 
-    
-    
+    <script src="../jquery-3.1.1.js"></script>
+    <script>
+        // 전역 변수 선언 및 초기화
+        var MYAPP = {
+            $menu : null,        /* ul.menu */
+            $menuName : null,    /* #menuName */
+
+            $selectedItem : null /* 선택 메뉴 */
+        };
+
+
+        $(document).ready(function() {
+
+            $('ol > li > ul').hide();
+            $('ol > li').click( function(e) {
+                $(this).children('ul').toggle();
+            });
+
+            // 전역에서 사용할 요소 초기화
+            MYAPP.$menu     = $('ul.menu');
+            MYAPP.$menuName = $('#menuName');
+
+            // 동적 이벤트 설정.
+            // 페이지가 load된 후 추가된 엘리먼트에 이벤트를 설정할 때
+            $('ul.menu').on('click','li', function(e){
+                MYAPP.$menu.children('li').removeClass();
+                $(this).addClass('select');
+                var text = $(this).text();
+                MYAPP.$menuName.val( text );
+            });
+
+            // 메뉴 추가
+            $("#add").click(function(e) {
+
+                // st1. input 태그의 value 값 가져오기
+                var val = MYAPP.$menuName.val();
+
+                // val이 빈값이면 추가를 못하게 막으시오
+                if( val.trim() === ''){
+                    MYAPP.$menu.before('<span>빈 값이 입력되었읍니다</span>');
+                    window.setTimeout(function(){
+                        // '<span>빈 값이 입력되었읍니다</span>' 을 지우시오
+                        MYAPP.$menu.prev().remove();
+                    }, 2000);
+                    return false;
+                }
+
+                // 선택된 메뉴 노드 찾기
+                MYAPP.$selectedItem = $('.select');
+				var node = '<li>' + val + '</li>';
+
+                if( MYAPP.$selectedItem.length === 0 ){
+                    // st2. ul.menu 에 자식으로 추가하기
+					MYAPP.$menu.append(node);
+                }
+                else {
+                    // 형제 노드로 추가하기
+                    MYAPP.$selectedItem.after(node);
+                }
+
+                // 추가 후 input 의 value 값 지우기
+                MYAPP.$menuName.val('');
+
+            });
+
+            // 업데이트
+            $("#update").click(function() {
+
+                // input 박스의 값 읽기
+                var val = MYAPP.$menuName.val();
+
+                // input 박스의 값이 빈 경우는 수정 금지
+                if( val === '' ) {
+                    MYAPP.$menu.before('<span>빈 값이 입력 되었읍니다</span>');
+                    setTimeout(function () {
+                        MYAPP.$menu.prev().remove();
+                    }, 2000);
+
+                    return ;
+                }
+
+                // 선택 노드 찾기
+                MYAPP.$selectedItem = $('.select');
+
+                if( MYAPP.$selectedItem.length > 0 ) {
+                    // 찾은 노드의 텍스트 바꾸기
+                    MYAPP.$selectedItem.text(val);
+
+                    // 수정 후 inputbox 초기화
+                    MYAPP.$menuName.val('');
+                }
+                else {
+                    MYAPP.$menu.before('<span>선택 메냐가 없읍니다. 메뉴를 선택하세요</span>');
+                    setTimeout(function () {
+                        MYAPP.$menu.prev().remove();
+                    }, 2000);
+                }
+            });
+
+            // 선택 항목 삭제
+            $("#remove").click(function() {
+                // 선택 노드 찾기
+                MYAPP.$selectedItem = $('.select');
+
+                // 선택 노드 삭제
+                MYAPP.$selectedItem.remove();
+            });
+
+            // 선택 메뉴 항목을 위로 이동
+            $("#up").click(function() {
+                // 선택 노드 찾기
+                MYAPP.$selectedItem = $('.select');
+
+                // 선택 노드 이동
+                MYAPP.$selectedItem.prev().before( MYAPP.$selectedItem  );
+            });
+
+            // 선택 메뉴 항목을 아래로 이동
+            $("#down").click(function() {
+                // 선택 노드 찾기
+                MYAPP.$selectedItem = $('.select');
+
+                // 선택 노드 이동
+                MYAPP.$selectedItem.next().after( MYAPP.$selectedItem  );
+            });
+
+        });
+    </script>
 </head>
 
 <body>
@@ -75,7 +201,3 @@
 </body>
 
 </html>
-
-
-
-

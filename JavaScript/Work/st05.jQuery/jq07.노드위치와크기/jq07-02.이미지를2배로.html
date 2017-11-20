@@ -6,15 +6,24 @@
     <style>
         img{  width: 140px; height: 120px; }
     </style>
-    
-    
+    <script src="../jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready( function(e) {
+
+            $('img').click( function(e){
+                var width  = $(this).width();
+                var height = $(this).height();
+
+                $(this).width( width * 2 );
+                $(this).height( height * 2 );
+
+                //$(this).css( {'width':width * 2 , 'height': height * 2 } );
+            });
+        });
+    </script>
 
 </head>
 <body>
    <img src="images/im1.jpg" />
 </body>
 </html>
-
-
-
-

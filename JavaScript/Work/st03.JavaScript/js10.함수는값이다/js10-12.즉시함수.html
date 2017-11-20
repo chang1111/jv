@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var foo = function( name ) {
+            var mesg = 'function  --> ' + name;
+            console.log( mesg );
+            alert( mesg);
+        };
+        //foo('foo');
+
+        // 즉시 실행되는 함수
+        (
+            function( name ) {
+                var mesg = 'function  --> ' + name;
+                console.log( mesg );
+                alert( mesg);
+            }
+        )('foo');
+
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

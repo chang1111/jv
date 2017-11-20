@@ -6,8 +6,86 @@
         div { padding: 5px 5px 5px 5px }
         .item{float:left; width:100px; }
     </style>
-    
-    
+    <script src='../jquery-3.1.1.js'></script>
+    <script>
+
+        var MyApp = {};
+
+        // validation 메서드 만들기
+        MyApp.invalidItem = function( ){
+            if( $('#userId').val() === '' ){
+				var msg = '아이디를 입력하세요';
+				$('label[name="userId"]').text(msg);
+                $('#userId').focus();
+                return false;
+            }
+            else {
+                $('label[name="userId"]').text('');
+            }
+
+            if( $('#userName').val() === '' ){
+				var msg = '이름을 입력하세요';
+				$('label[name="userName"]').text(msg);
+                $('#userName').focus();
+                return false;
+            }
+            else {
+                $('label[name="userName"]').text('');
+            }
+
+            if( $('#pwd').val() === '' ){
+				var msg = '암호를 입력하세요';
+				$('label[name="pwd"]').text(msg);
+                $('#pwd').focus();
+                return false;
+            }
+            else {
+                $('label[name="pwd"]').text('');
+            }
+
+            if( $('#pwdConfirm').val() === '' ){
+				var msg = '암호 확인을 입력하세요';
+				$('label[name="pwdConfirm"]').text(msg);
+                $('#pwdConfirm').focus();
+                return false;
+            }
+            else {
+                $('label[name="pwdConfirm"]').text('');
+            }
+
+            // 암호가 다른 경우
+            if( $('#pwd').val()  !==   $('#pwdConfirm').val()  ) {
+
+                var msg = '암호가 일치하지 않습니다.';
+                $('#pwd').val( '' );
+                $('#pwdConfirm').val( '' );
+                $('#pwd').focus();
+                $('label[name="pwd"]').text(msg);
+
+                return false;
+            }
+
+            return true;
+        };
+
+        $(document).ready( function(event) {
+
+            //validation
+            $('#regBtn').click( function(event){
+                var result = MyApp.invalidItem();
+
+                if( result )
+                    return $('form[name="fm"]').submit();
+                else
+                    return false;
+            });
+
+            // 초기화
+            $('#iniBtn').click( function(event){
+                $('form[name="fm"]')[0].reset();
+            });
+        });
+    </script>
 </head>
 <body>
 <form name='fm'
@@ -39,7 +117,3 @@
 </form>
 </body>
 </html>
-
-
-
-

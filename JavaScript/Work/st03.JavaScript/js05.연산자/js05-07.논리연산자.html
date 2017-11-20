@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var x = 3;
+        var y = 4;
+
+        console.log( 'x : ' + x );
+        console.log( 'y : ' + y );
+
+        var r = ( ( x == 3 ) && ( y == 3 ) );
+        console.log( '( x == 3 ) && ( y == 3 ) : ' + r ); //
+
+        var r = ( ( x == 3 ) && ( y != 3 ) );
+        console.log( '( x == 3 ) && ( y != 3 ) : ' + r ); //
+
+        var r = ( ( x == 3 ) || ( y == 3 ) );
+        console.log( '( x == 3 ) || ( y == 3 )  : ' + r ); //
+
+        var r = ( ( x == 3 ) || ( y == 4 ) );
+        console.log( '( x == 3 ) || ( y == 4 ) : ' + r ); //
+
+        var r = ( ( x != 3 ) || ( y == 4 ) );
+        console.log( '( x != 3 ) || ( y == 4 ) : ' + r ); //
+
+        var r = ( ( x != 3 ) || ( y != 4 ) );
+        console.log( '( x != 3 ) || ( y != 4 ) : ' + r ); //
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

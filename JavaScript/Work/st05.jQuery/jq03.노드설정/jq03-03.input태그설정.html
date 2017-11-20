@@ -14,8 +14,52 @@
         .white  { background: white;  }
         .gray   { background: gray;   }
     </style>
-    
-    
+    <script src='../jquery-3.1.1.js'></script>
+    <script>
+        $(document).ready( function() {
+
+            // value attribute CRUD
+            $('#value_read'  ).click( function(event) {
+                var val = $('#text').val();
+                window.alert( val );
+            });
+            $('#value_create').click( function(event) {
+                var val = $('#text').val();
+                var str = val + '> 추가';
+                $('#text').val( str );
+            });
+            $('#value_update').click( function(event) {
+                var val = $('#value_update').text();
+                $('#text').val( val );
+            });
+            $('#value_delete').click( function(event) {
+                $('#text').val( '' );
+            });
+
+
+            // text node CRUD
+            $('#prop_read').click( function(evenet){
+                var result = $('input[name="aaa"]').prop('checked');
+                alert( result );
+            });
+            $("#prop_create" ).click( function(e) {
+                $('input[name="bbb"]').attr('checked', true);
+            });
+            $("#prop_update" ).click( function(e) {
+
+                if( $('input[name="aaa"]').is(":checked") === true) {
+                    $('input[name="aaa"]').attr('checked', false);
+                }
+                else {
+                    $('input[name="aaa"]').attr('checked', true);
+                }
+
+            });
+            $("#prop_delete" ).click( function(e) {
+                $('input[name="ccc"]').removeAttr('disabled');
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -49,7 +93,3 @@
     </div>
 </body>
 </html>
-
-
-
-

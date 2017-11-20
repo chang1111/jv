@@ -8,9 +8,33 @@
         .line { background-color:#c1c1c1; }
         .subtitle { background-color:#ffffff; font-family:verdana, 돋움; font-size:12px; font-weight:bold; color:#7359C8; }
     </style>
-	
-	
-	
+	<script src="MYAPP.Variable.js"></script>
+	<script src="MYAPP.Cookie.js"></script>
+	<script>
+		window.onload = function (e) {
+			// 쿠키 존재 여부 확인
+			if( MYAPP.Cookie.read('naps') ) {
+				// 쿠키가 있는 경우
+				window.self.close();
+			}
+			else {
+				// 쿠키가 없는 경우
+			}
+
+			// <input type="checkbox" name="chkClose"> 찾으시오
+			var chkClose = document.getElementsByName('chkClose');
+			chkClose[0].onclick = function (e) {
+				// check 여부를 확인
+				if( chkClose[0].checked === true ){
+					// 쿠키 생성
+					MYAPP.Cookie.create('naps', 'aaa', 1 );
+				}
+
+				// 창 닫기
+				window.self.close();
+			};
+		};
+	</script>
 
 </head>
 
@@ -69,8 +93,4 @@
 </body>
 
 </html>
-
-
-
-
 

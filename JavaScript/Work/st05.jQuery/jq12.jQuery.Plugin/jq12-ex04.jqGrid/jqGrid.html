@@ -5,9 +5,36 @@
     <title>테이블의 행 개수 제한하고 칼럼 필터링하기</title>
     <style title="currentStyle">
     </style>
-    
-    
-    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="jquery.jqGrid.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+        	jQuery("#grid").jqGrid('jqPivot', 
+        	"data.json",
+        	// pivot options
+        	{
+        		xDimension : [{dataName: 'CategoryName'} ],
+        		yDimension : [],
+        		aggregates : [
+        			{ 
+        				member : 'Price', 
+        				aggregator : 'sum', 
+        				width:80, 
+        				label:'Sum Price', 
+        				formatter:'number', 
+        				align:'right'
+        			}
+        		]
+        	}, 
+        	// grid options
+        	{
+        		width: 700,
+        		rowNum : 150,
+        		pager: "#pager",
+        		caption: "Amounts of each product category"
+        	});
+        });
+    </script>
 </head>
 <body>
       <div>
@@ -16,7 +43,3 @@
       </div>
 </body>
 </html>
-
-
-
-

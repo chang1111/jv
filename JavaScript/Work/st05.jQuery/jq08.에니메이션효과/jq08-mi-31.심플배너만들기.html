@@ -11,8 +11,52 @@
         div.banner-container img{ display: block; float:left; left:0; top:0; width:260px; }
     </style>
 
-    
-    
+    <script src="../jquery-3.1.1.js"> </script>
+    <script>
+
+        $(document).ready(function(){
+            // .banner 구하기
+            var $banner = $(".banner-container > img");
+
+            // 배너 개수 구하기
+            var bannerLength = $banner.length;
+
+            // 현재 보여지고 있는 배너의 index 값 저장 변수
+            var currentIndex = 0;
+
+            $banner.hide();
+            $banner.eq(currentIndex).show();
+
+            // 이전 버튼(#prev)에 클릭 이벤트 등록
+            $("#prev").click(function(event){
+                $banner.eq(currentIndex).hide();
+
+                // 인덱스 값 구하기
+                currentIndex = currentIndex - 1;
+                if(currentIndex<0) {
+                    currentIndex= bannerLength-1;
+                }
+
+                // currentIndex 번째 배너 이미지 출력
+                $banner.eq(currentIndex).show();
+            });
+
+            // 다음 버튼(#next)에 클릭 이벤트 등록
+            $("#next").click(function(event){
+                $banner.eq(currentIndex).hide();
+
+                // 인덱스 값 구하기
+                currentIndex = currentIndex + 1;
+                if(currentIndex>=bannerLength) {
+                    currentIndex= 0;
+                }
+
+                // currentIndex 번째 배너 이미지 출력
+                $banner.eq(currentIndex).show();
+            });
+
+        });
+    </script>
 
 
 </head>
@@ -36,7 +80,3 @@
     </div>
 </body>
 </html>
-
-
-
-

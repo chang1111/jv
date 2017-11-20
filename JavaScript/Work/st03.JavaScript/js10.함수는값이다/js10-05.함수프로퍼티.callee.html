@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
+<script>
+    var makeFactorial = function () {
+        return function(x) {
+            if( x<= 1)
+                return 1;
+            else
+                return x*arguments.callee(x-1);
+        };
+    }
 
+    var result = makeFactorial();
+    console.log( result(5) );  // (출력값) 120
+
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

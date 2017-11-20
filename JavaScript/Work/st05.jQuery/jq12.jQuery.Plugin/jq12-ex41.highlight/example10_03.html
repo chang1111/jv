@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>플러그인 개발</title>
-
-
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery.highlight.js"></script>
+<script>
+$(function() {
+  $('button').click(function() {
+     $('span').highlight()
+              .css('text-decoration', 'underline');
+     return false;
+  });
+});
+</script>
 </head>
 <body>
    <span>simple</span>
@@ -15,6 +23,3 @@
   <button> 버튼 </button>
 </body>
 </html>
-
-
-

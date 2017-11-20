@@ -9,8 +9,13 @@
 
         table { width: 100%; border: 1px solid #002b36; }
     </style>
-    
-    
+    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
+    <script>
+        $( document).ready( function(event) {
+		    $('tr:nth-child(even)').addClass('pink');
+		    $('tr:nth-child(odd)').addClass('yellow');
+        });
+    </script>
 </head>
 <body>
     <table>
@@ -25,8 +30,4 @@
     </table>
 </body>
 </html>
-
-
-
-
 

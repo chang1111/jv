@@ -7,8 +7,162 @@
         table { border-collapse: collapse; }
         table, th, td { border: 1px solid black; }
     </style>
-    
-    
+    <script src='../jquery-3.1.1.js'></script>
+    <script>
+
+        $(document).ready( function(){
+
+            $('#menu1').click( function (event) {
+                $.ajax({
+                    url : 'http://localhost:3000/text',
+                    data: null, // {data1:'test1', data2:'test2'}
+                    type: 'get',        // get, post
+                    timeout: 30000,
+                    dataType: 'text', // text, html, xml, json, jsonp, text, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#message1').html('<img src="loading.gif"/>');
+                    },
+                    success: function(data){
+                        // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                        $('#message1').html(data);
+                    },
+                    error:function(xhr,status,error){
+                        // 통신이 실패했을 때 이 함수를 타게 된다.
+                        var msg = '';
+                        msg += "code   : "+xhr.status       +"\n";
+                        msg += "message: "+xhr.responseText +"\n";
+                        msg += "error  : "+error            +"\n";
+                        alert(msg);
+                        console.log(msg);
+                    },
+                    complete : function(data) {
+                        // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                        $('#message1 > img').remove();
+                                        }
+                                    });
+                                    return false;
+                                });
+
+                                $('#menu2').click( function (event) {
+                                    $.ajax({
+                                        url : 'http://localhost:3000/html',
+                                        data: null, // {data1:'test1', data2:'test2'}
+                                        type: 'get',        // get, post
+                                        timeout: 30000,
+                                        dataType: 'html',   // text, html, xml, json, jsonp, text, script
+                                        beforeSend : function() {
+                                            // 통신이 시작되기 전에 이 함수를 타게 된다.
+                                            $('#message2').html('<img src="loading.gif"/>');
+                                        },
+                                        success: function(data){
+                                            // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                                            $('#message2').html( $(data).find('li') );
+                                        },
+                                        error:function(xhr,status,error){
+                                            // 통신이 실패했을 때 이 함수를 타게 된다.
+                                            var msg = '';
+                                            msg += "code   : "+xhr.status       +"\n";
+                                            msg += "message: "+xhr.responseText +"\n";
+                                            msg += "error  : "+error            +"\n";
+                                            alert(msg);
+                                            console.log(msg);
+                                        },
+                                        complete : function(data) {
+                                            // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                                            $('#message2 > img').remove();
+                                        }
+                                    });
+                                    return false;
+                                });
+
+                                $('#menu3').click(function () {
+                                    $.ajax({
+                                        url:'http://localhost:3000/json',
+                                        data: null, // {data1:'test1', data2:'test2'}
+                                        type: 'get',      // get, post
+                                        timeout: 30000,
+                                        dataType: 'json',  // text, html, xml, json, jsonp, text, script
+                                        beforeSend : function() {
+                                            // 통신이 시작되기 전에 이 함수를 타게 된다.
+                                            $("#treeData").html("<img src='loading.gif'/>");
+                                        },
+                                        success : function(data) {
+                                            // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                                            $("#treeData").append(
+                                                    "<tr><td>id</td>" + "<td>name</td>"
+                                                    + "<td>price</td>" + "<td>description</td>" + "</tr>");
+
+                                            $.each(data, function() {
+                                                $("#treeData").append("<tr>" + "<td>"
+                                                        + this.id + "</td>" + "<td>"
+                                                        + this.name + "</td>" + "<td align='right'>"
+                                                        + this.price + "</td>" + "<td>"
+                                                        + this.description + "</td>" + "</tr>");
+                                            });
+                                        },
+                                        error:function(xhr,status,error){
+
+                                            // 통신이 실패했을 때 이 함수를 타게 된다.
+                                            var msg = '';
+                                            msg += "code   : "+xhr.status       +"\n";
+                                            msg += "message: "+xhr.responseText +"\n";
+                                            msg += "error  : "+error            +"\n";
+                                            alert(msg);
+                                            console.log(msg);
+                                        },
+                                        complete : function(data) {
+                                            // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                                            $("img[src='loading.gif']").remove();
+                                        }
+                                    });
+                                    return false;
+                                });
+
+                                $('#menu4').click(function () {
+                                    $.ajax({
+                                        url:'http://localhost:3000/xml',
+                                        data: null,     // {data1:'test1', data2:'test2'}
+                                        type: 'get',     // get, post
+                                        timeout: 30000,
+                                        dataType: 'xml',  // text, html, xml, json, jsonp, text, script
+                                        beforeSend : function() {
+                                            // 통신이 시작되기 전에 이 함수를 타게 된다.
+                                            $("#treeData2").html("<img src='loading.gif'/>");
+                                        },
+                                        success: function(data){
+                                            // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                                            $("#treeData2").append(
+                                                    "<tr><td>id</td>" + "<td>name</td>"
+                                                    + "<td>price</td>" + "<td>description</td>" + "</tr>");
+
+                                            $(data).find('item').each(function() {
+                                                var $item = $(this);
+                                                $("#treeData2").append("<tr>" + "<td>"
+                                                        + $item.attr("id") + "</td>" + "<td>"
+                                                        + $item.attr("name") + "</td>" + "<td align='right'>"
+                                                        + $item.find("price").text() + "</td>" + "<td>"
+                                                        + $item.find("description").text() + "</td>" + "</tr>");
+                                            });
+                                        },
+                                        error:function(xhr,status,error){
+                                            // 통신이 실패했을 때 이 함수를 타게 된다.
+                                            var msg = '';
+                                            msg += "code   : "+xhr.status       +"\n";
+                                            msg += "message: "+xhr.responseText +"\n";
+                                            msg += "error  : "+error            +"\n";
+                                            alert(msg);
+                                            console.log(msg);
+                                        },
+                                        complete : function(data) {
+                                            // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                                            $("img[src='loading.gif']").remove();
+                                        }
+                                    });
+                                    return false;
+                                });
+        });
+    </script>
 </head>
 <body>
     <h1> jQuery 1.7 이하에서 사용할 때 </h1>
@@ -30,7 +184,3 @@
     </div>
 </body>
 </html>
-
-
-
-

@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+
+        try {
+            var i = 1;
+            i = i * j;  // ❶ 예외 발생
+
+            console.log('정상');
+        }
+        catch( e ) {
+            console.log(e.message);
+        } finally {
+            console.log('처리가 완료되었다.');
+        }
+
+        console.log( i );
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

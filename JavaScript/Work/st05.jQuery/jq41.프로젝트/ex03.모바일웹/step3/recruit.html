@@ -8,9 +8,29 @@
     <link rel="apple-touch-icon-precomposed" href="images/app_icon.png" />
     <link rel="stylesheet" href="common.css">
 
-    
-    
-    
+    <script src="../../../jquery-3.1.1.js"></script>
+    <script src="main.js"></script>
+    <script>
+        $(document).ready(function (e) {
+
+            $('dl.rec_list > dd').hide();
+
+            $('dl.rec_list > dt').click(function (e) {
+
+                var $list = $(this).nextAll();
+                for(var i=0; i<$list.length; i=i+1){
+                    if( $list[i].tagName.toUpperCase() === "DD"){
+                        $($list[i]).show();
+                    }
+                    else if( $list[i].tagName.toUpperCase() === "DT"){
+                        break;
+                    }
+                }
+            });
+
+        });
+
+    </script>
 </head>
 <body>
 
@@ -45,7 +65,3 @@
 
 </body>
 </html>
-
-
-
-

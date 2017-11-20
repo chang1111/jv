@@ -8,8 +8,31 @@
 	  border: 1px solid gray;
 	}
 	</style>
-	
-	
+	<script src='../jquery-3.1.1.js'></script>
+	<script>
+		$(document).ready( function(e) {
+	        $.ajaxSetup({
+	            type:"POST",
+	            url:"http://localhost:3000/login",
+	            dataType : "text",
+	            success: function (msg) {
+	                        $('#message').html(msg);
+	            }
+	        });
+
+		    $('#submit').click(function () {
+		        var username = $('.username').val();
+		        var pwd = $('.passwd').val();
+		        var sendData = 'username=' + username+'&password='+pwd;
+
+
+		        $.ajax({
+		          data: sendData
+		        });
+		        return false;
+		    });
+		});
+	</script>
 </head>
 <body>
     <form>
@@ -23,7 +46,3 @@
   <div id="message"></div>
 </body>
 </html>
-
-
-
-

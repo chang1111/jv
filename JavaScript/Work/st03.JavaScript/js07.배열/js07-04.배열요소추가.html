@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>배열 요소 추가</title>
-    
+    <script>
+        // 배열 리터럴을 이용한 배열 생성
+        var arr = [true, 100, 'eight'];
+        console.log( 'length = ' + arr.length); // (출력값)
+        console.log( arr); // (출력값) undefined
+
+        // 배열 요소 추가
+        arr[60] = null;
+        arr[arr.length] =  {fname: 'mike', lname: 'jone'} ;
+        console.log( 'length = ' + arr.length); // (출력값)
+        console.log( arr);
+
+        // length 값 변경 후. push() 메서드 호출
+        arr.length = 100;
+        arr[arr.length] = 'ten';
+        console.log( 'length = ' + arr.length); // (출력값)
+        console.log( arr);
+
+        // for 문으로 배열 요소 출력하기 : 직접 추가하시오.
+        console.log('for 문 출력');
+        for( var i=0; i<=arr.length-1; i=i+1 ){
+            console.log(i, arr[i] );
+        }
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-
-

@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+<script>
+    // return 문이 있을때 - 결과값 리턴
+    var add = function (x, y) {
+        var result = 0;
 
+        result = x + y;
+        return  result;
+    }
+
+    var result = add( 1, 2);
+    console.log( result );
+
+    // return 문이 없을 때 - undefined 리턴
+    var noreturn  = function (x, y) {
+        var result = 0;
+        resutl = x + y;
+    }
+
+    var result = noreturn ( 1, 2);
+    console.log( result );
+
+    // return 문 없을 때 - 생성 객체 리턴 
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    };
+    var foo = new Person('foo', 30, 'man' );
+    console.log(foo);
+</script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

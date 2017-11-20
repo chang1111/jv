@@ -6,9 +6,37 @@
 <link rel="stylesheet" href="styles/j4d.css"/>
 <link rel="stylesheet" href="qtip2/jquery.qtip.min.css"/>
 
-
-
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="qtip2/jquery.qtip.js"></script>
+<script>
+    $(document).ready(function(){
+        $('a.infobox').each(function(){
+            $(this).qtip({
+                content: {
+                    text: 'Loading...',
+                    ajax: {
+                        url: $(this).attr('href')
+                    },
+                    title: {
+                        text: $(this).attr('title'),
+                        button: true
+                    }
+                },
+                position: {
+                    my: 'top center',
+                    at: 'bottom center',
+                    effect: false,
+                    viewport: $(window)
+                },
+                show: {
+                    event: 'click',
+                    solo: true
+                },
+                hide: 'unfocus'
+            });
+        }).bind('click', function(e){e.preventDefault()});
+    });
+</script>
 </head>
 <body>
 
@@ -47,6 +75,3 @@
 
 </body>
 </html>
-
-
-

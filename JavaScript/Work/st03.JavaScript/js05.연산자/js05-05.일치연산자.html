@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>일치연산자</title>
-    
+    <script>
+        console.log( '5' === 5 ) ; // false
+        console.log( '5' ==  5 ) ; // true
+
+        // equal 연산자는 형변환 후 비교
+        console.log( '3.14E2' == 314   );  // true. 왜냐하면 형변환
+        console.log( '3.14E2' == '314' );  // false
+
+
+        // 일치연산자(===)는 형변환 없이 비교
+        console.log( '1' === 1 );  // false
+
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

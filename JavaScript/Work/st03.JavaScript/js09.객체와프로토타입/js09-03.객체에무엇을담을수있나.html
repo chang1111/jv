@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    
+    <script>
+        var stoog = {
+            fullname : 'J.H',
+            number  : 815,
+            glasses : true,
+
+            array  : [2,4,5,6],
+            depart : {i : 'SD', year: 2016 }, /* 객체 */
+
+            getName : function () { /* 함수 === 메서드 */
+                return this.fullname ;
+            }
+        };
+        console.log( typeof stoog , stoog );
+
+        var fullname = stoog.getName();
+        console.log( fullname );
+
+        for ( var name in stoog ) {
+            if(typeof stoog[name] != 'function' ) {
+                console.log(name+':' + stoog[name]);
+            }
+        }
+
+        for (var name in stoog) {
+            if (typeof stoog[name] == 'object' && stoog[name].hasOwnProperty('length')) {
+                console.log(name + ':' + stoog[name]);
+            }
+        }
+    </script>
 </head>
 <body>
 
 </body>
 </html>
-
-
-

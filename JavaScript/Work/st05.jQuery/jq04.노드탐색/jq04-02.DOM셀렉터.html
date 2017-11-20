@@ -6,8 +6,39 @@
         body { margin:10px; }
         div,span { background: #FFF; padding: 10px; margin: 10px; }
     </style>
-    
-    
+    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
+    <script>
+        var MyApp = {};
+        MyApp.Init = function () {
+            $('*').css('border', '');
+        }
+
+        $(document).ready( function() {
+            $('#children').click(function (event) {
+                MyApp.Init();
+
+                // 기준 노드찾기
+                //$('#siteUrl').css('border', '2px dotted blue'); // 아이디를 이용해서
+                $('div:eq(1) > ul').css('border', '2px dotted blue'); // 태그를 이용해서
+
+                // 자식 노드찾기
+                //$('#siteUrl > li').css('border', '2px solid blue');// 아이디를 이용해서
+                $('div:eq(1) > ul > li').css('border', '2px solid red'); // 태그를 이용해서
+
+            });
+            $('#descendant').click(function (event) {
+                MyApp.Init();
+
+                // 기준 노드찾기
+                //$('#siteUrl').css('border', '2px dotted blue'); // 아이디를 이용해서
+                $('div:eq(1) > ul').css('border', '2px dotted blue'); // 태그를 이용해서
+
+                // 자손 노드찾기
+                //$('#siteUrl  li').css('border', '2px solid blue');// 아이디를 이용해서
+                $('div:eq(1)  ul > li').css('border', '2px solid red'); // 태그를 이용해서
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>DOM Selector</h2>
@@ -50,7 +81,3 @@
     <input id='descendant' type='button' value='자손 li 찾기'>
 </body>
 </html>
-
-
-
-

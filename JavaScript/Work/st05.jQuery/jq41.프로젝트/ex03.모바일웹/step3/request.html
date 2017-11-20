@@ -8,9 +8,38 @@
     <link rel="apple-touch-icon-precomposed" href="images/app_icon.png" />
     <link rel="stylesheet" href="common.css">
 
-    
-    
-    
+    <script src="../../../jquery-3.1.1.js"></script>
+    <script src="main.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            $('.btn_send').click(function (e) {
+
+                var list = $('.req_input, .req_long');
+
+                for( var i=0; i< list.length; i= i+1){
+
+                    if( $( list[i] ).val() === '' ) {
+                        list[i].focus();
+
+                        if( $(list[i]).next().length == 0 ) {
+                            $(list[i]).after('<label>입력하세요</label>');
+                        }
+
+                        return false;
+                    }
+                }
+
+                // submit 호출 : form 의 action 이 실행됨.
+                $('#frm_request').submit();
+            });
+
+            $('.req_input, .req_long').keyup( function (e) {
+                if( $(this).val() !== '') {
+                    $(this).next().remove();
+                }
+            });
+        })
+    </script>
 </head>
 <body>
 
@@ -90,7 +119,3 @@
 
 </body>
 </html>
-
-
-
-
