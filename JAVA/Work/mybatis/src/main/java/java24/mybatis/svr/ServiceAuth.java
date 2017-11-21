@@ -1,4 +1,4 @@
-package jvav24.mybatis.svr;
+package java24.mybatis.svr;
 
 import java24.mybatis.inf.IServiceAuth;
 

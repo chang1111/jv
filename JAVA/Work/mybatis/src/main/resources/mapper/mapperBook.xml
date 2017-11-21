@@ -3,90 +3,158 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.mysql.mapperBook">
-
-    <select id="getCount" parameterType="ModelBook" resultType="int">
-        select count(*) total from book
+    <select id=selectEqual parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+        where 1=1
+        <if test="bookid != null">
+            and bookid = #{bookid}
+        </if>
+        <if test="bookname != null and bookname != ''">
+            and bookname = #{bookname}
+        </if>
+        <if test="publisher != null and publisher != ''">
+            and publisher = #{publisher}
+        </if>
+        <if test="price != null">
+            and price = #{price}
+        </if>
     </select>
 
-    <select id="getMaxBookid" resultType="int">
-        select max(bookid) bookid from book
+    <select id=selectLike parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+        where 1=1
+        <if test="bookname != null and bookname != ''">
+            and bookname like #{bookname}
+        </if>
+        <if test="publisher != null and publisher != ''">
+            and publisher like #{publisher}
+        </if>
     </select>
-
-    <select id="selectAll" parameterType="ModelBook" resultType="ModelBook">
+    
+    <select id=selectAll parameterType="ModelBook" resultType="ModelBook">
         select * from book
     </select>
 
-    <select id="selectLike" parameterType="ModelBook" resultType="ModelBook">
-        select * from book where bookname like #{bookname}
+    <select id=getCount parameterType="ModelBook" resultType="int">
+        select count(*) from book
     </select>
 
-    <select id="selectEqual" parameterType="ModelBook" resultType="ModelBook">
-        select * from book where bookname = #{bookname}
+    <select id=getMaxBookid resultType="int">
+        select max(bookid) from book
     </select>
+
+    <insert id=insertBook parameterType="ModelBook">
+        insert into book(bookname, publisher, year, price, dtm, use_yn, authid)
+        values(#{bookname}, #{publisher}, #{year}, #{price}, #{dtm}, #{use_yn}, #{authid})
+    </insert>
     
-    <insert id="InsertBook" parameterType="ModelBook">
-        insert into book(bookname,    publisher,    year,    price,    dtm,    use_yn,    authid)
-                  values(#{bookname}, #{publisher}, #{year}, #{price}, #{dtm}, #{use_yn}, #{authid})
+    <insert id=insertMap parameterType="java.util.Map">
+        insert into book(bookname, dtm, authid)
+         values(#{bookname}, #{dtm}, #{authid})
     </insert>
-
-    <insert id="InsertMap" parameterType="java.util.Map">
-        insert into book(bookname,    dtm,    authid)
-                  values(#{bookname}, #{dtm}, #{authid})
-    </insert>
-
-    <!-- 두개 이상의 매개변수를 인자로 받는 경우 Map으로 처리 -->
-    <update id="UpdateBook" parameterType="java.util.Map">
+    
+    <update id=updateBook parameterType="java.util.Map">
         update book set
-              bookname  = #{setbook.bookname}
+            bookname = #{setbook.bookname}
+        <if test="setbook.publisher != null and setbook.publisher != ''">
             , publisher = #{setbook.publisher}
-            , year      = #{setbook.year}
-            , price     = #{setbook.price}
-            , use_yn    = #{setbook.use_yn}
-            , authid    = #{setbook.authid}
+        </if>
+        <if test="setbook.year != null and setbook.year != ''">
+            , year = #{setbook.year}
+        </if>
+        <if test="setbook.price != null">
+            , price = #{setbook.price}
+        </if>
+        <if test="setbook.dtm != null">
+            , dtm = #{setbook.dtm}
+        </if>
+        <if test="setbook.use_yn != null">
+            , use_yn = #{setbook.use_yn}
+        </if>
+        <if test="setbook.authid != null">
+            , authid = #{setbook.authid}
+        </if>
         where 1=1
         <if test="wherebook.bookid != null">
-            and bookid    = #{wherebook.bookid}
+            and bookid = #{wherebook.bookid}
         </if>
         <if test="wherebook.bookname != null and wherebook.bookname != ''">
-            and bookname  = #{wherebook.bookname}
+            and bookname = #{wherebook.bookname}
+        </if>
+        <if test="wherebook.publisher != null and wherebook.publisher != ''">
+            and publisher = #{wherebook.publisher}
+        </if>
+        <if test="wherebook.year != null and wherebook.year != ''">
+            and year = #{wherebook.year}
+        </if>
+        <if test="wherebook.price != null">
+            and price = #{wherebook.price}
+        </if>
+        <if test="wherebook.dtm != null">
+            and dtm = #{wherebook.dtm}
+        </if>
+        <if test="wherebook.use_yn != null">
+            and use_yn = #{wherebook.use_yn}
+        </if>
+        <if test="wherebook.authid != null">
+            and authid = #{wherebook.authid}
         </if>
     </update>
 
     <delete id="deleteBook" parameterType="ModelBook">
-        delete from book where 1=1
-        <if test="bookid != null and bookid > 0">
-            and bookid    = #{bookid}
+        delete from book
+        <if test="bookid != null">
+            and bookid = #{bookid}
         </if>
         <if test="bookname != null and bookname != ''">
-            and bookname  = #{bookname}
+            and bookname = #{bookname}
+        </if>
+        <if test="publisher != null and publisher != ''">
+            and publisher = #{publisher}
+        </if>
+        <if test="year != null and year != ''">
+            and year = #{year}
+        </if>
+        <if test="price != null">
+            and price = #{price}
+        </if>
+        <if test="dtm != null">
+            and dtm = #{dtm}
+        </if>
+        <if test="use_yn != null">
+            and use_yn = #{use_yn}
+        </if>
+        <if test="authid != null">
+            and authid = #{authid}
         </if>
     </delete>
 
-    <select id="selectDynamic" parameterType="ModelBook" resultType="ModelBook">
-        select * from book where 1=1
-        <if test="bookid != null and bookid > 0">
+    <select id=selectDynamic parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+        where 1=1
+        <if test="bookid != null">
             and bookid = #{bookid}
-        </if> 
+        </if>
         <if test="bookname != null and bookname != ''">
-            and bookname  = #{bookname}
+            and bookname = #{bookname}
         </if>
         <if test="publisher != null and publisher != ''">
-            and publisher  = #{publisher}
+            and publisher = #{publisher}
         </if>
-        <if test="year != null and year = ''">
-            and year  = #{year}
+        <if test="year != null and year != ''">
+            and year = #{year}
         </if>
-        <if test="price != null and price > 0">
-            and price  = #{price}
+        <if test="price != null">
+            and price = #{price}
         </if>
         <if test="dtm != null">
-            and dtm  = #{dtm}
+            and dtm = #{dtm}
         </if>
         <if test="use_yn != null">
-            and use_yn  = #{use_yn}
+            and use_yn = #{use_yn}
         </if>
         <if test="authid != null">
-            and authid  = #{authid}
+            and authid = #{authid}
         </if>
     </select>
 </mapper>

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <p>
-        <a href="http://www.w3school.com">w3school </a>
-    </p>
+    <h2>a 태그로 외부 페이지 연결하기 실습</h2>
+    <ul>
+        <li><a href="https://www.w3schools.com/">w3schools</a></li>
+        <li><a href="https://www.google.co.kr/">google</a></li>
+        <li><a href="https://www.naver.com/" target="_blank">naver[새창으로 열기]</a></li>
+    </ul>
+    <hr>
 
-    <a href="http://www.naver.com" target="_blank">naver blank</a>
-    
-    <a href="kor.html"> <img src="images/kor.png" width="50%" height="50%"></a>
-    <a href="eng.html" target="_blank"> <img src="images/eng.png"> </a>
+    <h2>a 태그로 내부 페이지 연결하기 실습</h2>
+    <p><a href="kor.html">한글페이지</a></p>
+    <p><a href="eng.html">영어페이지</a></p>
+    <hr>
 
-    <a href="kor.html" target="_blank"> <p>한글페이지</p> </a>
-    <a href="eng.html" target="_blank" title="툴팁 테스트"> <p><strong>영어페이지</strong></p> </a>
+    <h2>이미지에 클릭시 a 태그로 내부 페이지 연결하기 실습</h2>
+    <a href="kor.html"><img src="../images/kor.png"></a>
+    <a href="eng.html"><img src="../images/eng.png"></a>
+    <hr>
+
+    <h2>a 태그로 이메일 연결하기 실습</h2>
+    email : <a href="mailto:aa@aa.co.kr">aa@aa.co.kr</a>
 
 </body>
 </html>
