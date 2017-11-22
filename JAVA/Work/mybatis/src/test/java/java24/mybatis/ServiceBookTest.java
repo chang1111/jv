@@ -94,11 +94,10 @@ public class ServiceBookTest {
     
     @Test
     public void testInsertMap() throws Exception {
-        ModelBook book = new ModelBook();
-        book.setBookname("photoshop");
-        book.setDtm(java.sql.Date.valueOf("2007-02-01"));
-        book.setAuthid(10);
-        int rs = service.insertMap(book.getBookname(), book.getDtm(), book.getAuthid());
+        String bookname = "photoshop";
+        java.util.Date dtm = java.sql.Date.valueOf("2007-02-01");
+        Integer authid =10;
+        int rs = service.insertMap(bookname, dtm, authid);
         assertTrue(rs >= 1);
     }
     
