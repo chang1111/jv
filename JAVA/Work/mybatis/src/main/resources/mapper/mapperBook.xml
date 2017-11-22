@@ -2,8 +2,38 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.mysql.mapperBook">
-    <select id=selectEqual parameterType="ModelBook" resultType="ModelBook">
+<mapper namespace="mapper.mapperBook">
+    <select id="getCount" parameterType="ModelBook" resultType="int">
+        select count(*) from book
+        where 1=1
+        <if test="bookname != null and bookname != ''">
+            and bookname like #{bookname}
+        </if>
+        <if test="publisher != null and publisher != ''">
+            and publisher like #{publisher}
+        </if>
+    </select>
+
+    <select id="getMaxBookid" resultType="int">
+        select max(bookid) from book
+    </select>
+
+    <select id="selectAll" parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+    </select>
+
+    <select id="selectLike" parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+        where 1=1
+        <if test="bookname != null and bookname != ''">
+            and bookname like concat('%', #{bookname}, '%')
+        </if>
+        <if test="publisher != null and publisher != ''">
+            and publisher like concat('%', #{publisher}, '%')
+        </if>
+    </select>
+    
+    <select id="selectEqual" parameterType="ModelBook" resultType="ModelBook">
         select * from book
         where 1=1
         <if test="bookid != null">
@@ -20,42 +50,21 @@
         </if>
     </select>
 
-    <select id=selectLike parameterType="ModelBook" resultType="ModelBook">
-        select * from book
-        where 1=1
-        <if test="bookname != null and bookname != ''">
-            and bookname like #{bookname}
-        </if>
-        <if test="publisher != null and publisher != ''">
-            and publisher like #{publisher}
-        </if>
-    </select>
-    
-    <select id=selectAll parameterType="ModelBook" resultType="ModelBook">
-        select * from book
-    </select>
-
-    <select id=getCount parameterType="ModelBook" resultType="int">
-        select count(*) from book
-    </select>
-
-    <select id=getMaxBookid resultType="int">
-        select max(bookid) from book
-    </select>
-
-    <insert id=insertBook parameterType="ModelBook">
+    <insert id="insertBook" parameterType="ModelBook" useGeneratedKeys="true" keyProperty="bookid">
         insert into book(bookname, publisher, year, price, dtm, use_yn, authid)
         values(#{bookname}, #{publisher}, #{year}, #{price}, #{dtm}, #{use_yn}, #{authid})
     </insert>
     
-    <insert id=insertMap parameterType="java.util.Map">
+    <insert id="insertMap" parameterType="java.util.Map">
         insert into book(bookname, dtm, authid)
          values(#{bookname}, #{dtm}, #{authid})
     </insert>
     
-    <update id=updateBook parameterType="java.util.Map">
-        update book set
-            bookname = #{setbook.bookname}
+    <update id="updateBook" parameterType="java.util.Map">
+        update book set bookid = bookid
+        <if test="setbook.bookname != null and setbook.bookname != ''">
+            ,bookname = #{setbook.bookname}
+        </if>
         <if test="setbook.publisher != null and setbook.publisher != ''">
             , publisher = #{setbook.publisher}
         </if>
@@ -103,6 +112,7 @@
 
     <delete id="deleteBook" parameterType="ModelBook">
         delete from book
+        where 1=1
         <if test="bookid != null">
             and bookid = #{bookid}
         </if>
@@ -129,7 +139,7 @@
         </if>
     </delete>
 
-    <select id=selectDynamic parameterType="ModelBook" resultType="ModelBook">
+    <select id="selectDynamic" parameterType="ModelBook" resultType="ModelBook">
         select * from book
         where 1=1
         <if test="bookid != null">

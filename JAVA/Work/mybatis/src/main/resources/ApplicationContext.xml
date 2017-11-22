@@ -58,7 +58,7 @@
     <!-- SessionFactory 설정 :: MyBatis가 사용할 Database에 연결하도록 설정 -->
     <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <beans:property name="dataSource"         ref="dataSource" />
-        <!-- <beans:property name="configLocation"     value="classpath:Configuration.xml" /> -->
+        <beans:property name="configLocation"     value="classpath:Configuration.xml" />
         
         <!-- mybatis 디렉토리에 xml 파일만 추가해주면 알아서 xml내의 쿼리 자동 인식 -->
         <!-- <beans:property name="mapperLocations"    value="classpath*:mybatis/**/mapper*.xml" />  -->
