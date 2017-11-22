@@ -66,13 +66,15 @@ public class DaoBook implements IBook {
 
     @Override
     public int insertMap(String bookname, Date dtm, int authid) throws Exception {
-        int result = -1;
+//        int result = -1;
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("bookname", bookname);
         map.put("dtm", dtm);
         map.put("authid", authid);
-        result = session.insert("mapper.mapperBook.insertMap", map);
-        return result;
+        map.put("bookid", -1);
+//        result =
+        session.insert("mapper.mapperBook.insertMap", map);
+        return (int)map.get("bookid");
     }
 
     @Override

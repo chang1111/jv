@@ -98,6 +98,7 @@ public class ServiceBookTest {
         java.util.Date dtm = java.sql.Date.valueOf("2007-02-01");
         Integer authid =10;
         int rs = service.insertMap(bookname, dtm, authid);
+        assertEquals(10, rs);
         assertTrue(rs >= 1);
     }
     
