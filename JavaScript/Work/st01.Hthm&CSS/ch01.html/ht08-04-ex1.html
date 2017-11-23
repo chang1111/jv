@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>회원 가입</title>
+    <title>예약 접수</title>
     <style>
         ul {
             list-style:none;
@@ -18,10 +18,23 @@
 </head>
 <body>
     <h1>예약 정보</h1>
-    <ul>
-        <li><label>이 름</label><input type="text" name="name"></li>
-        <li><label>휴대폰</label><input type="tel" name="tel"></li>
-        <li><label>이메일</label><input type="email" name="email"></li>
-    </ul>
+    <form>
+        <ul>
+            <li>
+                <label for="r-name">이 름</label>
+                <input type="text" id="r-name">
+            </li>
+            <li>
+                <label for="r-phone">휴대폰</label>
+                <input type="tel" id="r-phone">
+            </li>
+            <li>
+                <label for="r-email">이메일</label>
+                <input type="email" id="r-email">
+            </li>
+            <li>
+                <input type="button" value="예약하기">
+        </ul>
+    </form>
 </body>
 </html>

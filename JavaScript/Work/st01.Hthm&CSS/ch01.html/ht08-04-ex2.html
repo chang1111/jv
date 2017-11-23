@@ -2,11 +2,66 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <style></style>
-    <script></script>
+    <title>Title</title>
+    <style type="text/css">
+        label {width: 100px; display: inline-block; vertical-align:top; }
+        div {display:table; margin-left:auto; margin-right:auto; }
+    </style>
 </head>
 <body>
+    <h1>상품 주문서</h1>
+    <form action="" method="" enctype="">
+
+        <!-- 개인 정보 -->
+        <fieldset>
+            <legend>개인 정보</legend>
+            <dl>
+                <dd><label>이름 </label><input type="text" name="name"></dd>
+                <dd><label>연락처 </label><input type="number" name=""></dd>
+            </dl>
+        </fieldset>
+
+        <!-- 배송지 정보 -->
+        <fieldset>
+            <legend>배송지 정보</legend>
+            <dl>
+                <dd><label>주소 </label>
+                    <input type="text" name="addr" style="width:250px">
+                </dd>
+                <dd><label>전화번호 </label>
+                    <input type="number" name="phone">
+                </dd>
+                <dd><label>메 모 </label>
+                    <textarea name="memo" cols="20"></textarea>
+                </dd>
+            </dl>
+        </fieldset>
+
+        <!-- 주문 정보 -->
+        <fieldset>
+            <legend>주문 정보</legend>
+            <dl>
+                <dd><input type="checkbox" name="box1">
+                    과테말라 안티구아 (100g) <input type="number" name="p1">개
+                </dd>
+                <dd><input type="checkbox" name="box2">
+                    인도네시아 만텔링 (100g) <input type="number" name="p1">개
+                </dd>
+                <dd><input type="checkbox" name="box3">
+                    탐라는도다(블렌딩) (100g) <input type="number" name="p1">개
+                </dd>
+            </dl>
+        </fieldset>
+
+
+        <!-- 주문하기 -->
+        <div>
+            <input type="submit" name="" value="주문하기">
+            <!-- 다시작성 : form 입력 값 초기화  -->
+            <input type="reset" name="" value="다시 작성">
+        </div>
+
+    </form>
 
 </body>
 </html>

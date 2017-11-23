@@ -5,13 +5,6 @@
 <mapper namespace="mapper.mapperBook">
     <select id="getCount" parameterType="ModelBook" resultType="int">
         select count(*) from book
-        where 1=1
-        <if test="bookname != null and bookname != ''">
-            and bookname like #{bookname}
-        </if>
-        <if test="publisher != null and publisher != ''">
-            and publisher like #{publisher}
-        </if>
     </select>
 
     <select id="getMaxBookid" resultType="int">

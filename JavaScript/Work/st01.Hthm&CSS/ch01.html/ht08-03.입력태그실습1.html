@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        label { width:60px; display:inline-block; }
+    </style>
 </head>
 <body>
-    <!-- form 태그 필요 속성 3가지 추가. -->
-    <form action="" method="" enctype="">
-        <fieldset>
-            <legend>입력 양식</legend>
-            <ul>
-                <li>
-                    <label>이름 : <input type="text" name="name"></label>
-                </li>
-                <li>
-                    <label>이메일 : <input type="text" name="email"></label>
-                </li>
-                <input type="submit" value="전송">
+<!-- fieldset & legend -->
+<!-- form 태그 필요 속성 3가지 추가. -->
+<form action="" method="" enctype="">
+<fieldset>
+    <legend>입력 양식</legend>
+    <ul>
+        <li>
+            <label>이름: </label>
+            <input type="text" name="name">
+        </li>
+        <li>
+            <label>이메일: </label>
+            <input type="text" name="email">
+        </li>
+        <input type="submit" name="" value="쿼리 전송">
+    </ul>
+</fieldset>
 
-            </ul>
-        </fieldset>
-
-
-
-    </form>
+</form>
 
 </body>
 </html>

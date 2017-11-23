@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
-        label { width:120px; display:inline-block;}
+        label { width:120px; display:inline-block; }
     </style>
 </head>
 <body>
     <!-- form 태그 필요 속성 3가지 추가. -->
-    <form>
+    <form action="" method="" enctype="">
 
         <!-- 로그인 -->
         <fieldset>
@@ -17,18 +17,18 @@
             <ul>
                 <li>
                     <label>아이디: </label>
-                    <input type="text" name="log_id">
+                    <input type="text" name="id">
                 </li>
                 <li>
                     <label>패스워드: </label>
-                    <input type="password" name="log_pw">
+                    <input type="password" name="password">
                 </li>
             </ul>
         </fieldset>
 
         <!-- 회원가입 -->
         <fieldset>
-            <legend>회원가입</legend>
+            <legend>회원 가입</legend>
             <ul>
                 <li>
                     <label>아이디: </label>
@@ -52,59 +52,69 @@
                 </li>
                 <li>
                     <label>전화번호: </label>
-                    <input type="number" name="phone">
+                    <input type="number" name="tel">
                 </li>
                 <li>
                     <label>생년월일: </label>
-                    <input type="date" name="birth">
+                    <input type="date" name="birthday">
                 </li>
             </ul>
         </fieldset>
 
         <!-- 수강신청 -->
         <fieldset>
-            <legend>수강신청</legend>
-            신청과목 : radio
+            <legend>수강 신청</legend>
             <ul>
                 <li>
-                    <label>영어초급: </label>
+                    <label>영어 초급:</label>
                     <input type="radio" name="영어">
                 </li>
                 <li>
-                    <label>영어중급: </label>
+                    <label>영어 중급:</label>
                     <input type="radio" name="영어">
                 </li>
                 <li>
-                    <label>영어고급: </label>
+                    <label>영어 고급:</label>
                     <input type="radio" name="영어">
                 </li>
             </ul>
             <ol>
                 <li>
-                    <label>영어초급: </label>
-                    <input type="checkbox" name="초급">
+                    <label>영어 초급:</label>
+                    <input type="chechbox" name="영어초급">
                 </li>
                 <li>
-                    <label>영어중급: </label>
-                    <input type="checkbox" name="중급">
+                    <label>영어 중급:</label>
+                    <input type="chechbox" name="영어중급">
                 </li>
+
                 <li>
-                    <label>영어고급: </label>
-                    <input type="checkbox" name="고급">
+                    <label>영어 고급:</label>
+                    <input type="chechbox" name="영어고급">
                 </li>
             </ol>
         </fieldset>
 
         <!-- selec박스 -->
         <fieldset>
-            <legend>selec박스</legend>
+            <legend>select 박스</legend>
             <ul>
                 <li>
-                    <label>학과: </label>
+                    <label>학과 : </label>
                     <select>
-                        <option>건축과</option>
-                        <option>컴퓨터</option>
-                        <option>수학과</option>
+                        <optgroup label="공과대학">
+                            <option value="archi">건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                            <option value="computer">컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="history">사학과</option>
+                            <option value="lang">어문학부</option>
+                            <option value="philo">철학</option>
+                        </optgroup>
                     </select>
                 </li>
             </ul>

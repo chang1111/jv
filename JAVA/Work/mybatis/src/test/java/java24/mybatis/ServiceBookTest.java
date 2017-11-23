@@ -27,7 +27,7 @@ public class ServiceBookTest {
     @Test
     public void testGetCount() throws Exception {
         ModelBook book = new ModelBook();
-        int rs = service.getCount(null);
+        int rs = service.getCount(book);
         assertEquals(4, rs);
     }
     
@@ -53,7 +53,7 @@ public class ServiceBookTest {
         assertEquals("java", rs.get(2).getBookname());
         assertEquals("hall", rs.get(2).getPublisher());
         assertEquals("2013", rs.get(2).getYear());
-
+        assertEquals(4, rs.size());
     }
     
     @Test
@@ -69,6 +69,7 @@ public class ServiceBookTest {
         assertEquals("java", rs.get(1).getBookname());
         assertEquals("hall", rs.get(1).getPublisher());
         assertEquals("2013", rs.get(1).getYear());
+        assertEquals(2, rs.size()); 
     }
     
     @Test
@@ -80,6 +81,7 @@ public class ServiceBookTest {
         assertEquals("mysql", rs.get(0).getBookname());
         assertEquals("oreilly", rs.get(0).getPublisher());
         assertEquals("2009", rs.get(0).getYear());
+        assertEquals(1, rs.size());
     }
     
     @Test
@@ -132,6 +134,6 @@ public class ServiceBookTest {
         assertEquals(new Integer(2), rs.get(0).getBookid());
         assertEquals("mysql", rs.get(0).getBookname());
         assertEquals("oreilly", rs.get(0).getPublisher());
+        assertEquals(1, rs.size());
     }
-    
 }
