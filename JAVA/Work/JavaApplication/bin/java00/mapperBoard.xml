@@ -20,29 +20,7 @@
         SELECT boardcd, boardnm, UseYN, InsertUID, InsertDT, UpdateUID, UpdateDT
           FROM TB_Bbs_Board
         ORDER BY boardnm
-    </select>         
-          
-    <!--  
-    <select id="getBoardListResultMap" resultType="ModelBoard">
-        SELECT * 
-          FROM TB_Bbs_Board 
-    </select>
-    
-    <resultMap id="bbsResultMap" type="java.util.HashMap">
-        <id property="boardcd"       column="boardcd" />
-        <result property="boardnm"   column="boardnm" />
-        <result property="UseYN"     column="UseYN" />
-        <result property="InsertUID" column="InsertUID" />
-        <result property="InsertDT"  column="InsertDT" />
-        <result property="UpdateUID" column="UpdateUID" />
-        <result property="UpdateDT"  column="UpdateDT" />
-    </resultMap>
-    
-    <select id="getBoardCustomMap" resultMap="bbsResultMap">
-        SELECT * 
-          FROM TB_Bbs_Board 
-    </select>
-    -->
+    </select> >
         
     <insert id="insertBoard" parameterType="ModelBoard">
         INSERT INTO 
@@ -105,7 +83,7 @@
             </if>
     </select>
     
-    <select id="getBoardPaging"  parameterType="hashmap"  resultType="ModelBoard">
+    <select id="getBoardPaging"  parameterType="java.util.Map"  resultType="ModelBoard">
         SELECT boardcd, boardnm, UseYN
         FROM (
             SELECT @RNUM := @RNUM + 1 AS r, a.* 
@@ -143,7 +121,7 @@
             </foreach>
     </insert>
     
-    <select id="getArticleTotalRecord" parameterType="hashmap" resultType="int">
+    <select id="getArticleTotalRecord" parameterType="java.util.Map" resultType="int">
         SELECT count(*) FROM TB_BBS_Article 
          WHERE boardcd = #{boardcd}
             <if test="searchWord != null and searchWord != ''">
@@ -151,7 +129,7 @@
             </if>
     </select>   
 
-    <select id="getArticleList" parameterType="hashmap" resultType="ModelArticle">
+    <select id="getArticleList" parameterType="java.util.Map" resultType="ModelArticle">
         SELECT articleno, title, regdate, hit, attachfileNum, commentNum 
         FROM (
             SELECT @RNUM := @RNUM + 1 AS r, a.* 
@@ -191,13 +169,13 @@
             VALUES     ( #{boardcd}, #{title}, #{content}, #{email}, 0  , #{regdate}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT}  )
     </insert>   
     
-    <update id="updateArticle" parameterType="hashmap">
+    <update id="updateArticle" parameterType="java.util.Map">
         UPDATE TB_BBS_Article 
            SET title     = #{updateValue.title}
              , content   = #{updateValue.content} 
-             , UseYN     = #{updateValue.UseYN    , jdbcType=BOOLEAN}
-             , UpdateUID = #{updateValue.UpdateUID, jdbcType=VARCHAR}
-             , UpdateDT  = #{updateValue.UpdateDT , jdbcType=DATE   }
+             , UseYN     = #{updateValue.UseYN    }
+             , UpdateUID = #{updateValue.UpdateUID}
+             , UpdateDT  = #{updateValue.UpdateDT }
          WHERE  1 = 1 
               <if test="searchValue.boardcd != null and searchValue.boardcd != ''" >
               AND boardcd    = #{searchValue.boardcd}
@@ -239,7 +217,7 @@
          WHERE articleno=#{articleno}
     </update>
     
-    <select id="getNextArticle" parameterType="hashmap" resultType="ModelArticle">
+    <select id="getNextArticle" parameterType="java.util.Map" resultType="ModelArticle">
         SELECT articleno, title
         FROM
         (
@@ -259,7 +237,7 @@
         WHERE r = 1
     </select>
     
-    <select id="getPrevArticle" parameterType="hashmap" resultType="ModelArticle">
+    <select id="getPrevArticle" parameterType="java.util.Map" resultType="ModelArticle">
         SELECT articleno, title
         FROM
         (
@@ -337,7 +315,7 @@
                              VALUES ( #{articleno}, #{email}, #{memo}, #{regdate}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
     </insert>
     
-    <update id="updateComment" parameterType="hashmap">
+    <update id="updateComment" parameterType="java.util.Map">
         UPDATE TB_BBS_Comments 
            SET memo      = #{updateValue.memo   } 
              , regdate   = #{updateValue.regdate} 

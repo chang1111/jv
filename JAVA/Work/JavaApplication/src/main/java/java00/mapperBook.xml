@@ -2,41 +2,71 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.mysql.mapperBook">
+<mapper namespace="mapper.mapperBook">
 
-    <select id="selectAll" resultType="ModelBook" >
+    <select id="getCount" parameterType="ModelBook" resultType="int">
+        select count(*) total 
+          from book 
+         where 1 = 1
+    </select>
+    
+    <select id="getMaxBookid" resultType="int">
+        select max(bookid) bookid from book
+    </select>
+    
+    <select id="selectAll"  parameterType="ModelBook" resultType="ModelBook">
         SELECT * FROM book ORDER BY bookid ASC
     </select>
     
-    <select id="selectLike" parameterType="String" resultType="ModelBook">
-        SELECT * FROM book where bookname like #{bookname}
+    <select id="selectLike"  parameterType="ModelBook" resultType="ModelBook">
+        select * from book 
+         where bookname like #{ bookname }
     </select>
     
-    <select id="selectEqual" parameterType="String" resultType="ModelBook">
+    <select id="selectEqual" parameterType="ModelBook" resultType="ModelBook" >
         SELECT * FROM book where bookname = #{bookname}
     </select>
     
-    <insert id="insert" parameterType="ModelBook" >
-        INSERT INTO BOOK(  BOOKNAME  ,PUBLISHER   ,YEAR   ,PRICE   ,DTM   ,USE_YN   ,AUTHID)
-                  VALUES( #{bookname},#{publisher},#{year},#{price},#{dtm},#{use_yn},#{authid} )
+    <insert id="insertBook" parameterType="ModelBook">
+        INSERT INTO BOOK(   bookname ,   publisher ,   year ,   price ,   dtm ,   use_yn ,   authid  )
+                  VALUES( #{bookname}, #{publisher}, #{year}, #{price}, #{dtm}, #{use_yn}, #{authid} )
     </insert>
-        
-    <update id="update" parameterType="hashmap" >
-         UPDATE BOOK
-            SET BOOKNAME    = #{updateValue.bookname}
-              , PUBLISHER   = #{updateValue.publisher}
-              , YEAR        = #{updateValue.year}
-              , PRICE       = #{updateValue.price}
-              , DTM         = #{updateValue.dtm}
-              , USE_YN      = #{updateValue.use_yn}
-              , AUTHID      = #{updateValue.authid}
-            WHERE 1 = 1 
-              <if test="searchValue.bookid != null" >
-              AND BOOKID    = #{searchValue.bookid}
-              </if>
-              <if test="searchValue.bookname != null">
-              AND BOOKNAME  = #{searchValue.bookname}
-              </if>
+    
+    <!-- 두개 이상의 매개변수를 인자로 받는 경우 map으로 처리해야 한다. -->
+    <insert id="insertMap" parameterType="java.util.Map">
+        INSERT INTO BOOK(   bookname ,   dtm ,   authid  )
+                  VALUES( #{bookname}, #{dtm}, #{authid} )
+    </insert>
+    
+    <!-- 두개 이상의 매개변수를 인자로 받는 경우 map으로 처리해야 한다. -->
+    <update id="updateBook" parameterType="java.util.Map">
+        update book
+           set  bookname  = #{ setbook.bookname  } 
+              , publisher = #{ setbook.publisher } 
+              , year      = #{ setbook.year      } 
+              , price     = #{ setbook.price     } 
+              , dtm       = #{ setbook.dtm       } 
+              , use_yn    = #{ setbook.use_yn    } 
+              , authid    = #{ setbook.authid    } 
+          where 1 = 1
+            <if test=" wherebook.bookid != null">
+            and bookid    = #{ wherebook.bookid   }
+            </if>
+            <if test=" wherebook.bookname != null and wherebook.bookname != '' ">
+            and bookname  = #{ wherebook.bookname } 
+            </if> 
     </update>
+    
+    <delete id="deleteBook" parameterType="ModelBook">
+        delete from book
+         where 1 = 1
+           <if test=" bookid != null ">
+           and bookid    = #{ bookid   }
+           </if>
+           <if test=" bookname != null and bookname != '' ">
+           and bookname  = #{ bookname } 
+           </if>
+    </delete>
+    
     
 </mapper>

@@ -9,7 +9,7 @@
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
     
-    <!-- Model 클래스를 등록한다. -->
+    <!-- Model 클래스의 패키지명을 등록한다. -->
     <typeAliases>
         <package name="java23.mybatis.model" />
     </typeAliases>
