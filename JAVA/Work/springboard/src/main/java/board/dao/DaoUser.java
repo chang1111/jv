@@ -27,8 +27,9 @@ public class DaoUser implements IUser {
     
     @Override
     public List<ModelUser> login(ModelUser user) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        List<ModelUser> result = null;
+        result = session.selectList("mapper.mapperUser.login",user);
+        return result;
     }
     
     @Override

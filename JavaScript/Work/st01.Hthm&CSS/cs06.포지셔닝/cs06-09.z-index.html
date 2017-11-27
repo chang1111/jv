@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>z-index 속성</title>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+        }
+        .b1 {
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            z-index: 1;
+        }
+        .b2 {
+            background-color: orange;
+            position: absolute;
+            left: 100px;
+            top: 70px;
+            z-index: 3;
+        }
+        .b3 {
+            background-color: blue;
+            position: absolute;
+            left: 70px;
+            top: 100px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="box" class="b1">1</div>
+        <div id="box" class="b2">2</div>
+        <div id="box" class="b3">3</div>
+    </div>
+</body>
+</html>

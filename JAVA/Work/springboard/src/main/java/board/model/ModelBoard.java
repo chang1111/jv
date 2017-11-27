@@ -3,13 +3,13 @@ package board.model;
 import java.util.Date;
 
 public class ModelBoard {
-    private String  boardcd   = ""  ;  // boardcd` VARCHAR(20) NOT NULL,
-    private String  boardnm   = ""  ;  // boardnm` VARCHAR(40) NOT NULL,
-    private Boolean UseYN     = null;  // UseYN` TINYINT(1) NULL DEFAULT '1',
-    private String  InsertUID = ""  ;  // InsertUID` VARCHAR(40) NULL DEFAULT NULL,
-    private Date    InsertDT  = null;  // InsertDT` DATETIME NULL DEFAULT NULL,
-    private String  UpdateUID = ""  ;  // UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
-    private Date    UpdateDT  = null;  // UpdateDT` DATETIME NULL DEFAULT NULL,
+    private String  boardcd   = ""  ;  //  `boardcd` VARCHAR(20) NOT NULL,
+    private String  boardnm   = ""  ;  //  `boardnm` VARCHAR(40) NOT NULL,
+    private Integer UseYN     = null;  //  `UseYN` TINYINT(1) NULL DEFAULT '1',
+    private String  InsertUID = ""  ;  //  `InsertUID` VARCHAR(40) NULL DEFAULT NULL,
+    private Date    InsertDT  = null;  //  `InsertDT` DATETIME NULL DEFAULT NULL,
+    private String  UpdateUID = ""  ;  //  `UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
+    private Date    UpdateDT  = null;  //  `UpdateDT` DATETIME NULL DEFAULT NULL,
     
     public ModelBoard() {
         super();
@@ -31,11 +31,11 @@ public class ModelBoard {
         this.boardnm = boardnm;
     }
 
-    public Boolean getUseYN() {
+    public Integer getUseYN() {
         return UseYN;
     }
 
-    public void setUseYN(Boolean useYN) {
+    public void setUseYN(Integer useYN) {
         UseYN = useYN;
     }
 
@@ -78,6 +78,5 @@ public class ModelBoard {
                 + ", InsertDT=" + InsertDT + ", UpdateUID=" + UpdateUID
                 + ", UpdateDT=" + UpdateDT + "]";
     }
-    
     
 }

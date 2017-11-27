@@ -12,28 +12,31 @@ public interface IBoard {
     List<ModelBoard> getBoardOne(String boardcd) throws Exception;
     List<ModelBoard> getBoardList() throws Exception;
     int insertBoard(ModelBoard board) throws Exception;
-    int updateBoard(ModelBoard searchValue, ModelBoard updateValue) throws Exception;
+    int updateBoard(ModelBoard whereValue, ModelBoard setValue) throws Exception;
     int deleteBoard(ModelBoard board) throws Exception;
     List<ModelBoard> getBoardSearch(ModelBoard board) throws Exception;
     int getBoardTotalRecord(String boardcd, String searchWord) throws Exception;
-    List<ModelBoard> getBoardPaging(String boardcd, String SearchWord, Integer start, Integer end) throws Exception;
-    int insertBoardList(String boardcd, String boardnm, Boolean UseYN); //asdasdasd
-
-    int getArticleTotalRecord(String boardcd, String searchWord);
-    List<ModelArticle> getArticleList(String boardcd, String searchWord, Integer start, Integer end);
-    List<ModelArticle> getArticle(Integer articleno);
-    int insertArticle(ModelArticle article);
-    int updateArticle(ModelArticle searchValue, ModelArticle updateValue);
-    int deleteArticle(ModelArticle article);
-    int increaseHit(Integer articleno);
-    List<ModelArticle> getNextArticle(String boardcd, Integer articleno, String searchWord);
-    List<ModelArticle> getPrevArticle(String boardcd, Integer articleno, String searchWord);
-
-    List<ModelAttachFile> getAttachFile(Integer attachFileNo);
-    List<ModelAttachFile> getAttachFileList(Integer articleno);
-    int insertAttachFile(ModelAttachFile attachfile);
-    int deleteAttachFile(ModelAttachFile attachfile);
-    int insertComment(ModelComments comments);
-    int updateComment(ModelComments searchValue, ModelComments updateValue);
-    int deleteComment(ModelComments comments);
+    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, Integer start, Integer end) throws Exception;
+    int insertBoardList(List<ModelBoard> item) throws Exception;
+    
+    int getArticleTotalRecord(String boardcd, String searchWord) throws Exception;
+    List<ModelArticle> getArticleList(String boardcd, String searchWord, Integer start, Integer end) throws Exception;
+    List<ModelArticle> getArticle(Integer articleno) throws Exception;
+    int insertArticle(ModelArticle article) throws Exception;
+    int updateArticle(ModelArticle whereValue, ModelArticle setValue) throws Exception;
+    int deleteArticle(ModelArticle article) throws Exception;
+    int increaseHit(Integer articleno) throws Exception;
+    List<ModelArticle> getNextArticle(String boardcd, Integer articleno, String searchWord) throws Exception;
+    List<ModelArticle> getPrevArticle(String boardcd, Integer articleno, String searchWord) throws Exception;
+    
+    List<ModelAttachFile> getAttachFile(Integer attachfileno) throws Exception;
+    List<ModelAttachFile> getAttachFileList(Integer articleno) throws Exception;
+    int insertAttachFile(ModelAttachFile attachfile) throws Exception;
+    int deleteAttachFile(ModelAttachFile attachfile) throws Exception;
+    
+    List<ModelComments> getComment(Integer commentno) throws Exception;
+    List<ModelComments> getCommentList(Integer articleno) throws Exception;
+    int insertComment(ModelComments comments) throws Exception;
+    int updateComment(ModelComments whereValue, ModelComments setValue) throws Exception;
+    int deleteComment(ModelComments comments) throws Exception;
 }

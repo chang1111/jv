@@ -3,15 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>display 속성</title>
+        <style type="text/css">
+            div {
+                display: inline;
+                float: left;
+                width: 100px;
+                height: 100px;
+                margin: 10px 5px;
+                padding: 5px;
+                border: 2px solid black;
+            }
+            .ex1 { background-color: lightblue; }
+            .ex2 { background-color: lightgreen; }
+            .ex3 { background-color: lightyellow; }
+        </style>
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="#">메뉴1</a></li>
-                <li><a href="#">메뉴2</a></li>
-                <li><a href="#">메뉴3</a></li>
-                <li><a href="#">메뉴4</a></li>
-            </ul>
-        </nav>
+        <div class="ex1">첫번째</div>
+        <div class="ex2">두번째</div>
+        <div class="ex3">세번째</div>
     </body>
 </html>

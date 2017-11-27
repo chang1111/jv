@@ -4,7 +4,7 @@
 
 <mapper namespace="mapper.mapperUser">
     
-	<insert id="insertUser" parameterType="ModelUser" resultType="int">
+	<insert id="insertUser" parameterType="ModelUser">
 	    INSERT INTO TB_USER (userid, email, passwd, name, mobile, retireYN, InsertUID, InsertDT, UpdateUID, UpdateDT)
 	    VALUES( #{userid}, #{email}, #{passwd}, #{name}, #{mobile} , 0 , #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT})
 	</insert>
@@ -40,7 +40,7 @@
 
 	</update>
 
-	<update id="updatePasswd" parameterType="hashmap" >
+	<update id="updatePasswd" parameterType="java.util.Map" >
 	        UPDATE TB_USER 
 	           SET passwd = #{newPasswd}            
 	         WHERE passwd = #{currentPasswd} AND userid = #{userid}

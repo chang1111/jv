@@ -3,16 +3,16 @@ package board.model;
 import java.util.Date;
 
 public class ModelComments {
-    private Integer commentno = null;  //   `commentno` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    private Integer articleno = null;  //   `articleno` INT(10) UNSIGNED NOT NULL,
-    private String  email     = null;  //   `email` VARCHAR(60) NULL DEFAULT NULL,
-    private String  memo      = null;  //   `memo` VARCHAR(4000) NULL DEFAULT NULL,
-    private Date    regdate   = null;  //   `regdate` DATETIME NULL DEFAULT NULL,
-    private Boolean UseYN     = null;  //   `UseYN` TINYINT(1) NULL DEFAULT '1',
-    private String  InsertUID = null;  //   `InsertUID` VARCHAR(40) NULL DEFAULT NULL,
-    private Date    InsertDT  = null;  //   `InsertDT` DATETIME NULL DEFAULT NULL,
-    private String  UpdateUID = null;  //   `UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
-    private Date    UpdateDT  = null;  //   `UpdateDT` DATETIME NULL DEFAULT NULL,
+    private Integer commentno = null; //  `commentno` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    private Integer articleno = null; //  `articleno` INT(10) UNSIGNED NOT NULL,
+    private String  email     = ""  ; //  `email` VARCHAR(60) NULL DEFAULT NULL,
+    private String  memo      = ""  ; //  `memo` VARCHAR(4000) NULL DEFAULT NULL,
+    private Date    regdate   = null; //  `regdate` DATETIME NULL DEFAULT NULL,
+    private Integer UseYN     = null; //  `UseYN` TINYINT(1) NULL DEFAULT '1',
+    private String  InsertUID = ""  ; //  `InsertUID` VARCHAR(40) NULL DEFAULT NULL,
+    private Date    InsertDT  = null; //  `InsertDT` DATETIME NULL DEFAULT NULL,
+    private String  UpdateUID = ""  ; //  `UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
+    private Date    UpdateDT  = null; //  `UpdateDT` DATETIME NULL DEFAULT NULL,
     
     public ModelComments() {
         super();
@@ -58,11 +58,11 @@ public class ModelComments {
         this.regdate = regdate;
     }
 
-    public Boolean getUseYN() {
+    public Integer getUseYN() {
         return UseYN;
     }
 
-    public void setUseYN(Boolean useYN) {
+    public void setUseYN(Integer useYN) {
         UseYN = useYN;
     }
 
@@ -106,6 +106,5 @@ public class ModelComments {
                 + InsertUID + ", InsertDT=" + InsertDT + ", UpdateUID="
                 + UpdateUID + ", UpdateDT=" + UpdateDT + "]";
     }
-    
     
 }

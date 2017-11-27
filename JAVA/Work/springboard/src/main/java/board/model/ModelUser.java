@@ -9,7 +9,7 @@ public class ModelUser {
     private String  passwd    = ""  ;   // `passwd` VARCHAR(30) NULL DEFAULT NULL,
     private String  name      = ""  ;   // `name` VARCHAR(30) NULL DEFAULT NULL,
     private String  mobile    = ""  ;   // `mobile` VARCHAR(20) NULL DEFAULT NULL,
-    private Boolean retireYN  = null;   // `retireYN` TINYINT(1) NULL DEFAULT '1',
+    private Integer retireYN  = null;   // `retireYN` TINYINT(1) NULL DEFAULT '1',
     private String  InsertUID = ""  ;   // `InsertUID` VARCHAR(40) NULL DEFAULT NULL,
     private Date    InsertDT  = null;   // `InsertDT` DATETIME NULL DEFAULT NULL,
     private String  UpdateUID = ""  ;   // `UpdateUID` VARCHAR(40) NULL DEFAULT NULL,
@@ -67,11 +67,11 @@ public class ModelUser {
         this.mobile = mobile;
     }
 
-    public Boolean getRetireYN() {
+    public Integer getRetireYN() {
         return retireYN;
     }
 
-    public void setRetireYN(Boolean retireYN) {
+    public void setRetireYN(Integer retireYN) {
         this.retireYN = retireYN;
     }
 
