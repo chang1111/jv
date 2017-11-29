@@ -2,16 +2,21 @@ package board;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import board.model.ModelArticle;
 import board.model.ModelBoard;
 import board.service.ServiceBoard;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceBoard {
     
     private static ServiceBoard service = null;
@@ -20,8 +25,20 @@ public class TestServiceBoard {
     public static void setUpBeforeClass() throws Exception {
         ApplicationContext context = new
                 ClassPathXmlApplicationContext("classpath:ApplicationContext.xml");
-        
         service = context.getBean("serviceboard", ServiceBoard.class);
+        
+        // DB Table 초기화 코드
+//        javax.sql.DataSource dataSource = (javax.sql.DataSource)context.getBean("dataSource");
+//        
+//        org.apache.ibatis.jdbc.ScriptRunner runner = new
+//        org.apache.ibatis.jdbc.ScriptRunner( dataSource.getConnection() );
+//        runner.setAutoCommit(true);
+//        runner.setStopOnError(true);
+//        ClassLoader cl = ClassLoader.getSystemClassLoader();
+//        String sf = cl.getResource("ddl/board.ddl.mysql.sql").getFile();
+//        java.io.Reader br = new java.io.BufferedReader( new java.io.FileReader(sf) );
+//        runner.runScript( br);
+//        runner.closeConnection();
         
     }
     
@@ -114,10 +131,7 @@ public class TestServiceBoard {
     
     @Test
     public void testGetBoardTotalRecord() throws Exception {
-        String boardcd = "free";
-        String searchWord = "";
-        int rs = service.getBoardTotalRecord(boardcd, searchWord);
-        assertEquals(1, rs);
+        fail("Not yet implemented");
     }
     
     @Test
@@ -127,47 +141,115 @@ public class TestServiceBoard {
     
     @Test
     public void testInsertBoardList() throws Exception {
-        fail("Not yet implemented");
+        ModelBoard board = new ModelBoard();
+        board.setBoardcd("notify");
+        board.setBoardnm("공지사항");
+        board.setUseYN(1);
+        List<ModelBoard> item = new ArrayList<ModelBoard>();
+        item.add(board);
+        int rs = service.insertBoardList(item);
+        assertTrue(rs >= 1);
     }
     
     @Test
     public void testGetArticleTotalRecord() throws Exception {
-        fail("Not yet implemented");
+        String boardcd = "free";
+        String searchWord = "test";
+        int rs = service.getArticleTotalRecord(boardcd, searchWord);
+        assertEquals(201, rs);
+    }
+
+    @Test
+    public void testGetArticleList() throws Exception {
+        String boardcd = "free";
+        String searchWord = "test";
+        Integer start = 192;
+        Integer end = 201;
+        List<ModelArticle> rs = service.getArticleList(boardcd, searchWord, start, end);
+        String title = rs.get(0).getTitle();
+        assertEquals("article test  10", title);
+        title = rs.get(1).getTitle();
+        assertEquals("article test  09", title);
+        title = rs.get(2).getTitle();
+        assertEquals("article test  08", title);
+        title = rs.get(3).getTitle();
+        assertEquals("article test  07", title);
     }
     
     @Test
     public void testGetArticle() throws Exception {
-        fail("Not yet implemented");
+        Integer articleno = 2;
+        List<ModelArticle> rs = service.getArticle(articleno);
+        String boardcd = rs.get(0).getBoardcd();
+        String title = rs.get(0).getTitle();
+        String content = rs.get(0).getContent();
+        String email = rs.get(0).getEmail();
+        assertEquals("free", boardcd);
+        assertEquals("article test  02", title);
+        assertEquals("article test  02", content);
+        assertEquals("aa@aa.co.kr", email);
     }
     
     @Test
     public void testInsertArticle() throws Exception {
-        fail("Not yet implemented");
+        ModelArticle article = new ModelArticle();
+        article.setBoardcd("data");
+        article.setTitle("title test");
+        article.setContent("content test");
+        article.setEmail("test.aa.co.kr");
+        article.setInsertUID(null);
+        article.setUpdateUID(null);
+        int rs = service.insertArticle(article);
+        assertEquals(202, rs);
     }
     
     @Test
     public void testUpdateArticle() throws Exception {
-        fail("Not yet implemented");
+        ModelArticle whereValue = new ModelArticle();
+        ModelArticle setValue = new ModelArticle();
+        whereValue.setArticleno(202);
+        setValue.setTitle("test");
+        setValue.setContent("test");
+        setValue.setUseYN(1);
+        setValue.setUpdateUID(null);
+        setValue.setUpdateDT(null);
+        int rs = service.updateArticle(whereValue, setValue);
+        assertTrue(rs >= 0);
     }
     
     @Test
     public void testDeleteArticle() throws Exception {
-        fail("Not yet implemented");
+        ModelArticle article = new ModelArticle();
+        article.setArticleno(202);
+        int rs = service.deleteArticle(article);
+        assertTrue(rs >= 0);
     }
     
     @Test
     public void testIncreaseHit() throws Exception {
-        fail("Not yet implemented");
+        Integer articleno = 202;
+        int rs = service.increaseHit(articleno);
+        assertTrue(rs >= 0);
     }
     
     @Test
     public void testGetNextArticle() throws Exception {
-        fail("Not yet implemented");
+        String boardcd = "free";
+        Integer articleno = 100;
+        String searchWord = "";
+        List<ModelArticle> rs = service.getNextArticle(boardcd, articleno, searchWord);
+        articleno = rs.get(0).getArticleno();
+        assertEquals(new Integer(101), articleno);
     }
     
     @Test
     public void testGetPrevArticle() throws Exception {
-        fail("Not yet implemented");
+        String boardcd = "free";
+        Integer articleno = 100;
+        String searchWord = "";
+        List<ModelArticle> rs = service.getPrevArticle(boardcd, articleno, searchWord);
+        articleno = rs.get(0).getArticleno();
+        assertEquals(new Integer(99), articleno);
     }
     
     @Test

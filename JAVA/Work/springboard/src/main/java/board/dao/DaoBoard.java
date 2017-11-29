@@ -136,9 +136,10 @@ public class DaoBoard implements IBoard {
     
     @Override
     public int insertArticle(ModelArticle article) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertArticle", article);
-        return result;
+//        int result = -1;
+//        result = 
+        session.insert("mapper.mapperBoard.insertArticle", article);
+        return article.getArticleno();
     }
     
     @Override
