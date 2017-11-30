@@ -20,7 +20,7 @@
 	<update id="logout" parameterType="String" >
 	</update>
 
-	<update id="updateUserInfo" parameterType="hashmap">
+	<update id="updateUserInfo" parameterType="java.util.Map">
 	        UPDATE TB_USER 
 	           SET email=#{updateValue.email}
 	           ,passwd=#{updateValue.passwd}
@@ -34,7 +34,7 @@
 	        <if test="searchValue.userno != null">
 	            AND userno = #{searchValue.userno}
 	        </if>
-            <if test="searchValue.userid != null">
+            <if test="searchValue.userid != null and searchValue.userid != ''">
                 AND userid = #{searchValue.userid}
             </if>
 
@@ -67,20 +67,20 @@
 	        SELECT *
 	        FROM TB_USER
 	        where 1=1
-	            <if test= "userid != null">
-	                AND (userid LIKE '%'||#{userid}||'%')
+	            <if test= "userid != null and userid != ''">
+	                AND userid LIKE CONCAT('%', #{userid}, '%')
 	            </if>
-	            <if test= "name != null">
-	                AND (name LIKE '%'||#{name}||'%')
+	            <if test= "name != null and name != ''">
+	                AND name LIKE CONCAT('%', #{name}, '%')
 	            </if>
-	            <if test= "email != null">
-	                AND (email LIKE '%'||#{email}||'%')
+	            <if test= "email != null and email != ''">
+	                AND email LIKE CONCAT('%', #{email}, '%')
 	            </if>
-	            <if test= "mobile != null">
-	                AND (mobile LIKE '%'||#{mobile}||'%')
+	            <if test= "mobile != null and mobile != ''">
+	                AND mobile LIKE CONCAT('%', #{mobile}, '%')
 	            </if>
 	            <if test= "retireYN != null">
-	                AND (retireYN LIKE '%'||#{retireYN}||'%')
+	                AND retireYN LIKE CONCAT('%', #{retireYN}, '%')
 	            </if>
             
 	        ORDER BY userno

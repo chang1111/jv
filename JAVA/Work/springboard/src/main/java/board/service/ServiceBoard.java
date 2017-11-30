@@ -186,6 +186,7 @@ public class ServiceBoard implements IServiceBoard {
     public List<ModelArticle> getArticle(Integer articleno) throws Exception {
         List<ModelArticle> result = null;
         try {
+            dao.increaseHit(articleno);
             result = dao.getArticle(articleno);
         }
         catch (Exception e) {

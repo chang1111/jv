@@ -308,7 +308,7 @@
     
     
     <insert id="insertComment" parameterType="ModelComments">
-        INSERT INTO TB_BBS_Comments (   articleno ,   emai l,   memo , regdate, InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
+        INSERT INTO TB_BBS_Comments (   articleno ,   email,   memo , regdate, InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
                              VALUES ( #{articleno}, #{email}, #{memo}, now()  , #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
     </insert>
     
