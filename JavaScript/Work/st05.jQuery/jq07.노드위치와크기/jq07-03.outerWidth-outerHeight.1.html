@@ -10,17 +10,8 @@
         }
         span { display :block }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $(document).ready(function(){
-          //여러번 사용되는 경우에는 확장 집합 객체를 변수에 저장한다.
-          var div=$('div:first');
-          $('#result1').text("outerWidth : " + div.outerWidth()+
-             "  outerWidth(true) : " + div.outerWidth(true));//margin을 포함한 너비
-          $('#result2').text("outerHeight : " + div.outerHeight()+
-             "  outerHeight(true) : " + div.outerHeight(true));
-    });
-    </script>
+    
+    
 </head>
 <body>
     <div></div>
@@ -28,3 +19,10 @@
     <span id="result2"></span>
 </body>
 </html>
+
+
+
+
+
+
+

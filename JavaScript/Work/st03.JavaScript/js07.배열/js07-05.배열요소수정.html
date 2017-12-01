@@ -3,36 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>배열 요소 수정</title>
-    <script>
-        // 배열 리터럴을 이용한 배열 생성
+    <script type="text/javascript">
         var arr = [true, 100, 'eight'];
+        console.log(arr.length, arr);
 
-        console.log('length = ' + arr.length); // (출력값)
-        console.log(arr); // (출력값) undefined
+        arr[6] = null;
+        arr[10] = undefined;
+        arr[11] = true;
+        arr[12] = 'update';
+        console.log(arr.length, arr);
 
-        // 배열 요소 추가
-        arr[60] = null;
-        arr[70] = undefined;
-        arr.push(true);
-        //arr.push({fname: 'mike', lname: 'jone'});
-        console.log('length = ' + arr.length); // (출력값)
-        console.log(arr);
-
-	    // 배열 요소 수정
-	    arr[0] = 'update';
-	    console.log('length = ' + arr.length, arr);
-
-        // length 값 변경 후. push() 메서드 호출
-        arr.length = 100;
-        arr.push('ten');
-        console.log('length = ' + arr.length, arr); // (출력값)
-
-        arr[2] = 'two';
-        console.log('length = ' + arr.length, arr); // (출력값)
-
+        arr[0] = 'update'
+        console.log(arr.length, arr);
     </script>
 </head>
 <body>
 
 </body>
 </html>
+
+
+

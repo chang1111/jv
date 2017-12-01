@@ -2,62 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready(function () {
-            //1번
-            $("#btn1").click(function () {
-                var today = new Date();
-                var day = today.getDay();
-                if (day == 0) {
-                    $("body").css("background-color", "blue");
-                } else if (day == 1) {
-                    $("body").css("background-color", "green");
-                } else if (day == 2) {
-                    $("body").css("background-color", "red");
-                } else if (day == 3) {
-                    $("body").css("background-color", "orange");
-                } else if (day == 4) {
-                    $("body").css("background-color", "aqua");
-                } else if (day == 5) {
-                    $("body").css("background-color", "gray");
-                } else if (day == 6) {
-                    $("body").css("background-color", "olive");
-                }
-            });
-
-
-            //2번
-            $("#btn2").click(function () {
-                $("#p1").html("반갑습니다.");
-
-            });
-
-            //3번
-            $("#btn3").click(function () {
-                $("#div1").css("display", "none");
-
-            });
-
-            //4번
-            $("#btn4").mouseover(function () {
-                $(this).css("background-color", "black");
-                $(this).css("color", "white");
-            });
-            $("#btn4").mouseout(function () {
-                $(this).css("background-color", "white");
-                $(this).css("color", "black");
-            });
-
-            //5번
-            $("a").each(function () {
-                //alert($(this).attr("href"));
-                if ($(this).attr("href") == "http://www.naver.com") {
-                    $(this).css("color", "orange");
-                }
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <h1>jQuery 연습문제</h1>
@@ -93,3 +39,10 @@
     <a href="http://www.daum.net">다음</a>
 </body>
 </html>
+
+
+
+
+
+
+

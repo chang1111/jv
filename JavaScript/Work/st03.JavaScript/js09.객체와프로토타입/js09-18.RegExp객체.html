@@ -3,35 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <script>
-        // 정규표현식 리터럴
-        var xi = /a/;                   // 정규 표현식 패턴 생성
-        console.log("abcde".match(xi)); // 정규 표현식 실행
-
-        // 패턴 옵션: i를 붙이면 대소문자를 구분하지 않느다.
-        var oi = /a/i;
-        console.log("Abcde".match(oi)); // ["A"];
-
-        // 패턴 옵션: g를 붙이면 검색된 모든 결과를 리턴한다.
-        var og = /a/g;
-        console.log("abcdea".match(og) ); //
-
-        // 캡처:
-        var pattern = /(\w+)\s(\w+)/;
-        var str = "coding everybody";
-        var result = str.replace(pattern, "$2, $1");
-        console.log(result);
-
-        // 치환: URL을 링크 html 태그로 교체
-        var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
-        var content = ' http://daum.net 입니다. <hr> http://naver.com 입니다. ';
-        var result = content.replace(urlPattern, function(url){
-            return '<a href="'+url+'">'+url+'</a>';
-        });
-        console.log(result);
-    </script>
+    
 </head>
 <body>
 
 </body>
 </html>
+
+
+

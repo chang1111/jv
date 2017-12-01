@@ -14,25 +14,8 @@
 	    ul.panel li{ list-style-type:none; padding:10px; text-indent:1em; color:#333; }
 	</style>
 
-    <script src="../jquery-3.1.1.js"></script>
-	<script>
-	    $(document).ready(function(event){
-	        $('.panel > li').hide();
-	        $('.panel > li:first').show();
-
-	        $('a').click( function (event) {
-	            $('.panel > li').hide();
-
-	            var $href = $(this).attr('href');
-	            $( $href ).show();
-
-	            $('.tab a').removeClass('selected');
-	            $(this).addClass('selected');
-
-	            return false;
-	        });
-	    });
-	</script>
+    
+	
 </head>
 <body>
 <div id="container">
@@ -63,3 +46,10 @@ Vestibulum consequat consequat aliquet. Aenean ut nunc dolor, vel dictum mauris.
 </div>
 </body>
 </html>
+
+
+
+
+
+
+

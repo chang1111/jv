@@ -8,53 +8,8 @@
 		pre    { font-size:13pt;	}
 		#panel { width:600px; overflow:visible;	border: 1px dotted #CCC; font-size:20px; 	}
 	</style>
-	<script src="../jquery-3.1.1.js"></script>
-    <script>
-		var MYAPP = {
-			count : 0,
-			$panel : null
-		};
-		MYAPP.addTag = function() {
-			// span 엘리먼트 생성
-			var $span = $('<span></span>');
-
-			// color 값 생성
-			var color = Math.random()*0xffffff;
-			color = parseInt(color);
-			color = color.toString(16);
-			color = '#' + color;
-
-			// font-size 값 생성
-			var fontsize = Math.random()*40;
-			fontsize = parseInt(fontsize) + 10;
-			fontsize = fontsize + 'px';
-
-			// 스타일 설정
-			$span.css( {
-				'color': color,
-				'font-size' : fontsize,
-				'display' : 'inline-block'
-			});
-
-			this.count++;
-			$span.html(this.count);
-
-			// panel 에 새로 생성한 span 태그 추가
-			MYAPP.$panel.append( $span );
-
-            // 자동 스크롤
-            window.scrollTo(0,document.body.scrollHeight);
-		};
-
-        jQuery(document).ready(function() {
-
-			// panel 찾기
-			MYAPP.$panel = $('#panel');
-
-			// 타이머시작
-			setInterval( function(){ MYAPP.addTag() }, 500 );
-        });
-    </script>
+	
+    
 </head>
 
 <body>
@@ -72,3 +27,10 @@
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+

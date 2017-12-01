@@ -3,47 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-
-        var btn_onclick = function (event){
-            window.alert('인라인 이벤트 모델로 버튼이 클릭되었다');
-        }
-
-
-        // 페이지 로드 시에 이벤트 핸들러를 등록
-        window.onload = function( event) {
-            // 1. 태그 찾기 : getElementById, getElementByClassName
-            var btn = document.getElementById('btn');
-            // 2. 이벤트 핸들러를 등록
-            btn.onclick= function(event) {                
-			    window.alert( '고전 이벤트 모델로 버튼이 클릭되었다.' );
-
-            };
-
-            //  엘리먼트 여러개가 리턴. 배열
-            var btn2 = document.getElementsByClassName('btn2');
-            btn2[0].onclick = function( event){
-                window.alert('btn2 버튼 클릭');
-            };
-            btn2[1].onclick = function (event) {
-                window.alert('a 태그 클릭');
-
-                // click 이벤트 리슨너 제거
-                this.onclick = null;
-
-                // 이벤트 취소
-                return false;
-            };
-
-            // p 태그에 click 이벤트 달기
-            var names = document.getElementsByName('name');
-            var p = document.getElementsByName('name');
-            p[0].onclick = function (event) {
-                window.alert( 'name 이 클릭되었다.' );
-            };
-
-        };
-    </script>
+    
 </head>
 <body>
     <input type="button" value='인라인 이벤트 모델' onclick="btn_onclick()">
@@ -61,3 +21,5 @@
 
 </body>
 </html>
+
+

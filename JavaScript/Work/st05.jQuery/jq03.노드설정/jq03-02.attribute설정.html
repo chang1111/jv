@@ -19,113 +19,8 @@
         .toggleStyle { background-color: red;   color:white;}
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function(event){
-
-            // element node CRUD
-            $('#attr_read').click( function() {
-                var src = $('#img1').attr('src');
-                $('#result_attr').text( src ? src : 'empty' );
-            });
-            $('#attr_create').click( function() {
-                $('#img2').attr('src', 'images/im2.jpg');
-            });
-            $('#attr_update').click( function() {
-                $('#img2').attr('src', 'images/im3.jpg');
-            });
-            $('#attr_delete').click( function() {
-                $('#img2').attr('src', ' ');
-            });
-
-            // CSS style CRUD
-            $('#style_read').click( function() {
-                var st = $('#style').css('border');
-                $('#result_style').text( st  );
-            });
-            $('#style_create').click( function() {
-                $('#style').css('border', '3px solid blue');
-
-                var st = $('#style').css('border');
-                $('#result_style').text( st  );
-            });
-            $('#style_update').click( function() {
-                $('#style').css('border', '3px dashed pink');
-
-                var st = $('#style').css('border');
-                $('#result_style').text( st  );
-            });
-            $('#style_delete').click( function() {
-                $('#style').css('border', '');
-
-                var st = $('#style').css('border');
-                $('#result_style').text( st  );
-            });
-
-            // CSS class CRUD
-            $("#class_read"       ).click( function(evnet){
-                var cl = $('#class').hasClass('white');
-                $('#result_class').text( cl );
-            });
-            $("#class_create"     ).click( function(evnet){
-                $('#class').addClass('red');
-
-                var cl = $('#class').attr('class');
-                $('#result_class').text( cl );
-            });
-            $("#class_update"     ).click( function(evnet){
-
-                $('#class').removeClass('red').addClass('yellow');
-
-                var cl = $('#class').attr('class');
-                $('#result_class').text( cl );
-            });
-            $("#class_delete_part").click( function(evnet){
-
-                $('#class').removeClass('yellow');
-
-                var cl = $('#class').attr('class');
-                $('#result_class').text( cl );
-            });
-            $("#class_delete_all" ).click( function(evnet){
-
-                $('#class').removeClass();
-
-                var cl = $('#class').attr('class');
-                $('#result_class').text( cl );
-            });
-
-            // toggleClass
-            $('p.yellow').click( function(evnt){
-                //$(this).toggleClass('toggleStyle');
-
-                if( $(this).hasClass('toggleStyle') ) {
-                    $(this).removeClass('toggleStyle');
-                }
-                else {
-                    $(this).addClass('toggleStyle');
-                }
-            });
-
-            // data- attribute CRUD
-            $('#data_read').click( function() {
-                var data = $('.pclick img').data('sw');
-                alert( data );
-            });
-            $('#data_create').click( function() {
-                var data = $('.pclick img').data('test', '추가값');
-                $('#result_data').text( data );
-            });
-            $('#data_update').click( function() {
-                var data = $('.pclick img').data('sw', '수정값');
-                $('#result_data').text( data );
-            });
-            $('#data_delete').click( function() {
-                var data = $('.pclick img').data('sw', '');
-                $('#result_data').text( data );
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
 
@@ -191,3 +86,10 @@
     <hr>
 </body>
 </html>
+
+
+
+
+
+
+

@@ -53,9 +53,9 @@ public class TestServiceBoard {
     @Test
     public void test02GetBoardOne() throws Exception {
         String boardcd = "qna";
-        List<ModelBoard> rs = service.getBoardOne(boardcd);
-        String boardnm = rs.get(0).getBoardnm();
-        int UseYN = rs.get(0).getUseYN();
+        ModelBoard rs = service.getBoardOne(boardcd);
+        String boardnm = rs.getBoardnm();
+        int UseYN = rs.getUseYN();
         assertEquals("QnA게시판", boardnm);
         assertEquals(1, UseYN);
     }

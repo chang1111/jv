@@ -6,44 +6,8 @@
 	    div, span { background: #FFF; padding: 10px; margin: 10px; }
         hr { clear:both; }
     </style>
-	<script src='../jquery-3.1.1.js'></script>
-	<script>
-		var MYAPP = {};  // === window.MYAPP;
-		MYAPP.init = function(){
-			$('*').css('border','').css('background','');
-		};
-
-		$(document).ready( function(event){
-			$('#has'      ).click( function(event){
-				MYAPP.init();
-				$('a[target]').css('background', 'gray');
-			});
-			$('#equal'    ).click( function(event){
-				MYAPP.init();
-				$('a[href = "http://slqer.com"]').css('background', 'gray');
-			});
-			$('#notequal' ).click( function(event){
-				MYAPP.init();
-				$('a[href != "http://slqer.com"]').css('background', 'gray');
-			});
-			$('#startwith').click( function(event){
-				MYAPP.init();
-				$('a[href ^= "http://h"]').css('background', 'gray');
-			});
-			$('#endwith' ).click( function(event){
-				MYAPP.init();
-				$('a[href $= "net"]').css('background', 'gray');
-			});
-			$('#contains' ).click( function(event){
-				MYAPP.init();
-				$('a[name *= "man"]').css('background', 'gray');
-			});
-			$('#findword' ).click( function(event){
-				MYAPP.init();
-				$('a[name ~= "man"]').css('background', 'gray');
-			});
-		});
-	</script>
+	
+	
 </head>
 <body>
 	<h2>Attribute Selector</h2>
@@ -66,3 +30,10 @@
 	<input id='findword'  type='button' value='man findword' >
 </body>
 </html>
+
+
+
+
+
+
+

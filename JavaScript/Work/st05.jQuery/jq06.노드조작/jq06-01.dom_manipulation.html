@@ -11,147 +11,8 @@
         #center p { margin: 10px; background: #b96dff; }
         .border { border: 2px dashed #ffb42e; margin: 5px; display:block; background: #b96dff; }
     </style>
-    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --> </script>
-    <script>
-        var MYAPP = {
-            mainTag: null ,
-            clickedButton : null,
-            buttonType : {html:0
-                , prepend  :1
-                , append   :2
-                , before   :3
-                , after    :4
-                , wrap     : 5
-                , replace  : 6
-                , clone    : 7
-                , empty    : 8
-                , remove   : 9
-            }
-        };
-
-        MYAPP.getMainTag = function() {
-            this.mainTag = $('#main').html();
-        };
-
-        MYAPP.init = function(type) {
-
-            if( this.clickedButton !== type ){
-                $('#main').html(this.mainTag);
-                this.clickedButton = type;
-            }
-        };
-
-        MYAPP.getTime = function () {
-            var d = new Date();
-            var result = d.getHours() + ':' + d.getMinutes() +':' + d.getSeconds();
-            return result ;
-        };
-
-        MYAPP.blink = function(newTags) {
-            clearInterval(MYAPP.timer);
-
-            $(MYAPP.oldTags).each(function(){
-                $(this).css('visibility' , '' ).removeClass();
-            });
-
-            MYAPP.oldTags = newTags;
-
-            MYAPP.timer = setInterval(function(){
-                $(MYAPP.oldTags).each(function(){
-                    $(this).css('visibility' , $(this).css('visibility') === 'hidden' ? '' : 'hidden')
-                           .addClass("added selected");
-                });
-            }, 500);
-        };
-
-        $(document).ready(function () {
-
-            MYAPP.getMainTag();
-
-            $('.html'   ).click(  function(event) {
-                MYAPP.init(MYAPP.buttonType.html);
-
-                var $center = $('#center');
-                $center.html('<div> 결혼은 늦게.... </div>');
-                var $selected = $center.children();
-                MYAPP.blink( $selected );
-            });
-            $('.prepend').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.prepend);
-
-                var $center = $('#center');
-                $center.prepend('<div> prepend ' + MYAPP.getTime() + ' </div>' );
-                var $selected = $center.children().first();
-                MYAPP.blink( $selected );
-            });
-            $('.append').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.append);
-
-                var $center = $('#center');
-                $center.append('<div> append ' + MYAPP.getTime() + ' </div>' );
-                var $selected = $center.children().last();
-                MYAPP.blink( $selected );
-            });
-            $('.before').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.before);
-
-                var $center = $("#center");
-                $center.before('<div> before ' + MYAPP.getTime() + ' </div>' );
-                var $selected = $center.prev();
-                MYAPP.blink( $selected );
-            });
-            $('.after').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.after);
-
-                var $center = $("#center");
-                $center.after('<div> after ' + MYAPP.getTime() + ' </div>' );
-                var $selected = $center.next();
-                MYAPP.blink( $selected );
-            });
-            $('.wrap').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.wrap);
-
-                var $center = $("#center");
-                $center.wrap('<span class="border"></span>');
-                var $selected = $center.children('span.border');
-                MYAPP.blink( $selected );
-            });
-            $('.replace').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.replace);
-
-                var $center = $("#center");
-                var $ps = $center.find('p.two');
-                if( $ps.length !== 0 ) {
-                    $ps.replaceWith('<p class="border">Replace Text</p>');
-                    var $selected = $center.find('p.border');
-                    MYAPP.blink( $selected );
-                }
-            });
-            $('.clone').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.clone);
-
-                var $clone = $("#result");
-                var $selected = $('#center').clone();
-                $clone.append( $selected );
-                MYAPP.blink( $selected );
-            });
-            $('.empty').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.empty);
-
-                var $empty = $("div p");
-                $empty.empty().html('&nbsp;');
-                MYAPP.blink( $empty );
-            });
-            $('.remove').click( function(event) {
-                MYAPP.init(MYAPP.buttonType.remove);
-
-                var $removes = $("div p");
-                var $selected = $removes.parent();
-                $removes.remove();
-                MYAPP.blink( $selected );
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <p>DOM 조작 메서드</p>
@@ -188,3 +49,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

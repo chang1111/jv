@@ -10,34 +10,9 @@
         #gotoTop { width:100px; height:50px; }
     </style>
 
-	<script src="../jquery-3.1.1.js"></script>
-	<script src="../jquery.easing.1.3.js"> </script>
-	<script>
-	    $(document).ready(function(){
-
-	        // scroll 이벤트 리스너 등록
-	        $(window).scroll( function(){
-
-	            // 윈도우 스크롤 위치 구하기
-	            var strInfo="";
-	            strInfo += "window.pageXOffset = "+window.pageXOffset+"<br>";
-	            strInfo += "window.pageYOffset = "+window.pageYOffset+"<br>";
-
-	            // 스크롤 정보 출력
-	            $('#info').html(strInfo);
-	            $(window).css("top", window.pageYOffset);
-	        });
-
-
-	        // top 버튼 클릭 처리
-	        $("#gotoTop").click(function(){
-	            // 최 상단으로 이동
-	            // window.scrollTo(0,0);
-	            $("html, body").animate( { scrollTop:0 }, 500, "easeOutCubic");
-	        });
-
-	    })
-	</script>
+	
+	
+	
 </head>
 
 <body>
@@ -52,3 +27,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+

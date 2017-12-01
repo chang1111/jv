@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 B</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <style>
+
+        p { margin-bottom: 20px; }
+
+        div { background-color: rgba(255, 0, 0, 0.2); }
+         
+        #wrap    { width: 500px; overflow: auto; }
+        #sidebar { width: 200px; float: left;  background-color: rgba(255, 0, 0, 0.2); }
+        #header  { width: 300px; float: right; background-color: rgba(0, 255, 0, 0.2); }
+        #content { width: 300px; float: right; background-color: rgba(0, 0, 255, 0.2); }
+        #footer  { width: 300px; float: right; background-color: rgba(100, 0, 0, 0.2); }
+    </style>
+</head>
+
+<body>
+    <h1>레이아웃 B</h1>
+
+    <p>http://stackoverflow.com/questions/384145/expand-parent-div-to-child-height </p>
+
+    <div id="wrap">
+        <div id="sidebar">
+            sidebar
+        </div>
+
+        <div id="header">
+            header
+        </div>
+
+        <div id="content">
+            content
+        </div>
+
+        <div id="footer">
+            footer
+        </div>
+    </div>
+</body>
+
+</html>

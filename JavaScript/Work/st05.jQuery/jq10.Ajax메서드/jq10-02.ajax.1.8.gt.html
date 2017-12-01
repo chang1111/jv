@@ -7,163 +7,8 @@
         table { border-collapse: collapse; }
         table, th, td { border: 1px solid black; }
     </style>
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function (e) {
-            $('#menu1').click( function (e) {
-                $.ajax({
-                    url : 'http://localhost:3000/text',
-                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                    type: 'get',       // get, post
-                    timeout: 30000,    // 30초
-                    dataType: 'text',  // text, html, xml, json, jsonp, script
-                    beforeSend : function() {
-                        // 통신이 시작되기 전에 이 함수를 타게 된다.
-                        $('#message1').after('<img src="loading.gif" />');
-                    }
-                }).done( function(data, textStatus, xhr ){
-                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                    $('#message1').text( data );
-                }).fail( function(xhr, textStatus, error ) {
-                    // 통신이 실패했을 때 이 함수를 타게 된다.
-                    var msg ='';
-                    msg += "code:"    + xhr.status       + "\n";
-                    msg += "message:" + xhr.responseText + "\n";
-                    msg += "status:"  + textStatus       + "\n";
-                    msg += "error : " + error            + "\n";
-                    alert( msg );
-                    console.log(msg);
-                }).always( function(data, textStatus, xhr ) {
-                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                    $('#message1').next().remove();
-                });
-
-                return false;
-            });
-            $('#menu2').click( function (e) {
-
-                $.ajax({
-                    url : 'http://localhost:3000/html',
-                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                    type: 'get',       // get, post
-                    timeout: 30000,    // 30초
-                    dataType: 'html',  // text, html, xml, json, jsonp, script
-                    beforeSend : function() {
-                        // 통신이 시작되기 전에 이 함수를 타게 된다.
-                        $('#message2').after('<img src="loading.gif" />');
-                    }
-                }).done( function(data, textStatus, xhr ){
-                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                    $('#message2').append( data );
-                }).fail( function(xhr, textStatus, error ) {
-                    // 통신이 실패했을 때 이 함수를 타게 된다.
-                    var msg ='';
-                    msg += "code:"    + xhr.status       + "\n";
-                    msg += "message:" + xhr.responseText + "\n";
-                    msg += "status:"  + textStatus       + "\n";
-                    msg += "error : " + error            + "\n";
-                    alert( msg );
-                    console.log(msg);
-                }).always( function(data, textStatus, xhr ) {
-                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                    $('#message2').next().remove();
-                });
-
-                return false;
-
-            });
-            $('#menu3').click( function (e) {
-
-                $.ajax({
-                    url : 'http://localhost:3000/json',
-                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                    type: 'get',       // get, post
-                    timeout: 30000,    // 30초
-                    dataType: 'json',  // text, html, xml, json, jsonp, script
-                    beforeSend : function() {
-                        // 통신이 시작되기 전에 이 함수를 타게 된다.
-                        $('#message3').after('<img src="loading.gif" />');
-                    }
-                }).done( function(data, textStatus, xhr ){
-                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                    //var appendText = '<tr><td>id</td><td>name</td><td>price</td><td>description</td></tr>';
-                    var appendText = '<tr><td>id</td><td>name</td><td>price</td></tr>';
-
-                    for(var i=0; i< data.length; i=i+1){
-                        appendText = appendText + '<tr>';
-                        appendText = appendText + '<td>'+ data[i].id          + '</td>';
-                        appendText = appendText + '<td>'+ data[i].name        + '</td>';
-                        appendText = appendText + '<td>'+ data[i].price       + '</td>';
-                        //appendText = appendText + '<td>'+ data[i].description + '</td>';
-                        appendText = appendText + '</tr>';
-                    }
-
-                    $('#treeData').append( appendText );
-                }).fail( function(xhr, textStatus, error ) {
-                    // 통신이 실패했을 때 이 함수를 타게 된다.
-                    var msg ='';
-                    msg += "code:"    + xhr.status       + "\n";
-                    msg += "message:" + xhr.responseText + "\n";
-                    msg += "status:"  + textStatus       + "\n";
-                    msg += "error : " + error            + "\n";
-                    alert( msg );
-                    console.log(msg);
-                }).always( function(data, textStatus, xhr ) {
-                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                    $('#message3').next().remove();
-                });
-
-                return false;
-            });
-            $('#menu4').click( function(e){
-
-                $.ajax({
-                    url : 'http://localhost:3000/xml',
-                    data: null, // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                    type: 'get', // get, post
-                    timeout: 30000, // 30초
-                    dataType: 'xml', // text, html, xml, json, jsonp, script
-                    beforeSend : function() {
-                        // 통신이 시작되기 전에 이 함수를 타게 된다.
-                        $('#message4').append('<img src="loading.gif" />');
-                    }
-                }).done( function(data, textStatus, xhr ){
-                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                    var appendText = '<tr><td>id</td><td>name</td><td>price</td><td>description</td></tr>';
-
-                    data = $(data).find('item');
-
-                    for(var i=0; i< data.length; i=i+1){
-                        var item = $(data[i]);
-
-                        appendText = appendText + '<tr>';
-                        appendText = appendText + '<td>'+ item.attr('id')          + '</td>';
-                        appendText = appendText + '<td>'+ item.attr('name')        + '</td>';
-                        appendText = appendText + '<td>'+ item.find('price').text()+ '</td>';
-                        appendText = appendText + '<td>'+ item.find('description').text() + '</td>';
-                        appendText = appendText + '</tr>';
-                    }
-
-                    $('#treeData2').append( appendText );
-                }).fail( function(xhr, textStatus, error ) {
-                    // 통신이 실패했을 때 이 함수를 타게 된다.
-                    var msg ='';
-                    msg += "code:"    + xhr.status       + "\n";
-                    msg += "message:" + xhr.responseText + "\n";
-                    msg += "status:"  + textStatus       + "\n";
-                    msg += "error : " + error            + "\n";
-                    alert( msg );
-                    console.log(msg);
-                }).always( function(data, textStatus, xhr ) {
-                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                    $('#message4 > img').remove();
-                });
-
-                return false;
-            });
-
-        });
-    </script>
+    
+    
 
 
 </head>
@@ -187,3 +32,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

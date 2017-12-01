@@ -4,31 +4,13 @@
     <meta charset="utf-8" />
     <title>Examples</title>
     <!-- 1. 임포트 -->
-    <script src="../../jquery-3.1.1.js"></script>
-    <script src="../../jquery.loadTemplate-1.4.4.js"></script>
-    <script>
-        $(document).ready( function (e) {
-
-            // 4. 템플릿에 들어갈 자료 생성
-            var data = [
-                  { title : 'title 1', subtitle : 'sub title #1' }
-                , { title : 'title 2', subtitle : 'sub title #2' }
-                , { title : 'title 3', subtitle : ''             }
-                , { title : 'title 4', subtitle : null           }
-            ];
-
-
-            // 5. 컨테이너에 템플릿과 자료 삽입.
-            $("#loadedWithFunctionParameters").loadTemplate($("#template"), data, {bindingOptions: {"ignoreUndefined": true, "ignoreNull": true}});
-        });
-    </script>
+    
+    
+    
 </head>
 <body>
     <!-- 2. 템플릿 생성 -->
-    <script type="text/html" id="template">
-        <h3><a href="#" data-content-append="title">Titel: </a></h3>
-        <h4 data-content-append="subtitle">Subtitle: </h4>
-    </script>
+    
 
     <br>
     Loaded with function parameters
@@ -40,4 +22,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
 

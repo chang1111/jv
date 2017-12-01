@@ -22,66 +22,9 @@
 		#bbs_content{width:90%; height:150px; overflow:hidden; outline:1px #dad3d3 solid; margin:0 auto;}
 		.liner {position:absolute; bottom:0; height:35px; background-color:#efebdb; width:100%; border-top:1px black solid;}
 	</style>
-    <script src="../jquery-3.1.1.js"></script>
-    <script src="../jquery.loadTemplate-1.4.4.js"></script>
-    <script>
-        var MYAPP = { count: 0, current:0, paging:10, callAjax : false };
-
-        MYAPP.appendText = function () {
-
-            // ajax 호출 : http://localhost:3000/board?start=10&end=20
-            $.ajax({
-                url : 'http://localhost:3000/board',
-                data: { start:MYAPP.current, end:MYAPP.current+MYAPP.paging }, // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                type: 'get', // get, post
-                timeout: 30000, // 30초
-                dataType: 'json', // text, html, xml, json, jsonp, script
-                beforeSend : function() {
-                    // 통신이 시작되기 전에 이 함수를 타게 된다.
-                    $('#posts-container').after('<img src="loading.gif" />');
-                }
-            }).done( function(data, textStatus, xhr ){
-
-                // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                $("#posts-container").append( $('<div/>').loadTemplate($("#template"), data) );
-
-                MYAPP.current = MYAPP.current + MYAPP.paging + 1;
-            }).fail( function(xhr, textStatus, error ) {
-                // 통신이 실패했을 때 이 함수를 타게 된다.
-                var msg ='';
-                msg += "code:"    + xhr.status       + "\n";
-                msg += "message:" + xhr.responseText + "\n";
-                msg += "status:"  + textStatus       + "\n";
-                msg += "error : " + error            + "\n";
-                alert( msg );
-                console.log(msg);
-            }).always( function(data, textStatus, xhr ) {
-                // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                $('#posts-container').next().remove();
-                MYAPP.callAjax = false;
-            });
-
-
-        };
-
-        $(document).ready( function(e) {
-
-            MYAPP.appendText();
-
-            $(window).scroll( function(e){
-                var scrollHeight = $(window).scrollTop() + window.innerHeight;
-                var documentHeight = $(document).height();
-
-                var diff = documentHeight - scrollHeight ;
-
-                if( Math.abs(diff) <= 10 && MYAPP.callAjax === false ) {
-
-                    MYAPP.callAjax = true;
-                    MYAPP.appendText();
-                }
-            });
-        });
-    </script>
+    
+    
+    
 
 
 
@@ -89,21 +32,7 @@
 <body>
 
     <!-- 템플릿 생성 -->
-	<script type="text/html" id="template">
-    	<div class="wrap">
-    		<div class="bbsbox">
-    			<div class="box_top">
-    				<div data-content="no"></div>
-    				<div data-content="writer"></div>
-    			</div>
-    			<div class="box_btm">
-    				<div data-content="title"></div>
-    				<spna data-content="content"></spna>
-    			</div>
-    			<div class="liner"></div>
-    		</div>
-    	</div>
-	</script>
+	
 
     <!-- 템플릿이 들어갈 컨테이너 생성 -->
 	<div id="posts-container">
@@ -113,4 +42,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
 

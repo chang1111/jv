@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
  Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 	<head>
@@ -6,80 +6,8 @@
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<title>sample1</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<script>
-$(function(){
-	$("form").submit(function(){
-	
-		//에러 초기화
-		$("p.error").remove();
-		$("dl dd").removeClass("error");
 		
-		$(":text,textarea").filter(".validate").each(function(){
-			
-			//필수 항목 체크
-			$(this).filter(".required").each(function(){
-				if($(this).val()==""){
-					$(this).parent().prepend("<p class='error'>필수항목입니다</p>");
-				}
-			});
-			
-			//number 체크
-			$(this).filter(".number").each(function(){
-				if(isNaN($(this).val())){
-					$(this).parent().prepend("<p class='error'>숫자만 입력 가능합니다.</p>");
-				}
-			});
-			
-			//메일 어드레스 체크
-			$(this).filter(".mail").each(function(){
-				if($(this).val() && !$(this).val().match(/.+@.+\..+/g)){
-					$(this).parent().prepend("<p class='error'>메일 어드레스 형식이 잘 못 되었습니다.</p>");
-				}
-			});
-			
-			//메일 어드레스 확인 체크
-			$(this).filter(".mail_check").each(function(){
-				if($(this).val() && $(this).val()!=$("input[name="+$(this).attr("name").replace(/^(.+)_check$/, "$1")+"]").val()){
-					$(this).parent().prepend("<p class='error'>메일 어드레스와 내용이 잘 못되었습니다</p>");
-				}
-			});
-			
-		});
 		
-		//라디오 버튼 체크
-		$(":radio").filter(".validate").each(function(){
-			$(this).filter(".required").each(function(){
-				if($(":radio[name="+$(this).attr("name")+"]:checked").size() == 0){
-					$(this).parent().prepend("<p class='error'>선택해 주세요</p>");
-				}
-			});
-		});
-		
-		//체크박스 체크
-		$(".checkboxRequired").each(function(){
-			if($(":checkbox:checked",this).size()==0){
-				$(this).prepend("<p class='error'>선택해 주세요</p>");
-			}
-		});
-		
-		// 그 외 항목 체크
-		$(".validate.add_text").each(function(){
-			if($(this).attr("checked")==true && $("input[name="+$(this).attr("name").replace(/^(.+)$/, "$1_text")+"]").val()==""){
-				$(this).prepend("<p class='error'>그 외의 항목을 입력해 주세요</p>");
-			}
-		});
-		
-		//에러일 경우 처리
-		if($("p.error").size() > 0){
-				$('html,body').animate({ scrollTop: $("p.error:first").offset().top-40 }, 'slow');
-				
-				$("p.error").parent().addClass("error");
-				return false;
-		}
-	});
-});
-		</script>
 		<style>
 #container{
 	width:600px;
@@ -177,3 +105,9 @@ dl dd p.error{
 		</div>
 	</body>
 </html>
+
+
+
+
+
+

@@ -15,3 +15,9 @@ $.ajax({
 }).always( function(data, textStatus, xhr ) {
     // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
 });
+
+
+
+
+
+

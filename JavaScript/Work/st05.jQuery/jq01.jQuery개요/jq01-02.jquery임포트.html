@@ -9,35 +9,11 @@
         .italictext { font-style: italic;   }
     </style>
 
-    <script>
-        var MYAPP = {};
-        window.onload = function(event) {
-            // btn1 찾기
-            MYAPP.btn1 = document.getElementById('btn1');
-
-            // btn1에 click 이벤트 핸들러 설정
-            MYAPP.btn1.onclick = function(event) {
-
-                // <span> simple2 </span> 을 찾으시오.
-                var span = document.getElementsByTagName('span');
-                span[1].className = 'redtext italictext';
-            };
-        };
-    </script>
+    
 
     <!-- jquery 임포트 -->
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function(event){
-
-            // btn2 찾기 & click 설정
-            $('#btn2').click( function(event){
-
-                // <span> simple2 </span> 을 찾으시오.
-                $('span:eq(1)').addClass('redtext italictext');
-            });
-        });
-    </script>
+    
+    
 
 </head>
 <body>
@@ -49,3 +25,10 @@
     <input id="btn2" type="button" value="jquery로 class 추가">
 </body>
 </html>
+
+
+
+
+
+
+

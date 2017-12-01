@@ -10,24 +10,8 @@
         .tab-section { background:#fff; padding: 10px; border: 2px solid #ccc; }
         #tabs li a.current { background: #fff; color: #000; border-bottom: 2px solid #fff; }
     </style>
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function(e) {
-
-            $('.tab-section').hide();
-            $('#description').show();
-
-            $('#tabs > li').click( function (e) {
-
-                var href = $(this).children('a').attr('href');
-
-                $('.tab-section').hide();
-                $( href ).show();
-
-                return false;
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
 
@@ -72,3 +56,10 @@
 
 </body>
 </html>
+
+
+
+
+
+
+

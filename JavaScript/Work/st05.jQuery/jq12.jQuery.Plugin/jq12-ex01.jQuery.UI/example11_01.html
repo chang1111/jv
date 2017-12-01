@@ -12,23 +12,18 @@
 	border: 1px solid gray;
 }
 </style>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
-<script>
-$(document).ready(function() {
-	//끄는 동안 불투명도 0.3 적용
-	$("#draggable").draggable({opacity:"0.3"});
-	$("#droppable").droppable({
-		accept : "#draggable", //드롭시킬 대상
-		drop : function() {				
-			$(this).text('끌어다 놓았음');
-		}
-	});
-});
-</script>
+
+
+
 </head> 
 <body style="font-size: 62.5%;">
 	<img id="draggable" src="images/strawberry.gif">
 	<div id="droppable">요소를 끌어다 놓으세요</div>
 </body> 
 </HTML>  
+
+
+
+
+
+

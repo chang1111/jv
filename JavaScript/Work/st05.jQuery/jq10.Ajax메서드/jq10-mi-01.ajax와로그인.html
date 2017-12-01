@@ -32,75 +32,8 @@ http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
         .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }
 
     </style>
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        /*
-         검색조건: jquery form filed object
-         http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
-         사용법:  var obj = serializeJSON( $(form).serializeArray() );
-         */
-        var serializeJSON = function (arr) {
-
-            // var arr = $(form).serializeArray();
-            var obj = {};
-
-            for(var i = 0; i < arr.length; i++) {
-                if(obj[arr[i].name] === undefined) {
-                    obj[arr[i].name] = arr[i].value;
-                } else {
-                    if(!(obj[arr[i].name] instanceof Array)) {
-                        obj[arr[i].name] = [obj[arr[i].name]];
-                    }
-                    obj[arr[i].name].push(arr[i].value);
-                }
-            }
-            return obj;
-        };
-
-        $(document).ready(function(e){
-            $('#submit').click( function(e){
-                // input 태그의 name 속성과 value 속성을이용해서 객체 만들기
-                var form_data = serializeJSON(  $('form').serializeArray()  );
-	            console.log(form_data);
-
-	            // 객체를 문자열로 출력.
-	            var str = JSON.stringify(form_data);
-	            $('#result').html( str );
-
-	            // ajax 로 호출. http://localhost:3000/login
-                $.ajax({
-                    url : 'http://localhost:3000/login',
-                    data: form_data,    // 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                    type: 'post',       // get, post
-                    timeout: 30000,    // 30초
-                    dataType: 'json',  // text, html, xml, json, jsonp, script
-                    beforeSend : function() {
-                        // 통신이 시작되기 전에 이 함수를 타게 된다.
-                        $('#result').after('<img src="loading.gif" />');
-                    }
-                }).done( function(data, textStatus, xhr ){
-                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                    var str = '';
-                    $('div.login').hide();
-                    $('div.profile').show();
-                    $('#user_name').text( data.username );
-	           }).fail( function(xhr, textStatus, error ) {
-	               // 통신이 실패했을 때 이 함수를 타게 된다.
-	               var msg ='';
-	               msg += "code:"    + xhr.status         + "\n";
-	               msg += "message:" + xhr.responseText   + "\n";
-	               msg += "status:"  + textStatus         + "\n";
-	               msg += "error  : "+ error              + "\n";
-	               console.log(msg);
-	           }).always( function(data, textStatus, xhr ) {
-                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
-                    $('#result').next().remove();
-	           });
-
-	           return false;
-	      });
-	    });
-    </script>
+    
+    
 </head>
 <body>
 
@@ -140,3 +73,10 @@ http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
     <div id="result"></div>
 </body>
 </html>
+
+
+
+
+
+
+

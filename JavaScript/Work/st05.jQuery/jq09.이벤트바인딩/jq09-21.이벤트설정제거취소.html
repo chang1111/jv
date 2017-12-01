@@ -24,70 +24,8 @@
         .leftbtn { margin-top:10px; }
         .rightbtn { margin-left:290px;margin-top:10px; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $(document).ready( function(){
-
-            // 고전 이벤트 방식
-            $('.classicEvent:eq(0)').click( function(){
-                var ele = document.getElementById('classicEvent');
-                ele.onclick = function (event) {
-                    var msg = '고전 이벤트 방식 :: 이벤트 설정';
-                    console.log(msg);
-                    alert(msg);
-                };
-            });
-            $('.classicEvent:eq(1)').click( function(){
-                var ele = document.getElementById('classicEvent');
-                ele.onclick = null;
-                var msg = '고전 이벤트 방식 :: 이벤트 제거';
-                console.log(msg);
-                alert(msg);
-            });
-            $('.classicEvent:eq(2)').click( function(){
-                ele.onclick = function (event) {
-                    ele.onclick = null;
-                    var msg = '고전 이벤트 방식 :: 일회성 이벤트';
-                    console.log(msg);
-                    alert(msg);
-                };
-            });
-            $('.classicEvent:eq(3)').click( function(){
-            });
-
-            // show & hide  메서드
-            $('.domEvent:eq(0)').click( function(){
-            });
-            $('.domEvent:eq(1)').click( function(){
-            });
-            $('.domEvent:eq(2)').click( function(){
-            });
-            $('.domEvent:eq(3)').click( function(){
-            });
-
-
-            // jqClassicEvent 메서드
-            $('.jqClassicEvent:eq(0)').click( function(){
-            });
-            $('.jqClassicEvent:eq(1)').click( function(){
-            });
-            $('.jqClassicEvent:eq(2)').click( function(){
-            });
-            $('.jqClassicEvent:eq(3)').click( function(){
-            });
-
-
-            // jqStandardEvent 메서드
-            $('.jqStandardEvent:eq(0)').click( function(){
-            });
-            $('.jqStandardEvent:eq(1)').click( function(){
-            });
-            $('.jqStandardEvent:eq(2)').click( function(){
-            });
-            $('.jqStandardEvent:eq(3)').stop().click( function(){
-            });
-        });
-    </script>
+    
+    
 </head>
 
 <body>
@@ -131,3 +69,10 @@
     <p id="jqStandardEvent">jQuery >> 표준 이벤트 방식</p>
 </body>
 </html>
+
+
+
+
+
+
+

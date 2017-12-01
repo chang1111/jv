@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -10,52 +10,8 @@
         a.pdf { background-image: url(images/pdf.png);	}
         a.image { background-image: url(images/image.png); }
     </style>
-    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
-    <script>
-        // ready 이벤트 설정
-        $(document).ready( function(event) {
-
-            $('a').click( function(event) {
-                var $href = $(this).attr('href');
-
-                // $href 의 마지막 3개 글자 추출하기 : substr()
-                var ext = $href.substr(-3); // $href.substr($href.lenght-4, 3);
-
-                if(ext === 'ppt') {
-                    $(this).addClass('presentation');
-                }
-                else if(ext === 'mp4') {
-                    $(this).addClass('video');
-                }
-                else if(ext === 'pdf') {
-                    $(this).addClass('pdf');
-                }
-                else if( ext === 'gif' ) {
-                    $(this).addClass('image')
-                }
-				else if( $href.lastIndexOf('.png') > 0  ) {
-                    $(this).addClass('image');
-                }
-
-                return false;
-            });
-            $('a[href $=".ppt"]').click( function(event) {
-                $(this).addClass('presentation');
-                return false;
-            });
-            $('a[href $=".mp4"]').click( function(event) {
-                $(this).addClass('video');
-                return false;
-            });
-            $('a[href $=".pdf"]').click( function(event) {
-                $(this).addClass('pdf');
-                return false;
-            });
-            $('a[href $=".gif"]').click( function(event) {
-                $(this).addClass('image');
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
 <div id="content">
@@ -82,3 +38,10 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+

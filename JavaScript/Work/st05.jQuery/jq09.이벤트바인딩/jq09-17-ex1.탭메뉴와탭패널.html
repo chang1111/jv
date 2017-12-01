@@ -26,117 +26,8 @@
         .tab-contents .content.select{ display:block; }
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-
-        /*
-         * 이벤트를 활용한 탭메뉴와 탭패널 연동
-         *
-         *      - 탭메뉴 구현하기
-         *      - 탭패널 구현하기
-         *      - 방법1 : 탭메뉴에서 탭패널을 직접 접근하는 방법
-         *      - 방법2 : 콜박함수를 활용하는 방법
-         *      - 방법3 : 사용자 정의 이벤트를 활용한 연동 처리
-         *
-         */
-            var tabPanel1 = null;
-            $(document).ready(function() {
-                // 탭메뉴 코드가 동작할 수 있도록 tabMenu() 함수 호출
-                var tabMenu1 = tabMenu("#tabMenu1");
-                tabMenu1.$tabMenu.on("tabSelect", function(e) {
-                    tabPanel1.setSelectPanel(e.selectIndex);
-                })
-                // 탭패널 기능 호출
-                tabPanel1 = tabPanel(".tab-contents");
-
-            });
-
-            // 탭메뉴 기능 구현하기
-
-            function tabMenu(selector) {
-
-                var $tabMenu = null;
-                var $menuItems = null;
-                // 선택 한 탭메뉴를 저장할 변수
-                var $selectMenuItem = null;
-
-                // 요소 초기화, tabMenu() 함수 내부에서 사용할 공통 데이터는 모두 이곳에 작성해주세요.
-                function init() {
-                    $tabMenu = $(selector);
-                    $menuItems = $tabMenu.find("li");
-                }
-
-                // 이벤트 등록은 모두 이곳에 작성해주세요.
-                function initEvent() {
-                    $menuItems.click(function() {
-                        setSelectItem($(this));
-                    });
-                }
-
-                // 선택 메뉴 아이템 만들기
-                function setSelectItem($item) {
-                    if ($selectMenuItem) {
-                        $selectMenuItem.removeClass("select");
-                    }
-                    $selectMenuItem = $item;
-                    $selectMenuItem.addClass("select");
-
-                    // 이벤트 발생
-                    dispatchSelectEvent();
-
-                }
-
-                // index번째 메뉴 아이템 선택
-                function setSelectItemAt(index) {
-                    var $item = $menuItems.eq(index);
-                    setSelectItem($item);
-                }
-
-                // 이벤트 발생
-                function dispatchSelectEvent() {
-                    // 이벤트 객체 생성
-                    var event = jQuery.Event("tabSelect");
-                    // 이벤트에 담아 보낼 데이터 연결
-                    event.selectIndex = $selectMenuItem.index();
-                    event.$selectItem = $selectMenuItem;
-
-                    $tabMenu.trigger(event);
-                }
-
-                init();
-                initEvent();
-
-                return {
-                    $tabMenu : $tabMenu,
-                    setSelectItemAt : setSelectItemAt
-                }
-            }
-
-            // 탭패널 기능 구현하기
-            function tabPanel(selector) {
-                var $tabPanels = null;
-                var $selectPanel = null;
-                function init(selector) {
-                    $tabPanels = $(selector).find(".content");
-                }
-
-                function setSelectPanel(index) {
-                    if ($selectPanel) {
-                        $selectPanel.removeClass("select");
-                    }
-                    $selectPanel = $tabPanels.eq(index);
-                    $selectPanel.addClass("select");
-                }
-
-                init(selector);
-
-                // 선택기능 리턴
-                return {
-                    setSelectPanel : setSelectPanel
-                }
-            }
-
-    </script>
+    
+    
 </head>
 
 <body>
@@ -168,3 +59,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+

@@ -3,30 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>함수 호출시 this 바인딩</title>
-<script>
 
-    var test = 'This is test';
-    console.log( window.test );
-
-    var sayFoo = function () {
-        console.log( this.test );
-    };
-    sayFoo(); // 함수 호출시 this는 전역 객체이 바인딩.
-
-    // Augment myObject with a double method.
-    myObject.double = function ( ) {
-        var that = this; // Workaround.
-        var helper = function ( ) {
-            that.value = add(that.value, that.value);
-        };
-        helper( ); // Invoke helper as a function.
-    };
-    // Invoke double as a method.
-    myObject.double( );
-    console.log(myObject.getValue( )); // 6
-</script>
 </head>
 <body>
 
 </body>
 </html>
+
+
+

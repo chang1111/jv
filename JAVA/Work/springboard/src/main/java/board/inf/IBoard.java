@@ -9,7 +9,7 @@ import board.model.ModelComments;
 
 public interface IBoard {
     String getBoardName(String boardcd) throws Exception;
-    List<ModelBoard> getBoardOne(String boardcd) throws Exception;
+    ModelBoard getBoardOne(String boardcd) throws Exception;
     List<ModelBoard> getBoardList() throws Exception;
     int insertBoard(ModelBoard board) throws Exception;
     int updateBoard(ModelBoard whereValue, ModelBoard setValue) throws Exception;

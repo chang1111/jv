@@ -10,85 +10,8 @@
         }
         hr { clear:both; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $(document).ready( function(){
-            // a click
-            // 1. a 태그의 href 값을 가져온다.
-            // 2. id="img2" 의 src 에 1번의 값을 넣는다.
-            // 3. a 태그의 redirect 기능을 취소하시오.
-            $('a').on('click', function (event) {
-                var $href = $(this).attr('href');
-                $('#img2').attr('src', $href );
-                return false;
-            });
-
-            // id="img2" dblclick
-            // image 의 크기를 높이와 넓이를 100px 크게 하시오.
-            $('#img2').on('dblclick', function (event) {
-                var $widht = $('#img2').width() + 100;
-                var $height = $('#img2').height() + 100;
-                $('#img2').width( $widht );
-                $('#img2').height( $height );
-            });
-
-            // id="but1" 인 엘리먼트에 mouseover, mouseout, click 효과 넣기
-            $('#but1').on('mouseover', function (event) {
-                $('#but1').attr('src', 'images/but2.gif');
-            });
-            $('#but1').on('mouseout', function (event) {
-                $('#but1').attr('src', 'images/but1.gif');
-            });
-            $('#but1').on('click', function (event) {
-
-            });
-
-            // id="img-swap"인 엘리멘트에 hover 효과 넣기
-            $('#img-swap').on({
-                mouseover: function (event) { // over
-                    $(this).attr("src", "images/img_swap_on.png");
-                },
-                mouseout: function (event) { // out
-                    $(this).attr("src", "images/img_swap_off.png");
-                }
-            });
-
-            // span 엘리먼트에 mouseover, mouseout, mousedown, mouseup 효과 넣기
-            $('span').on({
-                'mouseover': function (event) {
-                    $(this).css('background', 'blue');
-                },
-                'mouseout': function (event) {
-                    $(this).css('background', 'red');
-                },
-                'mousedown': function (event) {
-                    $(this).css('background', 'pink');
-                },
-                'mouseup': function (event) {
-                    $(this).css('background', 'green');
-                }
-            });
-
-            // id="ID" 엘리먼트에 focus, blur 효과 넣기
-            $('#ID').on({
-                'focus': function (event) {
-                    //$(this) === $('#ID')
-                    $(this).css('border', '3px dashed #aa00aa');
-                },
-                'blur': function (event) {
-                    //$(this) === $('#ID')
-                    $(this).css('border', '');
-                }
-            });
-
-            // id="sel" 엘리먼트에 change 효과 넣기
-            $('#sel').on('change', function(){
-                var $value2 = $(this).val();
-                $('#img').attr('src',  $value2 ) ;
-            });
-
-        });
-    </script>
+    
+    
 </head>
 <body>
 <ul>
@@ -118,3 +41,10 @@
 <img id="img2"  />
 </body>
 </html>
+
+
+
+
+
+
+

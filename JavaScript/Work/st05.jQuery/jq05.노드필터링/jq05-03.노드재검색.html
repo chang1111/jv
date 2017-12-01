@@ -5,32 +5,8 @@
     <style>
         div { background : #FFF; padding:10px; margin:10px; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        MYAPP = {};
-
-        // 초기화 함수
-        MYAPP.init = function () {
-            $('*').css('border','');
-        };
-
-        $(document).ready( function(e){
-
-            $('#filter'  ).click( function(e){
-                MYAPP.init();
-                $('div > ul > li').filter(':gt(1)').css('border', '1px dotted red');
-            });
-            $('#children').click( function(e){
-                MYAPP.init();
-                $('div > ul').children('li').css('border', '1px dotted blue');
-            });
-            $('#find'    ).click( function(e){
-                MYAPP.init();
-                $('div > ul').find('li').css('border', '1px dotted gray');
-            });
-        });
-
-    </script>
+    
+    
 </head>
 <body>
     <div>
@@ -52,3 +28,10 @@
     <input id="find"     type="button" value="find를이용하는방법">
 </body>
 </html>
+
+
+
+
+
+
+

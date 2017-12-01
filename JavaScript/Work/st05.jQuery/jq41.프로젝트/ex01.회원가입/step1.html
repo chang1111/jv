@@ -9,51 +9,8 @@
     </style>
 
 
-    <script src="../../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function(){
-            $('a.btn_type4').click( function(event){
-
-                //$('#agree_use:checked').length === $('#agree_use').prop('checked')
-
-                if( $('#agree_use').prop('checked') === false ) {
-                    alert('이용약관에 동의해 주세요');
-					$('#agree_use').focus();
-                    return false;
-                }
-
-                if( $('#agree_private').prop('checked') === false ) {
-                    alert('개인정보에 동의해 주세요');
-					$('#agree_private').focus();
-                    return false;
-                }
-
-                $("#searchLoginVO").attr("action", "step2.html");
-
-                //
-                $('#searchLoginVO').submit();
-            });
-
-            $('#chkAgreeALL').click( function(event) {
-
-                var checked = $(this).prop('checked');
-                if ( checked === true ) {
-                    // checkbox 찾기
-                    var checkboxs = $('input[type="checkbox"]'); // 3개를 찾음
-
-                    // checkbox에 checked 적용하기
-                    checkboxs.prop('checked', true);
-                }
-                else {
-                    // checkbox 찾기
-                    var checkboxs = $('input[type="checkbox"]'); // 3개를 찾음
-
-                    // checkbox에 checked 적용하기
-                    checkboxs.prop('checked', false);
-                }
-            });
-        });
-    </script>
+    
+    
 
 </head>
 <body>
@@ -400,3 +357,10 @@
 
 </body>
 </html>
+
+
+
+
+
+
+

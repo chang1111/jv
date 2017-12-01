@@ -11,72 +11,8 @@
         hr { clear:both; }
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready( function(){
-            // a click
-            // 1. a 태그의 href 값을 가져온다.
-            // 2. id="img2" 의 src 에 1번의 값을 넣는다.
-            // 3. a 태그의 redirect 기능을 취소하시오.
-            $('a').click( function (e) {
-                var href = $(this).attr('href');
-                $('#img2').attr('src', href );
-                return false;
-            });
-
-            // id="img2" dblclick
-            // image 의 크기를 높이와 넓이를 100px 크게 하시오.
-            $('#img2').dblclick( function (event) {
-                var $widht = $(this).width() + 100;
-                var $height = $(this).height() + 100;
-                $('#img2').width( $widht );
-                $('#img2').height( $height );
-            });
-
-            // id="but1" 인 엘리먼트에 mouseover, mouseout, click 효과 넣기
-            $('#but1').mouseenter(function(e){
-                $(this).attr('src', 'images/but2.gif');
-            }).mouseleave( function (e) {
-                $(this).attr('src', 'images/but1.gif');
-            }).click( function (event) {
-                alert("클릭");
-            });
-
-            // id="img-swap"인 엘리멘트에 hover 효과 넣기
-            $('#img-swap').mouseover( function(e){
-                $(this).attr('src', 'images/img_swap_on.png')
-            }).mouseout( function(e){
-                $(this).attr('src', 'images/img_swap_off.png');
-            });
-
-            // span 엘리먼트에 mouseover, mouseout, mousedown, mouseup 효과 넣기
-            $('span').mouseover( function(e){
-                $(this).css('background-color', 'yellow');
-            }).mouseout( function(e){
-                $(this).css('background-color', 'red');
-            }).mousedown( function(e){
-                $(this).css('background-color', 'blue');
-            }).mouseup( function(e){
-                $(this).css('background-color', 'pink');
-            });
-
-            // id="sel" 엘리먼트에 change 효과 넣기
-            $('#sel').change( function (e) {
-                var val = $(this).val();
-                $('#img').attr('src', val);
-            });
-
-            // id="ID" 엘리먼트에 focus, blur 효과 넣기
-            $('#ID').focus( function (event) {
-                //$(this) === $('#ID')
-                $(this).css('border', '3px dashed #aa00aa');
-            }).blur( function (event) {
-                //$(this) === $('#ID')
-                $(this).css('border', '');
-            });
-
-        });
-    </script>
+    
+    
 
 </head>
 <body>
@@ -121,3 +57,10 @@
     <img id="img2"  />
 </body>
 </html>
+
+
+
+
+
+
+

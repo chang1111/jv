@@ -8,43 +8,8 @@
     button#theone { color: red; background: yellow; }
 </style>
 
-<script src='../jquery-3.1.1.js'></script>
-<script>
-    $(document).ready( function(){
-        // bind 에 click 이벤트 달기
-        // bind 가 클릭되면
-        // 1. <button id="theone">Does nothing</button> 를 끝에 추가
-        // 2. theone 에 click 이벤트를 동적으로 다시오.
-        $('#bind').click(function (event) {
-            // 없을때만 추가.
-            var $len = $('#theone').length;
-            if( $len < 1 ) {
-                $(this).first().before('<button id="theone">Does nothing</button>' );
-            }
 
-            // 동적 이벤트 설정
-            $('body').on( 'click', '#theone',  function() {
-                console.log('click p');
-            } );
 
-            // 버튼 활성화 여부
-            $(this).prop( "disabled", true );
-            $('#unbind').prop( "disabled", false );
-        });
-
-        // unbind 에 click 이벤트 달기
-        // theone 에 click 이벤트 제거
-        $('#unbind').click( function (event) {
-            // 버튼 활성화 여부
-            $(this).prop( "disabled", true );
-            $('#bind').prop( "disabled", false );
-
-            // theone 에 click 이벤트 제거
-            $('body').off( 'click');
-        });
-
-    });
-</script>
 </head>
 <body>
 
@@ -54,3 +19,10 @@
     <div style="display: none;">Click!</div>
 </body>
 </html>
+
+
+
+
+
+
+

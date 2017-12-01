@@ -3,39 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    <script>
-        var name = 'foo';          // 변수
-        var age = 30;              // 변수
-        var run = function () { return name; }; // 함수
-
-        console.log( typeof name, name);
-        console.log( typeof age, age);
-        console.log( typeof run, run);
-
-        // 객체 리터럴을 이용한 객체 생성
-        var foo = {
-            name : 'foo',         /* 프로퍼티 name = 'foo' */
-            age : 30,             /* 프로퍼티 age = 30     */
-            run : function () { return this.name; } /* 메서드 */
-        };
-        console.log( typeof foo, foo);
-
-        // 생성자 함수를 이용한 객체 생성
-        function Foo(name, age) {
-            this.name = name;
-            this.age = age;
-        };
-        var goo = new Foo('goo', 40);
-        console.log( typeof goo, goo );        // (출력값)
-
-        //Oject() 함수를 이용한 객체 생성
-        var hoo = new Object();
-        hoo.name = 'hoo';
-        hoo.age = 50;
-        console.log( typeof hoo, hoo );        // (출력값)
-    </script>
+    
 </head>
 <body>
 
 </body>
 </html>
+
+

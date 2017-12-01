@@ -3,25 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-
-        // 페이지 로드 시에 이벤트 핸들러를 등록
-        window.onload = function( event) {
-
-            // p 태그에 click 이벤트 달기
-            var p = window.document.getElementsByName('name');
-
-            // for 문을 이용해 이벤트 핸들러 설정하기
-            // 0부터 10까지 합계를 구하시오.
-            for( var i = 0 ; i <= p.length-1 ;  i=i+1 ) {
-                p[i].count = i;
-                p[i].onclick = function(event) {
-                    window.alert( this.count + "번째 name이 클릭되었다.");
-                };
-            }
-
-        };
-    </script>
+    
 </head>
 <body>
     <p name='name' count="0">고전 이벤트 모델</p>
@@ -33,3 +15,6 @@
     <p name='name' count="6">고전 이벤트 모델</p>
 </body>
 </html>
+
+
+

@@ -9,35 +9,8 @@
 	        display:block; margin-top:10px;}
 	    div { border: 1px dashed red; }
 	</style>
-	<script src='../jquery-3.1.1.js'></script>
-	<script>
-	    $(document).ready( function(){
-	        // p click 이벤트 달기.
-	        // p를 클릭 했을 동생으로 추가 : <p class='b'>p paragraph!</p>
-	        $('p').click( function (e) {
-	            $('#p').append( '<p class="b">p paragraph!</p>');
-	            $('ul.menu').html('<p>append p.b paragraph!</p>');
-	        });
-	        $('#p').on( 'click', 'p.b',  function(e) {
-	            $('ul.menu').html('<p>p paragraph! clicked</p>');
-	        } );
-
-
-	        // span click 이벤트 달기.
-	        // span를 클릭 했을 때 추가 : <span class='b'>span paragraph!</span>
-	        $('span').click( function (e) {
-	            $append = $('#span').append( '<span class="b">span paragraph!</span>')
-	            $('ul.menu').html('<span>append span.p paragraph!</span>');
-
-	            // 클래식 방식으로 동적으로 추가시 중첩 이벤트 발생.
-	            // 동적 이벤트 추가 on 방식을 사용.
-	            $append.click( function (event) {
-	                $('ul.menu').html('<span>span.b paragraph! clicked</span>');
-	            });
-	        });
-
-	    });
-	</script>
+	
+	
 </head>
 <body>
     <p>Click me! 클릭하면 id=p에 추가하시고 <br> 추가된 엘리먼트에 click이벤트를 거시오.</p>
@@ -56,3 +29,10 @@
     </ul>
 </body>
 </html>
+
+
+
+
+
+
+

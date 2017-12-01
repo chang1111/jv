@@ -9,31 +9,9 @@
 			@import "../../css/demo_page.css";
 			@import "../../css/demo_table.css";
 		</style>
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="../../js/jquery.dataTables.js"></script>
-		<script charset="utf-8">
-			$(document).ready(function() {
-				var oTable = $('#example').dataTable();
-				var oSettings = oTable.fnSettings();
-				var iStart = new Date().getTime();
-				
-				//console.profile();
-				//for ( var i=0, iLen=1000 ; i<iLen ; i++ )
-				//{
-				//	oSettings._iDisplayLength = 100;
-				//	oTable.oApi._fnCalculateEnd( oSettings );
-				//	oTable.oApi._fnDraw( oSettings );
-				//	
-				//	oSettings._iDisplayLength = 10;
-				//	oTable.oApi._fnCalculateEnd( oSettings );
-				//	oTable.oApi._fnDraw( oSettings );
-				//}
-				//console.profileEnd();
-				
-				var iEnd = new Date().getTime();
-				document.getElementById('output').innerHTML = "Test took "+(iEnd-iStart)+"mS";
-			} );
-		</script>
+		
+		
+		
 	</head>
 	<body id="dt_example">
 		<div id="container">
@@ -480,3 +458,9 @@
 		</div>
 	</body>
 </html>
+
+
+
+
+
+

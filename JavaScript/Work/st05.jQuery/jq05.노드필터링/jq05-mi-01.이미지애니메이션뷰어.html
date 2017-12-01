@@ -10,98 +10,8 @@
         .nav { width: 840px; text-align: center; }
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-       /*
-        *   - 전역 변수 선언
-        *   - 이벤트 초기화
-        *   - 다음 이미지 출력
-        *   - 이전 이미지 출력
-        *   - autoPlay 기능 구현
-        *   - autoplay 기능 멈추기
-        *
-        */
-
-       // 전역 변수 선언 부분
-       var MyApp = {
-           $view: null,
-           currentIndex: 1,
-           timerID: 0
-       };
-
-
-       // index 번째 이미지 출력
-       MyApp.showImage = function (index) {
-           this.$view.attr("src", "./images/" + index + ".jpg");
-           this.currentIndex = index;
-
-           // 테스트를 위해 index 값 출력
-           console.log(this.currentIndex);
-       };
-
-       // 다음 이미지
-       MyApp.nextImage = function () {
-           var index = this.currentIndex + 1;
-           if (index >= 60)
-               index = 1;
-
-           this.showImage(index);
-       };
-
-       // 오토 플레이 실행
-       MyApp.startAutoPlay = function () {
-           if (this.timerID == 0) {
-
-               this.timerID = setInterval( function(){ MyApp.nextImage(); }, 100);
-           }
-       };
-
-       // 오토 플레이 멈춤
-       MyApp.stopAutoPlay = function () {
-           if (this.timerID != 0) {
-               clearInterval(this.timerID);
-               this.timerID = 0;
-           }
-       };
-
-       // 이전 이미지
-       MyApp.prevImage = function () {
-           var index = this.currentIndex - 1;
-           if (index <= 0)
-               index = 59;
-
-           this.showImage(index);
-
-       };
-
-       // 시작 부분
-       $(document).ready(function () {
-
-           // 전역 요소 초기화
-           MyApp.$view = $("#view");
-
-           // 오토 플레이 실행
-           $("#play").click(function () {
-               MyApp.startAutoPlay();
-           });
-
-           // 오토 플레이 멈춤
-           $("#stop").click(function () {
-               MyApp.stopAutoPlay();
-           });
-
-           // 다음 이미지
-           $("#next").click(function () {
-               MyApp.nextImage();
-           });
-
-           // 이전 이미지
-           $("#prev").click(function () {
-               MyApp.prevImage();
-           });
-       });
-
-    </script>
+    
+    
 
 </head>
 
@@ -118,3 +28,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 D</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <style>
+
+        p { margin-bottom: 20px; }
+
+        div { background-color: rgba(255, 0, 0, 0.2); }
+         
+        #wrap     { width: 500px; overflow: auto; }
+        #header   { width: 500px; float: left; background-color: rgba(0, 255, 0, 0.2); }
+        
+        #wrapbody { width: 500px; height:100px; overflow: auto; }
+        #leftbar  { width: 100px; float: left; background-color: rgba(255, 0, 0, 0.2); }
+        #content  { width: 400px; float: left; background-color: rgba(0, 0, 255, 0.2); }
+        
+        #footer   { width: 500px; float: left; background-color: rgba(100, 0, 0, 0.2); }
+    </style>
+</head>
+
+<body>
+    <h1>레이아웃 D</h1>
+    
+    <div id="wrap">
+        
+        <div id="header">
+            header
+        </div>
+    
+        <div id="wrapbody">
+            <div id="leftbar">
+                leftbar
+            </div>
+    
+            <div id="content">
+                content
+            </div>
+        </div>
+    
+        <div id="footer">
+            footer
+        </div>
+    </div>
+
+</body>
+
+</html>

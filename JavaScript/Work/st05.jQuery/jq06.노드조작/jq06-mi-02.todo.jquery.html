@@ -4,62 +4,8 @@
     <title>TO DO List</title>
     <link href="../bootstrap.css" rel="stylesheet" />
     <link href="../bootstrap-theme.css" rel="stylesheet" />
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        var MYAPP = { selector_tbody : 'table.table-striped > tbody' };
-
-        MYAPP.setPageHeaderLabel = function() {
-
-            var $tbody = $( this.selector_tbody );
-            var $checkeds  = $tbody.find('input:not(:checked)');
-            $('.page-header span.label').text( $checkeds.length );
-        };
-        MYAPP.appendTrTableStriped = function () {
-
-            var val = $('input.form-control').val();
-            var $tbody = $( this.selector_tbody );
-            $tbody.append( '<tr><td>'+ val +'</td><td><input type="checkbox" /></td></tr>' );
-        };
-        MYAPP.setShowHideTrTableStriped = function () {
-
-            var $tbody = $( this.selector_tbody );
-
-            if( $('.checkbox-inline  input:checkbox').is(':checked') ){
-                $tbody.find('tr').show();
-            }
-            else {
-                $tbody.find('input:checked').parent().parent().hide();
-            }
-        };
-
-        $(document).ready( function(e) {
-
-            MYAPP.setPageHeaderLabel();
-
-            MYAPP.setShowHideTrTableStriped();
-
-
-            $('.input-group-btn > .btn-default').click( function (e) {
-
-                MYAPP.appendTrTableStriped();
-
-                MYAPP.setPageHeaderLabel();
-            });
-
-            $('.checkbox-inline  input:checkbox').click( function(e) {
-
-                MYAPP.setShowHideTrTableStriped();
-            });
-
-
-            $('table.table-striped > tbody').on('click', 'input:checkbox',  function(e) {
-
-                MYAPP.setPageHeaderLabel();
-
-                MYAPP.setShowHideTrTableStriped();
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <div class="page-header">
@@ -103,3 +49,10 @@
 
 </body>
 </html>
+
+
+
+
+
+
+

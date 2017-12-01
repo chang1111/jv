@@ -9,26 +9,9 @@
 			@import "../../css/demo_page.css";
 			@import "../../css/demo_table.css";
 		</style>
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="../../js/jquery.dataTables.js"></script>
-		<script charset="utf-8">
-			$(document).ready(function() {
-				var oTable = $('#example').dataTable();
-				var oSettings = oTable.fnSettings();
-				var iStart = new Date().getTime();
-				
-				for ( var i=0, iLen=100 ; i<iLen ; i++ )
-				{
-				console.profile( );
-					oTable.fnSort( [[1, 'asc']] );
-					oTable.fnSort( [[0, 'asc']] );
-				console.profileEnd( );
-				}
-				
-				var iEnd = new Date().getTime();
-				document.getElementById('output').innerHTML = "Test took "+(iEnd-iStart)+"mS";
-			} );
-		</script>
+		
+		
+		
 	</head>
 	<body id="dt_example">
 		<div id="container">
@@ -475,3 +458,9 @@
 		</div>
 	</body>
 </html>
+
+
+
+
+
+

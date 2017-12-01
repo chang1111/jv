@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
+    <script type="text/javascript">
+        var i = 1;
 
         try {
-            var i = 1;
-            i = i * j;  // ❶ 예외 발생
-
-            console.log('정상');
-        }
-        catch( e ) {
+            i = i * j;
+        } catch (e) {
             console.log(e.message);
         } finally {
             console.log('처리가 완료되었다.');
         }
 
-        console.log( i );
     </script>
 </head>
 <body>
 
 </body>
 </html>
+
+

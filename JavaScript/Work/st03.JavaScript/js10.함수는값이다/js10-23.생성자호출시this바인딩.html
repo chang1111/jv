@@ -3,24 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>생성자 호출시 this 바인딩</title>
-<script>
-    // Create a constructor function called Quo.
-    var Quo = function (string) {
-        this.status = string;
-    };
 
-    // Give all instances of Quo a public method
-    // called getStatus.
-    Quo.prototype.getStatus = function ( ) {
-        return this.status;
-    };
-
-    // Make an instance of Quo.
-    var myQuo = new Quo( 'confused');
-    console.log(myQuo.getStatus( )); // confused
-</script>
 </head>
 <body>
 
 </body>
 </html>
+
+
+

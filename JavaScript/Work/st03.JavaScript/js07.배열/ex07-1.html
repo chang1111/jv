@@ -3,46 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-
-        // 숫자를 크기순으로 소트할 때, 내부적으로 필요한 함수
-        var compNumber = function (a, b) {
-            return a - b;
-        }
-
-        // 심사 위원수 입력 받기
-        var value = prompt('심사 위원의 수를 입력하시오');
-        var n1 = Number(value);
-
-        // 심사 위원별 점수 입력 받아서 배열에 저장
-        var array = [];
-        for( var i=0  ; i< n1  ; i=i+1 ) {
-            var value2 = prompt('점수를 입력하시오');
-            array[i] = Number(value2);
-        }
-        console.log( array );
-
-
-        // 배열 정렬하기
-        array.sort(  compNumber   );
-        console.log( array );
-
-
-        // 최대값과 최소값을 제외한 합계
-        var sum = 0;
-        for( var i=1; i<= (array.length-1)-1 ;  i= i+1) {
-            sum = sum + array[i];
-        }
-        console.log( '합계: ' + sum );
-
-        // 유효 점수 구하기
-        // 유효 점수 = 합계 / (심사위원수-2)
-        var grade = sum / (n1-2);
-        console.log( '평균: ' + grade );
-
-    </script>
+    
 </head>
 <body>
 
 </body>
 </html>
+
+

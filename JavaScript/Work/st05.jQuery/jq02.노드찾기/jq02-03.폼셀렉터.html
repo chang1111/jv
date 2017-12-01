@@ -9,43 +9,8 @@
 	    td    { border: 1px solid #AAA; width: 20px; height: 20px; }
 	</style>
 
-	<script src='../jquery-3.1.1.js'></script>
-	<script>
-        var MYAPP = {};
-        MYAPP.init = function (event) {
-            $('*').css('outline', '');
-        }
-	    $(document).ready(function() {
-
-	        $('#checked').click( function(event){
-                MYAPP.init();
-                //$('input[type="checkbox"]').css('outline', '2px dotted red');
-                $('input:checkbox:checked').css('outline', '2px dotted red');
-                //$('.cls').filter(':checked').css('outline', '2px dotted red');
-            });
-            $('#radio'   ).click( function(event) {
-                MYAPP.init();
-	            $('input:radio:checked').css("outline", "2px dotted red");
-            });
-            $('#selected').click( function(event) {
-                MYAPP.init();
-                $('option:selected').css('outline', '2px dotted red');
-            });
-            $('#hobby'   ).click( function(event) {
-                MYAPP.init();
-                // 속성으로 노드 찾기 : name="hobby"
-	            MYAPP.hobby = $('input[name=hobby]:checked');
-
-	            if( MYAPP.hobby.length == 0 ) {
-	                alert('취미를 선택하세요.');
-	                return false;
-                }
-                else {
-                    MYAPP.hobby.css('outline', '2px dotted red');
-                }
-            });
-	    });
-	</script>
+	
+	
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -99,3 +64,10 @@
     <div id='contents'> 결과</div>
 </body>
 </html>
+
+
+
+
+
+
+

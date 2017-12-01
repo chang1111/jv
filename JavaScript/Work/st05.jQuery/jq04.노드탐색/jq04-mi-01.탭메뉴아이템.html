@@ -30,96 +30,8 @@
 
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        MYAPP = { timer : null };
-        MYAPP.init = function() {
-            $('ul#tabMenu1').children('li').removeClass('select');
-        };
-
-        $(document).ready(function() {
-
-            // 미션 01:
-            // 탭 메뉴 아이템(#tabMenu1 li) 개수가 몇 개 인지 출력해 주세요.
-            $('#mission1').click(function (event) {
-                MYAPP.init();
-
-                // $('ul#tabMenu1').children('li') === $('ul#tabMenu1 > li')
-                var lis = $('ul#tabMenu1 > li');
-
-                $('#result').text( lis.length );
-
-                // 이벤트 제거 & 비활성화
-                $(this).off('click').attr('disabled',true);
-            });
-
-
-            // 미션 02: 클릭한 탭메뉴의 인덱스 값 출력하기
-            // 탭 메뉴가 클릭되면 클릭한 탭메뉴 아이템이
-            // 몇 번째인지 인덱스 값을 출력해 주세요.
-            $('#mission2').click(function (event) {
-                MYAPP.init();
-
-                $('ul#tabMenu1 > li').click(function (event) {
-                    var index = $(this).index();
-                    $('#result').text( $(this).index() );
-                });
-
-                // 이벤트 제거 & 비활성화
-                $(this).off('click').attr('disabled',true);
-            });
-
-
-            // 미션 03: 1초에 한 번씩 탭메뉴 아이템에 select 클래스 적용하기
-            // 탭메뉴 아이템 개수만큼 1초에 한 번씩 순차적으로
-            // 탭메뉴 아이템에 select 클래스를 적용해 주세요.
-            $('#mission3').click( function(e){
-                MYAPP.init();
-
-                var index = 0;
-                var lis = $('#tabMenu1 > li');
-
-                // 1초마다 반복 실행
-                MYAPP.timer = window.setInterval(function(){
-
-                    $( lis[index] ).addClass('select');
-
-                    index = index + 1;
-
-                    // 타이머 멈추기 : index === lis.length
-                    if( index === lis.length ) {
-                        window.clearInterval( MYAPP.timer ); // interval 종료
-                        MYAPP.init();
-                    }
-                }, 1000);
-
-                // 이벤트 제거 & 비활성화
-                $(this).off('click').attr('disabled',true);
-            });
-
-            //미션 04: 탭메뉴 구현하기
-            $('#mission4').click(function (event) {
-                MYAPP.init();
-
-                // 선택 한 탭메뉴를 저장할 변수
-                var $selectMenuItem =null;
-
-                // 요소 초기화
-                $('#tabMenu1 li').click(function(){
-
-                    // 선택 메뉴 아이템 만들기
-                    if( $selectMenuItem ){
-                        $selectMenuItem.removeClass('select');
-                    }
-                    $selectMenuItem = $(this);
-                    $selectMenuItem.addClass('select');
-                });
-
-                // 이벤트 제거 & 비활성화
-                $(this).off('click').attr('disabled',true);
-            });
-        });
-    </script>
+    
+    
 
 </head>
 
@@ -158,3 +70,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+

@@ -7,102 +7,8 @@
         table { border: 1px solid #AAA; width:98%; }
         td    { border: 1px solid #AAA; width: 20px; height: 20px; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        var MYAPP = {};
-        MYAPP.init = function(){
-            $('*').css({ 'border':'', 'background':'' }) ;
-        };
-
-
-        $(document).ready( function(e) {
-
-            $('#eq'    ).click( function(e) {
-                MYAPP.init();
-                $('tr:eq(0) > td:eq(7)').css('background', 'red');
-            } );
-            $('#gt'   ).click( function(e){
-                MYAPP.init();
-                $('tr:eq(1) > td:gt(2)').css('background', 'yellow');
-            } );
-            $('#lt'   ).click( function(e){
-                MYAPP.init();
-                $('tr:eq(1) > td:lt(2)').css('background', 'orange');
-            } );
-            $('#odd'  ).click( function(e){
-                MYAPP.init();
-                $('tr:eq(2) > td:odd').css('background', 'blue');
-            } );
-            $('#even' ).click( function(e){
-                MYAPP.init();
-                $('tr:eq(2) > td:even').css('background', 'green');
-            } );
-            $('#first').click( function(e){
-                MYAPP.init();
-                $('tr:eq(3) > td:first').css('background', 'pink');
-            } );
-            $('#last' ).click( function(e){
-                MYAPP.init();
-                $('tr:eq(3) > td:last').css('background', 'green');
-            } );
-
-
-            $('#ex1' ).click( function(e){
-                MYAPP.init();
-                $('tr:even').css('background','#AA0000');
-            });
-            $('#ex2'   ).click( function(e) {
-                MYAPP.init();
-                $('td:odd').css('background','#00AA00');
-            });
-            $('#ex3' ).click( function(e){
-                MYAPP.init();
-                $('tr:even > td:odd').css('background', 'pink');
-            });
-            $('#ex4'  ).click( function(e){
-                MYAPP.init();
-                $('td:nth-child(3n+1)').css('background', 'pink');
-            });
-            $('#ex5' ).click( function(e){
-                MYAPP.init();
-                //$('td:nth-child(10n+1)').css('background','orange');
-                //$('td:first-child').css('background','orange');
-                $('td:nth-child(1)').css('background','orange');
-            });
-            //$('#ex6' ).click( function(e){
-            //    MYAPP.init();
-            //    $('td:first-child').css('background','red');
-            //    $('td:last-child').css('background','yellow');
-            //});
-            $('#ex6').click(function () {
-                MYAPP.init();
-                $('table td').filter(function (a) {
-                    return a % 10 == 0;
-                }).css('background-color', 'red');
-                $('table td').filter(function (a) {
-                    return a % 10 == 9;
-                }).css('background-color', 'yellow');
-            });
-            $('#ex7'   ).click( function(e) {
-                MYAPP.init();
-                $('td:nth-child(3)').css('background','yellow');
-            });
-            //$('#ex8'   ).click( function(e) {
-            //    MYAPP.init();
-            //
-            //    $('tr:eq(2) > td:gt(4)').remove();
-            //    $('tr:eq(2) > td:eq(4)').attr('colspan', 6);
-            //
-            //    $('td:first-child').css('background','red');
-            //    $('td:last-child').css('background','yellow');
-            //});
-            $('#ex8' ).click(function (e) {
-                $('td:first-child').addClass('redcolor');
-                $('td:last-child').addClass('yellowcolor');
-                $('tr:eq(2) td:eq(4)').attr('colspan','6').css('background','PURPLE').nextAll().css('display','none');
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -145,3 +51,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

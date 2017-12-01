@@ -26,126 +26,9 @@
         .rightbtn { margin-left:290px;margin-top:10px; }
     </style>
 
-    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
-    <script src="../jquery.easing.1.3.js"></script>
-    <script>
-        $(document).ready(function (e) {
-
-            // show & hide  메서드
-            $(".showhide:eq(0)").click(function(e) {
-                $('p.showhide').stop( true, true ).show();
-            });
-            $(".showhide:eq(1)").click(function(e) {
-                $('p.showhide').stop( true, true ).hide();
-            });
-            $(".showhide:eq(2)").click(function(e) {
-                $('p.showhide').stop( true, true ).toggle();
-            });
-
-            // easing 효과
-            $(".easing:eq(0)"  ).click(function(e) {
-
-                $('p.easing').stop(true,true).show( {
-                    duration: 4000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-            $(".easing:eq(1)"  ).click(function(e) {
-
-                $('p.easing').stop(true,true).hide( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-            $(".easing:eq(2)"  ).click(function(e) {
-
-                $('p.easing').stop(true,true).toggle( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-
-
-            // slide 효과
-            $(".slide:eq(0)"   ).click(function(e) {
-
-                $('div.slide').stop(true,true).slideUp( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-            $(".slide:eq(1)"   ).click(function(e) {
-                $('div.slide').stop(true,true).slideDown( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-            $(".slide:eq(2)"   ).click(function(e) {
-                $('div.slide').stop(true,true).slideToggle( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).css('background','yellow'); }
-                });
-            });
-
-
-            // fade 효과
-            $(".fade:eq(0)"    ).click(function(e) {
-                $('div.fade, p.fade').stop(true,true).fadeIn( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).prev().show(); }
-                });
-            });
-            $(".fade:eq(1)"    ).click(function(e) {
-                $('div.fade, p.fade').stop(true,true).fadeOut( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).prev().hide(); }
-                });
-            });
-            $(".fade:eq(2)"    ).click(function(e) {
-                $('div.fade, p.fade').stop(true,true).fadeToggle( {
-                    duration: 2000,
-                    easing : $('option:selected').text(),
-                    complete: function () { $(this).prev().toggle(); }
-                });
-            });
-            $(".fade:eq(3)"    ).click(function(e) {
-
-                var opval = $('div.fade').css('opacity');
-
-                if( opval === '0.4' )
-                    opval = 1;
-                else
-                    opval = 0.4;
-
-                $('div.fade').fadeTo( 2000,
-                    opval,
-                    $('option:selected').text(),
-                    function () { $(this).prev().toggle(); }
-                );
-            });
-
-
-            // 사용자 효과
-            $('.leftbtn').click(function(event){
-                // marginLeft === css의 margin-left와 같은 것.
-                $('#leftimage').stop( true, true ).animate({marginLeft:-210}, 2000);
-            });
-
-            $('.rightbtn').click(function(event){
-                $('#leftimage').stop( true, true ).animate({marginLeft:0}, 2000);
-            });
-
-        });
-
-    </script>
+    
+    
+    
 
 </head>
 <body>
@@ -255,3 +138,10 @@
     -->
 </body>
 </html>
+
+
+
+
+
+
+

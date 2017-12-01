@@ -11,45 +11,8 @@
         #output { border:1px solid #000; min-height:100px; }
     </style>
 
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready(function(){
-            // #output 찾기
-            var $output = $("#output");
-            // .menu 찾기
-            var $menu = $("ul.menu");
-            // 카운트 변수 추가
-            var count=0;
-
-            // #add 버튼에 클릭 이벤트 등록
-            $("#add").click(function(){
-                // 카운트 증가
-                count++;
-
-                // 신규 메뉴 항목 생성
-                var $newItem = $("<li>new"+count+"</li>");
-
-                // 메뉴 항목 추가
-                $menu.append($newItem);
-
-                // 이벤트 객체 생성
-                var event  = jQuery.Event("addItem");
-
-                // 이벤트 데이터 생성
-                event.item = $newItem;
-                event.itemName = $newItem.text();
-                event.itemLength = $menu.children().length;
-
-                // 이벤트 발생
-                $menu.trigger(event);
-            })
-
-            // addItem 이벤트 리스너 등록
-            $menu.on("addItem", function(e){
-                $output.prepend("<p>추가 아이템 = "+e.itemName+", 아이템 개수 = "+e.itemLength+"</p>");
-            })
-        });
-    </script>
+    
+    
 
 </head>
 
@@ -76,3 +39,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

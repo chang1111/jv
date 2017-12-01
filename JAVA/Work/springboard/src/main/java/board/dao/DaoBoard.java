@@ -30,9 +30,9 @@ public class DaoBoard implements IBoard {
     }
     
     @Override
-    public List<ModelBoard> getBoardOne(String boardcd) throws Exception {
-        List<ModelBoard> result = null;
-        result = session.selectList("mapper.mapperBoard.getBoardOne", boardcd);
+    public ModelBoard getBoardOne(String boardcd) throws Exception {
+        ModelBoard result = null;
+        result = session.selectOne("mapper.mapperBoard.getBoardOne", boardcd);
         return result;
     }
     

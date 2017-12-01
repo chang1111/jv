@@ -6,40 +6,18 @@
         ul { float:left; margin:30px}
         img{ width: 140px; height: 120px; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $(document).ready( function(){
-            // 일회성 이벤트
-            $('#image3').one('click', function (event) {
-                var $widht = $(this).width() * 2 ;
-                var $height = $(this).height() * 2;
-
-                $(this).width( $widht );
-                $(this).height( $height );
-
-                // 이벤트 취소
-                return false;
-            });
-
-            // 일회성 이벤트
-            $('#image4').on('click', function (event) {
-                var $widht = $(this).width() * 2 ;
-                var $height = $(this).height() * 2;
-
-                $(this).width( $widht );
-                $(this).height( $height );
-
-                // 이벤트 제거
-                $(this).off('click');
-
-                // 이벤트 취소
-                return false;
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
 <img id="image3" src="images/image3.jpg" />
 <img id="image4" src="images/image3.jpg" />
 </body>
 </html>
+
+
+
+
+
+
+

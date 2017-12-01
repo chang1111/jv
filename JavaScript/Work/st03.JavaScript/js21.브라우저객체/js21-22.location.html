@@ -3,49 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        MYAPP = {};
-
-        window.onload = function (e) {
-            // qmake에 click 이벤트 달기
-            MYAPP.qmake = document.getElementById('qmake');
-            MYAPP.qmake.onclick = function (e) {
-                var newlocation = '';
-                if (location.href.indexOf('?') >=0 ) {
-                    newlocation = location.href + '&a=1&b=2&c=3';
-                }
-                else {
-                    newlocation = location.href + '?a=1&b=2&c=3';
-                }
-                location.href = newlocation;
-            };
-
-            // qexec에 click 이벤트 달기
-            MYAPP.qexec = document.getElementById('qexec');
-            MYAPP.qexec.onclick = function (e) {
-                var arr = [];
-                if( location.search.length > 1){
-                    var query = location.search.substring(1);
-
-                    // &로 자르기
-                    var params = query.split('&');
-
-                    for(var i=0; i<params.length; i=i+1){
-                        // =로 자르기
-                        arr[i] = params[i].split('=');
-                    }
-                }
-
-                for(var i in arr ){
-                    console.log(i, arr[i]);
-                }
-            };
-        };
-
-    </script>
+    
 </head>
 <body>
 <input id="qmake" type="button" name='text' value="url query 만들기">
 <input id="qexec" type="button" name='text' value="url query 분석">
 </body>
 </html>
+
+
+

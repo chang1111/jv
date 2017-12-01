@@ -6,61 +6,8 @@
     <style>
         div { font-weight: bold; color:red; }
     </style>
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-
-        /*
-         검색조건: jquery form filed object
-
-         http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
-
-         사용법:  var obj = form2obj( $(form).serializeArray() );
-         */
-        var form2obj = function (arr) {
-
-            // var arr = $(form).serializeArray();
-            var obj = {};
-
-            for(var i = 0; i < arr.length; i++) {
-                if(obj[arr[i].name] === undefined) {
-                    obj[arr[i].name] = arr[i].value;
-                } else {
-                    if(!(obj[arr[i].name] instanceof Array)) {
-                        obj[arr[i].name] = [obj[arr[i].name]];
-                    }
-                    obj[arr[i].name].push(arr[i].value);
-                }
-            }
-            return obj;
-        };
-
-        $(document).ready(function(e){
-            $('#submit1').click( function(e){
-                var form_data = $('form').serialize(); // 문자열로 리턴
-                $('#result').text( form_data );
-            });
-            $('#submit2').click( function(e){
-                var form_data = $('form').serializeArray(); // 배열로 리턴
-
-                var printtext = '';
-                for( var i=0; i<form_data.length; i=i+1) {
-                    printtext = printtext + form_data[i].name + '=' + form_data[i].value + '<br>';
-                }
-
-                $('#result').html( form_data );
-            });
-            $('#submit3').click( function(e){
-                var obj = form2obj(  $('form').serializeArray()  );
-
-                // 객체를 문자열로 출력.
-                var str = JSON.stringify(obj);
-                $('#result').html( str );
-
-                // ajax 로 호출
-                // http://localhost:3000/login
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <form>
@@ -80,3 +27,10 @@
     <div id="result"></div>
 </body>
 </html>
+
+
+
+
+
+
+

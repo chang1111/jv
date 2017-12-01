@@ -12,75 +12,8 @@
 	    .yellow { background:yellow; }
 	    .pink   { background:pink; }
 	</style>
-	<script src='../jquery-3.1.1.js'></script>
-	<script>
-	   $(document).ready( function() {
-
-	        $('#contents').click( function(event) {
-	            var $lis = $('ul').find('li');
-	            var $uls = $lis.contents();
-	            $uls.remove("p");
-
-	            console.log("############lis#############");
-	            for(var i=0; i<$lis.length; i++) {
-	                console.log( $lis[i].innerHTML );
-	            }
-	            console.log("############lis:end#############");
-	            console.log("************uls*************");
-	            for(var i=0; i<$uls.length; i++) {
-	                console.log( $uls[i] );
-	            }
-	            console.log("************uls:end*************");
-	        });
-	        $('#add').click( function(event){
-	            $("div > ul > li").toggleClass("yellow")
-	                    .add("p")
-	                    .toggleClass('border');
-	        });
-
-	        $('#addBack').click( function(event) {
-	            var $divs = $("div").toggleClass("yellow");
-	            var $ps   = $divs.add("p");
-	            var $dls  = $ps.find("dl");
-	            var $back = $dls.addBack();
-	            $back.toggleClass("border");
-	        });
-
-	        $('#andSelf').click( function(event) {
-	            var $divs = $("div");
-	            var $lis  = $divs.find("li");
-	            var $dls  = $lis.find("dl");
-	            var $dds  = $dls.find("dd");
-	            var $self = $dds.andSelf();
-	            $self.toggleClass("border");
-	        });
-
-	        $('#end').click( function(event) {
-	            var $div = $("div");
-	            console.log($div.length);
-
-	            var $div2 = $div.find("ul").toggleClass("yellow");
-	            console.log($div2.length);
-
-	            var $div3 = $div2.end();
-	            console.log($div3.length);
-
-	            var $div4 = $div3.toggleClass("border");
-	            console.log($div4.length);
-	        });
-
-	        $('#slice').click( function(event) {
-	            $("p > span").slice(1, 4).toggleClass('pink');
-	        });
-
-	        $('#map').click( function(event) {
-	            var liText = $("li").map(function(index) { return "[(" + index + ")" + $(this).text() + "]"; })
-	                                .get()
-	                                .join(', <br>');
-	            $("result").html(liText);
-	        });
-	    });
-	</script>
+	
+	
 </head>
 <body>
     <div>
@@ -124,3 +57,10 @@
     <input id="map"    type="button" value="map()">
 </body>
 </html>
+
+
+
+
+
+
+

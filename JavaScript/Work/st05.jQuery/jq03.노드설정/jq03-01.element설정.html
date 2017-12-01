@@ -14,46 +14,8 @@
         .white  { background: white; cursor:pointer; }
         .gray   { background: gray;   }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $( document).ready( function (e) {
-
-            // element node CRUD
-            $('#element_read'  ).click( function(event) {
-                var tag = $('.pclick').html();
-                alert( tag );
-            });
-            $('#element_create'   ).click( function (e) {
-                $('#result_element').html( '<img src="images/im1.jpg" />' );
-            });
-            $('#element_update'   ).click( function (e) {
-                var tag = $('.pclick').html();
-                $('#result_element').html(tag);
-            });
-            $('#element_delete'   ).click( function (e) {
-                //$('#result_element').remove();
-                $('#result_element').html('');
-            });
-
-            // text node CRUD
-            $('.text_read'  ).click( function(e) {
-                var text = $(this).text(); // $('.text_read'  ) == $(this)
-                alert( text );
-            });
-            $('.text_create').click( function (e) {
-                var text = $(this).text();
-                var newtext = text + ' > 추가';
-                $(this).text( newtext );
-            });
-            $('.text_update').click( function (e) {
-                var text = $('.pclick').text();
-                $(this).text( text );
-            });
-            $('.text_delete').click( function (e) {
-                $(this).text('');
-            });
-        });
-    </script>
+    
+    
 </head>
 <body>
     <p class="pclick">
@@ -82,3 +44,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

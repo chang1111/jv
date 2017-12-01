@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -165,91 +165,8 @@
 </style>
 
 
-<script src="../../jquery-3.1.0.min.js"></script>   
-    <script>
-        $(document).ready(function (e) {
-
-
-            $(".tab_sms").click(function (e) {
-
-                $("#methodCon_2").hide();
-                $("ul.tab_method").removeClass("tab_act2");
-
-                if($("#methodCon_1").css('display') === 'block'){
-                    $("#methodCon_1").hide();
-                    $("ul.tab_method").removeClass("tab_act1");
-
-                }else{
-                    $("#methodCon_1").show();
-                    $(this).parent("ul.tab_method").addClass("tab_act1");
-                }
-            });
-            $(".tab_mail").click(function (e) {
-
-                $("#methodCon_1").hide();
-                $("ul.tab_method").removeClass("tab_act1");
-
-                if($("#methodCon_2").css('display') === 'block'){
-                    $("#methodCon_2").hide();
-                    $("ul.tab_method").removeClass("tab_act2");
-
-                }else{
-                    $("#methodCon_2").show();
-                    $(this).parent("ul.tab_method").addClass("tab_act2");
-                }
-            });
-
-            $(".btnCode").click(function (e) {
-                var eAddr1 = $("#txtEmailAddress1").val();
-                var eAddr2 = $("#txtEmailAddress2").val();
-                var esAddr = $("#ddlEmailSelectAddress").val();
-                console.log( 'eAddr1:' + eAddr1 + ' ' + 'eAddr2:' + ' ' + eAddr2 + ' ' + 'esAddr:' + esAddr);
-            })
-
-            $(".btnJoin").click(function (e) {
-
-                var tscName = $("#txtSmsCertName").val();
-                var dscYear = $("#ddlSmsCertYear option:selected").text();
-                var dscMonth = $("#ddlSmsCertMonth option:selected").text();
-                var dscDay = $("#ddlSmsCertDay option:selected").text();
-                var dscSex = $("#ddlSmsCertSex option:selected").text();
-
-                if (tscName.length < 1){
-                    alert('이름을 적어 주세요')
-                    return false;
-                }
-                if (dscYear.length < 1){
-                    alert('년도를 선택해 주세요')
-                    return false;
-                }
-                if (dscMonth.length < 1){
-                    alert('월을 선택해 주세요')
-                    return false;
-                }
-                if (dscDay.length < 1){
-                    alert('일을 선택해 주세요')
-                    return false;
-                }
-                if (dscSex.length < 1){
-                    alert('성별을 선택해 주세요')
-                    return false;
-                }
-                if (dscSex === '선택' ){
-                    alert('성별을 선택해 주세요')
-                    return false;
-                }
-            });
-
-            $('#divbtnAgreement > a:eq(0)').click(function(e){
-                location.href = 'step3.html';
-            });
-
-            $('#divbtnAgreement > a:eq(1)').click(function(e){
-                history.back();
-            });
-
-        });
-    </script>
+   
+    
     
 </head>
 <body>
@@ -478,3 +395,10 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
