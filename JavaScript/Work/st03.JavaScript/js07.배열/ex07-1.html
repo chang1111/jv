@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        var arr = [7, 9, 4, 8, 5];
+        var compNumber = function(a, b){
+            return a-b;
+        }
+        arr.sort(compNumber);
+        arr.splice(0,1);
+        arr.splice(arr.length-1,1);
+        console.log('유효점수 : ' + arr);
+        var sum = 0;
+        for(var i in arr){
+            sum = sum + arr[i];
+        }
+        avg = sum/arr.length;
+        console.log('합계 : ' + sum);
+        console.log('평균 : ' + avg.toFixed(2));
+    </script>
 </head>
 <body>
 

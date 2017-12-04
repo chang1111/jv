@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        var arr1 = ['S', 'T', 'O', 'R', 'B'];
+        var arr2 = ['Y', 'M', 'A', 'D'];
+
+        var arr3 = arr1.concat(arr2);
+        console.log(arr3);
+
+        var str1 = arr1.join('/');
+        console.log(str1);
+
+        var str2 = arr1 + ',' + arr2;
+        console.log(str2);
+
+        var arr4 = arr1.splice(3, 2);
+        console.log(arr1);
+        console.log(arr4);
+
+        var arr5 = [30, 3, 2, 156, 34];
+        arr5.sort();
+        console.log(arr5);
+
+        var compNumber = function(a, b) {
+            return a - b;
+        }
+        arr5.sort(compNumber);
+        console.log(arr5)
+    </script>
 </head>
 <body>
 

@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
+    <script type="text/javascript">
+        var x = 'global';
 
+        var f = function() {
+            console.log(x);
+            console.log(window.x);
+            console.log(this.x);
+            var y = 'local';
+            console.log(y);
+        };
+        var g = function() {
+            console.log(x);
+            console.log(window.x);
+            var x = 'local';
+            console.log(x);
+        };
+        f();
+        console.log('-----------------');
+        g();
+    </script>
 </head>
 <body>
 
