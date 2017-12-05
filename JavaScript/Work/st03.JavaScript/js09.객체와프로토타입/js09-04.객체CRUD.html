@@ -3,7 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script type="text/javascript">
+        var foo = {
+            name: 'foo',
+            age: 30,
+            array: [1, 4, 5, 5],
+            run: function() {
+                return this.name;
+            }
+        };
+
+        console.log(foo.name);
+        console.log(foo.age);
+        console.log(foo.nickname);
+
+        console.log(foo['name']);
+        console.log(foo['age']);
+        console.log(foo['array']);
+
+        foo.name = 'bar';
+        foo.age = 50;
+
+        foo.gender = 'male';
+        foo.nickname = 'oof';
+        console.log(foo['gender']);
+        console.log(foo['nickname']);
+
+        delete foo.nickname;
+        delete foo.gender;
+        console.log(foo['gender']);
+        console.log(foo['nickname']);
+
+        for(var i in foo) {
+            console.log(typeof i, i + ' : ' + foo[i], typeof foo[i]);
+        }
+
+        for(var i in foo) {
+            if(typeof foo[i] != 'function') {
+                console.log(foo[i]);
+            }
+        }
+
+        for(var i in foo) {
+            if(typeof foo[i] == 'object' && foo[i].hasOwnProperty('length')) {
+                console.log(foo[i]);
+            }
+        }
+    </script>
 </head>
 <body>
 

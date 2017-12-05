@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BaseApp</string>
+    <string name="clickmsg">버튼을 눌렀어요</string>
+</resources>

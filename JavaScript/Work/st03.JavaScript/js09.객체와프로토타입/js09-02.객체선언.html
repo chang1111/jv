@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script type="text/javascript">
+        var foo = {
+            name: 'foo',
+            age: 30,
+            run: function() {
+                return this.name;
+            }
+        };
+        console.log(typeof foo, foo);
+
+        function Foo(name, age) {
+            this.name = name;
+            this.age = age;
+            this.run = function() {
+                return this.name;
+            };
+        }
+        var goo = new Foo('goo', 40);
+        console.log(typeof goo, goo);
+    </script>
 </head>
 <body>
 
