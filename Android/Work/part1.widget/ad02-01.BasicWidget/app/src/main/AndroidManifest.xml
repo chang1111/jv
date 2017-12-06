@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.android.basicwidget"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+    
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".RadioActivity">
+        </activity>
+        <activity android:name=".HeightButtonActivity">
+        </activity>
+        <activity android:name=".WidthButtonActivity">
+        </activity>
+        <activity android:name=".MarginActivity">
+        </activity>
+        <activity android:name=".PaddingActivity">
+        </activity>
+        <activity android:name=".ColorButtonActivity">
+        </activity>
+        <activity android:name=".VisibleActivity">
+        </activity>
+    </application>
+
+</manifest>

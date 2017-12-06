@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        window.onload = function(event) {
+            var p = document.getElementsByName('name');
+            console.log(p.length);
+            for(var i in p) {
+                p[i].onclick = function(event) {
+                    window.alert('name이 클릭되었다.');
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <p name='name' count="0">고전 이벤트 모델</p>
-    <p name='name' count="1">고전 이벤트 모델</p>
-    <p name='name' count="2">고전 이벤트 모델</p>
-    <p name='name' count="3">고전 이벤트 모델</p>
-    <p name='name' count="4">고전 이벤트 모델</p>
-    <p name='name' count="5">고전 이벤트 모델</p>
-    <p name='name' count="6">고전 이벤트 모델</p>
+<body>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
+    <p name="name">고전 이벤트 모델</p>
 </body>
 </html>
 

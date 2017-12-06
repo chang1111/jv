@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        var MYAPP = {};
+
+        window.onload = function(event) {
+            MYAPP.alert = document.getElementById('alert');
+            MYAPP.alert.onclick = function(event) {
+                alert('페이지가 표시되었습니다.');
+            };
+            MYAPP.confirm = document.getElementById('confirm');
+            MYAPP.confirm.onclick = function(event) {
+                var a = confirm('페이지를 송신해도 좋습니까?');
+                alert(a);
+            };
+            MYAPP.prompt = document.getElementById('prompt');
+            MYAPP.prompt.onclick = function(event) {
+                var b = prompt('문자열을 입력해주세요.');
+                alert('입력값 : ' + b);
+            };
+            MYAPP.win_open = document.getElementById('win_open');
+            MYAPP.win_open.onclick = function(event) {
+                MYAPP.subwin = window.open('http://www.naver.com', '_blank', 'location=yes');
+                MYAPP.win_close.disabled = false;
+            };
+            MYAPP.win_close = document.getElementById('win_close');
+            MYAPP.win_close.onclick = function(event) {
+                MYAPP.subwin.close();
+                this.disabled = true;
+            };
+        }
+    </script>
 </head>
 
 <body>

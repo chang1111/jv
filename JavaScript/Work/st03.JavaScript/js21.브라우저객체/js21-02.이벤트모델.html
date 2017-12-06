@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        window.onload = function(event) {
+            var btn = document.getElementById('btn');
+            btn.onclick = function(event) {
+                window.alert('버튼이 클릭되었다.');
+            };
+            var btn2 = document.getElementsByClassName('btn2');
+            btn2[1].onclick = function(event) {
+                window.alert('aaaa가 클릭되었다.');
+                this.onclick = null; // delete onclick
+                return false;
+            };
+            var p = document.getElementsByName('name');
+            for (var i in p) {
+                p[i].count = i;
+                p[i].onclick = function(event) {
+                    window.alert(this.count + '번째 name이 클릭되었다.');
+                };
+            }
+        };
+    </script>
 </head>
 <body>
-    <input type="button" value='인라인 이벤트 모델' onclick="btn_onclick()">
     <input id="btn" type="button" value='고전 이벤트 모델'>
     <input class='btn2' type="button" value='표준 이벤트 모델'>
-    <a     class='btn2' href="http://naver.com">네이버</a>
+    <a   class='btn2' href="http://naver.com">네이버</a>
 
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
