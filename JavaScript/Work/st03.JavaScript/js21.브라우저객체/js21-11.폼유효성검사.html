@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+      window.onload = function(event) {
+        var forms = document.getElementsByTagName("form");
+        forms[0].onsubmit = function(event) {
+          if(this.age.value === '') {
+            alert('나이를 입력하세요');
+            return false;
+          }
+          if(this.name.value === '') {
+            alert('이름을 입력하세요');
+            return false;
+          }
+        };
+      };
+    </script>
 </head>
 <body>
     <h1> 태그는 자바스크립트 객체로 바뀐다 </h1>

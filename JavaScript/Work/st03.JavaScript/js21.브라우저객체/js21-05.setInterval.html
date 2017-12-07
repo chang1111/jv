@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+    <script type="text/javascript">
+        window.onload = function() {
+
+            var timer = null;
+
+            var start = document.getElementById("start");
+            start.onclick = function(event) {
+                start.disabled = true;
+                stop.disabled = false;
+                timer = setInterval(function() {
+                    var t = new Date().toLocaleTimeString();
+                    var result = document.getElementById("result");
+                    result.innerHTML = t;
+                }, 1000);
+            };
+            var stop = document.getElementById("stop");
+            stop.onclick = function(event) {
+                stop.disabled = true;
+                start.disabled = false;
+                clearInterval(timer);
+            };
+        };
+    </script>
 </head>
 
 <body>
 <p>
-    <input id='start' type="button" value="타이머 시작" />
-    <input id='stop'  type="button" value="타이머 정지" />
+    <input id='start' type="button" value="타이머 시작">
+    <input id='stop'  type="button" value="타이머 정지" disabled="disabled">
     <div id="result">
-	</div>
+    </div>
 </p>
 </body>
 </html>

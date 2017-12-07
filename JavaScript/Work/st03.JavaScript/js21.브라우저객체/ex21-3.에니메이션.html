@@ -3,15 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
-    
+    <style type="text/css"></style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var images = [
+            "images/00.png",
+            "images/01.png",
+            "images/02.png",
+            "images/03.png",
+            "images/04.png",
+            "images/05.png",
+            "images/06.png",
+            "images/07.png",
+            "images/08.png",
+            "images/09.png",
+            "images/10.png",
+            "images/11.png",
+            "images/12.png",
+            "images/13.png",
+            "images/14.png"];
+            var prev = document.getElementById("prev");
+            prev.onclick = function(e) {
+                var img = document.getElementById("img");
+                var cno = Number(img.src.substr(img.src.length-6,2));
+                if(cno === 0) {
+                    img.src = images[14];
+                }
+                else {
+                    img.src = images[cno-1];
+                }
+            };
+            var next = document.getElementById("next");
+            next.onclick = function(e) {
+                var img = document.getElementById("img");
+                var cno = Number(img.src.substr(img.src.length-6,2));
+                if(cno === 14) {
+                    img.src = images[0];
+                }
+                else {
+                    img.src = images[cno+1];
+                }
+            };
+            var start = document.getElementById("start");
+            var timer = null;
+            start.onclick = function() {
+                timer = setInterval(function() {
+                    var img = document.getElementById("img");
+                    var cno = Number(img.src.substr(img.src.length-6,2));
+                    if(cno === 14) {
+                        img.src = images[0];
+                    }
+                    else {
+                        img.src = images[cno+1];
+                    }
+                }, 100);
+                start.disabled = true;
+                stop.disabled = false;
+            };
+            var stop = document.getElementById("stop");
+            stop.onclick = function() {
+                clearInterval(timer);
+                start.disabled = false;
+                stop.disabled = true;
+            };
+        };
+    </script>
 </head>
 <body>
-    
+
     <input id='prev'  type="button" value="<<" />
     <input id='next'  type="button" value=">>" />
     <input id='start' type="button" value="시작" />
-    <input id='stop'  type="button" value="정지" />
+    <input id='stop'  type="button" value="정지" disabled="disabled" />
 
     <img id='img' src="images/00.png">
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <Button
+        android:id="@+id/anonymous"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="1. 무명 클래스 리스너"/>
+    
+    <Button
+        android:id="@+id/inline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="2. 인라인 리스너"
+        android:onClick="inlineclick"/>
+    
+    <Button
+        android:id="@+id/inner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="3. 내부 클래스 리스너"/>
+    
+    <Button
+        android:id="@+id/implement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="4. IMPLEMENT 리스너"/>
+</LinearLayout>

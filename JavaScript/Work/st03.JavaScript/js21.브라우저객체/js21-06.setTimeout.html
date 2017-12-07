@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style></style>
-	
+    <script type="text/javascript">
+        window.onload = function() {
+            var timer = setTimeout(function() {
+                var t = new Date().toLocaleTimeString();
+                var result = document.getElementById("result");
+                result.innerHTML = t;
+            }, 1000);
+
+            var button = document.getElementsByTagName("input");
+            button[0].onclick = function(event) {
+                // 텍스트 지우기
+                // Timeout 지우기
+                result.innerHTML = '';
+                clearTimeout(timer);
+            };
+        }
+    </script>
 </head>
 
 <body>
 <p>
     <input type="button" value="클리어" />
-	<div id="result"></div>
+    <div id="result"></div>
 
 
 </p>

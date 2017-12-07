@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        window.onload = function(e) {
+            var site = document.getElementById("site");
+            site.onchange = function() {
+                location.href = 'http://' + this.value + '.naver.com'
+            };
+        };
+    </script>
 </head>
 <body>
     <form name="fm">
