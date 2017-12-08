@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    
+            <CheckBox
+                android:id="@+id/chkandroid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="안드로이드폰"/>
+    
+            <CheckBox
+                android:id="@+id/chkapple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="아이폰"/>
+    
+            <CheckBox
+                android:id="@+id/chkwindow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="윈도폰"/>
+    
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="left|right"
+                android:text="Switch"/>
+    
+            <ToggleButton
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="ToggleButton"/>
+    
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/mov00"/>
+    
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/mov01"/>
+    
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/mov02"/>
+    
+            <RadioGroup
+                android:id="@+id/rgpDirection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    
+                <RadioButton
+                    android:id="@+id/radioHorizen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="가로"/>
+    
+                <RadioButton
+                    android:id="@+id/radioVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="세로"/>
+
+            </RadioGroup>
+    
+            <RadioGroup
+                android:id="@+id/rgpGravity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+    
+                <RadioButton
+                    android:id="@+id/radioLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="왼쪽"/>
+    
+                <RadioButton
+                    android:id="@+id/radioCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="가운데"/>
+    
+                <RadioButton
+                    android:id="@+id/radioRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="오른쪽"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

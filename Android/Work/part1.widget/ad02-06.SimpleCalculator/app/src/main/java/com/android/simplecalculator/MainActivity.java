@@ -12,12 +12,12 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText number1 = null;
     private EditText number2 = null;
-    private Button add = null;
-    private Button minus = null;
-    private Button mul = null;
-    private Button div = null;
-    private Button remainder = null;
-    private TextView result = null;
+    private Button BtnAdd = null;
+    private Button BtnSub = null;
+    private Button BtnMul = null;
+    private Button BtnDiv = null;
+    private Button BtnRem = null;
+    private TextView TextResult = null;
 
 
 
@@ -28,51 +28,65 @@ public class MainActivity extends AppCompatActivity {
 
         number1 = findViewById(R.id.number1);
         number2 = findViewById(R.id.number2);
-        add = findViewById(R.id.add);
-        minus = findViewById(R.id.minus);
-        mul = findViewById(R.id.mul);
-        div = findViewById(R.id.div);
-        remainder = findViewById(R.id.remainder);
-        result = findViewById(R.id.result);
+        BtnAdd = findViewById(R.id.BtnAdd);
+        BtnSub = findViewById(R.id.BtnSub);
+        BtnMul = findViewById(R.id.BtnMul);
+        BtnDiv = findViewById(R.id.BtnDiv);
+        BtnRem = findViewById(R.id.BtnRem);
+        TextResult = findViewById(R.id.TextResult);
 
-        add.setOnClickListener(new InnerClass());
-        minus.setOnClickListener(new InnerClass());
-        mul.setOnClickListener(new InnerClass());
-        div.setOnClickListener(new InnerClass());
-        remainder.setOnClickListener(new InnerClass());
+        HandlerClass handler = new HandlerClass();
+
+        BtnAdd.setOnClickListener(handler);
+        BtnSub.setOnClickListener(handler);
+        BtnMul.setOnClickListener(handler);
+        BtnDiv.setOnClickListener(handler);
+        BtnRem.setOnClickListener(handler);
     }
 
-    private class InnerClass implements View.OnClickListener {
+    private class HandlerClass implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
             try {
                 double num1 = Double.valueOf(number1.getText().toString());
                 double num2 = Double.valueOf(number2.getText().toString());
+                double result = 0;
 
-                if (view.getId() == add.getId()) {
-                    result.setText("계산 결과 : " + (num1 + num2));
-                } else if (view.getId() == minus.getId()) {
-                    result.setText("계산 결과 : " + (num1 - num2));
-                } else if (view.getId() == mul.getId()) {
-                    result.setText("계산 결과 : " + (num1 * num2));
-                } else if (view.getId() == div.getId()) {
-                    if (num2 == 0) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                        result.setText("계산 결과 : " + (num1 / num2));
-                    }
-                } else if (view.getId() == remainder.getId()) {
-                    if (num2 == 0) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                        result.setText("계산 결과 : " + (num1 % num2));
-                    }
+                switch (view.getId()) {
+                    case R.id.BtnAdd:
+                        result = num1 + num2;
+                        TextResult.setText("계산 결과 : " + String.format("%.6f", result));
+                        break;
+                    case R.id.BtnSub:
+                        result = num1 - num2;
+                        TextResult.setText("계산 결과 : " + String.format("%.6f", result));
+                        break;
+                    case R.id.BtnMul:
+                        result = num1 * num2;
+                        TextResult.setText("계산 결과 : " + String.format("%.6f", result));
+                        break;
+                    case R.id.BtnDiv:
+                        if (num2 == 0) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT);
+                            toast.show();
+                        } else {
+                            result = num1 / num2;
+                            TextResult.setText("계산 결과 : " + String.format("%.6f", result));
+                        }
+                        break;
+                    case R.id.BtnRem:
+                        if (num2 == 0) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT);
+                            toast.show();
+                        } else {
+                            result = num1 % num2;
+                            TextResult.setText("계산 결과 : " + String.format("%.6f", result));
+                        }
+                        break;
                 }
             } catch (Exception e) {
-                Toast toast = Toast.makeText(getApplicationContext(), "값을 입력하세요", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "숫자를 입력하세요", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }

@@ -12,14 +12,14 @@ function getCookie( cookieName )
     if( cookie.length > 0 )
     {
         // 해당 쿠키명이 존재하는지 검색한 후 존재하면 위치를 리턴.
-        startIndex = cookie.indexOf( cookieName );
+        var startIndex = cookie.indexOf( cookieName );
         // 만약 존재한다면
         if( startIndex != -1 )
         {
             // 값을 얻어내기 위해 시작 인덱스 조절
             startIndex += cookieName.length;
             // 값을 얻어내기 위해 종료 인덱스 추출
-            endIndex = cookie.indexOf( ";", startIndex );
+            var endIndex = cookie.indexOf( ";", startIndex );
             // 만약 종료 인덱스를 못찾게 되면 쿠키 전체길이로 설정
             if( endIndex == -1) endIndex = cookie.length;
             // 쿠키값을 추출하여 리턴

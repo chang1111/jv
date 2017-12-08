@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         />
     
     <EditText
@@ -18,41 +18,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         />
     
     <Button
-        android:id="@+id/add"
+        android:id="@+id/BtnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="더하기"/>
     
     <Button
-        android:id="@+id/minus"
+        android:id="@+id/BtnSub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="빼기"/>
     
     <Button
-        android:id="@+id/mul"
+        android:id="@+id/BtnMul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="곱하기"/>
     
     <Button
-        android:id="@+id/div"
+        android:id="@+id/BtnDiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="나누기"/>
     
     <Button
-        android:id="@+id/remainder"
+        android:id="@+id/BtnRem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="나머지"/>
     
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/TextResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffff0000"

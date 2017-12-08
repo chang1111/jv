@@ -9,21 +9,33 @@
         .italictext { font-style: italic;   }
     </style>
 
-    
 
     <!-- jquery 임포트 -->
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+
+
 
 </head>
 <body>
-	<span class="redtext"> simple1 </span>
-	<hr />
-	<span> simple2 </span>
-	<hr />
+    <span class="redtext"> simple1 </span>
+    <hr />
+    <span> simple2 </span>
+    <hr />
     <input id="btn1" type="button" value="javascript로 class 추가">
     <input id="btn2" type="button" value="jquery로 class 추가">
 </body>
+<script type="text/javascript">
+    var btn1 = document.getElementById('btn1');
+    btn1.onclick = function() {
+        var span = document.getElementsByTagName('span');
+        for (var i = 0; i<span.length;i++) {
+            span[i].className = 'redtext italictext';
+        }
+    };
+    $('#btn2').click(function(event) {
+        $('span').addClass('redtext italictext');
+    });
+</script>
 </html>
 
 

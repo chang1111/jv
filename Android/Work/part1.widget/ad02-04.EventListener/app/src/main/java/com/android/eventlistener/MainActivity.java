@@ -47,6 +47,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick(View view) {
+            int id = view.getId(); // 클릭된 버튼 id (int 값)
+            switch (id) {
+                case R.id.anonymous:
+                    break;
+                case R.id.inline:
+                    break;
+                case R.id.inner:
+                    break;
+                case R.id.implement:
+                    break;
+            }
+
             Toast toast = Toast.makeText(getApplicationContext(), "내부 클래스 리스너", Toast.LENGTH_SHORT);
             toast.show();
         }

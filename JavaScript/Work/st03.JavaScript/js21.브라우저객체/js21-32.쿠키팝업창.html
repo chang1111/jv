@@ -8,10 +8,34 @@
         .line { background-color:#c1c1c1; }
         .subtitle { background-color:#ffffff; font-family:verdana, 돋움; font-size:12px; font-weight:bold; color:#7359C8; }
     </style>
-
-
-
-
+    <script type="text/javascript" src="MYAPP.Variable.js"></script>
+    <script type="text/javascript" src="MYAPP.Cookie.js"></script>
+    <script type="text/javascript">
+        /*
+         이 페이지에서 사용할 쿠키명 naps
+         */
+        window.onload = function() {
+            if(MYAPP.Cookie.read('naps')) {
+                // naps 쿠키가 있는 경우
+                // 자기 자신을 닫는다
+                window.close();
+            }
+            else {
+                // naps 쿠키가 없는 경우
+            }
+            // checkbox에 핸들러 설정
+            var chkClose = document.getElementsByName('chkClose')
+            chkClose[0].onclick = function() {
+                // 0. checkbox에 checked가 true이면
+                // 1. naps 라는 쿠키를 만든다
+                // 2. 창을 닫는다
+                if (chkClose[0].checked === true) {
+                    MYAPP.Cookie.create('naps', 'aaa', 1);
+                    window.close();
+                }
+            };
+        };
+    </script>
 </head>
 
 <body leftmargin="0" topmargin="0">
