@@ -5,8 +5,27 @@
     <style>
         img { padding:5px; width:130px; height:130px; border:1px solid gray; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#img2').click(function(event) {
+                $('#img2').attr('src', 'images/im2.jpg');
+            });
+            $('#img3').click(function(event) {
+                $('#img3').attr('src', 'images/im3.jpg');
+            });
+            $('#img4').click(function(event) {
+                $('#img4').attr('src', 'images/im4.jpg');
+            });
+            $('#img5').click(function(event) {
+                $('#img5').attr('src', 'images/im5.jpg');
+            });
+            $('#img6').click(function(event) {
+                $('#img6').removeAttr('src');
+            });
+        });
+    </script>
+
 </head>
 <body>
     <h2>&lt;img id="" src="" title="" alt="" /&gt;</h2>

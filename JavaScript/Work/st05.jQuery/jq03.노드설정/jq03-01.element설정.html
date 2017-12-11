@@ -14,8 +14,37 @@
         .white  { background: white; cursor:pointer; }
         .gray   { background: gray;   }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#element_read').click(function(event) {
+                alert($('.pclick').html());
+            });
+            $('#element_create').click(function(event) {
+                $('#result_element').html('<img src="images/fish.png">');
+            });
+            $('#element_update').click(function(event) {
+                $('#result_element').html($('.pclick').html());
+            });
+            $('#element_delete').click(function(event) {
+                //$('#result_element').html('');
+                $('#result_element').remove();
+            });
+            $('.text_read').click(function(event) {
+                alert($('.text_read').text());
+            });
+            $('.text_create').click(function(event) {
+                $('.text_create').text($('.text_create').text()+' > 추가');
+            });
+            $('.text_update').click(function(event) {
+                $('.text_update').text($('.pclick').text());
+            });
+            $('.text_delete').click(function(event) {
+                $('.text_delete').text('');
+            });
+        });
+    </script>
+
 </head>
 <body>
     <p class="pclick">
@@ -25,18 +54,21 @@
 
     <div>
         <h3>tag node CRUD</h3>
-        <button id="element_read"  >태그 읽기(R)</button>
+        <button id="element_read" >태그 읽기(R)</button>
         <button id="element_create">태그 추가(C)</button>
         <button id="element_update">태그 수정(U)</button>
         <button id="element_delete">태그 삭제(D)</button>
-        <div id="result_element" class="gray"> element CRUD </div>
+        <div id="result_element" class="gray">
+            element CRUD
+
+        </div>
     </div>
     <hr>
 
     <div>
         <h3>text node CRUD</h3>
         <ul>
-            <li class="white text_read"  >text 읽기(R)</li>
+            <li class="white text_read" >text 읽기(R)</li>
             <li class="white text_create">text 추가(C)</li>
             <li class="white text_update">text 수정(U)</li>
             <li class="white text_delete">text 삭제(D)</li>

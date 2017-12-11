@@ -7,11 +7,18 @@
         .icon-links a { background:0 50% no-repeat;padding-left:20px; }
         a.presentation { background-image: url(images/presentation.png); }
         a.video { background-image: url(images/video.png); }
-        a.pdf { background-image: url(images/pdf.png);	}
+        a.pdf { background-image: url(images/pdf.png); }
         a.image { background-image: url(images/image.png); }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('a').click(function(event) {
+                $('a').addClass('a.presentation');
+            });
+        });
+    </script>
+
 </head>
 <body>
 <div id="content">

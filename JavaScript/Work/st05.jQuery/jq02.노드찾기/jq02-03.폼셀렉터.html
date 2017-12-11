@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<style>
-	    /*div   { background: #FFF; padding: 10px; margin: 10px; }*/
-	    table { border: 1px solid #AAA; width:100% }
-	    td    { border: 1px solid #AAA; width: 20px; height: 20px; }
-	</style>
-
-	
-	
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*div   { background: #FFF; padding: 10px; margin: 10px; }*/
+        table { border: 1px solid #AAA; width:100% }
+        td    { border: 1px solid #AAA; width: 20px; height: 20px; }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checked').click(function(event) {
+                $('input:checkbox:checked').css('outline', '2px dotted red');
+            });
+            $('#radio').click(function(event) {
+                $('input:radio:checked').css('outline', '2px dotted red');
+            });
+            $('#selected').click(function(event) {
+                $('option:selected').css('outline', '2px dotted red');
+            });
+            $('#hobby').click(function(event) {
+                $('input[name="hobby"]:checked').css('outline', '2px dotted red');
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -40,7 +54,7 @@
         <input name='aaaa' type='radio' value='aaaa1'  />
         <input name='bbbb' type='radio' value='aaaa2' />
         <input name='cccc' type='radio' value='aaaa3' />
-   		<hr>
+        <hr>
         radio의 name 이 같으면 단일선택 가능
         <input name='dddd' type='radio' value='aaaa1' checked />
         <input name='dddd' type='radio' value='bbbb2' />

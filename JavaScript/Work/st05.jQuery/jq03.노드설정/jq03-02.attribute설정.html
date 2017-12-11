@@ -18,9 +18,61 @@
 
         .toggleStyle { background-color: red;   color:white;}
     </style>
-
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#attr_read').click(function(event) {
+                $('#result_attr').html($('#img1').attr('src'));
+            });
+            $('#attr_create').click(function(event) {
+                $('#img2').attr('src', 'images/im2.jpg');
+            });
+            $('#attr_update').click(function(event) {
+                $('#img2').attr('src', 'images/im3.jpg');
+            });
+            $('#attr_delete').click(function(event) {
+                $('#img2').removeAttr('src');
+            });
+            $('#style_read').click(function(event) {
+                $('#result_style').html($('#style').css('border'));
+            });
+            $('#style_create').click(function(event) {
+                $('#style').css('border', '2px solid blue');
+                $('#result_style').html($('#style').css('border'));
+            });
+            $('#style_update').click(function(event) {
+                $('#style').css('border', '2px dashed blue');
+                $('#result_style').html($('#style').css('border'));
+            });
+            $('#style_delete').click(function(event) {
+                $('#style').css('border', '');
+                $('#result_style').html('');
+            });
+            $('#class_read').click(function(event) {
+                $('#result_class').html($('#class').hasClass('white'));
+            });
+            $('#class_create').click(function(event) {
+                $('#class').addClass('red');
+                $('#result_class').html($('#class').attr('class'));
+            });
+            $('#class_update').click(function(event) {
+                $('#class').removeClass('red');
+                $('#class').addClass('yellow');
+                $('#result_class').html($('#class').attr('class'));
+            });
+            $('#class_delete_part').click(function(event) {
+                $('#class').removeClass('white');
+                $('#result_class').html($('#class').attr('class'));
+            });
+            $('#class_delete_all').click(function(event) {
+                $('#class').removeClass();
+                $('#result_class').html($('#class').attr('class'));
+            });
+            $('p.yellow').click(function(event) {
+                $('p.yellow').toggleClass('toggleStyle');
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -33,7 +85,7 @@
             <img id="img1" src="images/im1.jpg" style="" class="" data-sw="data값" >
             <img id="img2" >
         </div>
-        <button id="attr_read"  >일반속성 읽기(R)</button>
+        <button id="attr_read" >일반속성 읽기(R)</button>
         <button id="attr_create">일반속성 추가(C)</button>
         <button id="attr_update">일반속성 수정(U)</button>
         <button id="attr_delete">일반속성 삭제(D)</button>
@@ -43,9 +95,9 @@
 
     <div>
         <h4>style 속성 CRUD</h4>
-        <span id="style" style="background-color: white;">엘리먼트에 style CRUD 하기</span>
+        <span id="style" style="background-color: white; border: 1px dotted rgb(139, 0, 0);">엘리먼트에 style CRUD 하기</span>
 
-        <button id="style_read"  >style 읽기(R)</button>
+        <button id="style_read">style 읽기(R)</button>
         <button id="style_create">style 추가(C)</button>
         <button id="style_update">style 수정(U)</button>
         <button id="style_delete">style 삭제(D)</button>
@@ -57,11 +109,11 @@
         <h4>class 속성 CRUD</h4>
         <span id="class" class="white">엘리먼트에 class CRUD 하기</span>
 
-        <button id="class_read"       >class 읽기(R)</button>
-        <button id="class_create"     >class 추가(C)</button>
-        <button id="class_update"     >class 수정(U)</button>
+        <button id="class_read">class 읽기(R)</button>
+        <button id="class_create">class 추가(C)</button>
+        <button id="class_update">class 수정(U)</button>
         <button id="class_delete_part">class 부분삭제(D)</button>
-        <button id="class_delete_all" >class 전체삭제(D)</button>
+        <button id="class_delete_all">class 전체삭제(D)</button>
         <div id="result_class" class="gray"></div>
     </div>
     <hr>
