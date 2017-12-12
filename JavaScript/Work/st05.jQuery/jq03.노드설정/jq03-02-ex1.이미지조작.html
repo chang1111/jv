@@ -10,18 +10,22 @@
         $(document).ready(function() {
             $('#img2').click(function(event) {
                 $('#img2').attr('src', 'images/im2.jpg');
+                $('#img2').attr('title', 'im2.jpg');
+                $('#img2').attr('alt', 'im2');
             });
             $('#img3').click(function(event) {
-                $('#img3').attr('src', 'images/im3.jpg');
+                $('#img3').attr('src', 'images/im3.jpg')
+                .attr('src', 'images/im3.jpg')
+                .attr('src', 'images/im3.jpg');
             });
             $('#img4').click(function(event) {
-                $('#img4').attr('src', 'images/im4.jpg');
+                $('#img4').attr({src: 'images/im4.jpg', title: 'im4.jpg', alt: 'im4'});
             });
             $('#img5').click(function(event) {
                 $('#img5').attr('src', 'images/im5.jpg');
             });
             $('#img6').click(function(event) {
-                $('#img6').removeAttr('src');
+                $('#img6').removeAttr('src title alt');
             });
         });
     </script>

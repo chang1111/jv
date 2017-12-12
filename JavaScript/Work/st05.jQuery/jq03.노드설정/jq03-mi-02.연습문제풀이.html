@@ -2,8 +2,53 @@
 <html>
 <head>
     <meta charset="utf-8">
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btn1').click(function(event) {
+                var date = new Date();
+                switch (date.getDay()){
+                    case 0:
+                        $('body').css('background-color', 'blue');
+                        break;
+                    case 1:
+                        $('body').css('background-color', 'green');
+                        break;
+                    case 2:
+                        $('body').css('background-color', 'red');
+                        break;
+                    case 3:
+                        $('body').css('background-color', 'orange');
+                        break;
+                    case 4:
+                        $('body').css('background-color', 'aqua');
+                        break;
+                    case 5:
+                        $('body').css('background-color', 'gray');
+                        break;
+                    case 6:
+                        $('body').css('background-color', 'olive');
+                        break;
+                }
+            });
+            $('#btn2').click(function(event) {
+                if($('#p1').text() === '안녕하세요') {
+                    $('#p1').text('반갑습니다');
+                }
+            });
+            $('#btn3').click(function(event) {
+                if($('#div1').text() === 'Good morning') {
+                    $('#div1').text('');
+                }
+            });
+            $('#btn4').hover(function() {
+                $('#btn4').css({'background-color': 'black', 'color': 'white'});
+            }, function() {
+                $('#btn4').css({'background-color': '', 'color': ''});
+            });
+            $('a[href="http://www.naver.com"]').css('color', 'orange');
+        });
+    </script>
 </head>
 <body>
     <h1>jQuery 연습문제</h1>

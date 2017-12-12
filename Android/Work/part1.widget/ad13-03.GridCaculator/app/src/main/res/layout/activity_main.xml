@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="true"
+    android:orientation="vertical"
+    tools:context="com.android.gridcaculator.MainActivity">
+    
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:editable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:gravity="top|left"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:textSize="24sp"
+        android:windowSoftInputMode="stateHidden|adjustPan"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+    
+        <Button
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="저장목록"/>
+    
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="저장"/>
+    
+        <Button
+            android:id="@+id/recent"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="최근기록"/>
+    </LinearLayout>
+    
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignBounds"
+        android:columnCount="4"
+        android:rowCount="5">
+    
+        <Button
+            android:id="@+id/num7"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="7"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num8"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="8"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num9"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="9"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/div"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="\u00F7"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num4"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="4"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num5"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="5"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num6"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="6"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/mul"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="\u00D7"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num1"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="1"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num2"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="2"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num3"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="3"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="-"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/num0"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="0"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/point"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="."
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/signed"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="+/-"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/add"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="+"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/ac"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="AC"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="C"
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/equal"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="="
+            android:textSize="30sp"/>
+    
+        <Button
+            android:id="@+id/bracket"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:text="()"
+            android:textSize="30sp"/>
+    </GridLayout>
+
+</LinearLayout>

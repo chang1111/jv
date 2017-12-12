@@ -13,8 +13,21 @@
     <script type="text/javascript" src="../jquery-3.2.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('a').click(function(event) {
-                $('a').addClass('a.presentation');
+            $('a[href$="ppt"]').click(function(event) {
+                $(this).addClass('presentation');
+                return false;
+            });
+            $('a[href$="mp4"]').click(function(event) {
+                $(this).addClass('video');
+                return false;
+            });
+            $('a[href$="pdf"]').click(function(event) {
+                $(this).addClass('pdf');
+                return false;
+            });
+            $('a[href$="gif"], a[href$="png"], a[href$="jpg"], a[href$="hwp"]').click(function(event) {
+                $(this).addClass('image');
+                return false;
             });
         });
     </script>

@@ -7,8 +7,23 @@
         #panel { width: 600px; height: 400px; border: 1px solid #999; position: relative; }
         #fish { position: absolute; left: 250px; top: 150px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnStart').click(function(event) {
+                var panel_x = Number($('#panel').css('width').substr(0,$('#panel').css('width').length-2));
+                var panel_y = Number($('#panel').css('height').substr(0,$('#panel').css('height').length-2));
+
+                var fish_x = Number($('#fish').css('width').substr(0,$('#fish').css('width').length-2));
+                var fish_y = Number($('#fish').css('height').substr(0,$('#fish').css('height').length-2));
+
+                var x = (panel_x - fish_x) * Math.random();
+                var y = (panel_y - fish_y) * Math.random();
+                $('#fish').css({'left': x + 'px', 'top': y + 'px'});
+            });
+        });
+    </script>
+
 </head>
 
 <body>

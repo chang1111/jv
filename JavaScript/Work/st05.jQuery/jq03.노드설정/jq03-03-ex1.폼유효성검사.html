@@ -6,8 +6,47 @@
         div { padding: 5px 5px 5px 5px }
         .item{float:left; width:100px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#regBtn').click(function(event) {
+                if($('#userId').val() === '') {
+                    $('label[name="userId"]').text('아이디를 입력하세요');
+                    $('label[name="userName"]').text('');
+                    $('label[name="pwd"]').text('');
+                    $('label[name="pwdConfirm"]').text('');
+                }
+                else if($('#userName').val() === '') {
+                    $('label[name="userId"]').text('');
+                    $('label[name="userName"]').text('이름을 입력하세요');
+                    $('label[name="pwd"]').text('');
+                    $('label[name="pwdConfirm"]').text('');
+                }
+                else if($('#pwd').val() === '') {
+                    $('label[name="userId"]').text('');
+                    $('label[name="userName"]').text('');
+                    $('label[name="pwd"]').text('암호를 입력하세요');
+                    $('label[name="pwdConfirm"]').text('');
+                }
+                else if($('#pwdConfirm').val() === '') {
+                    $('label[name="userId"]').text('');
+                    $('label[name="userName"]').text('');
+                    $('label[name="pwd"]').text('');
+                    $('label[name="pwdConfirm"]').text('암호 확인을 입력하세요');
+                }
+                else {
+                    $('form')[0].submit();
+                }
+            });
+            $('#iniBtn').click(function(event) {
+                $('form')[0].reset();
+                $('label[name="userId"]').text('');
+                $('label[name="userName"]').text('');
+                $('label[name="pwd"]').text('');
+                $('label[name="pwdConfirm"]').text('');
+            });
+        });
+    </script>
 </head>
 <body>
 <form name='fm'

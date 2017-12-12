@@ -14,8 +14,35 @@
         .white  { background: white;  }
         .gray   { background: gray;   }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#value_read').click(function(event) {
+                alert($('#text').val());
+            });
+            $('#value_create').click(function(event) {
+                $('#text').val($('#text').val() + ' > 추가');
+            });
+            $('#value_update').click(function(event) {
+                $('#text').val($('#value_update').text());
+            });
+            $('#value_delete').click(function(event) {
+                $('#text').val('');
+            });
+            $('#prop_read').click(function(event) {
+                alert($('input[name="aaa"]').prop('checked'));
+            });
+            $('#prop_create').click(function(event) {
+                $('input[name="bbb"]').prop('checked', true);
+            });
+            $('#prop_update').click(function(event) {
+                $('input[name="aaa"]').prop('checked', false);
+            });
+            $('#prop_delete').click(function(event) {
+                $('input[name="ccc"]').prop('disabled', false);
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -27,7 +54,7 @@
         <h3>value attribute CRUD</h3>
         <input id="text" type="text" value="값 없음" size="50" placeholder='값을 입력하세요'>
         <br>
-        <button id="value_read"  >value 읽기(R)</button>
+        <button id="value_read" >value 읽기(R)</button>
         <button id="value_create">value 추가(C)</button>
         <button id="value_update">value 수정(U)</button>
         <button id="value_delete">value 삭제(D)</button>
@@ -41,7 +68,7 @@
         <input type='radio'    name='bbb' value='aaaa1' />
         <input type='text'     name='ccc' value='aaaa1' disabled />
         <br>
-        <button id="prop_read"  >checkbox checked 프러퍼티 읽기(R)</button>
+        <button id="prop_read" >checkbox checked 프러퍼티 읽기(R)</button>
         <button id="prop_create">radio에 checked 프러퍼티 추가(C)</button>
         <button id="prop_update">checkbox checked 프러퍼티 수정(U)</button>
         <button id="prop_delete">disabled 프러퍼티 삭제(D)</button>
