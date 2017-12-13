@@ -29,10 +29,40 @@
         span { font-size: 50px; font-family: "NanumGothic", arial;}
 
     </style>
-
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#mission1').click(function(event) {
+                $(this).prop('disabled', true);
+                $('#result').text($('#tabMenu1 li').length);
+            });
+            $('#mission2').click(function(event) {
+                $(this).prop('disabled', true);
+                $('#tabMenu1 li').click(function(event) {
+                    $('#result').text($(this).index());
+                });
+            });
+            $('#mission3').click(function(event) {
+                $(this).prop('disabled', true);
+                var count = 0;
+                timer = setInterval(function() {
+                    if (count === 6) {
+                        $('#tabMenu1 li').removeClass('select');
+                        clearInterval(timer);
+                    }
+                    $('#tabMenu1 li:eq('+ count +')').addClass('select');
+                    count++;
+                }, 1000);
+            });
+            $('#mission4').click(function(event) {
+                $(this).prop('disabled', true);
+                $('#tabMenu1 li').click(function(event) {
+                    $('#tabMenu1 li').removeClass('select');
+                    $(this).addClass('select');
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>

@@ -7,8 +7,79 @@
         table { border: 1px solid #AAA; width:98%; }
         td    { border: 1px solid #AAA; width: 20px; height: 20px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#eq').click(function(event) {
+                $('td').css('background-color', '');
+                $('td:eq(7)').css('background-color', 'red');
+            });
+            $('#gt').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(1) td:gt(2)').css('background-color', 'yellow');
+            });
+            $('#lt').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(1) td:lt(2)').css('background-color', 'orange');
+            });
+            $('#odd').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(2) td:odd').css('background-color', 'blue');
+            });
+            $('#even').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(2) td:even').css('background-color', 'green');
+            });
+            $('#first').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(3) td:first').css('background-color', 'pink');
+            });
+            $('#last').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:eq(3) td:last').css('background-color', 'green');
+            });
+            $('#ex1').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:even td').css('background-color', 'darkred');
+            });
+            $('#ex2').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr td:odd').css('background-color', 'lightgreen');
+            });
+            $('#ex3').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr:even td:odd').css('background-color', 'pink');
+            });
+            $('#ex4').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr td:nth-child(3n+1)').css('background-color', 'pink');
+            });
+            $('#ex5').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr td:first-child').css('background-color', 'orange');
+            });
+            $('#ex6').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr td:first-child').css('background-color', 'red');
+                $('tr td:last-child').css('background-color', 'yellow');
+            });
+            $('#ex7').click(function(event) {
+                $('td').css('background-color', '');
+                $('tr td:nth-child(2)').css('background-color', 'yellow');
+            });
+            $('#ex8').click(function(event) {
+                $('td').css('background-color', '');
+                $('td:eq(25)').remove();
+                $('td:eq(25)').remove();
+                $('td:eq(25)').remove();
+                $('td:eq(25)').remove();
+                $('td:eq(25)').remove();
+                $('td:eq(24)').attr('colspan', '6');
+                $('tr td:first-child').css('background-color', 'red');
+                $('tr td:last-child').css('background-color', 'yellow');
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>Filter Selector</h2>

@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,12 +36,16 @@ public class MainActivity extends AppCompatActivity {
     Button clear = null;
     Button equal = null;
     Button bracket = null;
+    Calc calc = null;
+    List<String> resultList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        calc = new Calc();
+        resultList = new ArrayList<String>();
         editText = findViewById(R.id.editText);
         list = findViewById(R.id.list);
         save = findViewById(R.id.save);
@@ -90,16 +98,86 @@ public class MainActivity extends AppCompatActivity {
         bracket.setOnClickListener(input);
     }
 
+    public boolean checkNumberLength() {
+        // 텍스트 필드의 마지막 연산자 찾기
+        String text = editText.getText().toString();
+        String[] operators = {"+", "-", "\u00D7", "\u00F7"};
+        int posLastOper = calc.getLastIndex(editText.getText().toString(), operators);
+
+        // 현재 텍스트 필드의 길이 구하기
+        int textLength = editText.getText().toString().length();
+
+        if (textLength - posLastOper > 17) {
+            // 경고창 띄운다
+            Toast toast = Toast.makeText(getApplicationContext(), "17자 이상 입력 불가", Toast.LENGTH_SHORT);
+            toast.show();
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     private class Input implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
+            String text = null;
             switch (view.getId()) {
                 case R.id.list:
+                    for (int i = 0;i <resultList.size();i++) {
+                        if (i == 0) {
+                            editText.setText(resultList.get(i));
+                        }
+                        else {
+                            editText.setText(editText.getText().toString() + "\n" + resultList.get(i));
+                        }
+                    }
                     break;
                 case R.id.save:
+                    text = editText.getText().toString();
+                    if (!text.isEmpty()) {
+                        resultList.add(0, editText.getText().toString());
+                        if (resultList.size() > 3) {
+                            resultList.remove(resultList.size() - 1);
+                        }
+                    }
                     break;
                 case R.id.recent:
+                    editText.setText(resultList.get(0));
+                    break;
+                case R.id.add:
+                case R.id.sub:
+                case R.id.mul:
+                case R.id.div:
+                    text = editText.getText().toString();
+                    if (!text.isEmpty()) {
+                        String last_text = text.substring(text.length() - 1);
+                        if (!(last_text.equals("+") || last_text.equals("-") || last_text.equals("\u00D7") || last_text.equals("\u00F7"))) {
+                            if (!(last_text.equals(".")||last_text.equals("("))) {
+                                editText.setText(text + ((Button) view).getText().toString());
+                            }
+                        }
+                        else {
+                            editText.setText(text.substring(0, text.length() - 1) + ((Button) view).getText().toString());
+                        }
+                    }
+                    break;
+                case R.id.point:
+                    text = editText.getText().toString();
+                    if (text.isEmpty()) {
+                        editText.setText(".");
+                    }
+                    else {
+                        String last_text = text.substring(text.length() - 1);
+                        if (!last_text.equals(")")) {
+                            String[] operators = {"+", "-", "\u00D7", "\u00F7"};
+                            int posLastOper = calc.getLastIndex(text, operators);
+                            if (!text.substring(posLastOper).contains(".")) {
+                                editText.setText(text + ".");
+                            }
+                        }
+                    }
                     break;
                 case R.id.signed:
                     break;
@@ -107,24 +185,85 @@ public class MainActivity extends AppCompatActivity {
                     editText.setText("");
                     break;
                 case R.id.clear:
-                    editText.setText("");
+                    text = editText.getText().toString();
+                    if (!text.isEmpty()) {
+                        editText.setText(text.substring(0, text.length() - 1));
+                    }
                     break;
                 case R.id.equal:
-                    Calc calc = new Calc();
                     String infixExp = editText.getText().toString();
 
-                    infixExp = infixExp.replace("\u00D7", "*");
-                    infixExp = infixExp.replace("\u00F7", "/");
+                    int left = 0;
+                    int right = 0;
+                    for (int i = 0; i < infixExp.length(); i++) {
+                        if (infixExp.charAt(i) == '(') {
+                            left++;
+                        }
+                        if (infixExp.charAt(i) == ')') {
+                            right++;
+                        }
+                    }
+                    if (left == right) {
+                        resultList.add(0, infixExp);
+                        infixExp = infixExp.replace("\u00D7", "*");
+                        infixExp = infixExp.replace("\u00F7", "/");
 
-                    String postfixExp = calc.postfix(infixExp);
-                    String result = String.valueOf(calc.result(postfixExp));
-
-                    editText.setText(result);
+                        try {
+                            String postfixExp = calc.postfix(infixExp);
+                            String result = String.valueOf(calc.result(postfixExp));
+                            if (resultList.size() > 3) {
+                                resultList.remove(resultList.size() - 1);
+                            }
+                            editText.setText(result);
+                        }
+                        catch (Exception e) {
+                            resultList.remove(0);
+                        }
+                    }
                     break;
                 case R.id.bracket:
+                    text = editText.getText().toString();
+                    if (text.isEmpty()) {
+                        editText.setText("(");
+                    }
+                    else {
+                        String last_text = text.substring(text.length() - 1);
+                        if (!(last_text.equals("."))) {
+                            if (last_text.equals("+")||last_text.equals("-")||last_text.equals("\u00D7")||last_text.equals("\u00F7")||last_text.equals("(")) {
+                                editText.setText(editText.getText().toString() + "(");
+                            }
+                            else {
+                                int count_l = 0;
+                                int count_r = 0;
+                                for (int i = 0; i < text.length(); i++) {
+                                    if (text.charAt(i) == '(') {
+                                        count_l++;
+                                    }
+                                    if (text.charAt(i) == ')') {
+                                        count_r++;
+                                    }
+                                }
+                                if (count_l > count_r) {
+                                    editText.setText(editText.getText().toString() + ")");
+                                }
+                            }
+                        }
+                    }
                     break;
                 default:
-                    editText.setText(editText.getText().toString() + ((Button)view).getText().toString());
+                    text = editText.getText().toString();
+                    String input = ((Button) view).getText().toString();
+                    if (text.isEmpty()) {
+                        editText.setText(editText.getText().toString() + input);
+                    }
+                    else {
+                        String last_text = text.substring(text.length() - 1);
+                        if (!last_text.equals(")")) {
+                            if (checkNumberLength()) {
+                                editText.setText(editText.getText().toString() + input);
+                            }
+                        }
+                    }
             }
         }
     }

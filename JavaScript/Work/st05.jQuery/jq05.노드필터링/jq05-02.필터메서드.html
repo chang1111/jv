@@ -7,8 +7,42 @@
         td { border:1px solid #AAA; width:25px; height:25px; }
         div { background : #FFF; margin:5px; width:100%; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#selector').click(function(event) {
+                $('ul, li').css('background-color', '');
+                $('li>ul').css('background-color', 'red');
+            });
+            $('#method').click(function(event) {
+                $('ul, li').css('background-color', '');
+            });
+            $('#eq2').click(function(event) {
+                $('ul, li').css('background-color', '');
+                $('ul>li:eq(4)').css('background-color', 'gray');
+                $('ul>li:eq(4)').text('eq text');
+            });
+            $('#eq2method').click(function(event) {
+                $('ul, li').css('background-color', '');
+            });
+            $('#first').click(function(event) {
+                $('ul, li').css('background-color', '');
+                $('li:first').css('background', 'gray');
+                $('li:first').text('first text');
+            });
+            $('#firstmethod').click(function(event) {
+                $('ul, li').css('background-color', '');
+            });
+            $('#last').click(function(event) {
+                $('ul, li').css('background-color', '');
+                $('li:last').css('background', 'gray');
+                $('li:last').text('last text');
+            });
+            $('#lastmethod').click(function(event) {
+                $('ul, li').css('background-color', '');
+            });
+        });
+    </script>
 </head>
 <body>
     <div>

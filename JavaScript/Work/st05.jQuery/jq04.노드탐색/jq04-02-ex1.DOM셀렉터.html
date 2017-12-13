@@ -5,8 +5,31 @@
     <style>
         div,span { background: #FFF; padding: 10px; margin: 10px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#firstSibling').click(function(event) {
+                $('#current').css('border', '2px dotted blue');
+                $('#current').siblings('div, span').css('border', '');
+                $('#current').siblings('div, span').first().css('border', '2px solid red');
+            });
+            $('#prevSibling').click(function(event) {
+                $('#current').css('border', '2px dotted blue');
+                $('#current').siblings('div, span').css('border', '');
+                $('#current').prev().css('border', '2px solid red');
+            });
+            $('#nextSibling').click(function(event) {
+                $('#current').css('border', '2px dotted blue');
+                $('#current').siblings('div, span').css('border', '');
+                $('#current').next().css('border', '2px solid red');
+            });
+            $('#lastSibling').click(function(event) {
+                $('#current').css('border', '2px dotted blue');
+                $('#current').siblings('div, span').css('border', '');
+                $('#current').siblings('div, span').last().css('border', '2px solid red');
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>DOM Selector</h2>
