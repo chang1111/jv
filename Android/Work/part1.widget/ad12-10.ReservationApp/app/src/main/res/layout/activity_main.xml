@@ -51,14 +51,14 @@
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_gravity="center"
         android:visibility="visible"/>
     
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_gravity="center"
         android:timePickerMode="clock"
         android:visibility="gone"/>
