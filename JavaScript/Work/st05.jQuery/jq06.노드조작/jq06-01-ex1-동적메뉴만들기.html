@@ -9,9 +9,32 @@
         ul.menu li { border: 1px #eeeeee solid; padding-left: 10px; padding-right: 10px; display: block; }
         li.select { background-color: #ccc; }
     </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        var listIndex = null;
+        $(document).ready(function() {
+            $('#add').click(function(event) {
 
-    
-    
+            });
+            $('#update').click(function(event) {
+                /* Act on the event */
+            });
+            $('#remove').click(function(event) {
+                /* Act on the event */
+            });
+            $('#up').click(function(event) {
+                /* Act on the event */
+            });
+            $('#down').click(function(event) {
+                /* Act on the event */
+            });
+            $('.menu>li').click(function(event) {
+                listIndex = $(this).index();
+                $('.menu>li').removeClass('select');
+                $(this).addClass('select');
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -26,6 +49,8 @@
 </div>
 
 <ul class="menu">
+    <li>123</li>
+    <li>123</li>
 </ul>
 
 <div>

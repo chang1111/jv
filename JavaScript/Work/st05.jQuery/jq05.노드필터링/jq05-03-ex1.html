@@ -7,8 +7,49 @@
         td { border:1px solid #AAA; width:25px; height:25px; }
         div { background : #FFF; margin:5px; width:100%; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#filter').click(function(event) {
+                $('td').css('background-color', '');
+                $('td').each(function(index, el) {
+                    if (index%3 === 2) {
+                        $(el).css('background-color', 'red');
+                    }
+                });
+            });
+            $('#not1').click(function(event) {
+                $('td').css('background-color', '');
+                $('td').each(function(index, el) {
+                    if (index%3 !== 2) {
+                        $(el).css('background-color', 'green');
+                    }
+                });
+            });
+            $('#children').click(function(event) {
+                /* Act on the event */
+            });
+            $('#not2').click(function(event) {
+                /* Act on the event */
+            });
+            $('#find').click(function(event) {
+                $('td').css('background-color', '');
+                for(var i=0; i<$('td').length; i++) {
+                    if (i%3 === 2) {
+                        $('td:eq('+ i +')').css('background-color', 'red');
+                    }
+                }
+            });
+            $('#not3').click(function(event) {
+                $('td').css('background-color', '');
+                for(var i=0; i<$('td').length; i++) {
+                    if (i%3 !== 2) {
+                        $('td:eq('+ i +')').css('background-color', 'green');
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div>

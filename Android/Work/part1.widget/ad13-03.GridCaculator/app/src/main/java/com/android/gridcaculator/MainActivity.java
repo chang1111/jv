@@ -7,9 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     EditText editText = null;
@@ -37,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     Button equal = null;
     Button bracket = null;
     Calc calc = null;
-    List<String> resultList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calc = new Calc();
-        resultList = new ArrayList<String>();
         editText = findViewById(R.id.editText);
         list = findViewById(R.id.list);
         save = findViewById(R.id.save);
@@ -125,26 +120,10 @@ public class MainActivity extends AppCompatActivity {
             String text = null;
             switch (view.getId()) {
                 case R.id.list:
-                    for (int i = 0;i <resultList.size();i++) {
-                        if (i == 0) {
-                            editText.setText(resultList.get(i));
-                        }
-                        else {
-                            editText.setText(editText.getText().toString() + "\n" + resultList.get(i));
-                        }
-                    }
                     break;
                 case R.id.save:
-                    text = editText.getText().toString();
-                    if (!text.isEmpty()) {
-                        resultList.add(0, editText.getText().toString());
-                        if (resultList.size() > 3) {
-                            resultList.remove(resultList.size() - 1);
-                        }
-                    }
                     break;
                 case R.id.recent:
-                    editText.setText(resultList.get(0));
                     break;
                 case R.id.add:
                 case R.id.sub:
@@ -193,31 +172,28 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.equal:
                     String infixExp = editText.getText().toString();
 
-                    int left = 0;
-                    int right = 0;
-                    for (int i = 0; i < infixExp.length(); i++) {
-                        if (infixExp.charAt(i) == '(') {
-                            left++;
-                        }
-                        if (infixExp.charAt(i) == ')') {
-                            right++;
-                        }
-                    }
-                    if (left == right) {
-                        resultList.add(0, infixExp);
-                        infixExp = infixExp.replace("\u00D7", "*");
-                        infixExp = infixExp.replace("\u00F7", "/");
-
-                        try {
-                            String postfixExp = calc.postfix(infixExp);
-                            String result = String.valueOf(calc.result(postfixExp));
-                            if (resultList.size() > 3) {
-                                resultList.remove(resultList.size() - 1);
+                    if (!infixExp.isEmpty()) {
+                        int left = 0;
+                        int right = 0;
+                        for (int i = 0; i < infixExp.length(); i++) {
+                            if (infixExp.charAt(i) == '(') {
+                                left++;
                             }
-                            editText.setText(result);
+                            if (infixExp.charAt(i) == ')') {
+                                right++;
+                            }
                         }
-                        catch (Exception e) {
-                            resultList.remove(0);
+                        if (left == right) {
+                            infixExp = infixExp.replace("\u00D7", "*");
+                            infixExp = infixExp.replace("\u00F7", "/");
+
+                            try {
+                                String postfixExp = calc.postfix(infixExp);
+                                String result = String.valueOf(calc.result(postfixExp));
+                                editText.setText(result);
+                            } catch (Exception e) {
+
+                            }
                         }
                     }
                     break;
@@ -233,17 +209,17 @@ public class MainActivity extends AppCompatActivity {
                                 editText.setText(editText.getText().toString() + "(");
                             }
                             else {
-                                int count_l = 0;
-                                int count_r = 0;
+                                int left = 0;
+                                int right = 0;
                                 for (int i = 0; i < text.length(); i++) {
                                     if (text.charAt(i) == '(') {
-                                        count_l++;
+                                        left++;
                                     }
                                     if (text.charAt(i) == ')') {
-                                        count_r++;
+                                        right++;
                                     }
                                 }
-                                if (count_l > count_r) {
+                                if (left > right) {
                                     editText.setText(editText.getText().toString() + ")");
                                 }
                             }

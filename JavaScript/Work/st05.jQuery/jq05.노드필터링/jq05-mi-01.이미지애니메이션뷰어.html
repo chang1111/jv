@@ -9,10 +9,50 @@
         .panel { width: 840px; height: 415px; border: 1px solid #ccc; }
         .nav { width: 840px; text-align: center; }
     </style>
-
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var timer = null;
+            $('#play').click(function(event) {
+                timer = setInterval(function() {
+                    var f_name = $('#view').attr('src');
+                    var count = Number(f_name.substring(f_name.lastIndexOf("/")+1,f_name.lastIndexOf(".")));
+                    if (count === 60) {
+                        count = 1;
+                    }
+                    else {
+                        count++;
+                    }
+                    $('#view').attr('src', 'images/' + count + '.jpg');
+                }, 100)
+            });
+            $('#stop').click(function(event) {
+                clearInterval(timer);
+            });
+            $('#prev').click(function(event) {
+                var f_name = $('#view').attr('src');
+                var count = Number(f_name.substring(f_name.lastIndexOf("/")+1,f_name.lastIndexOf(".")));
+                if (count === 1) {
+                    count = 60;
+                }
+                else {
+                    count--;
+                }
+                $('#view').attr('src', 'images/' + count + '.jpg');
+            });
+            $('#next').click(function(event) {
+                var f_name = $('#view').attr('src');
+                var count = Number(f_name.substring(f_name.lastIndexOf("/")+1,f_name.lastIndexOf(".")));
+                if (count === 60) {
+                    count = 1;
+                }
+                else {
+                    count++;
+                }
+                $('#view').attr('src', 'images/' + count + '.jpg');
+            });
+        });
+    </script>
 </head>
 
 <body>

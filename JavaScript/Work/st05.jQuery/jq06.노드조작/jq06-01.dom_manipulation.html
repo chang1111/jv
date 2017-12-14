@@ -11,8 +11,195 @@
         #center p { margin: 10px; background: #b96dff; }
         .border { border: 2px dashed #ffb42e; margin: 5px; display:block; background: #b96dff; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var timer = null;
+            $('.html').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').css('visibility', '');
+                $('#center').html('<div>결혼은 늦게</div>');
+                $('#center').children().addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').children().css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').children().css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.prepend').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center').prepend('<div>prepend '+ (new Date()).toLocaleTimeString() +'</div>');
+                $('#center').children('div').first().addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').children('div').first().css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').children('div').first().css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.append').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center').append('<div>append '+ (new Date()).toLocaleTimeString() +'</div>');
+                $('#center').children('div').last().addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').children('div').last().css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').children('div').last().css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.before').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', 'visible');
+                $('#center').before('<div>before '+ (new Date()).toLocaleTimeString() +'</div>');
+                $('#center').prev('div').addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').prev('div').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').prev('div').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.after').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center').after('<div>after '+ (new Date()).toLocaleTimeString() +'</div>');
+                $('#center').next('div').addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').next('div').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').next('div').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.wrap').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center p').addClass('selected');
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center p').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center p').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.replace').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center .two').text('Replace Text');
+                $('#center .two').addClass('selected');
+
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center .two').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center .two').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.clone').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center').clone().prependTo('#result');
+                $('#result>div').addClass('selected');
+
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#result>div').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#result>div').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.empty').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center p').html('<br>');
+                $('#center p').addClass('selected');
+
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center p').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center p').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+            $('.remove').click(function(event) {
+                clearInterval(timer);
+                $('div, p').removeClass('selected');
+                $('div, p').children().css('visibility', '');
+                $('#center p').remove();
+                $('#center').addClass('selected');
+
+                var b = true;
+                timer = setInterval(function() {
+                    if(b) {
+                        $('#center').css('visibility', 'hidden');
+                        b = false;
+                    }
+                    else {
+                        $('#center').css('visibility', '');
+                        b = true;
+                    }
+                }, 500);
+            });
+        });
+    </script>
 </head>
 <body>
     <p>DOM 조작 메서드</p>

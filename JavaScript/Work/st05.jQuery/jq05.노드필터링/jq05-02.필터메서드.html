@@ -12,26 +12,31 @@
         $(document).ready(function() {
             $('#selector').click(function(event) {
                 $('ul, li').css('background-color', '');
-                $('li>ul').css('background-color', 'red');
+                $('ul:eq(0)>li:eq(1)>ul').css('background-color', 'red');
             });
             $('#method').click(function(event) {
                 $('ul, li').css('background-color', '');
+                $('ul').eq(0).children('li').eq(1).children('ul').css('background-color', 'pink');
             });
             $('#eq2').click(function(event) {
                 $('ul, li').css('background-color', '');
-                $('ul>li:eq(4)').css('background-color', 'gray');
-                $('ul>li:eq(4)').text('eq text');
+                $('ul:eq(0)>li:eq(2)').css('background-color', 'gray');
+                $('ul:eq(0)>li:eq(2)').text('eq text');
             });
             $('#eq2method').click(function(event) {
                 $('ul, li').css('background-color', '');
+                $('ul:eq(0)').children('li').eq(2).css('background', 'gray');
+                $('ul:eq(0)').children('li').eq(2).text('eq text');
             });
             $('#first').click(function(event) {
                 $('ul, li').css('background-color', '');
-                $('li:first').css('background', 'gray');
-                $('li:first').text('first text');
+                $('ul:eq(0)>li:first').css('background', 'gray');
+                $('ul:eq(0)>li:first').text('first text');
             });
             $('#firstmethod').click(function(event) {
                 $('ul, li').css('background-color', '');
+                $('ul').eq(0).children('li').first().css('background', 'gray');
+                $('ul').eq(0).children('li').first().text('first text');
             });
             $('#last').click(function(event) {
                 $('ul, li').css('background-color', '');
@@ -40,6 +45,8 @@
             });
             $('#lastmethod').click(function(event) {
                 $('ul, li').css('background-color', '');
+                $('ul').eq(0).children('li').last().css('background', 'gray');
+                $('ul').eq(0).children('li').last().text('last text');
             });
         });
     </script>

@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>스트라이프 테이블 만들기</title>
-	<style>
-	    table{ margin: 5px; }
-	    th{ background: #222222; color: white; }
-	    th,td{ padding: 5px; font-size: small; }
-	    .odd{ background: rgba(51, 69, 205, 0.27); }
-	    .even{ background:#F2F2F2; }
-	    .hover{ background:#B2D8FF; }
-	</style>
-    
-    
+    <meta charset="UTF-8">
+    <title>스트라이프 테이블 만들기</title>
+    <style>
+        table{ margin: 5px; }
+        th{ background: #222222; color: white; }
+        th,td{ padding: 5px; font-size: small; }
+        .odd{ background: rgba(51, 69, 205, 0.27); }
+        .even{ background:#F2F2F2; }
+        .hover{ background:#B2D8FF; }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('td').hover(function() {
+                var column = $(this).index()%5;
+                var row = $(this).parent().index();
+                $('tr:eq('+ (row+1) +'), td:nth-child('+ (column+1) +')').addClass('hover');
+            }, function() {
+                $('tr, td').removeClass('hover');
+            });
+        });
+    </script>
 </head>
 <body>
 
