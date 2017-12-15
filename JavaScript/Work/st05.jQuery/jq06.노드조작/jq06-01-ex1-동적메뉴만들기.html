@@ -11,27 +11,62 @@
     </style>
     <script type="text/javascript" src="../jquery-3.2.1.js"></script>
     <script type="text/javascript">
-        var listIndex = null;
         $(document).ready(function() {
+            var index = null;
             $('#add').click(function(event) {
-
+                if ($('#menuName').val() !== '') {
+                    if (index === null) {
+                        $('.menu').append('<li>'+ $('#menuName').val() +'</li>');
+                        $('.menu>li').last().on('click', function(event) {
+                            $('.menu>li').removeClass('select');
+                            $(this).addClass('select');
+                            index = $(this).index();
+                        });
+                    }
+                    else {
+                        $('.menu>li').eq(index).after('<li>'+ $('#menuName').val() +'</li>');
+                        $('.menu>li').eq(index+1).on('click', function(event) {
+                            $('.menu>li').removeClass('select');
+                            $(this).addClass('select');
+                            index = $(this).index();
+                        });
+                    }
+                    $('#menuName').val('');
+                }
             });
             $('#update').click(function(event) {
-                /* Act on the event */
+                if ($('#menuName').val() !== '' && index !== null) {
+                    $('.menu>li').eq(index).html($('#menuName').val());
+                    $('#menuName').val('');
+                }
             });
             $('#remove').click(function(event) {
-                /* Act on the event */
+                if (index !== null) {
+                    $('.menu>li').eq(index).remove();
+                    index = null;
+                }
             });
             $('#up').click(function(event) {
-                /* Act on the event */
+                if (index !== 0 && index !== null) {
+                    $('.menu>li').eq(index-1).before($('.menu>li').eq(index));
+                    index--;
+                    // var temp = $('.menu>li').eq(index-1).html();
+                    // $('.menu>li').eq(index-1).html($('.menu>li').eq(index).html());
+                    // $('.menu>li').eq(index).html(temp);
+                    // $('.menu>li').eq(index--).removeClass('select');
+                    // $('.menu>li').eq(index).addClass('select');
+                }
             });
             $('#down').click(function(event) {
-                /* Act on the event */
-            });
-            $('.menu>li').click(function(event) {
-                listIndex = $(this).index();
-                $('.menu>li').removeClass('select');
-                $(this).addClass('select');
+                if (index !== $('.menu>li').length - 1 && index !== null) {
+                    $('.menu>li').eq(index+1).after($('.menu>li').eq(index));
+                    index++;
+                    // var temp = $('.menu>li').eq(index+1).html();
+                    // $('.menu>li').eq(index+1).html($('.menu>li').eq(index).html());
+                    // $('.menu>li').eq(index).html(temp);
+                    // $('.menu>li').eq(index++).removeClass('select');
+                    // $('.menu>li').eq(index).addClass('select');
+                }
             });
         });
     </script>
@@ -49,8 +84,6 @@
 </div>
 
 <ul class="menu">
-    <li>123</li>
-    <li>123</li>
 </ul>
 
 <div>

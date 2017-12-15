@@ -48,11 +48,10 @@
             android:text="시간 설정"/>
     </RadioGroup>
     
-    <CalendarView
-        android:id="@+id/calendarView"
+    <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_gravity="center"
         android:visibility="visible"/>
     
     <TimePicker

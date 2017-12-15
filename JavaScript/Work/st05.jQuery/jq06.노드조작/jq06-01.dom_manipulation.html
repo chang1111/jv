@@ -109,15 +109,16 @@
                 clearInterval(timer);
                 $('div, p').removeClass('selected');
                 $('div, p').children().css('visibility', '');
-                $('#center p').addClass('selected');
+                $('#center').wrap('<div class="wrap"></div>');
+                $('div.wrap').addClass('selected');
                 var b = true;
                 timer = setInterval(function() {
                     if(b) {
-                        $('#center p').css('visibility', 'hidden');
+                        $('div.wrap').css('visibility', 'hidden');
                         b = false;
                     }
                     else {
-                        $('#center p').css('visibility', '');
+                        $('div.wrap').css('visibility', '');
                         b = true;
                     }
                 }, 500);
@@ -126,17 +127,17 @@
                 clearInterval(timer);
                 $('div, p').removeClass('selected');
                 $('div, p').children().css('visibility', '');
-                $('#center .two').text('Replace Text');
-                $('#center .two').addClass('selected');
+                $('#center .two').replaceWith('<p class="replace">Replace Text</p>')
+                $('#center p.replace').addClass('selected');
 
                 var b = true;
                 timer = setInterval(function() {
                     if(b) {
-                        $('#center .two').css('visibility', 'hidden');
+                        $('#center p.replace').css('visibility', 'hidden');
                         b = false;
                     }
                     else {
-                        $('#center .two').css('visibility', '');
+                        $('#center p.replace').css('visibility', '');
                         b = true;
                     }
                 }, 500);

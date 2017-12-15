@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean checkNumberLength() {
         // 텍스트 필드의 마지막 연산자 찾기
         String text = editText.getText().toString();
-        String[] operators = {"+", "-", "\u00D7", "\u00F7"};
+        String[] operators = {"+", "-", "\u00D7", "\u00F7", "("};
         int posLastOper = calc.getLastIndex(editText.getText().toString(), operators);
 
         // 현재 텍스트 필드의 길이 구하기
@@ -170,25 +170,25 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.equal:
-                    String infixExp = editText.getText().toString();
+                    text = editText.getText().toString();
 
-                    if (!infixExp.isEmpty()) {
+                    if (!text.isEmpty()) {
                         int left = 0;
                         int right = 0;
-                        for (int i = 0; i < infixExp.length(); i++) {
-                            if (infixExp.charAt(i) == '(') {
+                        for (int i = 0; i < text.length(); i++) {
+                            if (text.charAt(i) == '(') {
                                 left++;
                             }
-                            if (infixExp.charAt(i) == ')') {
+                            if (text.charAt(i) == ')') {
                                 right++;
                             }
                         }
                         if (left == right) {
-                            infixExp = infixExp.replace("\u00D7", "*");
-                            infixExp = infixExp.replace("\u00F7", "/");
+                            text = text.replace("\u00D7", "*");
+                            text = text.replace("\u00F7", "/");
 
                             try {
-                                String postfixExp = calc.postfix(infixExp);
+                                String postfixExp = calc.postfix(text);
                                 String result = String.valueOf(calc.result(postfixExp));
                                 editText.setText(result);
                             } catch (Exception e) {

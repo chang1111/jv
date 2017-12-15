@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<style>
-	    div, p { background : #FFF; padding:10px; margin:5px; }
-	    li > p {height: 70px; }
-	    li > p > span { width: 50px; height: 60px; margin: 5px; float: left; border: 2px blue solid; }
-	    li.third { clear: both; }
+    <meta charset="UTF-8">
+    <style>
+        div, p { background : #FFF; padding:10px; margin:5px; }
+        li > p {height: 70px; }
+        li > p > span { width: 50px; height: 60px; margin: 5px; float: left; border: 2px blue solid; }
+        li.third { clear: both; }
 
-	    .border { border: 2px solid red; margin: 3px; }
-	    .yellow { background:yellow; }
-	    .pink   { background:pink; }
-	</style>
-	
-	
+        .border { border: 2px solid red; margin: 3px; }
+        .yellow { background:yellow; }
+        .pink   { background:pink; }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#contents').click(function(event) {
+                $('li:eq(2)').children().remove();
+            });
+            $('#add').click(function(event) {
+                alert('add');
+            });
+            $('#addBack').click(function(event) {
+                alert('addBack');
+            });
+            $('#andSelf').click(function(event) {
+                alert('andSelf');
+            });
+            $('#end').click(function(event) {
+                alert('end');
+            });
+            $('#slice').click(function(event) {
+                alert('slice');
+            });
+            $('#map').click(function(event) {
+                alert('map');
+            });
+        });
+    </script>
 </head>
 <body>
     <div>
