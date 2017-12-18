@@ -9,10 +9,17 @@
         #info{ border:10px solid #ff0000; position:fixed; left:120px; top:100px; }
         #gotoTop { width:100px; height:50px; }
     </style>
-
-	
-	
-	
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function(event) {
+                $('#info').text($(window).scrollTop());
+            });
+            $('#gotoTop').click(function(event) {
+                $(window).scrollTop(0);
+            });
+        });
+    </script>
 </head>
 
 <body>

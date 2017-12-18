@@ -5,7 +5,7 @@
     <title>해당 엘리먼트의 현재 위치 알아내기</title>
     <style>
     div.abs{ width: 50px; height: 50px; position: absolute;
-         left:220px; top:35px; background-color: green;
+         left:420px; top:150px; background-color: green;
          cursor: pointer;
     }
     div { position: relative; left:0px; top:200px; }
@@ -25,11 +25,32 @@
         font-family:"돋움,dotum,굴림,gulim,Vertical,Arial";
     }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.abs').click(function(event) {
+                var x = $(this).offset().left;
+                var y = $(this).offset().top;
+                var w = $(this).width();
+                var h = $(this).height();
+                $('#result').text('x = ' + x + ', y = ' + y + ', w = ' + w + ', h = ' + h);
 
 
-
+            });
+            $('#addboarder').click(function(event) {
+                $('.abs').css('border', '4px solid red');
+                $('.abs').trigger('click');
+            });
+            $('#addpadding').click(function(event) {
+                $('.abs').css('padding', '40px');
+                $('.abs').trigger('click');
+            });
+            $('#addmargin').click(function(event) {
+                $('.abs').css('margin', '40px');
+                $('.abs').trigger('click');
+            });
+        });
+    </script>
 </head>
 <body>
     <span id="result"></span>

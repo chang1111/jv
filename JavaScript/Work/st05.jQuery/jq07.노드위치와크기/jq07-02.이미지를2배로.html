@@ -6,9 +6,17 @@
     <style>
         img{  width: 140px; height: 120px; }
     </style>
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('img').click(function(event) {
+                var w = $(this).width();
+                var h = $(this).height();
+                $(this).width(2*w);
+                $(this).height(2*h);
+            });
+        });
+    </script>
 </head>
 <body>
    <img src="images/im1.jpg" />

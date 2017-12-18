@@ -25,11 +25,41 @@
         .leftbtn { margin-top:10px; }
         .rightbtn { margin-left:290px;margin-top:10px; }
     </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../jquery.easing.1.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var easing = 'linear';
+            $('select').change(function(event) {
+                easing = $('select>option:selected').text();
+            });
 
-    
-    
-    
+            $('span.showhide').eq(0).click(function(event) {
+                $('p.showhide').show();
+            });
+            $('span.showhide').eq(1).click(function(event) {
+                $('p.showhide').hide();
+            });
+            $('span.showhide').eq(2).click(function(event) {
+                $('p.showhide').toggle();
+            });
+            $('span.easing').eq(0).click(function(event) {
+                $('p.easing').show(400, easing, function() {
 
+                });
+            });
+            $('span.easing').eq(1).click(function(event) {
+                $('p.easing').hide(400, easing, function() {
+
+                });
+            });
+            $('span.easing').eq(2).click(function(event) {
+                $('p.easing').toggle(400, easing, function() {
+
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <h2>show & hide 효과</h2>

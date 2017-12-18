@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<style>
-		div { width: 40px; height: 40px; margin: 10px; float: left; border: 2px solid blue; }
-		span { color: red; font-weight: bold; }
-		button { margin: 5px; }
-	</style>
-	
-	
+    <meta charset="UTF-8">
+    <style>
+        div { width: 40px; height: 40px; margin: 10px; float: left; border: 2px solid blue; }
+        span { color: red; font-weight: bold; }
+        button { margin: 5px; }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('button').click(function(event) {
+                $('div').css('background-color', '');
+                var a = Math.floor(9*Math.random());
+                var b = Math.floor(9*Math.random());
+                if (a < b) {
+                    $('div').slice(a, b).css('background-color', 'yellow');
+                    $('span').text('$(\'div\').slice('+a+', '+b+').css(\'background-color\', \'yellow\');');
+                }
+                else if (a > b) {
+                    $('div').slice(b, a).css('background-color', 'yellow');
+                    $('span').text('$(\'div\').slice('+b+', '+a+').css(\'background-color\', \'yellow\');');
+                }
+                else {
+                    $('div').slice(a).css('background-color', 'yellow');
+                    $('span').text('$(\'div\').slice('+a+').css(\'background-color\', \'yellow\');');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <p>

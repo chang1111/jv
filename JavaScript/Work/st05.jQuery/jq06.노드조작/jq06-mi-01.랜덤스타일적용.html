@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<style>
-		body   { font-size:9pt;	}
-		pre    { font-size:13pt;	}
-		#panel { width:600px; overflow:visible;	border: 1px dotted #CCC; font-size:20px; 	}
-	</style>
-	
-    
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body   { font-size:9pt; }
+        pre    { font-size:13pt;    }
+        #panel { width:600px; overflow:visible; border: 1px dotted #CCC; font-size:20px;    }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var count = 0;
+            setInterval(function() {
+                $('#panel').append('<span>'+ ++count +'</span>');
+                var r = Math.floor(256*Math.random());
+                var g = Math.floor(256*Math.random());
+                var b = Math.floor(256*Math.random());
+                $('#panel>span').eq(count-1).css({'font-size': Math.floor(40*Math.random()+10), 'color': 'rgb('+r+','+g+','+b+')'});
+            }, 1000);
+        });
+    </script>
 </head>
 
 <body>
@@ -21,10 +32,10 @@
 2. 숫자는 1부터 시작 합니다.
 3. 글자크기는 10px에서 50px 사이의 값으로, 글자색은 랜덤하게 설정해주세요
     </pre>
-	<div>
-		<div id="panel">
-		</div>
-	</div>
+    <div>
+        <div id="panel">
+        </div>
+    </div>
 </body>
 </html>
 

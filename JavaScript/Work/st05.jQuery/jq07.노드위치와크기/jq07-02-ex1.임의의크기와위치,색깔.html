@@ -9,9 +9,20 @@
              margin: 5px;
         }
     </style>
-
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('div').click(function(event) {
+                $(this).css({'left': 400*Math.random(),'top': 400*Math.random()});
+                $(this).width(200*Math.random());
+                $(this).height(200*Math.random());
+                var r = Math.floor(256*Math.random());
+                var g = Math.floor(256*Math.random());
+                var b = Math.floor(256*Math.random());
+                $(this).css('background-color', 'rgb('+r+','+g+','+b+')');
+            });
+        });
+    </script>
 </head>
 <body>
     <div></div>

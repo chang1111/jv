@@ -11,15 +11,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#btnStart').click(function(event) {
-                var panel_x = Number($('#panel').css('width').substr(0,$('#panel').css('width').length-2));
-                var panel_y = Number($('#panel').css('height').substr(0,$('#panel').css('height').length-2));
+                var panel_x = $('#panel').width();
+                var panel_y = $('#panel').height();
 
-                var fish_x = Number($('#fish').css('width').substr(0,$('#fish').css('width').length-2));
-                var fish_y = Number($('#fish').css('height').substr(0,$('#fish').css('height').length-2));
+                var fish_x = $('#fish').width();
+                var fish_y = $('#fish').height();
 
                 var x = (panel_x - fish_x) * Math.random();
                 var y = (panel_y - fish_y) * Math.random();
-                $('#fish').css({'left': x + 'px', 'top': y + 'px'});
+                $('#fish').css({'left': x, 'top': y});
             });
         });
     </script>

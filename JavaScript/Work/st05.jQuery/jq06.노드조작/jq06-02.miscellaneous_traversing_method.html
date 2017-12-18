@@ -16,25 +16,31 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#contents').click(function(event) {
-                $('li:eq(2)').children().remove();
+                $('li:eq(2)').contents('p').remove();
             });
             $('#add').click(function(event) {
-                alert('add');
+                $('li').add('p').addClass('border');
+                $('li').addClass('yellow');
             });
             $('#addBack').click(function(event) {
-                alert('addBack');
+                $('ul').find('p, dl').addBack().addClass('border');
+                $('ul, dl').addClass('yellow');
             });
             $('#andSelf').click(function(event) {
-                alert('andSelf');
+
             });
             $('#end').click(function(event) {
-                alert('end');
+                $('div').find('p').end().addClass('border');
+                $('ul').find('p').end().addClass('yellow');
             });
             $('#slice').click(function(event) {
-                alert('slice');
+                $('span').slice(1,4).addClass('pink');
             });
             $('#map').click(function(event) {
-                alert('map');
+                var arr = $('ul>li').map(function() {
+                    return $('ul>li').text();
+                })
+                $('result').text(arr[0]);
             });
         });
     </script>

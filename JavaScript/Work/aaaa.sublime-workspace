@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"ap",
+				"append\t( nodes_..: Node|DOMString ): void Element"
+			],
+			[
+				"slice",
+				"slice\t( start: int, end: int ): string String"
+			],
+			[
+				"animate",
+				"animate\t.animate() with callback"
+			],
+			[
+				"scroll",
+				"scrollTop\t.scrollTop()"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"wi",
+				"width\t Style CSS"
+			],
+			[
 				"next",
 				"nextTo"
 			],
@@ -268,10 +292,6 @@
 				"list-style-type"
 			],
 			[
-				"wi",
-				"width"
-			],
-			[
 				"val",
 				"ng-value\tAngularJS"
 			],
@@ -328,10 +348,6 @@
 				"enter()\td3-selection.enter()"
 			],
 			[
-				"ap",
-				"append()\td3-selection.append()"
-			],
-			[
 				"ht",
 				"html()\td3-selection.html()"
 			],
@@ -356,19 +372,10 @@
 	"buffers":
 	[
 		{
-			"file": "st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
+			"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
 			"settings":
 			{
-				"buffer_size": 4851,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
-			"settings":
-			{
-				"buffer_size": 2650,
+				"buffer_size": 1663,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -456,11 +463,23 @@
 		"/D/workspace/Lecture/JavaScript/Work/myfolder",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작"
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과"
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-mi-01.랜덤스타일적용.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02-ex1.임의의크기와위치,색깔.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-01.에니메이션효과.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02-ex1.slice.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-11.스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02.이미지를2배로.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-12.무한스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-01.offset.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-mi-03.랜덤물고기.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01.dom_manipulation.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링/jq05-02.필터메서드.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링/jq05-03.노드재검색.html",
@@ -472,7 +491,6 @@
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-mi-01.탭메뉴아이템.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-mi-01.새창으로링크열기.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-mi-02.연습문제풀이.html",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-mi-03.랜덤물고기.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-03-ex1.폼유효성검사.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-01.DOM탐색메서드.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-02.DOM셀렉터.html",
@@ -577,18 +595,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-05.자손선택자.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-03.속성선택자.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex2.id선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex1.tag선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01.기본선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs01.CSS기초/cs01-01.스타일.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs01.CSS기초/style.css",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs01.CSS기초/cs01-02.색상스타일.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-01.viedo.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-01-ex1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-02.audio.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht10-01-ex1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-02-ex1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-03.입력태그실습1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-03.입력태그실습2.html"
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex1.tag선택자.html"
 	],
 	"find":
 	{
@@ -646,19 +653,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
+					"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4851,
+						"buffer_size": 1663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2860,
-								2860
+								844,
+								844
 							]
 						],
 						"settings":
@@ -671,216 +678,8 @@
 								{
 									"1":
 									[
-										2545,
-										2546
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2189,
-										2190
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2884,
-										2885
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2860,
-										2861
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 756.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2650,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								796,
-								796
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										14,
-										15
+										120,
+										121
 									]
 								},
 								"icon":
@@ -905,61 +704,61 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -967,8 +766,8 @@
 								{
 									"1":
 									[
-										809,
-										810
+										857,
+										858
 									]
 								},
 								"icon":
@@ -983,8 +782,8 @@
 								{
 									"1":
 									[
-										765,
-										766
+										803,
+										804
 									]
 								},
 								"unmatched":
@@ -993,71 +792,71 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 63.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

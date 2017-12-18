@@ -2,9 +2,22 @@
 <html lang="ko">
 <head>
     <title>Infinity Scroll</title>
-	
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            count = 0;
+            $(window).scroll(function(event) {
+                var scrollTop = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var height = $(document).height();
+                if (height === scrollTop + windowHeight) {
+                    for (var i = 0; i < 20; i++) {
+                        $('body').append('<h1>infinity scroll #'+ ++count +' </hi>');
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>infinity scroll </h1>
