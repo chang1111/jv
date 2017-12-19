@@ -16,7 +16,7 @@
                 $('#info').text($(window).scrollTop());
             });
             $('#gotoTop').click(function(event) {
-                $(window).scrollTop(0);
+                $('html').animate({scrollTop:0});
             });
         });
     </script>

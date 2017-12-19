@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"par",
+				"parent\t.parent()"
+			],
+			[
+				"sl",
+				"slideToggle\t.slideToggle()"
+			],
+			[
+				"slide",
+				"slideUp\t.slideUp()"
+			],
+			[
 				"ap",
 				"append\t( nodes_..: Node|DOMString ): void Element"
 			],
@@ -372,10 +384,13 @@
 	"buffers":
 	[
 		{
-			"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
+			"contents": "<!DOCTYPE HTML>\n<html>\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <title>미션</title>\n\n    <style>\n        * { margin:0; padding:0; }\n   \t\tpre   { font-size:13pt;\t}\n        .wrap { margin:10px; }\n        .select { width:800px; height:100px; border:1px solid #000; }\n        .select img { width:150px; float:left; }\n        .container { position: absolute; width:800px; height:400px; border:1px solid #000; }\n        .container img { position: absolute; width:100px;    }\n    </style>\n    <script type=\"text/javascript\" src=\"../jquery-3.2.1.js\"></script>\n    <script type=\"text/javascript\" src=\"../jquery.easing.1.3.js\"></script>\n    <script type=\"text/javascript\">\n        $(document).ready(function() {\n            \n        });\n    </script>\n</head>\n\n<body>\n<pre>\n 드래그앤드 드롭만들기\n 요구사항에 맞게 드래그앤드 드롭 기능을 만들어 주세요.\n\n 요구사항 분석\n 1. 초기 시작 시 컨테이너(.container) 영역의 이미지는 랜덤하게 출력되어야 합니다.\n    단, 컨테이너 영역을 벗어나면 안 됩니다.( initImagePos() 만들기 )\n 2. 컨테이너 영역의 이미지를 드래그되게 만들어 주세요.( initEvent() 만들기 )\n 3. 드래그 이미지를 선택 영역에 드롭하는 경우 해당 이미지를 선택 영역으로 이동시켜 주세요.\n</pre>\n    <div class=\"wrap\">\n        <div class=\"select\">\n            <!-- 여기에 이미지를 드래그&드랍 하면 추가 됩니다. -->\n        </div>\n        <div class=\"container\">\n            <img src=\"images/im1.jpg\" >\n            <img src=\"images/im2.jpg\" >\n            <img src=\"images/fish.png\" >\n            <img src=\"images/1.png\" >\n            <img src=\"images/2.png\" >\n        </div>\n    </div>\n</body>\n\n</html>\n\n\n\n\n\n\n\n",
+			"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-03.드래그앤드드롭만들기.html",
+			"file_size": 1799,
+			"file_write_time": 131581343258233746,
 			"settings":
 			{
-				"buffer_size": 1663,
+				"buffer_size": 1469,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -468,12 +483,15 @@
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-01.에니메이션효과.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02.슬라이딩FAQ.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02-ex1.아코디언패널.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02-ex2.아코디언패널.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-mi-01.랜덤스타일적용.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02-ex1.임의의크기와위치,색깔.html",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-01.에니메이션효과.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02-ex1.slice.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-11.스크롤.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02.이미지를2배로.html",
@@ -592,10 +610,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/myfolder/test.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-09.반응선택자.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-07.상태선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-05.자손선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-03.속성선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex2.id선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex1.tag선택자.html"
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-05.자손선택자.html"
 	],
 	"find":
 	{
@@ -653,19 +668,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
+					"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-03.드래그앤드드롭만들기.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1663,
+						"buffer_size": 1469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								844,
-								844
+								754,
+								754
 							]
 						],
 						"settings":
@@ -678,8 +693,8 @@
 								{
 									"1":
 									[
-										120,
-										121
+										14,
+										15
 									]
 								},
 								"icon":
@@ -704,61 +719,61 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -766,8 +781,8 @@
 								{
 									"1":
 									[
-										857,
-										858
+										763,
+										764
 									]
 								},
 								"icon":
@@ -782,8 +797,8 @@
 								{
 									"1":
 									[
-										803,
-										804
+										740,
+										741
 									]
 								},
 								"unmatched":
@@ -792,61 +807,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,

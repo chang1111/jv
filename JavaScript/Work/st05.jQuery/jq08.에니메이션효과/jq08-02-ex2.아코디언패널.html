@@ -20,11 +20,34 @@
         dt#step3 span{ background:url("images/background-3.jpg"); }
         dt#step3 span.over{ background:url("images/background-3-over.jpg"); }
         dt#step3 span.selected{ background:url("images/background-3-selected.jpg"); }
-        dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow:hidden; }
+        dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow: hidden; }
         dd  p{ width:655px; text-indent:1em; padding:20px; }
     </style>
-    
-	
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../jquery.easing.1.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('dd:gt(0)').width(0);
+            $('dt:eq(0) span').addClass('selected');
+
+            $('dt').click(function(event) {
+                if (!$(this).children('span').first().hasClass('selected')) {
+                    $('.selected').parent().next('dd').animate({width: '0px'});
+                    $(this).next('dd').animate({width: '695px'});
+                    $('span').removeClass('selected');
+                    $(this).children('span').first().addClass('selected');
+                }
+            });
+            $('span').hover(function() {
+                if (!$(this).hasClass('selected')) {
+                    $(this).addClass('over');
+                }
+            }, function() {
+                $(this).removeClass('over');
+            });
+        });
+    </script>
 </head>
 <body>
     <div>
