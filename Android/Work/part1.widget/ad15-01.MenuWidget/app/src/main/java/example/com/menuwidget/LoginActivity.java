@@ -1,39 +1,16 @@
 package example.com.menuwidget;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
+import android.content.Intent;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -54,20 +31,39 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = pref.edit();
 
-                editor.putString("ID", edtId.getText().toString());
-                editor.putString("PW", edtPw.getText().toString());
-                editor.apply();
+                if (edtId.getText().toString().trim().equals("111") &&
+                        edtPw.getText().toString().trim().equals("111")) {
+                    // 로그인 성공
+                    SharedPreferences.Editor editor = pref.edit();
+
+                    editor.putString(CommonCode.LOGIN_ID, edtId.getText().toString());
+//                    editor.putString("PW", edtPw.getText().toString());
+                    editor.putBoolean(CommonCode.LOGIN_STATUS, true);
+                    editor.apply();
+
+                    //결과 반환 코드 작성
+                    Intent data = new Intent();
+                    // Intent에 반환값 저장
+                    data.putExtra(CommonCode.LOGIN_STATUS, true);
+                    // 결과반환
+                    setResult(RESULT_OK, data);
+
+                    finish();
+                }
+                else {
+                    // 로그인 실패
+                    Toast.makeText(getApplicationContext(), R.string.login_fail, Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        pref = getSharedPreferences("Settings", MODE_PRIVATE);
+        pref = getSharedPreferences(CommonCode.FILE_PREFERENCE, MODE_PRIVATE);
 
-        String id = pref.getString("ID", "");
-        String pw = pref.getString("PW", "");
+        String id = pref.getString(CommonCode.LOGIN_ID, "");
+//        String pw = pref.getString("PW", "");
 
         edtId.setText(id);
-        edtPw.setText(pw);
+//        edtPw.setText(pw);
 
     }
 

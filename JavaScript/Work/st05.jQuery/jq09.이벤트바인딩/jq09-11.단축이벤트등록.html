@@ -10,10 +10,48 @@
         }
         hr { clear:both; }
     </style>
-
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('a').on('click',function(event) {
+                $('#img2').attr('src', $(this).attr('href'));
+                return false;
+            });
+            $('#but1').on('mouseover', function(event) {
+                $(this).attr('src', 'images/but2.gif');
+            });
+            $('#but1').on('mouseout', function(event) {
+                $(this).attr('src', 'images/but1.gif');
+            });
+            $('#img-swap').on('mouseenter', function(event) {
+                $(this).attr('src', 'images/img_swap_on.png');
+            });
+            $('#img-swap').on('mouseleave', function(event) {
+                $(this).attr('src', 'images/img_swap_off.png');
+            });
+            $('span').on('mouseover', function(event) {
+                $(this).css('background-color', 'yellow');
+            });
+            $('span').on('mousedown', function(event) {
+                $(this).css('background-color', 'blue');
+            });
+            $('span').on('mouseup', function(event) {
+                $(this).css('background-color', 'pink');
+            });
+            $('span').on('mouseout', function(event) {
+                $(this).css('background-color', 'red');
+            });
+            $('#sel').on('change', function(event) {
+                $('#img').attr('src', $('#sel>option:selected').attr('value'));
+            });
+            $('#ID').on('focus', function(event) {
+                $(this).css('border', '2px dashed violet');
+            });
+            $('#ID').on('blur', function(event) {
+                $(this).css('border', '');
+            });
+        });
+    </script>
 </head>
 <body>
     <pre>
@@ -37,7 +75,7 @@
     박스에 mouseup   시 background를 pink로
     박스에 mouseout  시 background를 red로
     </pre>
-    </span>
+
     <span></span>
     <span></span>
     <span></span>

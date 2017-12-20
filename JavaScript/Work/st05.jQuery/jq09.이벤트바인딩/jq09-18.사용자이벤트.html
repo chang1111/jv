@@ -10,10 +10,18 @@
         li.select { background-color:#ccc; }
         #output { border:1px solid #000; min-height:100px; }
     </style>
-
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var count = 0;
+            var addItem;
+            $('#add').click(function(event) {
+                addItem = 'new' + ++count;
+                $('.menu').append('<li>'+ addItem +'</li>');
+                $('#output').prepend('<p>추가 아이템'+ addItem +', 아이템 개수 = '+ $('li').length +'</p>');
+            });
+        });
+    </script>
 </head>
 
 <body>

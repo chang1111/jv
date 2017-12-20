@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
-	<head>
-	<meta charset="UTF-8">
-	<title>동적 이벤트 설정</title>
-	<style>
-	    p { background:yellow; font-weight:bold; cursor:pointer; padding:5px; }
-	    span { background:pink; font-weight:bold; cursor:pointer; padding:5px;
-	        display:block; margin-top:10px;}
-	    div { border: 1px dashed red; }
-	</style>
-	
-	
+    <head>
+    <meta charset="UTF-8">
+    <title>동적 이벤트 설정</title>
+    <style>
+        p { background:yellow; font-weight:bold; cursor:pointer; padding:5px; }
+        span { background:pink; font-weight:bold; cursor:pointer; padding:5px;
+            display:block; margin-top:10px;}
+        div { border: 1px dashed red; }
+    </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('p').click(function(event) {
+                $('#p').append('<p>p paragraph</p>');
+                $('.menu').html('<p>append p.b paragraph</p>');
+            });
+            $('span').click(function(event) {
+                $('#span').append('<span>span paragraph</span>');
+                $('.menu>li:first').html('<span>append span.p paragraph</span>');
+            });
+            $('body').on('click', '#p>p:last', function(event) {
+                $('.menu').html('<p>p paragraph! clicked</p>');
+            });
+            $('body').on('click', '#span>span:last', function(event) {
+                $('.menu').html('<span>span paragraph! clicked</span>');
+            });
+        });
+    </script>
 </head>
 <body>
     <p>Click me! 클릭하면 id=p에 추가하시고 <br> 추가된 엘리먼트에 click이벤트를 거시오.</p>

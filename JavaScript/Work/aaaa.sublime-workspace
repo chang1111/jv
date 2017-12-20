@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"ini",
+				"initImagePos"
+			],
+			[
+				"res",
+				"resize\t.resize()"
+			],
+			[
+				"css",
+				"css\t.css() - single"
+			],
+			[
+				"mouse",
+				"mouseover\t.mouseover()"
+			],
+			[
 				"par",
 				"parent\t.parent()"
 			],
@@ -166,10 +182,6 @@
 			[
 				"re",
 				"ready\t$(document).ready"
-			],
-			[
-				"css",
-				"css\t.css() - single"
 			],
 			[
 				"add",
@@ -384,13 +396,28 @@
 	"buffers":
 	[
 		{
-			"contents": "<!DOCTYPE HTML>\n<html>\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <title>미션</title>\n\n    <style>\n        * { margin:0; padding:0; }\n   \t\tpre   { font-size:13pt;\t}\n        .wrap { margin:10px; }\n        .select { width:800px; height:100px; border:1px solid #000; }\n        .select img { width:150px; float:left; }\n        .container { position: absolute; width:800px; height:400px; border:1px solid #000; }\n        .container img { position: absolute; width:100px;    }\n    </style>\n    <script type=\"text/javascript\" src=\"../jquery-3.2.1.js\"></script>\n    <script type=\"text/javascript\" src=\"../jquery.easing.1.3.js\"></script>\n    <script type=\"text/javascript\">\n        $(document).ready(function() {\n            \n        });\n    </script>\n</head>\n\n<body>\n<pre>\n 드래그앤드 드롭만들기\n 요구사항에 맞게 드래그앤드 드롭 기능을 만들어 주세요.\n\n 요구사항 분석\n 1. 초기 시작 시 컨테이너(.container) 영역의 이미지는 랜덤하게 출력되어야 합니다.\n    단, 컨테이너 영역을 벗어나면 안 됩니다.( initImagePos() 만들기 )\n 2. 컨테이너 영역의 이미지를 드래그되게 만들어 주세요.( initEvent() 만들기 )\n 3. 드래그 이미지를 선택 영역에 드롭하는 경우 해당 이미지를 선택 영역으로 이동시켜 주세요.\n</pre>\n    <div class=\"wrap\">\n        <div class=\"select\">\n            <!-- 여기에 이미지를 드래그&드랍 하면 추가 됩니다. -->\n        </div>\n        <div class=\"container\">\n            <img src=\"images/im1.jpg\" >\n            <img src=\"images/im2.jpg\" >\n            <img src=\"images/fish.png\" >\n            <img src=\"images/1.png\" >\n            <img src=\"images/2.png\" >\n        </div>\n    </div>\n</body>\n\n</html>\n\n\n\n\n\n\n\n",
-			"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-03.드래그앤드드롭만들기.html",
-			"file_size": 1799,
-			"file_write_time": 131581343258233746,
+			"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/index.html",
 			"settings":
 			{
-				"buffer_size": 1469,
+				"buffer_size": 2690,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/footer.html",
+			"settings":
+			{
+				"buffer_size": 911,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/main.js",
+			"settings":
+			{
+				"buffer_size": 354,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -478,11 +505,18 @@
 		"/D/workspace/Lecture/JavaScript/Work/myfolder",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과"
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3"
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-18.사용자이벤트.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-mi-03.드래그앤드드롭만들기.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-mi-02.jQuery드랍메뉴.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-13.동적이벤트등록.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-11.단축이벤트등록.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-01.event.target.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-01.에니메이션효과.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-mi-01.부드럽게움직이는스크롤.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02.슬라이딩FAQ.html",
@@ -604,13 +638,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-05.quiz1.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-04.box.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-01.text.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-03.market.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-02.font.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-00.html",
-		"/D/workspace/Lecture/JavaScript/Work/myfolder/test.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-09.반응선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-07.상태선택자.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-05.자손선택자.html"
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-03.market.html"
 	],
 	"find":
 	{
@@ -663,24 +691,410 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "st05.jQuery/jq07.노드위치와크기/jq07-mi-03.드래그앤드드롭만들기.html",
+					"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1469,
+						"buffer_size": 2690,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								754,
-								754
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										691,
+										697
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										640,
+										646
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/footer.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 42,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										897,
+										903
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										7
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								237,
+								237
 							]
 						],
 						"settings":
@@ -693,16 +1107,16 @@
 								{
 									"1":
 									[
-										14,
-										15
+										11,
+										12
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/angle_bracket.png",
-										"region.orangish"
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"region.greenish"
 									]
 								},
 								"open":
@@ -719,61 +1133,61 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -781,8 +1195,8 @@
 								{
 									"1":
 									[
-										763,
-										764
+										350,
+										351
 									]
 								},
 								"icon":
@@ -797,8 +1211,8 @@
 								{
 									"1":
 									[
-										740,
-										741
+										45,
+										46
 									]
 								},
 								"unmatched":
@@ -807,65 +1221,63 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

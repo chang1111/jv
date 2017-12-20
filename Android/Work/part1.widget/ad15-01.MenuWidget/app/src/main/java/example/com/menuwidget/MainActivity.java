@@ -1,5 +1,6 @@
 package example.com.menuwidget;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,10 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int REQUEST_CODE_LOGIN = 0;
+    SharedPreferences pref = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Preference 객체 얻기. 파일이름은 Settings.xml
+        pref = getSharedPreferences(CommonCode.FILE_PREFERENCE, MODE_PRIVATE);
+        boolean loginStatus = pref.getBoolean(CommonCode.LOGIN_STATUS, false);
+        setShowHideNavigation(loginStatus);
+
     }
 
     @Override
@@ -69,17 +80,56 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_login) {
+        if (id == R.id.nav_login) {
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(i);
+            startActivityForResult(i, REQUEST_CODE_LOGIN);
         } else if (id == R.id.nav_logout) {
+            setShowHideNavigation(false);
+
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putBoolean(CommonCode.LOGIN_STATUS, false);
+            editor.apply();
+
+        } else if (id == R.id.nav_manage) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    /*
+     *
+     * @param flagLogin : 로그인이 안되어 있으면 false 인자로
+     *                    로그인이 되어 있으면 true
+     */
+    private void setShowHideNavigation(boolean flagLogin) {
+        NavigationView nav_view = findViewById(R.id.nav_view);
+        if (nav_view != null) {
+            Menu menu = nav_view.getMenu();
+            menu.findItem(R.id.nav_login).setVisible(!flagLogin);
+            menu.findItem(R.id.nav_registor).setVisible(!flagLogin);
+            menu.findItem(R.id.nav_logout).setVisible(flagLogin);
+            menu.findItem(R.id.nav_memedit).setVisible(flagLogin);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // requestCode == REQUEST_CODE_LOGIN
+        // resultCode == RESULT_OK
+        // date == 처리된 결과가 정보가 들어있다.
+
+        // 결과 확인
+        if (requestCode == REQUEST_CODE_LOGIN && resultCode == RESULT_OK) {
+            // 로그인에 성공했을 때
+            boolean loginStatus = data.getBooleanExtra(CommonCode.LOGIN_STATUS, false);
+
+            // menu 보이고 감추기
+            setShowHideNavigation(true && loginStatus);
+        }
+
     }
 }
