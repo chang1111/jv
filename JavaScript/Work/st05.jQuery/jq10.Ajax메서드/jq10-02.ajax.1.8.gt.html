@@ -7,10 +7,126 @@
         table { border-collapse: collapse; }
         table, th, td { border: 1px solid black; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#menu1').click(function(event) {
+                $.ajax({
+                    url : 'http://localhost:3000/text',
+                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+                    type: 'get',       // get, post
+                    timeout: 30000,    // 30초
+                    dataType: 'text',  // text, html, xml, json, jsonp, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#loading').html('<img src="loading.gif">');
+                    }
+                }).done( function(data, textStatus, xhr ){
+                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                    $('#message1').text(data);
+                    console.log(data);
+                }).fail( function(xhr, textStatus, error ) {
+                    // 통신이 실패했을 때 이 함수를 타게 된다.
+                    console.log(error);
+                }).always( function(data, textStatus, xhr ) {
+                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                    $('#loading').html('');
+                });
+                return false;
+            });
+            $('#menu2').click(function(event) {
+                $.ajax({
+                    url : 'http://localhost:3000/html',
+                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+                    type: 'get',       // get, post
+                    timeout: 30000,    // 30초
+                    dataType: 'html',  // text, html, xml, json, jsonp, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#loading').html('<img src="loading.gif">');
+                    }
+                }).done( function(data, textStatus, xhr ){
+                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                    $('#message2').html(data);
+                    console.log(data);
+                }).fail( function(xhr, textStatus, error ) {
+                    // 통신이 실패했을 때 이 함수를 타게 된다.
+                    console.log(error);
+                }).always( function(data, textStatus, xhr ) {
+                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                    $('#loading').html('');
+                });
+                return false;
+            });
+            $('#menu3').click(function(event) {
+                $.ajax({
+                    url : 'http://localhost:3000/json',
+                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+                    type: 'get',       // get, post
+                    timeout: 30000,    // 30초
+                    dataType: 'json',  // text, html, xml, json, jsonp, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#loading').html('<img src="loading.gif">');
+                    }
+                }).done( function(data, textStatus, xhr ){
+                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                    var addText = '<tr><td>id</td><td>name</td><td>price</td></tr>';
+                    for (var i = 0; i<data.length; i++) {
+                        addText += '<tr>';
+                        addText += '<td>'+data[i].id+'</td>';
+                        addText += '<td>'+data[i].name+'</td>';
+                        addText += '<td>'+data[i].price+'</td>';
+                        addText += '</tr>';
+                    }
+                    $('#message3').html('<table>'+ addText +'</table>');
+                    console.log(data);
+                }).fail( function(xhr, textStatus, error ) {
+                    // 통신이 실패했을 때 이 함수를 타게 된다.
+                    console.log(error);
+                }).always( function(data, textStatus, xhr ) {
+                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                    $('#loading').html('');
+                });
+                return false;
+            });
+            $('#menu4').click(function(event) {
+                $.ajax({
+                    url : 'http://localhost:3000/xml',
+                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+                    type: 'get',       // get, post
+                    timeout: 30000,    // 30초
+                    dataType: 'xml',  // text, html, xml, json, jsonp, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#loading').html('<img src="loading.gif">');
+                    }
+                }).done( function(data, textStatus, xhr ){
+                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                    var data = $(data).find('item');
 
-
+                    var addText = '<tr><td>id</td><td>name</td><td>price</td></tr>';
+                    for (var i = 0; i < data.length; i++) {
+                        var item = data[i];
+                        addText += '<tr>';
+                        addText += '<td>'+$(item).attr('id')+'</td>';
+                        addText += '<td>'+$(item).attr('name')+'</td>';
+                        addText += '<td>'+$(item).children('price').eq(0).text()+'</td>';
+                        addText += '</tr>';
+                    }
+                    $('#message4').html('<table>'+ addText +'</table>');
+                    console.log(data);
+                }).fail( function(xhr, textStatus, error ) {
+                    // 통신이 실패했을 때 이 함수를 타게 된다.
+                    console.log(error);
+                }).always( function(data, textStatus, xhr ) {
+                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                    $('#loading').html('');
+                });
+                return false;
+            });
+        });
+    </script>
 </head>
 <body>
     <h1> jQuery 1.8 이상에서 사용할 때 </h1>
@@ -30,6 +146,8 @@
         <a href="#" id="menu4">메뉴 보기 4</a><p>
         <span id="message4"><table id="treeData2"></table></span>
     </div>
+
+    <div id="loading"></div>
 </body>
 </html>
 

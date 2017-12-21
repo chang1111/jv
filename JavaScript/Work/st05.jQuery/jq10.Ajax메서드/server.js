@@ -174,13 +174,13 @@ http.createServer( function(req, res) {
         });
     }
 
-    if( urlpath === '/login' && req.method.toUpperCase() === 'POST'  ) {
+    if( urlpath === '/login' /* && req.method.toUpperCase() === 'POST' */ ) {
 
         console.log( ' login ...');
 
         // DB에서 로그인 검증 처리
 
-        
+
         res.writeHead(200, {
             'Access-Control-Allow-Origin': '*', /* 크로스 도메인 지원 설정 */
             'Content-Type': 'application/json charset=utf-8',
@@ -199,7 +199,7 @@ http.createServer( function(req, res) {
 
         console.log( ' login ...');
 
-        
+
         // DB에서 로그아웃 검증 처리
 
 

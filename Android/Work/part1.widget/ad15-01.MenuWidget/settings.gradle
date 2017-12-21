@@ -1,1 +1,1 @@
-include ':app', ':st2preference'
+include ':app', ':st2preference', ':st3toolbar3'

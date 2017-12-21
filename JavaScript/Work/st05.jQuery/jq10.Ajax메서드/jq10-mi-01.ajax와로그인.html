@@ -32,8 +32,49 @@ http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
         .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }
 
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // 1. ajax로 데이터 받아오기
+            // 2. done 안에서
+            //   2.1 div.login 감추기 혹은 지우기
+            //   2.2 div.profile 보이기
+            //   2.3 ???를 서버에서 받아온 username 값으로 바꾸시오
+            $('#submit').click(function(event) {
+                $.ajax({
+                    url : 'http://localhost:3000/login',
+                    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+                    type: 'get',       // get, post
+                    timeout: 30000,    // 30초
+                    dataType: 'json',  // text, html, xml, json, jsonp, script
+                    beforeSend : function() {
+                        // 통신이 시작되기 전에 이 함수를 타게 된다.
+                        $('#result').html('<img src="loading.gif">');
+                    }
+                }).done( function(data, textStatus, xhr ){
+                    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                    console.log(data.username);
+                    console.log(data.password);
+                    if ($('input[name="username"]').val() === data.username && $('input[name="password"]').val() === data.password) {
+                        $('div.login').hide();
+                        $('div.profile').show();
+                        $('#user_name').text(data.username);
+                    }
+                }).fail( function(xhr, textStatus, error ) {
+                    // 통신이 실패했을 때 이 함수를 타게 된다.
+                    console.log(error);
+                }).always( function(data, textStatus, xhr ) {
+                    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+                    $('#result').html('');
+                });
+            });
+            $('.btn_logout').click(function(event) {
+                $('div.login').show();
+                $('div.profile').hide();
+                return false;
+            });
+        });
+    </script>
 </head>
 <body>
 
