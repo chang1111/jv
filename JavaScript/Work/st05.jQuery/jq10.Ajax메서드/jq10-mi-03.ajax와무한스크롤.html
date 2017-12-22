@@ -24,31 +24,109 @@
     </style>
     <script type="text/javascript" src="../jquery-3.2.1.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        var getBoard = function(start, end) {
             $.ajax({
-                url: 'http://localhost/board',
+                url: 'http://localhost:3000/board?start='+start+'&end='+end,
                 type: 'GET',
-                data: null,
-                dataType: 'json'
+                dataType: 'json',
+                data: null
             })
-            .done(function() {
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
-            });
+            .done(function(data, textStatus, xhr) {
+                console.log(data);
+                for (var i in data) {
+                    // 1. 복제
+                    // 2. 값 변경
+                    // 3. post-container의 자식으로 추가
+                    var tmp = $('#template>div.wrap').clone();
+                    tmp.find('[data-content="no"]').text(data[i].no);
+                    tmp.find('[data-content="title"]').text(data[i].title);
+                    tmp.find('[data-content="writer"]').text(data[i].writer);
+                    tmp.find('[data-content="content"]').text(data[i].content);
 
+                    $('#posts-container').append(tmp);
+                }
+            })
+            .fail(function(xhr, textStatus, error) {
+            })
+            .always(function(data, textStatus, xhr) {
+            });
+        }
+
+        getBoard(0, 20);
+
+
+        $(document).ready(function() {
+            var start = 21;
+            var end = 40;
+            $(window).scroll(function(event) {
+                if ($(document).height() < $(window).height() + $(window).scrollTop() + 20) {
+                    getBoard(start, end);
+                    start += 20;
+                    end += 20;
+                }
+            });
         });
     </script>
 </head>
 <body>
 
+    <div>
+        <xmp>
+서버 주소:
+http://localhost:3000/board?start=0&end=10
+http://localhost:3000/board?start=20&end=0
+
+서버 받환값 형태:
+[
+    {no:  0, title: "title 00000000", writer: "7wOFG",…},
+    {no:  1, title: "title 00000001", writer: "qN8HF",…},
+    {no:  2, title: "title 00000002", writer: "GjkAb",…},
+    {no:  3, title: "title 00000003", writer: "v2QpP",…},
+    {no:  4, title: "title 00000004", writer: "LWoYY",…},
+    {no:  5, title: "title 00000005", writer: "8c5SM",…},
+    {no:  6, title: "title 00000006", writer: "00dMN",…},
+    {no:  7, title: "title 00000007", writer: "H0riL",…},
+    {no:  8, title: "title 00000008", writer: "DN8cf",…},
+    {no:  9, title: "title 00000009", writer: "AKVsY",…},
+    {no: 10, title: "title 00000010", writer: "CQtor",…}
+]
+
+1. 페이지의 스크롤이 바닥 근처에 도착하면
+    1.1 ajax로 데이터를 서버로에서 가져와
+    1.2 div.posts-container의 자식으로 데이터를 추가하시오.
+    1.3 아래 코드를 반복되는 템플릿으로 사용
+            <div class="wrap">
+                <div class="bbsbox">
+                    <div class="box_top">
+                        <div data-content="no"></div>
+                        <div data-content="writer"></div>
+                    </div>
+                    <div class="box_btm">
+                        <div data-content="title"></div>
+                        <spna data-content="content"></spna>
+                    </div>
+                    <div class="liner"></div>
+                </div>
+            </div>
+        </xmp>
+    </div>
+
     <!-- 템플릿 생성 -->
-
-
+    <div id="template" style="display: none;">
+        <div class="wrap">
+            <div class="bbsbox">
+                <div class="box_top">
+                    <div data-content="no"></div>
+                    <div data-content="writer"></div>
+                </div>
+                <div class="box_btm">
+                    <div data-content="title"></div>
+                    <spna data-content="content"></spna>
+                </div>
+                <div class="liner"></div>
+            </div>
+        </div>
+    </div>
     <!-- 템플릿이 들어갈 컨테이너 생성 -->
     <div id="posts-container">
     </div>

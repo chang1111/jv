@@ -12,8 +12,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"/>
-    <example.com.customview.MyView
+    
+    <example.com.customview.ColorOptionsView
+        android:id="@+id/view1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:background="?android:selectableItemBackground"
+        app:titleText="Background Color"
+        app:valueColor="@android:color/holo_green_dark"/>
+    
+    <example.com.customview.ColorOptionsView
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:background="?android:selectableItemBackground"
+        app:titleText="Foreground Color"
+        app:valueColor="@android:color/holo_orange_dark"/>
+    
+    <example.com.customview.PersonView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:photo="@drawable/sample_1"
+        app:name="123"
+        app:age="55"/>
+        
 </LinearLayout>
