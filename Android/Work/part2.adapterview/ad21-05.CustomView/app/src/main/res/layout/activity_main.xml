@@ -29,11 +29,4 @@
         app:titleText="Foreground Color"
         app:valueColor="@android:color/holo_orange_dark"/>
     
-    <example.com.customview.PersonView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:photo="@drawable/sample_1"
-        app:name="123"
-        app:age="55"/>
-        
 </LinearLayout>
