@@ -17,6 +17,12 @@ repositories {
 }
 
 dependencies {
+    // log 라이브러리
+    compile group: "org.slf4j"              , name: "slf4j-api"      , version: "1.7.21"
+    runtime group: "org.slf4j"              , name: "slf4j-log4j12"  , version: "1.7.21"
+    runtime group: "org.slf4j"              , name: "jcl-over-slf4j" , version: "1.7.21"
+    runtime group: "log4j"                  , name: "log4j"          , version: "1.2.17"      
+
     // spring framework 라이브러리 
     compile group: "org.springframework", name: "spring-core"             , version: "4.1.9.RELEASE"    
     compile group: "org.springframework", name: "spring-beans"            , version: "4.1.9.RELEASE"
@@ -26,6 +32,10 @@ dependencies {
     compile group: "org.springframework", name: "spring-tx"               , version: "4.1.9.RELEASE"
     compile group: "org.springframework", name: "spring-aop"              , version: "4.1.9.RELEASE"
     runtime group: "org.springframework", name: "spring-aspects"          , version: "4.1.9.RELEASE"
+
+    compile group: "org.aspectj" , name: "aspectjrt"     , version: "1.8.6"
+    compile group: "org.aspectj" , name: "aspectjweaver" , version: "1.8.6"
+    compile group: "org.aspectj" , name: "aspectjtools"  , version: "1.8.6"
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

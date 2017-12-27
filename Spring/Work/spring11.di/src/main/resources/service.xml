@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd        
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+    <!-- 
+        Type pdfType = new Type();
+        pdfType.setName("PDF");
+        pdfType.setDesc("Portable Document");
+        pdfType.setExtension(".pdf");
+     -->
+    <beans:bean id="pdfType" class="di02.Type">
+        <beans:property name="name" value="PDF" />
+        <beans:property name="desc" value="Portable Document" />
+        <beans:property name="extension" value=".pdf" />
+    </beans:bean>
+    
+    <!--
+     
+     -->
+    <beans:bean id="webType" class="di02.Type">
+        <beans:constructor-arg index="0" type="java.lang.String" value="WEB" />
+        <beans:constructor-arg index="1" type="java.lang.String" value="WEB link" />
+        <beans:constructor-arg index="2" type="java.lang.String" value=".url" />
+    </beans:bean>
+    
+    <!-- 
+        Document doc1 = new Document();
+        doc1.setLocation("/book/Book.pdf");
+        doc1.setName("Book");
+        doc1.setType(pdfType); // setter를 이용한 인스터스 주입
+     -->
+    
+    <beans:bean id="doc1" class="di02.Document">
+        <beans:property name="location" value="/book/Book.pdf" />
+        <beans:property name="name" value="Book" />
+        <beans:property name="type" ref="pdfType" />
+    </beans:bean>
+    
+    <!-- SearchEngine -->
+    <beans:bean id="engine" class="di02.SearchEngine">
+    </beans:bean>
+        
+</beans:beans>
