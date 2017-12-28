@@ -3,6 +3,7 @@ package example.com.listviewsample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +45,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String item = editText.getText().toString();
-                adapter.add(item);
+                if (!item.isEmpty()) {
+                    adapter.add(item);
+                    listView.smoothScrollToPosition(list.size() - 1);
+                }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = ((TextView)view).getText().toString();
+                textView.setText(item);
             }
         });
 
