@@ -22,5 +22,31 @@
     <!-- step2. 어노테이션이 지정된 클래스를 컨테이너에 동록되게 하는 설정 -->
     <context:component-scan base-package="dao" />
     <context:component-scan base-package="service" />
+    
+    <!-- @Service("svrprod") -->
+    <!-- <beans:bean id="svrprod" class="service.ServiceProduct" /> -->
+    
+    <!-- @Repository("daoprod") -->
+    <!-- <beans:bean id="daoprod" class="dao.DaoProduct" /> -->
+    
+    <beans:bean id="myFirstAOP" class="aop.FirstAspect" />
+    <aop:config>
+        <!-- aspect = pointcut + advice
+            pointcut : 어디에
+            advice   : 무엇을
+         -->
+        <aop:aspect id="myAspect" ref="myFirstAOP">
+            <!-- pointcut : 어디에 -->
+            <!-- expression="execution( * get*(*)) : get 으로 시작하는 모든 메서드에 적용하겠다. -->
+            <aop:pointcut id="pc" expression="execution( * *..*Service*.get*(..))" />
+            
+            <!-- advice   : 무엇을 -->
+            <aop:after method="after" pointcut-ref="pc" />
+            <aop:after-returning method="afterReturning" pointcut-ref="pc" returning="product" />
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pc" throwing="e" />
+            <aop:around method="around" pointcut-ref="pc" />
+            <aop:before method="before" pointcut-ref="pc" />
+        </aop:aspect>
+    </aop:config>
 
 </beans:beans>

@@ -26,13 +26,12 @@ public class ServiceProduct implements IServiceProduct {
 
     @Override
     public ModelProduct getException(String name) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        ModelProduct product = dao.getException(name);
+        return product;
     }
 
     @Override
     public void getNone() {
-        // TODO Auto-generated method stub
-        
+        dao.getProduct("none");
     }
 }

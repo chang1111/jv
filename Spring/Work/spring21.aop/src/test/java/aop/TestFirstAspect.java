@@ -16,7 +16,6 @@ public class TestFirstAspect {
     // SLF4J Logging
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     
-    private ApplicationContext context;
     private static IServiceProduct service;
     
     @BeforeClass
@@ -28,7 +27,17 @@ public class TestFirstAspect {
     
     @Test
     public void testGetProduct() {
-        ModelProduct product =  service.getProduct("bbb");
+        ModelProduct product = service.getProduct("bbb");
         assertTrue(1000 == product.getPrice());
+    }
+    
+    @Test
+    public void testGetNone() {
+        service.getNone();
+    }
+    
+    @Test(expected = Exception.class)
+    public void testGetException() throws Exception {
+        ModelProduct product = service.getException("bbb");
     }
 }
