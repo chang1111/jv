@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,12 +15,14 @@ import java.util.List;
  * Created by Administrator on 2017-12-29.
  */
 
-public class ListViewAdapter extends BaseAdapter {
+public class ListViewAdapter extends ArrayAdapter<Student> {
 
+    private int resource;
     private List<Student> list = new ArrayList<Student>();
 
-    public ListViewAdapter() {
-
+    public ListViewAdapter(Context context, int resource) {
+        super(context, resource);
+        this.resource = resource;
     }
 
     public List<Student> getList() {
@@ -32,7 +34,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Student getItem(int i) {
         return list.get(i);
     }
 
@@ -49,7 +51,7 @@ public class ListViewAdapter extends BaseAdapter {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.listview_item, parent, false);
+            view = inflater.inflate(resource, parent, false);
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
@@ -58,7 +60,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView text_department = view.findViewById(R.id.text_department);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        Student student = list.get(position);
+        Student student = list.get(pos);
 
         // 아이템 내 각 위젯에 데이터 반영
         text_name.setText(student.getName());
@@ -123,12 +125,23 @@ public class ListViewAdapter extends BaseAdapter {
         return student;
     }
 
-    public void sortList() {
-        Collections.sort(list);
-    }
-    public void reverseList() {
-        Collections.sort(list);
-        Collections.reverse(list);
+    public void sortList(boolean desc, int criteria) {
+        switch (criteria) {
+            case 0:
+                Student.NameCompare name = new Student.NameCompare(desc);
+                Collections.sort(list, name);
+                break;
+            case 1:
+                Student.NumberCompare number = new Student.NumberCompare(desc);
+                Collections.sort(list, number);
+                break;
+            case 2:
+                Student.DepartmentCompare department = new Student.DepartmentCompare(desc);
+                Collections.sort(list, department);
+                break;
+
+        }
+
     }
 
 }

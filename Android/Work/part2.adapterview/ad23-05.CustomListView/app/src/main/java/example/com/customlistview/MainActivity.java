@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new ListViewAdapter();
+        adapter = new ListViewAdapter(MainActivity.this, R.layout.listview_item);
         adapter.initList();
 
         list_view = findViewById(R.id.list_view);
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         edit_department.setText("");
                         adapter.notifyDataSetChanged();
                         index = -1;
+                        list_view.smoothScrollToPosition(adapter.getList().size()-1);
                     }
                     break;
                 case R.id.btn_search:
@@ -125,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_sort:
                     if (radioButton.isChecked()) {
-                        adapter.sortList();
+                        adapter.sortList(false, spinnerIndex);
                     }
                     else if (radioButton2.isChecked()) {
-                        adapter.reverseList();
+                        adapter.sortList(true, spinnerIndex);
                     }
                     edit_name.setText("");
                     edit_number.setText("");

@@ -1,12 +1,12 @@
 package example.com.customlistview;
 
-import android.support.annotation.NonNull;
+import java.util.Comparator;
 
 /**
  * Created by Administrator on 2017-12-29.
  */
 
-public class Student implements Comparable {
+public class Student {
     private String name;
     private String number;
     private String department;
@@ -45,7 +45,47 @@ public class Student implements Comparable {
         this.department = department;
     }
 
-    public int compareTo(Object student) {
-        return name.compareTo(((Student)student).getName());
+    public static class NameCompare implements Comparator<Student> {
+
+        private int mode = 1;
+
+        public NameCompare(boolean desc) {
+            if (desc) {
+                mode = -1;
+            }
+        }
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getName().compareTo(o2.getName()) * mode;
+        }
     }
+    public static class NumberCompare implements Comparator<Student> {
+
+        private int mode = 1;
+
+        public NumberCompare(boolean desc) {
+            if (desc) {
+                mode = -1;
+            }
+        }
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getNumber().compareTo(o2.getNumber()) * mode;
+        }
+    }
+    public static class DepartmentCompare implements Comparator<Student> {
+
+        private int mode = 1;
+
+        public DepartmentCompare(boolean desc) {
+            if (desc) {
+                mode = -1;
+            }
+        }
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getDepartment().compareTo(o2.getDepartment()) * mode;
+        }
+    }
+
 }
