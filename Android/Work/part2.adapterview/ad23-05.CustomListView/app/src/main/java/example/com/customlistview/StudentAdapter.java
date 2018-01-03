@@ -15,14 +15,17 @@ import java.util.List;
  * Created by Administrator on 2017-12-29.
  */
 
-public class ListViewAdapter extends ArrayAdapter<Student> {
+public class StudentAdapter extends ArrayAdapter<Student> {
 
+    private Context context;
     private int resource;
-    private List<Student> list = new ArrayList<Student>();
+    private List<Student> list = null;
 
-    public ListViewAdapter(Context context, int resource) {
+    public StudentAdapter(Context context, int resource, List<Student> data) {
         super(context, resource);
+        this.context = context;
         this.resource = resource;
+        list = data;
     }
 
     public List<Student> getList() {
@@ -43,42 +46,41 @@ public class ListViewAdapter extends ArrayAdapter<Student> {
         return i;
     }
 
+    private class ViewHolder {
+        TextView text_name;
+        TextView text_number;
+        TextView text_department;
+    }
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        final int pos = position;
-        final Context context = parent.getContext();
+
+//        Context context = parent.getContext();
+
+        View itemLayout = LayoutInflater.from(context).inflate(R.layout.listview_item, parent, false);
+
+        ViewHolder holder = (ViewHolder)itemLayout.getTag();
 
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
-        if (view == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(resource, parent, false);
+        if (holder == null) {
+            holder = new ViewHolder();
+
+            holder.text_name = itemLayout.findViewById(R.id.text_name);
+            holder.text_number = itemLayout.findViewById(R.id.text_number);
+            holder.text_department = itemLayout.findViewById(R.id.text_department);
+
+            itemLayout.setTag(holder);
         }
 
-        // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView text_name = view.findViewById(R.id.text_name);
-        TextView text_number = view.findViewById(R.id.text_number);
-        TextView text_department = view.findViewById(R.id.text_department);
-
-        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        Student student = list.get(pos);
+        Student student = list.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        text_name.setText(student.getName());
-        text_number.setText(student.getNumber());
-        text_department.setText(student.getDepartment());
+        holder.text_name.setText(student.getName());
+        holder.text_number.setText(student.getNumber());
+        holder.text_department.setText(student.getDepartment());
 
-        return view;
+        return itemLayout;
     }
 
-    public void initList() {
-        delAll();
-        list.add(new Student("aaa 0", "00-00", "bbb 0"));
-        list.add(new Student("aaa 1", "11-11", "bbb 1"));
-        list.add(new Student("aaa 2", "22-22", "bbb 2"));
-        list.add(new Student("aaa 3", "33-33", "bbb 3"));
-        list.add(new Student("aaa 4", "44-44", "bbb 4"));
-
-    }
 
     public void addItem(String name, String number, String department) {
         Student student = new Student(name, number, department);

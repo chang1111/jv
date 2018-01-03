@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="학번"
-            android:inputType="number|numberSigned"/>
+            android:inputType="textMultiLine|number|numberSigned"/>
         
         <EditText android:id="@+id/edit_department"
             android:layout_width="wrap_content"

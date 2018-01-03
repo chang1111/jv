@@ -1,0 +1,558 @@
+/*
+ * Reference Site 
+ * 
+ * http://netframework.tistory.com/entry/gradle%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Spring-MVC-Web-Application-Spring-Data-JPA-QueryDSL
+ * http://huskdoll.tistory.com/8
+ * http://hangaebal.blogspot.kr/2014/06/spring-eclipse-gradle.html
+ *
+ * https://github.com/bmuschko/gradle-tomcat-plugin
+ *
+ * https://github.com/bmuschko/gradle-cargo-plugin
+ * http://grokbase.com/t/gg/google-web-toolkit/1459ndz35m/gwt-gradle-plugin-changing-port-tomcat-vs-jetty
+ *
+ * http://stackoverflow.com/questions/4384809/cause-no-such-property-sourcesets-for-class-org-gradle-api-plugins-convention
+ *
+ * https://examples.javacodegeeks.com/core-java/gradle/gradle-war-plugin-tomcat-example/
+ * https://discuss.gradle.org/t/using-gradle-tomcat-plugin/7527
+ * https://github.com/bmuschko/gradle-tomcat-plugin
+ *
+ * http://grails.asia/groovy-map-tutorial
+ * https://docs.gradle.org/current/userguide/writing_build_scripts.html
+ *
+ */
+
+// tomcat과 cargo plugin에 대한 repository 설정입니다.
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {        
+        // Gradle Tomcat plugin
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.5"
+                
+        // Gradle Cargo plugin
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.2.3'
+    }
+}
+
+
+// Plugin 설정, 만약에 code에 대한 static analysis가 필요한 경우에 이곳에 설정.
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "groovy"
+apply plugin: "eclipse"
+//apply plugin: "application"
+apply plugin: "eclipse-wtp"  // WTP(Web Tools Platform) -> 웹 프로젝트로 인식하도록
+apply plugin: "war"
+apply plugin: "com.bmuschko.tomcat"
+apply plugin: "com.bmuschko.cargo"
+
+
+//
+group = "com.lecture.spring"
+version = "1.0.0"
+description = "SpringBoard"
+defaultTasks = ["clean", "build", "war", "distZip", "tomcatRun", "installDist"]
+def tomcatHome = System.getenv()["CATALINA_HOME"]
+
+
+
+
+// JAVA Version 1.8
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+compileTestJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+
+
+[compileJava, compileTestJava]*.options.collect {options ->
+    options.encoding = "UTF-8"  // 소스 인코딩 UTF-8로 지정
+    options.debug = true
+    options.deprecation = true
+    options.compilerArgs.add "-Xlint"
+    options.compilerArgs.add "-Xlint:-unchecked"
+    options.compilerArgs.add "-Xlint:-serial"
+    options.compilerArgs.add "-Xlint:-rawtypes"
+}
+
+
+
+eclipse {
+    wtp {
+        facet {
+            facet name: "jst.web" , version: "2.5" // Servlet Spec Version 지정, 미 지정시 2.4
+            facet name: "jst.java", version: "1.8" // Java Version 지정
+        }
+    }
+    
+    classpath {
+         containers.remove("org.eclipse.jdt.launching.JRE_CONTAINER")
+         containers "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"
+    }
+    
+    //exclude "log4j.properties"
+}
+
+
+
+// 메이븐 Central 저장소 사용
+repositories {
+    // Use "jcenter" for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+    jcenter()
+    
+    maven { url "http://mesir.googlecode.com/svn/trunk/mavenrepo" }
+    maven { url "https://raw.githubusercontent.com/slorber/gcm-server-repository/master/releases/" }
+    maven { url "http://repo.spring.io/release" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases" }
+}
+
+configurations {
+    providedRuntime
+    providedCompile
+
+    // logback(slf4j)를 사용하기 때문에 모든 의존성에서 commons-logging는 제외
+    //compile.exclude group: "commons-logging", module: "commons-logging"
+}
+
+// dependency 버전 정보
+def versions = [
+      spring        : "4.1.9.RELEASE"
+    , security      : "3.2.8.RELEASE"
+    , webflow       : "2.4.1.RELEASE"
+    , junit         : "4.12"
+    , servletApi    : "3.1.0"
+    , jstl          : "1.2"
+    , slf4j         : "1.7.21"
+    , mockito       : "1.9.0"
+    , cglib         : "2.2.2"
+    , groovy        : "2.2.1"
+    , fasterxml     : "2.3.1"
+    , aspectj       : "1.8.6"
+    , springSpock   : "0.7-groovy-2.0"
+    , tiles         : "3.0.5"
+    , hibernate     : "4.2.20.Final"
+    , tomcatVersion : "7.0.73"
+    , cargoVersion  : "1.4.5"
+    //, logback       : "1.0.13"
+]
+
+// 의존성 설정
+dependencies {
+
+    compile fileTree(dir: "lib", include: ["*.jar"])
+   
+    
+    // Apache Commons Lang, a package of Java utility classes for the classes that are in java.lang hierarchy, 
+    // or are considered to be so standard as to justify existence in java.lang.
+    compile group: "org.apache.commons"  , name: "commons-lang3"       , version: "3.4"
+    compile group: "org.apache.commons"  , name: "commons-dbcp2"       , version: "2.0" 
+    compile group: "commons-beanutils"   , name: "commons-beanutils"   , version: "1.9.2"
+    compile group: "commons-codec"       , name: "commons-codec"       , version: "1.10"
+    compile group: "commons-collections" , name: "commons-collections" , version: "3.2"
+    compile group: "commons-pool"        , name: "commons-pool"        , version: "1.6"
+ 
+    // log 라이브러리
+    compile group: "org.slf4j"              , name: "slf4j-api"      , version: "${versions.slf4j}"
+    runtime group: "org.slf4j"              , name: "slf4j-log4j12"  , version: "${versions.slf4j}"
+    runtime group: "org.slf4j"              , name: "jcl-over-slf4j" , version: "${versions.slf4j}"
+    runtime group: "log4j"                  , name: "log4j"          , version: "1.2.17"      
+                         
+    // log4jdbc library
+    compile group: "com.googlecode.log4jdbc", name: "log4jdbc", version: "1.2"
+
+
+    // spring framework 라이브러리 
+    compile group: "org.springframework", name: "spring-core"             , version: "${versions.spring}"    
+    compile group: "org.springframework", name: "spring-beans"            , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-context"          , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-webmvc"           , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-jdbc"             , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-tx"               , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-aop"              , version: "${versions.spring}"
+    runtime group: "org.springframework", name: "spring-aspects"          , version: "${versions.spring}"
+
+    // 
+    compile group: "org.springframework", name: "spring-context-support"  , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-websocket"        , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-messaging"        , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-orm"              , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-expression"       , version: "${versions.spring}"
+   
+    // springframework.security
+    compile group: "org.springframework.security", name: "spring-security-core"  , version: "${versions.security}"
+    compile group: "org.springframework.security", name: "spring-security-web"   , version: "${versions.security}"
+    compile group: "org.springframework.security", name: "spring-security-config", version: "${versions.security}"
+    
+    // springframework.webflow
+    compile group: "org.springframework.webflow" , name: "spring-js"     , version: "${versions.webflow}"
+    compile group: "org.springframework.webflow" , name: "spring-webflow", version: "${versions.webflow}"
+    
+    // aspectj 라이브러리: AOP와 연관이 있는 라이브러리
+    compile group: "org.aspectj" , name: "aspectjrt"     , version: "${versions.aspectj}"
+    compile group: "org.aspectj" , name: "aspectjweaver" , version: "${versions.aspectj}"
+    compile group: "org.aspectj" , name: "aspectjtools"  , version: "${versions.aspectj}"
+
+    // mybatis 라이브러리
+    compile group: "org.mybatis", name: "mybatis"       , version: "3.2.8"  
+    compile group: "org.mybatis", name: "mybatis-spring", version: "1.2.2" 
+        
+    // mysql jdbc 드라이버
+    compile group: "mysql", name: "mysql-connector-java", version: "5.1.34"
+
+    // 
+    // compile group: "org.apache.httpcomponents" , name: "httpclient"   , version: "4.3.6"
+    // compile group: "org.apache.logging.log4j"  , name: "log4j-core"   , version: "2.1"  
+
+   
+    // 파일업로드 할 때 사용.
+    compile group: "commons-fileupload" , name: "commons-fileupload" , version: "1.2.1"
+    compile group: "commons-io"         , name: "commons-io"         , version: "2.4"
+    
+    
+    // Guava is a google libraries that include utility classes, google's collections, io classes.
+    compile group: "com.google.guava", name: "guava", version: "20.0"
+
+
+       
+    // JSR 330 JAR 를 포함하기 위한 라이브러리. @Inject, @Named 어노테이션 사용 가능
+    compile group: "javax.inject"      , name: "javax.inject"    , version: "1"
+    compile group: "javax.persistence" , name: "persistence-api" , version: "1.0.2"
+       
+    // JSP Tag 를 위한 라이브러리. 
+    compile group: "javax.servlet"          , name: "jstl"     , version: "${versions.jstl}"
+    compile group: "javax.servlet.jsp.jstl" , name: "jstl-api" , version: "${versions.jstl}"        
+    compile group: "taglibs"                , name: "standard" , version: "1.1.2"
+        
+        
+    // tiles is a web-page layout framework
+    //compile group: "org.apache.tiles", name: "tiles-api" , version: "${versions.tiles}"
+    //compile group: "org.apache.tiles", name: "tiles-core", version: "${versions.tiles}"
+    //compile group: "org.apache.tiles", name: "tiles-jsp" , version: "${versions.tiles}"
+    
+    // SiteMesh is a web-page layout framework 
+    //compile group: "opensymphony", name: "sitemesh", version: "2.4.2"
+                
+    // hibernate library
+    //compile group: "org.hibernate"                  , name: "hibernate-core"          , version: "${versions.hibernate}"
+    //compile group: "org.hibernate"                  , name: "hibernate-entitymanager" , version: "${versions.hibernate}"    
+    //compile group: "org.hibernate.javax.persistence", name: "hibernate-jpa-2.0-api"   , version: "1.0.1.Final"
+   
+    // jsoup library
+    //compile group: "org.jsoup", name: "jsoup", version: "1.7.3" 
+    
+    // json library :: @ResponseBody를 이용해 json 데이터를 반환하기 위한 라이브러리
+    //compile group: "org.codehaus.jackson", name: "jackson-mapper-asl", version: "1.9.13"
+    //compile group: "org.json"            , name: "json"              , version: "20140107" 
+    
+    // make html template
+    //compile group: "org.freemarker", name: "freemarker", version: "2.3.21"   
+    
+
+    //
+    //compile group: "joda-time", name: "joda-time", version: "2.7"
+
+    // java mail
+    //compile group: "javax.mail", name: "mail", version: "1.4.7"
+    
+    // gson
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    //compile group: "com.google.code.gson", name: "gson", version: "2.8.0"
+
+    //
+    //compile group: "com.google.android", name: "android", version: "4.1.1.4"    
+    //compile group: "com.google.android.gcm", name: "gcm-server", version: "1.0.2"
+    
+    // https://mvnrepository.com/artifact/nl.captcha/simplecaptcha
+    //compile group: 'nl.captcha', name: 'simplecaptcha', version: '1.2.1'
+    
+    
+    
+
+    // TDD를 위한 JUnit 라이브러리.
+    testCompile group: "junit", name: "junit", version: "${versions.junit}"
+    testCompile group: "org.springframework", name: "spring-test", version: "${versions.spring}"
+    testCompile group: "org.mockito", name: "mockito-core", version: "${versions.mockito}"
+    
+    // 
+    runtime group: "javax.servlet"    , name: "javax.servlet-api", version: "${versions.servletApi}"    
+    runtime group: "javax.servlet.jsp", name: "javax.servlet.jsp-api", version: "2.3.1"  
+    runtime group: "org.apache.tomcat", name: "tomcat-servlet-api", version: "${versions.tomcatVersion}" 
+            
+    // tomcat plugin 설정입니다.
+    tomcat group: "org.apache.tomcat.embed", name: "tomcat-embed-core", version: "${versions.tomcatVersion}"
+    tomcat group: "org.apache.tomcat.embed", name: "tomcat-embed-logging-juli", version: "${versions.tomcatVersion}"
+    tomcat(group: "org.apache.tomcat.embed", name: "tomcat-embed-jasper", version: "${versions.tomcatVersion}") {
+        exclude group: "org.eclipse.jdt.core.compiler", module: "ecj"
+    }
+    
+    // cargo에 대한 설정입니다.
+    cargo group: "org.codehaus.cargo", name: "cargo-core-uberjar", version: "${versions.cargoVersion}"
+    cargo group: "org.codehaus.cargo", name: "cargo-ant"         , version: "${versions.cargoVersion}"       
+}
+
+
+// main java 소스셋의 디렉토리 추가
+sourceSets {
+    main {
+        java.srcDirs      = ["src/main/java"     ]      
+        resources.srcDirs = ["src/main/resources"]
+    }
+}
+
+// 
+clean {
+    // dependsOn taskClean    
+    
+    //delete sourceSets.main.java.srcDirs
+}
+
+// compileJava task에 dependency를 걸어줍니다.
+compileJava {
+    // dependsOn taskBuild
+    //dependsOn taskCopy
+    
+    // compile target에 generated된 QClass들의 위치를 추가.
+    //source sourceSets.generated.java.srcDirs.iterator().next()
+}
+
+assemble {    
+    //dependsOn taskCopy
+}
+
+idea {
+    module {
+        sourceDirs += file("src/main/java")
+    }
+}
+
+
+// TEST 설정
+test {
+    jvmArgs = ["-ea", "-Xmx256m"]
+    logging.captureStandardOutput(LogLevel.INFO)
+    // testReport = false
+    
+    systemProperties "property": "value"
+    
+    testLogging {
+        events "started", "passed"
+    }
+}
+
+war {
+    baseName = "ROOT"
+    version  =  "${new Date().format('yyyyMMdd')}"
+    
+    // from "src/rootContent"                 // adds a file-set to the root of the archive   
+    // webInf { from "src/additionalWebInf" } // adds a file-set to the WEB-INF dir.          
+    // classpath fileTree("additionalLibs")   // adds a file-set to the WEB-INF/lib dir.      
+    // classpath configurations.moreLibs      // adds a configuration to the WEB-INF/lib dir. 
+    // webXml = file("src/web.xml")           // copies a file to WEB-INF/web.xml             
+}
+
+
+/*
+jar {
+    archiveName = "kr.co.companymake.library.jar"
+
+    // manifest.mf 만들고 속성 추가
+    manifest {    
+        attributes "Implementation-Title": "Gradle Quickstart"        
+        attributes "Implementation-Version": version
+        attributes "Main-Class" : "kr.co.companymake.library.Main"
+    }
+    
+    //exclude "log4j.properties"
+    //exclude "jdbc.properties"
+}
+
+
+// JAVA Application
+startScripts {
+
+    mainClassName = "kr.co.companymake.cron.Main"
+    applicationName = "companymakecron"
+    outputDir = new File(project.buildDir, "scripts")
+    
+    doLast {        
+        def unixScriptFile     = file getUnixScript()        
+        unixScript.text        = unixScript.text.replace    ("DEFAULT_JVM_OPTS=''", "DEFAULT_JVM_OPTS='-Xms256m -Xmx1024m -Dfile.encoding=utf-8'")        
+        //unixScriptFile.text    = unixScriptFile.text.replace("$APP_HOME/lib/config", "$APP_HOME/config")
+        
+        //def windowsScriptFile = file getWindowsScript()
+        //windowsScriptFile.text = windowsScriptFile.text.replace("DEFAULT_JVM_OPTS=''", "DEFAULT_JVM_OPTS='-Xms256m -Xmx1024m -Dfile.encoding=utf-8'")
+        //windowsScriptFile.text = windowsScriptFile.text.replace("%APP_HOME%\lib\config", "%APP_HOME%\config")
+    }    
+}
+*/
+ 
+
+// 프로젝트 초기화
+// 1. java source directory 생성 : src/main/java, src/test/java
+// 2. resource directory 생성    : src/main/resource, src/test/resource
+// 3. web source directory 생성  : src/main/webapp, src/main/webapp/WEB-INF
+task initProject(description: "initialize project") {
+
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    
+    //create webapp directory
+    def webappDir = "$rootDir/src/main/webapp"    
+    file(webappDir).mkdir()
+        
+    //Create the WEB-INF directory
+    file(webappDir + "/WEB-INF").mkdir()
+    
+    //Create the META-INF directory
+    file(webappDir + "/META-INF").mkdir()           
+}
+
+task taskBuild() {
+    println "taskBuild!!!"
+    
+    //commandLine "cmd", "/c", "gradle build"
+    
+    if(war !=  null){
+        println "war path :: " + war.archivePath
+        println "war name :: " + war.archiveName
+    }
+}
+
+
+/*
+task deployToTomcat(dependsOn: "war") {
+    
+    copy {
+        println "Copy from ${libsDir} into ${tomcatHome}/webapps"
+                
+        from war.archivePath
+        into "${tomcatHome}/webapps"
+        include "*.war"
+    }
+}
+
+
+task taskCopy(type: Copy) {
+    
+    // copy {
+    //     println "Copy from ${libsDir} into  D:\\Documents\\JAVA\\tomcat\\x64\\lib"
+    //     
+    //     from    "${libsDir}"
+    //     into    "D:\\Documents\\JAVA\\tomcat\\x64\\lib"
+    //     include "*.jar"
+    // }
+    // 
+    // copy {
+    //     def dest = "${projectDir}\\..\\kr.co.companymake.website\\src\\main\\webapp\\WEB-INF\\classes"
+    //     println "Copy from " + sourceSets.main.resources.srcDirs  + " into " + dest
+    //     
+    //     from     sourceSets.main.resources.srcDirs  
+    //     into     dest  
+    //     include  "Configuration.xml"
+    // }    
+}
+
+
+
+tomcat {      
+    httpPort  = 80
+    httpsPort = 8443
+    
+    stopPort  = 8005
+    stopKey   = "stopKey"
+    
+    enableSSL = false
+    contextPath = 'app'
+
+    users {
+        user {
+            username = 'user1'
+            password = '123456'
+            roles = ['developers', 'admin']
+        }
+
+        user {
+            username = 'user2'
+            password = 'abcdef'
+            roles = ['manager']
+        }
+    }
+}
+
+// tomcatRun을 실행시키기 위해서 war에 대한 dependency를 주입합니다.
+tomcatRun {    
+    URIEncoding = "utf-8"
+    contextPath = "/"   
+     
+    //configFile = file("src/main/webapp/META-INF/context.xml") // 기본값 src/main/webapp/META-INF/context.xml    
+    dependsOn war
+}
+
+
+tomcatRunWar {
+    dependsOn war
+}
+
+
+tomcatStop {    
+    stopPort  = 8005
+    stopKey   = "stopKey"
+}
+
+
+cargo {
+    containerId = "tomcat7x"
+    port = 9090
+
+    deployable {
+    
+        // context = 'app' 인 경우 --> http://localhost:9090/app 로 접속 가능
+        // context = ''    인 경우 --> http://localhost:9090/${war.archiveName} 로 접속가능
+        context = project.name
+    }   
+
+    // remoteDeploy 되는 target의 tomcat 정보
+    remote {
+        hostname = "cloud.internal.it"
+        username = "superuser"
+        password = "secretpwd"
+    }
+
+    local {
+        homeDir = file("${tomcatHome}")
+        //outputFile = file("build/output.log")
+        timeout = 60000
+
+        containerProperties {
+            property "cargo.tomcat.ajp.port", 9099
+        }
+    }
+}
+
+
+cargoRunLocal { 
+    dependsOn war 
+    
+    java.awt.Desktop.desktop.browse "http://localhost:${cargo.port}/${project.name}".toURI()
+}
+
+
+// cargoStartLocal     { dependsOn war }
+// cargoRedeployLocal  { dependsOn war }
+// cargoStopLocal      {  }
+// cargoDeployRemote   { dependsOn war }
+// cargoUndeployRemote { dependsOn war }
+// cargoRedeployRemote { dependsOn war }
+
+*/
+

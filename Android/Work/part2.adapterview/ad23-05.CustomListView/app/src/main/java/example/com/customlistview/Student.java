@@ -1,5 +1,7 @@
 package example.com.customlistview;
 
+import org.apache.commons.collections.Predicate;
+
 import java.util.Comparator;
 
 /**
@@ -88,4 +90,30 @@ public class Student {
         }
     }
 
+    public static class MyPredicate implements Predicate {
+
+        private String fieldName;
+        private Object value;
+
+        public MyPredicate(String fieldName, Object value) {
+            this.fieldName = fieldName;
+            this.value = value;
+        }
+
+        @Override
+        public boolean evaluate(Object object) {
+            if (fieldName.equals("name")) {
+                return ((Student)object).getName().contains(value.toString());
+            }
+            else if (fieldName.equals("number")) {
+                return ((Student)object).getNumber().contains(value.toString());
+            }
+            else if (fieldName.equals("department")) {
+                return ((Student)object).getDepartment().contains(value.toString());
+            }
+            else {
+                return false;
+            }
+        }
+    }
 }
