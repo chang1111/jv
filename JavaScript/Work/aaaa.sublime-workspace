@@ -407,6 +407,17 @@
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nJavaScript Completions\n----------------------\n\n  v2.6.96\n  \n  \n  🎉🎉 ANNOUNCEMENT - NEW PLUGIN \"JavaScript Enhancements\" RELEASED 🎉🎉\n  =======================================================================\n  \n  I developed a new plugin with new features thanks to Flow (javascript static type checker from Facebook).\n  \n  So, I will NO LONGER SUPPORT \"JavaScript Completions\" plugin, except in particular cases. \n  I'm going to focus only on this new one!\n  \n  You can find it on: 👉👉 https://github.com/pichillilorenzo/JavaScriptEnhancements 👈👈\n  \n  This new plugin offers not only a better autocomplete but a lot of features about creating, \n  developing and managing javascript projects, such as:\n  \n  - Cordova projects (run cordova emulate, build, compile, serve, etc. directly from Sublime Text!)\n  - Ionic v1 and v2 projects (same as Cordova projects!)\n  - Angular v1 and v2 projects\n  - React projects\n  - Express projects\n  - Yeoman generators\n  - Local bookmarks project\n  - JavaScript real-time errors\n  - etc.\n  \n  You could use it also in existing projects!! (see the Wiki - https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki)\n  \n  It will turn Sublime Text into a JavaScript IDE like!\n  \n  ## OS SUPPORTED NOW by this new plugin:\n  =======================================\n  \n  - Linux (64-bit)\n  - Mac OS X \n  \n  Email me for any questions or doubts about this new project on: pichillilorenzo@gmail.com\n  \n  Thanks for your support!!!\n\n  v2.6.95\n  \n  ## Fixes\n  \n  - fixed #37 issue (\"updating npm dependencies\" every startup)\n  - fixed #46 issue (Key \"?\" not working)\n  \n  \n  ## ANNOUNCEMENT - NEW PLUGIN \"JavaScript Enhancements\" DEVELOPMENT ##\n  =====================================================================\n  \n  I'm developing a new plugin with new features thanks to Flow (javascript static type checker from Facebook).\n  \n  After its first release, I will NO LONGER SUPPORT \"JavaScript Completions\" plugin. I will focus only on this new one.\n  \n  You can find it on: https://github.com/pichillilorenzo/JavaScriptEnhancements\n  \n  This new plugin will offer not only a better autocomplete but a lot of features about creating, \n  developing and managing javascript projects, such as:\n  \n  - Cordova projects (run cordova emulate, build, compile, serve, etc. directly from Sublime Text!)\n  - Ionic v1 and v2 projects (same as Cordova projects!)\n  - Angular v1 and v2 projects\n  - React projects\n  - Express projects\n  - Yeoman generators\n  - Local bookmarks project\n  - JavaScript real-time errors\n  - etc.\n  \n  It will turn Sublime Text into a JavaScript IDE like!\n  \n  I'm going to release a first testable version these days, so WATCH the repository to stay tuned for any news!\n  \n  ## OS SUPPORTED now by this new plugin:\n  =======================================\n  \n  - Linux (64-bit)\n  - Mac OS X \n  \n  Email me for any questions or doubts about this new project on: pichillilorenzo@gmail.com\n  \n  Thanks for your support!!!\n",
+			"settings":
+			{
+				"buffer_size": 3019,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
 		}
 	],
 	"build_system": "",
@@ -490,9 +501,8 @@
 		"/D/workspace/Lecture/JavaScript/Work",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3"
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드"
 	],
 	"file_history":
 	[
@@ -676,7 +686,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -820,36 +830,6 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
@@ -860,21 +840,51 @@
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_regex_content"
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
@@ -884,7 +894,119 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"file": "st05.jQuery/jq10.Ajax메서드/loading.gif",
+					"semi_transient": true,
 					"stack_index": 0,
+					"type": "image"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3019,
+								3019
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"default_dir": "D:\\workspace\\Lecture\\JavaScript\\Work",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

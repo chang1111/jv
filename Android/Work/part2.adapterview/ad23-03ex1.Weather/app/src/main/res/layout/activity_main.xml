@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.com.weather.MainActivity">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Weather Photos"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff"/>
+    
+    <example.com.weather.CustomView
+        android:id="@+id/cloudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text="Cloudy"
+        app:image="@drawable/ic_launcher_background"/>
+    
+    <example.com.weather.CustomView
+        android:id="@+id/showers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text="Showers"
+        app:image="@drawable/ic_launcher_background"/>
+    <example.com.weather.CustomView
+        android:id="@+id/snow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text="Snow"
+        app:image="@drawable/ic_launcher_background"/>
+    <example.com.weather.CustomView
+        android:id="@+id/storm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text="Storm"
+        app:image="@drawable/ic_launcher_background"/>
+    <example.com.weather.CustomView
+        android:id="@+id/sunny"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text="Sunny"
+        app:image="@drawable/ic_launcher_background"/>
+
+</LinearLayout>

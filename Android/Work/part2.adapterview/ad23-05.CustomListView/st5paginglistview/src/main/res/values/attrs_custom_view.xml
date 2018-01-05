@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="image" format="reference"/>
+        <attr name="name" format="string"/>
+        <attr name="price" format="string"/>
+        <attr name="description" format="string"/>
+    </declare-styleable>
+</resources>

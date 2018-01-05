@@ -22,5 +22,5 @@ public interface IUser {
    
    List<ModelUser> selectUserList(ModelUser user);
    
-   int checkuserid(String userid);
+   int checkuserid(String userid); // id 중복확인
 }

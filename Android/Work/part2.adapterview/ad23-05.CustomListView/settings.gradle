@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':st3checkablelistview', ':st5paginglistview'

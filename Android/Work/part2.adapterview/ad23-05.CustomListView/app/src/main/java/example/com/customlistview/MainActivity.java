@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         list = new ArrayList<Student>();
 
-        String[] array = {"이름", "번호", "학과"};
+        String[] array = {"이름", "학번", "학과"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, array);
         spinner.setAdapter(spinnerAdapter);
 
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i != 0 && i != list.size() -1) {
+                if (i != 0 && i != list.size() +1) {
                     String name = list.get(i - 1).getName();
                     String number = list.get(i - 1).getNumber();
                     String department = list.get(i - 1).getDepartment();
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         list_view.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i != 0 && i != list.size() - 1) {
+                if (i != 0 && i != list.size() + 1) {
                     list.remove(i - list_view.getHeaderViewsCount());
                     adapter.notifyDataSetChanged();
                 }
@@ -167,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
                     String value = edit_item.getText().toString();
                     Student.MyPredicate predicate = new Student.MyPredicate(searchItem, value);
                     List<Student> result = (List<Student>) CollectionUtils.select(list, predicate);
-                    adapter.clear();
-
+                    StudentAdapter aa = new StudentAdapter(MainActivity.this, R.layout.listview_item, result);
+                    list_view.setAdapter(aa);
                     break;
 
                 case R.id.btn_sort:
