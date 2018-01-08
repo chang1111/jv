@@ -3,98 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
-    <ScrollView
-        android:id="@+id/scrollView"
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 0"
-                app:price="900원"
-                app:description="aaaa 0"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 1"
-                app:price="900원"
-                app:description="aaaa 1"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 2"
-                app:price="900원"
-                app:description="aaaa 2"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 3"
-                app:price="900원"
-                app:description="aaaa 3"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 4"
-                app:price="900원"
-                app:description="aaaa 4"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 5"
-                app:price="900원"
-                app:description="aaaa 5"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 6"
-                app:price="900원"
-                app:description="aaaa 6"/>
-    
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 7"
-                app:price="900원"
-                app:description="aaaa 7"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 8"
-                app:price="900원"
-                app:description="aaaa 8"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 9"
-                app:price="900원"
-                app:description="aaaa 9"/>
-            <example.com.st5paginglistview.CustomView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:image="@drawable/icon05"
-                app:name="추억의 테트리스 10"
-                app:price="900원"
-                app:description="aaaa 10"/>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -12,11 +12,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.spring63.mvc.model.ModelLogin;
 
 /**
  * Handles requests for the application home page.
@@ -109,6 +112,43 @@ public class HomeController {
         model.addAttribute("name", name);
         
         return "home/querypath";
+    }
+    
+    @RequestMapping(value = "/spring/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        logger.info("/spring/loginget");
+        
+        model.addAttribute("id", "aaa");
+        
+        return "home/loginget";
+    }
+    
+    @RequestMapping(value = "/spring/login", method = RequestMethod.POST)
+    public String login(Model model, @RequestParam(value="id") String id, @RequestParam(value="pw") String pw) {
+        
+        // DB 조회
+        
+        // 결과 리턴: 성공여부 리턴
+        model.addAttribute("id", id);
+        model.addAttribute("pw", pw);
+        
+        return "home/loginpost";
+    }
+    
+    @RequestMapping(value = "/spring/loginmodel", method = RequestMethod.GET)
+    public String loginmodel(Model model) {
+        
+        model.addAttribute("id", "aaa");
+        
+        return "home/loginmodelget";
+    }
+    
+    @RequestMapping(value = "/spring/loginmodel", method = RequestMethod.POST)
+    public String loginmodel(Model model, @ModelAttribute ModelLogin login) {
+        
+        model.addAttribute("login", login);
+        
+        return "home/loginmodelpost";
     }
     
 }

@@ -9,17 +9,16 @@
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
     
-    <!-- Model 클래스의 패키지명을 등록한다. -->
+
+    <!-- Model 클래스를 등록한다. --> 
     <typeAliases>
-        <package name="java24.mybatis.model" />
+        <package name="com.spring65.phone.model" />
     </typeAliases>
-    
+
 
     <!-- sql 이 저장되는 xml 파일 등록: 주의 사항은 경로로 설정해야 한다. -->
     <mappers>
-        <mapper resource="mapper/mapperAuth.xml" /> 
-        <mapper resource="mapper/mapperBook.xml" /> 
-
+        <mapper resource="mapper/mapperPhone.xml" />
     </mappers>
     
 </configuration>

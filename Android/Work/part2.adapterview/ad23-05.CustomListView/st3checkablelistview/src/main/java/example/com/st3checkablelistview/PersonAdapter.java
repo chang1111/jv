@@ -19,26 +19,23 @@ public class PersonAdapter extends ArrayAdapter<Person> {
 
     private Context context;
     private int resource;
-    private List<Person> list = null;
+    private List<Person> data = null;
 
     public PersonAdapter(Context context, int resource, List<Person> data) {
         super(context, resource);
         this.context = context;
         this.resource = resource;
-        list = data;
+        this.data = data;
     }
 
-    public List<Person> getList() {
-        return list;
-    }
     @Override
     public int getCount() {
-        return list.size();
+        return data.size();
     }
 
     @Override
     public Person getItem(int i) {
-        return list.get(i);
+        return data.get(i);
     }
 
     @Override
@@ -53,15 +50,12 @@ public class PersonAdapter extends ArrayAdapter<Person> {
         ImageView checkBox;
     }
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
-
-//        Context context = parent.getContext();
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         View itemLayout = LayoutInflater.from(context).inflate(resource, parent, false);
 
         ViewHolder holder = (ViewHolder)itemLayout.getTag();
 
-        // "view_person" Layout을 inflate하여 convertView 참조 획득.
         if (holder == null) {
             holder = new ViewHolder();
 
@@ -73,9 +67,8 @@ public class PersonAdapter extends ArrayAdapter<Person> {
             itemLayout.setTag(holder);
         }
 
-        Person person = list.get(position);
+        Person person = data.get(position);
 
-        // 아이템 내 각 위젯에 데이터 반영
         holder.image.setImageDrawable(person.getImage());
         holder.textName.setText(person.getName());
         holder.textAge.setText(person.getAge());
