@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,40 +24,57 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list = new ArrayList<Person>();
+        list = initData();
 
         adapter = new PersonAdapter(MainActivity.this, R.layout.view_person, list);
-        init();
 
         listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
         listView.setDivider(new ColorDrawable(Color.GRAY));
         listView.setDividerHeight(3);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                if (list.get(position).isChecked()) {
-                    list.get(position).setChecked(false);
-                }
-                else {
-                    list.get(position).setChecked(true);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                if (list.get(position).isChecked()) {
+//                    list.get(position).setChecked(false);
+//                }
+//                else {
+//                    list.get(position).setChecked(true);
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//        });
 
     }
 
-    public void init() {
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_0), "name 0", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_1), "name 1", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_2), "name 2", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_3), "name 3", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_4), "name 4", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_5), "name 5", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_6), "name 6", "22"));
-        list.add(new Person(getResources().getDrawable(R.drawable.sample_7), "name 7", "22"));
+    private List<Person> initData() {
+        List<Person> list = new ArrayList<Person>();
+
+        Random r = new Random();
+        for(int i=0; i<40; i++){
+            Person person = new Person();
+            person.setName( "name " + i );
+            person.setAge( 20 + r.nextInt( 30) );
+            person.setImage( getResources().getDrawable( imageIds[ i % imageIds.length ] , null) );
+
+            list.add( person );
+        }
+
+        return list;
     }
 
+    private int [] imageIds = {
+            R.drawable.sample_0
+            , R.drawable.sample_1
+            , R.drawable.sample_2
+            , R.drawable.sample_3
+            , R.drawable.sample_4
+            , R.drawable.sample_5
+            , R.drawable.sample_6
+            , R.drawable.sample_7
+    };
 }
+
+

@@ -8,5 +8,5 @@ public interface IDaoPhone {
     ModelPhone getPhoneOne(String name);
     List<ModelPhone> getPhoneList();
     int insertPhone(ModelPhone phone);
-    int insertPhone(List<ModelPhone> phones);
+    int insertPhoneList(List<ModelPhone> phones);
 }

@@ -37,19 +37,43 @@ public class ServicePhone implements IServicePhone {
 
     @Override
     public List<ModelPhone> getPhoneList() {
-        // TODO Auto-generated method stub
-        return null;
+        List<ModelPhone> result = null;
+        try {
+            result = dao.getPhoneList();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            logger.error( "getPhoneList " + e.getMessage() );
+        }
+
+        return result;
     }
 
     @Override
     public int insertPhone(ModelPhone phone) {
-        // TODO Auto-generated method stub
-        return 0;
+        int result = -1;
+        try {
+            result = dao.insertPhone(phone);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            logger.error( "insertPhone " + e.getMessage() );
+        }
+
+        return result;
     }
 
     @Override
-    public int insertPhone(List<ModelPhone> phones) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int insertPhoneList(List<ModelPhone> phones) {
+        int result = -1;
+        try {
+            result = dao.insertPhoneList(phones);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            logger.error( "insertPhoneList " + e.getMessage() );
+        }
+
+        return result;
     }
 }

@@ -5,18 +5,23 @@ import android.graphics.drawable.Drawable;
 public class Person {
     private Drawable image;
     private String name;
-    private String age;
+    private Integer age;
     private boolean checked = false;
 
     public Person() {
 
     }
 
-    public Person(Drawable image,String name, String age) {
+    public Person(Drawable image,String name, Integer age) {
         this.image = image;
         this.name = name;
         this.age = age;
     }
+
+    public void setImage(Drawable image) {
+        this.image = image;
+    }
+
     public Drawable getImage() {
         return image;
     }
@@ -33,11 +38,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

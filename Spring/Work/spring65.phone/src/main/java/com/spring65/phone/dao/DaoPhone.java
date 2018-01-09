@@ -39,7 +39,7 @@ public class DaoPhone implements IDaoPhone {
     }
 
     @Override
-    public int insertPhone(List<ModelPhone> phones) {
+    public int insertPhoneList(List<ModelPhone> phones) {
         
         return session.insert("mapper.mapperPhone.insertPhoneList", phones);
     }
