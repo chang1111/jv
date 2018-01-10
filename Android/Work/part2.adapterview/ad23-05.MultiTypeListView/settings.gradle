@@ -1,1 +1,1 @@
-include ':st1actor'
+include ':st3actor', ':st1simplemultitype'

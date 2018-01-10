@@ -16,6 +16,7 @@
     <a href="/phone/writeone" target="_blank">/phone/writeone</a> <br />
     <a href="/phone/writelist" target="_blank">/phone/writelist</a> <br />
     <hr>
+    <a href="/phone/test" target="_blank">/phone/test</a> <br />
        
 </body>
 </html>
