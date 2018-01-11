@@ -1,1 +1,1 @@
-include ':st3actor', ':st1simplemultitype'
+include ':st3actor', ':st1simplemultitype', ':st5chatting'

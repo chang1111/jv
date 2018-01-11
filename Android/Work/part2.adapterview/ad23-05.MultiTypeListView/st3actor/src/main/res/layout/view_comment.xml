@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="comment"
-        android:id="@+id/textView3"/>
+        android:text="comment"/>
     
     <TextView
+        android:id="@+id/writer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/textView3"
-        android:text="writer"/>
+        android:layout_below="@+id/comment"/>
 
 </RelativeLayout>

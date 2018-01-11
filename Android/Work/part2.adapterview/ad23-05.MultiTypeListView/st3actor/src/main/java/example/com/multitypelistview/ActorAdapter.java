@@ -3,11 +3,11 @@ package example.com.multitypelistview;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
-import java.util.List;
+import android.widget.TextView;
 
 public class ActorAdapter extends ArrayAdapter {
 
@@ -18,12 +18,14 @@ public class ActorAdapter extends ArrayAdapter {
     public static final int VIEW_TYPE_COMMENT = 4;
 
     private Context context;
+    private LayoutInflater inflater;
     private ModelActor actor;
 
-    public ActorAdapter(@NonNull Context context) {
+    public ActorAdapter(@NonNull Context context, ModelActor actor) {
         super(context, -1);
         this.context = context;
-
+        this.actor = actor;
+        inflater = LayoutInflater.from(context);
     }
 
     public ModelActor getActor() {
@@ -187,7 +189,147 @@ public class ActorAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getView(position, convertView, parent);
+        if (position == 0) {
+            ViewActor view = null;
+            if (convertView != null && convertView instanceof ViewActor) {
+                view = (ViewActor)convertView;
+            }
+            else {
+                // inflate
+                view = new ViewActor(parent.getContext());
+            }
+
+            // 데이터 입력 & 화면 새로 고침
+            view.setActor(actor);
+
+            return view;
+        }
+
+        position = position - 1;
+
+        if (actor.getMovies().size() > 0) {
+            if (position == 0) {
+                TextView view = null;
+                if (convertView != null && convertView instanceof TextView) {
+                    view = (TextView)convertView;
+                }
+                else {
+                    view = (TextView)inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+                }
+
+                // 데이터 설정 및 새로고침
+                view.setText("Movies...");
+                return view;
+            }
+
+            // position의 0점 조정
+            position = position - 1;
+
+            if (position < actor.getMovies().size()) {
+                ViewMovie view = null;
+                if (convertView != null && convertView instanceof  ViewMovie) {
+                    view = (ViewMovie)convertView;
+                }
+                else {
+                    view = new ViewMovie(parent.getContext());
+                }
+
+                // 데이터 설정
+                ModelMovie movie = actor.getMovies().get(position);
+                view.setMovie(movie);
+
+                return view;
+            }
+
+            // position의 0점 저정
+            position = position - actor.getMovies().size();
+        }
+
+        if (actor.getDramas().size() > 0) {
+            //title 처리
+            if (position == 0) {
+                TextView view;
+                if (convertView != null && convertView instanceof TextView) {
+                    view = (TextView)convertView;
+                }
+                else {
+                    view = (TextView)inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+                }
+
+                // 데이터 설정
+                view.setText("Dramas...");
+
+                return view;
+            }
+
+            // positon의 0점 조정
+            position = position - 1;
+
+            // row 데이터 처리
+            if (position < actor.getDramas().size()) {
+                ViewDrama view = null;
+                if (convertView != null && convertView instanceof ViewDrama) {
+                    view = (ViewDrama)convertView;
+                }
+                else {
+                    view = new ViewDrama(parent.getContext());
+                }
+
+                // 데이터 설정
+                ModelDrama drama = actor.getDramas().get(position);
+                view.setDrama(drama);
+
+                return view;
+            }
+
+            //position의 0점 조정
+            position = position - actor.getDramas().size();
+
+        }
+
+        if (actor.getComments().size() > 0) {
+            //title
+            if (position == 0) {
+                TextView view;
+                if (convertView != null && convertView instanceof TextView) {
+                    view = (TextView)convertView;
+                }
+                else {
+                    view = (TextView)inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+                }
+
+                // 데이터 설정
+                view.setText("Comments...");
+
+                return view;
+            }
+
+            // position의 0점 조정
+            position = position - 1;
+
+            if (position < actor.getComments().size()) {
+                ViewComment view;
+                if (convertView != null && convertView instanceof ViewComment) {
+                    view = (ViewComment)convertView;
+                }
+                else {
+                    view = new ViewComment(parent.getContext());
+                }
+
+                //데이터 설정
+                ModelComment comment = actor.getComments().get(position);
+                view.setComment(comment);
+
+                return view;
+
+            }
+            position = position - actor.getComments().size();
+
+
+        }
+
+        throw new IllegalArgumentException("Invalid position");
+
     }
 
 }

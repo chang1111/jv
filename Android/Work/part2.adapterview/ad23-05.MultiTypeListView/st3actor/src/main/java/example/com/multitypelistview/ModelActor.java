@@ -24,21 +24,34 @@ public class ModelActor {
         return movies;
     }
 
+    public void setMovies(List<ModelMovie> movies) {
+        this.movies = movies;
+    }
+
     public List<ModelDrama> getDramas() {
         return dramas;
+    }
+
+    public void setDramas(List<ModelDrama> dramas) {
+        this.dramas = dramas;
     }
 
     public List<ModelComment> getComments() {
         return comments;
     }
 
+    public void setComments(List<ModelComment> comments) {
+        this.comments = comments;
+    }
+
     public ModelActor() {
     }
 
-    public ModelActor(Drawable actorImage, String actorName, Integer actorAge) {
+    public ModelActor(Drawable actorImage, String actorName, Integer actorAge, String actorDesc) {
         this.actorImage = actorImage;
         this.actorName = actorName;
         this.actorAge = actorAge;
+        this.actorDesc = actorDesc;
     }
 
     public Drawable getActorImage() {
@@ -70,7 +83,7 @@ public class ModelActor {
     }
 
     public void setActorDesc(String actorDesc) {
-        this.actorName = actorDesc;
+        this.actorDesc = actorDesc;
     }
 
 }

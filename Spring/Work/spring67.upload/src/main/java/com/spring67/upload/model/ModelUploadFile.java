@@ -1,12 +1,11 @@
 package com.spring67.upload.model;
 
 public class ModelUploadFile {
-    
-    private Integer uploadFileNo;
-    private String  fileNameOrig;
-    private String  fileNameTemp;
-    private Long    fileSize;
-    private String  contentType;
+    private Integer uploadFileNo = null ; // `uploadFileNo` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    private String  fileNameOrig = ""   ; // `fileNameOrig` VARCHAR(100) NOT NULL,
+    private String  fileNameTemp = ""   ; // `fileNameTemp` VARCHAR(100) NOT NULL,
+    private Long    fileSize     = null ; // `fileSize` INT(10) UNSIGNED NOT NULL,
+    private String  contentType  = ""   ; // `contentType` VARCHAR(30) NOT NULL,
     
     // getter & setter
     public Integer getUploadFileNo() {
@@ -62,5 +61,4 @@ public class ModelUploadFile {
     public ModelUploadFile() {
         super();
     }
-    
 }

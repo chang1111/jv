@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperUpload">
+    
+    <select id="getUploadFile" parameterType="ModelUploadFile" resultType="ModelUploadFile">        
+        SELECT *
+          FROM TB_Upload_File
+         WHERE 1 = 1
+         <if test="uploadFileNo != null">
+            and uploadFileNo = #{uploadFileNo}
+         </if>
+         <if test="fileNameTemp != null and fileNameTemp != ''">
+            and fileNameTemp = #{fileNameTemp}
+         </if>
+    </select>
+    
+    <insert id="insertUploadFile" parameterType="ModelUploadFile"
+                                  useGeneratedKeys="true" keyProperty="uploadFileNo">
+        INSERT INTO 
+        TB_Upload_File ( uploadFileNo   , fileNameOrig   , fileNameTemp   , fileSize   , contentType    )
+        VALUES         ( #{uploadFileNo}, #{fileNameOrig}, #{fileNameTemp}, #{fileSize}, #{contentType} )
+    </insert>
+    
+    <insert id="insertUploadFileList" parameterType="java.util.List">
+        INSERT INTO 
+        TB_Upload_File ( uploadFileNo   , fileNameOrig   , fileNameTemp   , fileSize   , contentType    )
+        VALUES
+            <foreach collection="list" item="item" index="index" open="(" separator="),(" close=")">
+                #{item.uploadFileNo} , #{item.fileNameOrig} , #{item.fileNameTemp}, #{item.fileSize} , #{item.contentType}
+            </foreach>
+    </insert>
+    
+    <delete id="deleteUploadFile" parameterType="ModelUploadFile">
+        DELETE FROM TB_Upload_File
+        WHERE 1 = 1
+        <if test=" uploadFileNo != null ">
+            and uploadFileNo = #{uploadFileNo}
+        </if>
+        <if test=" fileNameTemp != null and fileNameTemp != '' ">
+            and fileNameTemp = #{fileNameTemp}
+        </if>
+</delete>
+
+ </mapper>
