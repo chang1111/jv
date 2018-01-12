@@ -146,7 +146,7 @@ public class TestService {
     @Test
     public void testDeleteUploadFile() {
         ModelUploadFile file = new ModelUploadFile();
-        file.setUploadFileNo(33);
+        file.setUploadFileNo(3);
         
         // DB delete
         int result = service.deleteUploadFile(file);

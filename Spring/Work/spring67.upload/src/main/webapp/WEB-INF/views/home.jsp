@@ -13,7 +13,7 @@
       
     <h2> UploadController, DownloadController 만들기 </h2>
     <a href="./upload/fileupload"    target="_blank">./upload/fileupload </a> <br> 
-    <a href="./upload/filedownload"  target="_blank">./upload/filedownload </a> <br>
+    <a href="./upload/uploadfilelist"  target="_blank">./upload/uploadfilelist </a> <br>
     <hr />
     
     <h2> 테이블의 BLOB,CLOB 컬럼에 이미지 저장하고 가져오기</h2>   

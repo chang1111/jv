@@ -142,7 +142,7 @@ public class PhoneController {
         
         model.addAttribute("list", list);
         
-        return "phone/test";
+        return "redirect:test";
     }
     
     @RequestMapping(value = "/phone/test2", method = RequestMethod.POST)
@@ -156,7 +156,7 @@ public class PhoneController {
         
         model.addAttribute("list", list);
         
-        return "phone/test";
+        return "redirect:test";
     }
     
     @RequestMapping(value = "/phone/test3", method = RequestMethod.POST)
@@ -168,7 +168,7 @@ public class PhoneController {
         
         model.addAttribute("list", list);
         
-        return "phone/test";
+        return "redirect:test";
     }
     
 }

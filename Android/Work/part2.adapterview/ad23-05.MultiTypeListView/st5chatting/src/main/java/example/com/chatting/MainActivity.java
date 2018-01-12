@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (radioSelect.getCheckedRadioButtonId()) {
                     case R.id.send:
+
                         break;
                     case R.id.receive:
                         break;
