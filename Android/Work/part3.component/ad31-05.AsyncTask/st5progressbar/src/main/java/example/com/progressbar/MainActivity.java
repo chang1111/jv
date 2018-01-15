@@ -1,9 +1,11 @@
 package example.com.progressbar;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -75,24 +77,36 @@ public class MainActivity extends AppCompatActivity {
                     progressBar1.incrementProgressBy(-10);
                     break;
                 case R.id.button1:
-                    ProgressTask progressTask = new ProgressTask();
-                    progressTask.execute(100);
+                    BarAsyncTask barAsyncTask = new BarAsyncTask();
+                    barAsyncTask.execute(100);
                     break;
             }
         }
     }
 
-    private class ProgressTask extends AsyncTask<Integer, Integer, Boolean> {
+    private class BarAsyncTask extends AsyncTask<Integer, Integer, Boolean> {
+
+        ProgressDialog pdlg;
+
+        @Override
+        protected void onPreExecute() {
+
+            pdlg = new ProgressDialog(MainActivity.this);
+            pdlg.setMessage("기다려...");
+            pdlg.getWindow().setGravity(Gravity.TOP);
+            pdlg.show();
+
+        }
 
         @Override
         protected Boolean doInBackground(Integer... integers) {
             int i = pb1.getProgress();
             int j = pb2.getProgress();
-            for (;i < integers[0]||j < integers[0];) {
-                publishProgress(i);
+            for (;i <= integers[0]||j <= integers[0];) {
+                publishProgress(i, j);
 
                 // 1초 delay
-                SystemClock.sleep(100);
+                SystemClock.sleep(200);
                 i = i + 2;
                 j++;
             }
@@ -101,11 +115,19 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            pb1.setProgress(pb1.getProgress() + 2);
+            pb1.setProgress(values[0]);
             tv1.setText("1번 진행률 : " + pb1.getProgress() + "%");
 
-            pb2.setProgress(pb2.getProgress() + 1);
+            pb2.setProgress(values[1]);
             tv2.setText("2번 진행률 : " + pb2.getProgress() + "%");
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            if (pdlg != null) {
+                pdlg.dismiss();
+                pdlg = null;
+            }
         }
     }
 }
