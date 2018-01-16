@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -98,4 +99,139 @@ public class UserController {
         return "user/register";
     }
 
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    public String register(Model model, @ModelAttribute ModelUser user) {
+        logger.info("/user/register : post");
+        
+        svruser.insertUser(user);
+        
+        return "user/register_post";
+    }
+
+    @RequestMapping(value = "/user/usermodify", method = RequestMethod.GET)
+    public String usermodify(Model model, HttpSession session) {
+        logger.info("/user/usermodify : get");
+        
+        // 로그인이 되었다는 가정. 세션에 사용자 정보가 들어 있음
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        
+        // DB에서 회원 정보 조회
+        if (user == null) {
+            return "redirect:/user/login";
+        }
+        
+        model.addAttribute("user", user);
+        
+        return "user/usermodify";
+    }
+    
+    @RequestMapping(value = "/user/usermodify", method = RequestMethod.POST)
+    public String usermodify(Model model, HttpSession session, @ModelAttribute ModelUser setValue,
+            RedirectAttributes rttr) {
+        logger.info("/user/usermodify : post");
+        
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        
+        if (user == null) {
+            throw new RuntimeException(WebConstants.NOT_LOGIN);
+        }
+        
+        // 입력된 패스워드와 세션의 패스워드가 다른 경우
+        int r = svruser.checkpassword(setValue.getUserid(), setValue.getPasswd());
+        if (r == 0) {
+            throw new RuntimeException(WebConstants.ERROR_PASSWORD);
+        }
+        
+        ModelUser whereValue = new ModelUser();
+        whereValue.setUserid(user.getUserid());
+        
+        int result = svruser.updateUserInfo(setValue, whereValue);
+        
+        // session 수정
+        
+        
+        
+        if (result > 0) {
+            user = svruser.selectUserOne(user);
+            session.setAttribute(WebConstants.SESSION_NAME, user);
+            
+            return "user/changepassword";
+        }
+        else {
+            rttr.addFlashAttribute("user", setValue);
+            rttr.addFlashAttribute("msg", WebConstants.UPDATE_FAIL);
+            return "redirect:/user/usermodify";
+        }
+    }
+
+    @RequestMapping(value = "/user/changepassword", method = RequestMethod.GET)
+    public String changepassword(Model model, HttpSession session) {
+        logger.info("/user/userchangepassword : get");
+        
+        // 로그인이 되었다는 가정. 세션에 사용자 정보가 들어 있음
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        
+        // DB에서 회원 정보 조회
+        if (user == null) {
+            return "redirect:/user/login";
+        }
+        
+        model.addAttribute("user", user);
+        
+        return "user/changepassword";
+    }
+    
+    @RequestMapping(value = "/user/changepassword", method = RequestMethod.POST)
+    public String changepassword(Model model, HttpSession session, @RequestParam String currentPasswd, @RequestParam String newPasswd,
+            RedirectAttributes rttr) {
+        logger.info("/user/changepassword : post");
+        
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        
+        if (user == null) {
+            return "redirect:/user/login";
+        }
+        
+        int result = svruser.updatePasswd(user.getUserid(), currentPasswd, newPasswd);
+        
+        if (result == 1) {
+            session.removeAttribute(WebConstants.SESSION_NAME);
+            return "user/changepassword_post";
+        }
+        else {
+            rttr.addFlashAttribute("msg", WebConstants.MSG_FAIL_CHANGE_PASSWORD);
+            return "redirect:/user/changepassword";
+        }
+    }
+
+    @RequestMapping(value = "/user/unregister", method = RequestMethod.GET)
+    public String unregister(Model model) {
+        logger.info("/user/unregister : get");
+        
+        return "user/unregister";
+    }
+    
+    @RequestMapping(value = "/user/unregister", method = RequestMethod.POST)
+    public String unregister(Model model, HttpSession session, @RequestParam String email, @RequestParam String passwd) {
+        logger.info("/user/unregister : post");
+        
+        // 로그인이 되었다는 가정. 세션에 사용자 정보가 들어 있음
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        user.setEmail(email);
+        user.setPasswd(passwd);
+        
+        // DB에서 탈퇴 처리
+        int result = svruser.updateRetire(user);
+        
+        // 탈퇴 처리가 성공하면 세션 삭제
+        if (result == 1) {
+            session.removeAttribute(WebConstants.SESSION_NAME);
+            
+            return "user/unregister_post";
+        }
+        else {
+            return "redirect:/";
+        }
+    }
+    
 }

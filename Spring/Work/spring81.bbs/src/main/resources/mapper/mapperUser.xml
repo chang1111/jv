@@ -76,7 +76,7 @@
 
 	</update>
 
-	<update id="updatePasswd" parameterType="java.util.Map" >
+	<update id="updatePasswd" parameterType="java.util.Map">
 	        UPDATE TB_USER 
 	           SET passwd = #{newPasswd}            
 	         WHERE userid = #{userid}
@@ -88,5 +88,9 @@
 	           SET retireYN=1            
 	        WHERE userid = #{userid}
 	</update>
+    
+    <select id="checkpassword" parameterType="java.util.Map" resultType="int">
+        select count(*) from TB_USER where userid = #{id} and passwd = #{pw}
+    </select>
 
 </mapper>

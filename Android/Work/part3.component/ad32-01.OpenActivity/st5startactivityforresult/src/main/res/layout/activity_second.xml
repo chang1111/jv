@@ -8,9 +8,9 @@
     android:orientation="vertical"
     tools:context="example.com.startactivityforresult.SecondActivity">
     <Button
-        android:id="@+id/goBack"
+        android:id="@+id/finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="돌아가기"/>
-
+    
 </LinearLayout>

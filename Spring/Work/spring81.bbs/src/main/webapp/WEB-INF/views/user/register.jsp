@@ -31,12 +31,38 @@
         		    }
         		}).done( function(data, textStatus, xhr ){
         		    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+        		    if (data === 0) {
+        		    	alert('사용할 수 있는 아이디');
+        		    	$('#signUpForm input').prop('disabled', false);
+        		    	return false;
+        		    }
+        		    else {
+        		    	alert('사용할 수 없는 아이디');
+        		    	return false;
+        		    }
         		}).fail( function(xhr, textStatus, error ) {
         		    // 통신이 실패했을 때 이 함수를 타게 된다.
         		}).always( function(data, textStatus, xhr ) {
         		    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
         		});
-        	})
+        	});
+        	$('#signUpForm input[type="submit"]').click(function(event) {
+        		var list = $('.req_input');
+        		for (var i = 0; i < list.length; i++) {
+        			if (list.eq(i).val() === '') {
+        				list.eq(i).focus();
+        				list.eq(i).after('<label>입력하세요</label>');
+        				return false;
+        			}
+        		}
+        		$('#signUpForm').submit();
+        	});
+        	$('.req_input').keyup(function(event) {
+        		// 출력된 오류 메시지 삭제
+        		if ($(this).val() !== '') {
+        		    $(this).next('label').remove();
+        		}
+        	});
         });
     </script>
 </head>
@@ -58,29 +84,29 @@
                     <tr>
                         <td style="width: 200px;">사용자 아이디</td>
                         <td style="width: 390px">
-                            <input type="text" name="userid" style="width: 70%;" id="userid" />
+                            <input type="text" name="userid" style="width: 70%;" id="userid" class="req_input" />
                             <input type="button" value="아이디 중복 조회" id="checkuserid"/>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 200px;">이름(Full Name)</td>
-                        <td style="width: 390px"><input type="text" name="name" style="width: 99%;" disabled="disabled" /></td>
+                        <td style="width: 390px"><input type="text" name="name" style="width: 99%;" disabled="disabled" class="req_input" /></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email" style="width: 99%;" disabled="disabled" /></td>
+                        <td><input type="text" name="email" style="width: 99%;" disabled="disabled" class="req_input" /></td>
                     </tr>
                     <tr>
                         <td>비밀번호(Password)</td>
-                        <td><input type="password" name="passwd" style="width: 99%;" disabled="disabled" /></td>
+                        <td><input type="password" name="passwd" style="width: 99%;" disabled="disabled" class="req_input" /></td>
                     </tr>
                     <tr>
                         <td>비밀번호 확인(Confirm)</td>
-                        <td><input type="password" name="confirm" style="width: 99%;" disabled="disabled" /></td>
+                        <td><input type="password" name="confirm" style="width: 99%;" disabled="disabled" class="req_input" /></td>
                     </tr>
                     <tr>
                         <td>이동전화(Mobile)</td>
-                        <td><input type="text" name="mobile" style="width: 99%;" disabled="disabled" /></td>
+                        <td><input type="text" name="mobile" style="width: 99%;" disabled="disabled" class="req_input" /></td>
                     </tr>
                 </table>
                 <div style="text-align: center;padding-bottom: 15px;">

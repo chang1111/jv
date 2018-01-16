@@ -5,35 +5,32 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private Button goBack;
+    private Button finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        goBack = findViewById(R.id.goBack);
-
-        goBack.setOnClickListener(new View.OnClickListener() {
+        finish = findViewById(R.id.finish);
+        finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = getIntent();
-                int value1 = intent.getIntExtra("value1", 0);
-                int value2 = intent.getIntExtra("value2", 0);
-                int sum = value1 + value2;
 
-                StringBuilder sb = new StringBuilder();
-                sb.append("value1 : " + value1);
-                sb.append("\n");
-                sb.append("value2 : " + value2);
+                int p1 = intent.getIntExtra("p1", 0);
+                int p2 = intent.getIntExtra("p2", 0);
+                int sum = p1 + p2;
                 intent.putExtra("sum", sum);
-                setResult(0, intent);
 
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
+
     }
 }

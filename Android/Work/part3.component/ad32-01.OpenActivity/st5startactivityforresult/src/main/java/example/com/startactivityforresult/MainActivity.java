@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_MAIN = 9999;
     private EditText editText1;
     private EditText editText2;
     private Button btnAdd;
@@ -29,30 +30,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                int value1 = 0;
-                int value2 = 0;
+                int p1 = 0;
+                int p2 = 0;
                 if (editText1.getText().toString().isEmpty()) {
-                    value1 = 0;
+                    p1 = 0;
                 }
                 else {
-                    value1 = Integer.valueOf(editText1.getText().toString());
+                    p1 = Integer.valueOf(editText1.getText().toString());
                 }
                 if (editText2.getText().toString().isEmpty()) {
-                    value2 = 0;
+                    p2 = 0;
                 }
                 else {
-                    value2 = Integer.valueOf(editText2.getText().toString());
+                    p2 = Integer.valueOf(editText2.getText().toString());
                 }
-                intent.putExtra("value1", value1);
-                intent.putExtra("value2", value2);
-                startActivityForResult(intent, 0);
+                intent.putExtra("p1", p1);
+                intent.putExtra("p2", p2);
+                startActivityForResult(intent, REQUEST_CODE_MAIN);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        int sum = data.getIntExtra("sum", 0);
-        resultView.setText("합계 : " + sum);
+        if (requestCode == REQUEST_CODE_MAIN && resultCode == RESULT_OK) {
+            int sum = data.getIntExtra("sum", 0);
+            resultView.setText("합계 : " + sum);
+        }
     }
 }

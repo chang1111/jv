@@ -23,4 +23,6 @@ public interface IUser {
    List<ModelUser> selectUserList(ModelUser user);
    
    int checkuserid(String userid); // id 중복확인
+   
+   int checkpassword(String id, String cur_pw);// password 확인
 }

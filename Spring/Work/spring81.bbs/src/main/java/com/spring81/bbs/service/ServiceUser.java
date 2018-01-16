@@ -123,4 +123,15 @@ public class ServiceUser implements IServiceUser {
         }
         return result;
     }
+
+    @Override
+    public int checkpassword(String id, String cur_pw) {
+        int result = -1;
+        try {
+            result = daouser.checkpassword(id, cur_pw);
+        } catch (Exception e) {
+            logger.error("checkpassword " + e.getMessage() );
+        }
+        return result;
+    }
 }
