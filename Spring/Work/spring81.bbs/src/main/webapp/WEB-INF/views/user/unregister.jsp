@@ -13,13 +13,15 @@
 <body>
 
 <div id="wrap">
+
     <div id="header">
         <%@ include file="../inc/header.jsp" %>
     </div>
 
     <div id="main-menu">
         <%@ include file="../inc/main-menu.jsp" %>
-    </div>
+    </div> 
+    
     <div id="container">
         <div id="content" style="min-height: 800px;">
 
@@ -46,7 +48,8 @@
 
         </div><!-- content 끝 -->
     </div><!--  container 끝 -->
-<div id="sidebar">
+
+    <div id="sidebar">
         <%@ include file="../inc/bbs-menu.jsp" %>
     </div>
     
@@ -56,7 +59,7 @@
 
     <div id="footer">
         <%@ include file="../inc/footer.jsp" %>
-    </div>
+    </div> 
 </div>
 
 </body>

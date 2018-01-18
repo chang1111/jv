@@ -26,7 +26,8 @@
 
     <div id="main-menu">
         <%@ include file="../inc/main-menu.jsp" %>
-    </div>
+    </div> 
+    
     
     <div id="container">
         <div id="content" style="min-height: 800px;">
@@ -38,7 +39,7 @@
             <p style="color: red;">로그인에 실패했습니다.</p>
             </c:if>      
             
-            <form id="loginForm" action="login" method="post" onsubmit="return check()">
+            <form id="loginForm" action="login" method="post" enctype="application/x-www-form-urlencoded">
                 <p style="margin: 0; padding: 0;">
                     <input type="hidden" name="url" value="${url }" />
                 </p>
@@ -61,6 +62,8 @@
 
         </div><!-- content 끝 -->
     </div><!--  container 끝 -->
+
+
     <div id="sidebar">
         <%@ include file="../inc/bbs-menu.jsp" %>
     </div>
@@ -71,7 +74,8 @@
 
     <div id="footer">
         <%@ include file="../inc/footer.jsp" %>
-    </div>
+    </div>    
+   
 </div>
 
 </body>

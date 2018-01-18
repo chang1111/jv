@@ -48,7 +48,7 @@
                         AND boardcd = #{boardcd}
                         </if>
                         <if test="searchWord != null and searchWord != ''">
-                        AND boardnm LIKE #{searchWord} 
+                        AND boardnm LIKE CONCAT( '%' , #{searchWord } , '%' )
                         </if>
                     GROUP BY boardcd, boardnm, UseYN
                     ORDER BY boardcd DESC
