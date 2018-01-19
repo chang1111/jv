@@ -1,5 +1,6 @@
 package com.spring81.bbs.service;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.*;
@@ -164,6 +165,7 @@ public class ServiceBoard implements IServiceBoard {
 
     @Override
     public ModelArticle getArticle(int articleno) {
+        /*
         ModelArticle result = null;
         try {
             // 상세보기를 할때마다 페이지 조회수를 1 증가 시키기 위해서.
@@ -175,8 +177,8 @@ public class ServiceBoard implements IServiceBoard {
         } catch (Exception e) {
             logger.error("getArticle  " + e.getMessage() );
         }
-        
-        return result;
+        */
+        throw new NotImplementedException("tranArticle 메서드를 사용하시오");
     }
 
     @Override
@@ -357,6 +359,23 @@ public class ServiceBoard implements IServiceBoard {
             result = daoboard.deleteComment( comment );
         } catch (Exception e) {
             logger.error("deleteComment " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public ModelArticle transArticle(int articleno) {
+        ModelArticle result = null;
+        try {
+            // 상세보기를 할때마다 페이지 조회수를 1 증가 시키기 위해서.
+            // 하단에 목록에서 조회수를 제대로 보기위해서는
+            // 목록 레코드를 페치하기 전에 조회수를 먼저 증가시켜야 한다.
+            // 사용자 IP 와 시간을 고려해서 조회수를 증가하도록...            
+                     daoboard.increaseHit( articleno );
+            result = daoboard.getArticle ( articleno );
+        } catch (Exception e) {
+            logger.error("getArticle  " + e.getMessage() );
         }
         
         return result;

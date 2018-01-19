@@ -17,7 +17,7 @@ public class ModelArticle {
     String  UpdateUID ;     
     Date    UpdateDT  ;
     
-    // �߰��� �ʵ�. 
+    // 
     Integer attachFileNum;
     Integer commentNum;
     

@@ -3,8 +3,12 @@ package com.spring81.bbs.inf;
 import java.util.List;
 import java.util.Map;
 
+import com.spring81.bbs.model.ModelArticle;
+
 
 public interface IServiceBoard extends IBoard {
+    
+    public ModelArticle transArticle(int articleno);
 
     /*
 	public int getListNo();

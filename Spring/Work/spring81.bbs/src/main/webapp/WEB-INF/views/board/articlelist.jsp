@@ -10,21 +10,35 @@
     <meta name="Keywords" content="게시판 목록" />
     <meta name="Description" content="게시판 목록" />
     
-    <title>${boardNm }</title>
+    <title>${boardnm }</title>
     
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
-             
+    <script type="text/javascript" src="/resources/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(event) {
+        	
+        });
+        var goList = function( page ) {
+        	window.location.href = "/board/articlelist/${boardcd}?searchWord=${searchWord}&curPage="+page;
+        };
+    </script>
 </head>
 <body>
 
 <div id="wrap">
+    <div id="header">
+        <%@ include file="../inc/header.jsp" %>
+    </div>
 
+    <div id="main-menu">
+        <%@ include file="../inc/main-menu.jsp" %>
+    </div> 
 	<div id="container">
 		<div id="content" style="min-height: 800px;">
 			<div id="url-navi">BBS</div>
                 
                 <!-- 본문 시작 -->			
-                <h1>${boardNm }</h1>
+                <h1>${boardnm }</h1>
                 <div id="bbs">
                 	<table>
                 	<tr>
@@ -58,7 +72,7 @@
                 	<div id="paging" style="text-align: center;">
                 		
                 		<c:if test="${prevLink > 0 }">
-                			<a href="javascript:goList('${prevPage }')">[이전]</a>
+                			<a href="javascript:goList(${prevLink })">[이전]</a>
                 		</c:if>
                 
                 		<c:forEach var="i" items="${pageLinks }" varStatus="stat">
@@ -67,13 +81,13 @@
                 				<span class="bbs-strong">${i }</span>
                 			</c:when>
                 			<c:otherwise>
-                				<a href="javascript:goList('${i }')">${i }</a>
+                				<a href="javascript:goList(${i })">${i }</a>
                 			</c:otherwise>
                 			</c:choose>
                 		</c:forEach>
                 		
                 		<c:if test="${nextLink > 0 }">
-                			<a href="javascript:goList('${nextPage }')">[다음]</a>
+                			<a href="javascript:goList(${nextLink })">[다음]</a>
                 		</c:if>
                 		
                 	</div>
@@ -83,7 +97,7 @@
                 	</div>
                 
                 	<div id="search" style="text-align: center;">
-                		<form id="searchForm" action="./articlelist" method="get" style="margin: 0;padding: 0;">
+                		<form id="searchForm" action="${url }" method="get" style="margin: 0;padding: 0;">
                 			<p style="margin: 0;padding: 0;">
                 				<input type="hidden" name="boardcd" value="${boardcd }" />
                 				<input type="text" name="searchWord" size="15" maxlength="30" />
@@ -97,7 +111,17 @@
 
 		</div><!-- content 끝 -->
 	</div><!--  container 끝 -->
+    <div id="sidebar">
+        <%@ include file="bbs-menu.jsp" %>
+    </div>
+    
+    <div id="extra">
+        <%@ include file="../inc/extra.jsp" %>
+    </div>
 
+    <div id="footer">
+        <%@ include file="../inc/footer.jsp" %>
+    </div>
 
 </div>
 
