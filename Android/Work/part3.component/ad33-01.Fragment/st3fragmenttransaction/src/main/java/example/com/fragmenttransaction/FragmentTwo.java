@@ -11,15 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
 
 public class FragmentTwo extends Fragment {
 
     public static final String KEY_INPUT = "input";
+    private static final int REQUEST_CODE_OTHER_ACTIVITY = 10000;
     private String inputText;
     private EditText inputView;
     private TextView messageView;
     private Button btnSend;
     private Button btnSend2;
+    private Button btnActivity;
 
     public static FragmentTwo newInstance(String input) {
         FragmentTwo fragment = new FragmentTwo();
@@ -61,7 +64,7 @@ public class FragmentTwo extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // inflation
         View view = inflater.inflate(R.layout.fragment_two, container, false);
@@ -93,6 +96,14 @@ public class FragmentTwo extends Fragment {
                 }
             }
         });
+        btnActivity = view.findViewById(R.id.btn_activity);
+        btnActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), OtherActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_OTHER_ACTIVITY);
+            }
+        });
 
         return view;
     }
@@ -100,5 +111,13 @@ public class FragmentTwo extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_OTHER_ACTIVITY && resultCode == android.app.Activity.RESULT_OK) {
+            String result = data.getStringExtra(Common.OTHER_RESULT);
+            messageView.setText(result);
+        }
     }
 }

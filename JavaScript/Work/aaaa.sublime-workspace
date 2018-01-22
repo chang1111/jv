@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"border-c",
+				"border-collapse"
+			],
+			[
 				"sc",
 				"scrollTop\t.scrollTop()"
 			],
@@ -399,26 +403,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/D/workspace/Lecture/Spring/Work/spring65.phone/src/main/webapp/WEB-INF/views/writeOneForm.jsp",
-			"settings":
-			{
-				"buffer_size": 2066,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nJavaScript Completions\n----------------------\n\n  v2.6.97\n  \n  \n  🎉🎉 ANNOUNCEMENT - NEW PLUGIN \"JavaScript Enhancements\" RELEASED 🎉🎉\n  =======================================================================\n  \n  🎉🎉 FINALLY ADDED SUPPORT ALSO FOR WINDOWS 🎉🎉\n  =================================================\n  \n  I developed a new plugin with new features thanks to Flow (javascript static type checker from Facebook).\n  \n  So, I will NO LONGER SUPPORT \"JavaScript Completions\" plugin, except in particular cases. \n  I'm going to focus only on this new one!\n  \n  You can find it on: 👉👉 https://github.com/pichillilorenzo/JavaScriptEnhancements 👈👈\n  \n  This new plugin offers not only a better autocomplete but a lot of features about creating, \n  developing and managing javascript projects, such as:\n  \n  - Cordova projects (run cordova emulate, build, compile, serve, etc. directly from Sublime Text!)\n  - Ionic v1 and v2 projects (same as Cordova projects!)\n  - Angular v1 and v2 projects\n  - React projects\n  - Express projects\n  - Yeoman generators\n  - Local bookmarks project\n  - JavaScript real-time errors\n  - etc. (I will add also React Native and NativeScript support)\n  \n  You could use it also in existing projects!! (see the Wiki - https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki)\n  \n  It will turn Sublime Text into a JavaScript IDE like!\n  \n  ## OS SUPPORTED NOW by this new plugin:\n  =======================================\n  \n  👉 Linux (64-bit)\n  👉 Mac OS X \n  👉 Windows (64-bit): released without the use of TerminalView plugin. For each feature (like also creating a project) will be used the cmd.exe shell (so during the creation of a project don't close it until it finishes!). Unfortunately the TerminalView plugin supports only Linux-based OS 😞 . Has someone any advice or idea about that? Is there something similar to the TerminalView plugin for Windows?? Thanks!\n  \n  Email me for any questions or doubts about this new project on: pichillilorenzo@gmail.com\n  \n  Thanks for your support!!!\n",
-			"settings":
-			{
-				"buffer_size": 2082,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -500,12 +484,20 @@
 	[
 		"/D/workspace/Lecture/JavaScript/Work",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드"
+		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/평가"
 	],
 	"file_history":
 	[
+		"/C/Users/Administrator/Downloads/151/15/index.html",
+		"/C/Users/Administrator/Downloads/151/15/login.html",
+		"/C/Users/Administrator/Downloads/15/index.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/평가/login.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/평가/register.html",
+		"/C/Users/Administrator/Downloads/modify/login.html",
+		"/D/workspace/Lecture/Spring/Work/spring65.phone/src/main/webapp/WEB-INF/views/writeOneForm.jsp",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-01.element설정.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/myfile.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/company3.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/ch01.html/ht08-01.form태그.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
@@ -565,7 +557,6 @@
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-02.속성셀렉터.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-02-ex1.Attribute셀렉터.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-03.폼셀렉터.html",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-01.element설정.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-02.attribute설정.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/jq01-02.jquery임포트.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/jq01-11.style로테이블행색깔반복.html",
@@ -625,15 +616,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-02.표준입출력.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-01.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-03-1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-04.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs07레이아웃/cs07-01.layout_A.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-11.layout.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-09.z-index.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-07.visibility.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-05.position.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-05.float3.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-03.float2.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-03.clear1.html"
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-04.html"
 	],
 	"find":
 	{
@@ -686,250 +669,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/D/workspace/Lecture/Spring/Work/spring65.phone/src/main/webapp/WEB-INF/views/writeOneForm.jsp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2066,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								525,
-								525
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										623,
-										624
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										615,
-										616
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										524,
-										525
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										486,
-										487
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/Java/Java Server Pages (JSP).sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 63.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2082,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2082,
-								2082
-							]
-						],
-						"settings":
-						{
-							"auto_indent": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"default_dir": "D:\\workspace\\Lecture\\JavaScript\\Work",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],

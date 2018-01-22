@@ -4,6 +4,8 @@
     <title></title>
     <style type="text/css">
         table, td { border: 1px solid black; }
+        table { border-collapse: collapse; }
+        input, select { margin: 2px; }
         input[name=tel1], input[name=tel2], input[name=year] {
             width: 40px;
         }
@@ -17,15 +19,17 @@
         <table>
             <thead>
                 <tr>
-                    <td colspan="2" bgcolor="lightblue">기본 정보 입력</td>
+                    <td colspan="3" bgcolor="lightblue">기본 정보 입력</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td width="40px"></td>
                     <td>이름</td>
                     <td><input type="text" name="name"></td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>주민번호</td>
                     <td>
                         <input type="text" name="rrn1" maxlength="6"> -
@@ -33,6 +37,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>아이디</td>
                     <td>
                         <input type="text" name="id">@naver.com
@@ -41,10 +46,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>별명</td>
                     <td><input type="text" name="nickname" value="홍길동"></td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>비밀번호</td>
                     <td>
                         <input type="password" name="pass"><br>
@@ -52,6 +59,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>비밀번호 힌트</td>
                     <td>
                         <select>
@@ -63,6 +71,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>생년월일</td>
                     <td>
                         <input type="text" name="year" value="1999">
@@ -118,6 +127,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>핸드폰</td>
                     <td>
                         <select>
@@ -136,6 +146,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>주로쓰는메일</td>
                     <td>
                         <input type="text" name="email" value="11111">
@@ -144,6 +155,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>거주지</td>
                     <td>
                         <select>
@@ -167,6 +179,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="40px"></td>
                     <td>메일 수신 여부</td>
                     <td>
                         <input type="checkbox" name="news" checked>네이버 뉴스레터<br>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapperPhone">
+    <select id="getPhoneOne" parameterType="string" resultType="ModelPhone">
+        select * from tb_phone where name = #{name}
+    </select>
+    
+    <select id="getPhoneList" resultType="ModelPhone">
+        select * from tb_phone
+    </select>
+    
+    <insert id="insertPhone" parameterType="ModelPhone">
+        insert into tb_phone (name, manufaturer, price)
+            value (#{name}, #{manufaturer}, #{price})
+    </insert>
+    
+    <insert id="insertPhoneList" parameterType="java.util.List">
+                insert into tb_phone(name , manufacturer , price)
+                VALUES
+                <foreach collection="list" item="item" index="index" open="(" separator="),(" close=")">
+                    #{item.name} , #{item.manufacturer} , #{item.price}
+                </foreach>
+        
+    </insert>
+    <!--  -->
+</mapper>
