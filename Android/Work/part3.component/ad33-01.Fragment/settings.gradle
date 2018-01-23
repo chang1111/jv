@@ -1,1 +1,1 @@
-include ':st1fragmentindesign', ':st3fragmenttransaction'
+include ':st1fragmentindesign', ':st3fragmenttransaction', ':st5backstack'

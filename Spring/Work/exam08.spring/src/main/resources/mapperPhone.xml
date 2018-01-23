@@ -7,13 +7,21 @@
         select * from tb_phone where name = #{name}
     </select>
     
-    <select id="getPhoneList" resultType="ModelPhone">
-        select * from tb_phone
+    <select id="getPhoneList" parameterType="java.util.Map" resultType="ModelPhone">
+        select name, manufacturer, price from
+        (select @rnum := @rnum + 1 as r, a.*
+            from tb_phone a, (select @rnum := 0) b
+        ) t
+        where r between #{start} and #{end}
     </select>
     
+    <select id="getPhoneTotalRecord" resultType="int">
+        select count(*) from tb_phone
+    </select>
+
     <insert id="insertPhone" parameterType="ModelPhone">
-        insert into tb_phone (name, manufaturer, price)
-            value (#{name}, #{manufaturer}, #{price})
+        insert into tb_phone (name, manufacturer, price)
+            values (#{name}, #{manufacturer}, #{price})
     </insert>
     
     <insert id="insertPhoneList" parameterType="java.util.List">
@@ -24,5 +32,5 @@
                 </foreach>
         
     </insert>
-    <!--  -->
+    
 </mapper>

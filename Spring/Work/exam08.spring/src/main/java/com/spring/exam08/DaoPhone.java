@@ -1,6 +1,8 @@
 package com.spring.exam08;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,17 @@ public class DaoPhone implements IDaoPhone {
     }
 
     @Override
-    public List<ModelPhone> getPhoneList() {
-        return session.selectList("mapperPhone.getPhoneList");
+    public List<ModelPhone> getPhoneList(int start, int end) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("start", start);
+        map.put("end", end);
+        
+        return session.selectList("mapperPhone.getPhoneList", map);
+    }
+    
+    @Override
+    public int getPhoneTotalRecord() {
+        return session.selectOne("mapperPhone.getPhoneTotalRecord");
     }
 
     @Override
