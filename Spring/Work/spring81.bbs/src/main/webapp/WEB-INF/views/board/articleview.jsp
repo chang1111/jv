@@ -13,7 +13,44 @@
     <title>${boardnm }</title>
     
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
-    
+    <script type="text/javascript" src="/resources/js/jquery-3.1.1.js">></script>
+    <script type="text/javascript">
+        $(document).ready(function(event) {
+        	$('tr[articleno]').click(function(event) {
+        		var articleno = $(this).attr('articleno');
+        		location.href = '/board/articleview/${boardcd}/' + articleno + location.search;
+        	});
+        });
+        var goView = function(articleno) {
+        	location.href = '/board/articleview/${boardcd}/' + articleno + location.search;
+        };
+        var goModify = function() {
+        	location.href = '/board/articlemodify/${boardcd}/${articleno}';
+        };
+        var goDelete = function() {
+        	// post로 처리해야함
+        	// post 처리하는 방법에는 1. ajax, 2. form을 이용하는 방법
+        	var f = document.createElement('form');
+        	f.setAttribute('method', 'post');
+        	f.setAttribute('action', '/board/articledelete/${boardcd}/${articleno}');
+        	f.setAttribute('enctype', 'application/x-www-form-urlencoded');
+        	document.body.appendChild(f);
+        	f.submit();
+        	
+        	
+        };
+        var goList = function(curPage, redirect) {
+        	if (redirect === false) {
+                location.href = '/board/articleview/${boardcd}/${articleno}?curPage=' + curPage;
+        	}
+        	else {
+                location.href = '/board/articlelist/${boardcd}?curPage=' + curPage;
+        	}
+        };
+        var goWrite = function() {
+        	location.href = '/board/articlewrite/${boardcd};
+        };
+    </script>
 </head>
 <body>
 
@@ -46,7 +83,7 @@
             		<p>${thisArticle.content }</p>
             		<p id="file-list" style="text-align: right;">
             			<c:forEach var="file" items="${attachFileList }" varStatus="status">
-            			<a href="javascript:download('${file.filename }')">${file.filename }</a>
+            			<a href="javascript:download('${file.filenametemp }')">${file.filenameorig }</a>
             			<a href="javascript:deleteAttachFile('${file.attachfileno }')">x</a>
             			<br />
             			</c:forEach>	
@@ -107,7 +144,7 @@
                 	
                 	<!--  반복 구간 시작 -->
                 	<c:forEach var="article" items="${articleList }" varStatus="status">
-                	<tr>
+                    <tr articleno="${article.articleno }"> <!-- 사용자 속성 추가: articleno -->
                 		<td style="text-align: center;">
                 			<c:choose>
                 				<c:when test="${articleno == article.articleno }">
@@ -136,7 +173,7 @@
             		
             	<div id="paging" style="text-align: center;">            		
             		<c:if test="${prevLink > 0 }">
-            			<a href="javascript:goList(${prevLink })">[이전]</a>
+            			<a href="javascript:goList(${prevLink }, false)">[이전]</a>
             		</c:if>
             		
             		<c:forEach var="i" items="${pageLinks }" varStatus="stat">
@@ -145,13 +182,13 @@
             				<span class="bbs-strong">${i }</span>
             			</c:when>
             			<c:otherwise>
-            				<a href="javascript:goList(${i })">${i }</a>
+            				<a href="javascript:goList(${i }, false))">${i }</a>
             			</c:otherwise>
             			</c:choose>
             		</c:forEach>
             		
             		<c:if test="${nextLink > 0 }">
-            			<a href="javascript:goList(${nextPage })">[다음]</a>
+            			<a href="javascript:goList(${nextLink }, false))">[다음]</a>
             		</c:if>            		
             	</div>
    
@@ -161,7 +198,7 @@
             	</div>
             
             	<div id="search" style="text-align: center;">
-            		<form id="searchForm" action="${actionurl } method="get" style="margin: 0;padding: 0;">
+            		<form id="searchForm" action="${actionurl }" method="get" style="margin: 0;padding: 0;">
             			<p style="margin: 0;padding: 0;">
             				<input type="hidden" name="boardcd" value="${boardcd }" />
             				<input type="text" name="searchWord" value="${searchWord }" size="15" maxlength="30" />

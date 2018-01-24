@@ -250,13 +250,13 @@
     </select>
 
     <select id="getAttachFile" parameterType="int" resultType="ModelAttachFile">
-        SELECT attachfileno, filename, filetype, filesize, articleno
+        SELECT attachfileno, filenameorig, filenametemp, filetype, filesize, articleno
           FROM TB_BBS_Attachfile
          WHERE attachfileno = #{attachFileNo}
     </select>
     
     <select id="getAttachFileList" parameterType="int" resultType="ModelAttachFile">
-        SELECT attachfileno, filename, filetype, filesize, articleno 
+        SELECT attachfileno, filenameorig, filenametemp, filetype, filesize, articleno 
           FROM TB_BBS_Attachfile 
          WHERE articleno = #{articleno} 
         ORDER BY attachfileno
@@ -264,8 +264,8 @@
     
     <insert id="insertAttachFile" parameterType="ModelAttachFile" useGeneratedKeys="true" keyProperty="attachfileno" >
         INSERT INTO 
-        TB_BBS_Attachfile (filename, filetype, filesize, articleno, InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
-        VALUES        ( #{filename}, #{filetype}, #{filesize}, #{articleno}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
+        TB_BBS_Attachfile (filenameorig, filenametemp,  filetype, filesize, articleno, InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
+        VALUES        ( #{filenameorig}, #{filenametemp}, #{filetype}, #{filesize}, #{articleno}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
     </insert>
     
     <delete id="deleteAttachFile" parameterType="ModelAttachFile">

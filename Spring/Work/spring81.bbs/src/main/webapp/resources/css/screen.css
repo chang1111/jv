@@ -244,8 +244,8 @@ ul#nav li a:hover {
 	border-bottom: 2px solid #92B91C;
 }
 
-#bbs > tbody > tr { cursor: pointer;  }
-#bbs > tbody > tr:hover { background: pink;  }
+#bbs tr { cursor: pointer;  }
+#bbs tr:hover { background: pink;  }
 
 #bbs td {
 	padding-top: 3px;
