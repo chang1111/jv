@@ -8,7 +8,9 @@ import com.spring81.bbs.model.ModelArticle;
 
 public interface IServiceBoard extends IBoard {
     
-    public ModelArticle transArticle(int articleno);
+    ModelArticle transArticle(int articleno);
+    
+    int transDeleteArticle(int articleno);
 
     /*
 	public int getListNo();

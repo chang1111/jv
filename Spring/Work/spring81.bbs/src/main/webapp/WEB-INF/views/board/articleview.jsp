@@ -48,7 +48,29 @@
         	}
         };
         var goWrite = function() {
-        	location.href = '/board/articlewrite/${boardcd};
+        	location.href = '/board/articlewrite/${boardcd}';
+        };
+        var download = function(filetemp, fileorig) {
+        	// post로 요청. ajax / form
+        	var f = document.createElement('form');
+        	f.setAttribute('method', 'post');
+        	f.setAttribute('action', '/download');
+        	f.setAttribute('enctype', 'application/x-www-form-urlencoded');
+        	
+        	var i = document.createElement('input');
+        	i.setAttribute('type', 'hidden');
+        	i.setAttribute('name', 'filetemp');
+        	i.setAttribute('value', filetemp);
+        	f.appendChild(i);
+        	
+            var i = document.createElement('input');
+            i.setAttribute('type', 'hidden');
+            i.setAttribute('name', 'fileorig');
+            i.setAttribute('value', fileorig);
+        	f.appendChild(i);
+        	
+        	document.body.appendChild(f);
+        	f.submit();
         };
     </script>
 </head>
@@ -83,9 +105,9 @@
             		<p>${thisArticle.content }</p>
             		<p id="file-list" style="text-align: right;">
             			<c:forEach var="file" items="${attachFileList }" varStatus="status">
-            			<a href="javascript:download('${file.filenametemp }')">${file.filenameorig }</a>
-            			<a href="javascript:deleteAttachFile('${file.attachfileno }')">x</a>
-            			<br />
+                			<a href="javascript:download('${file.filenametemp }', '${file.filenameorig }')">${file.filenameorig }</a>
+                			<a href="javascript:deleteAttachFile('${file.attachfileno }')">x</a>
+                			<br />
             			</c:forEach>	
             		</p>		
             	</div>
@@ -182,13 +204,13 @@
             				<span class="bbs-strong">${i }</span>
             			</c:when>
             			<c:otherwise>
-            				<a href="javascript:goList(${i }, false))">${i }</a>
+            				<a href="javascript:goList(${i }, false)">${i }</a>
             			</c:otherwise>
             			</c:choose>
             		</c:forEach>
             		
             		<c:if test="${nextLink > 0 }">
-            			<a href="javascript:goList(${nextLink }, false))">[다음]</a>
+            			<a href="javascript:goList(${nextLink }, false)">[다음]</a>
             		</c:if>            		
             	</div>
    

@@ -7,10 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import java.util.List;
 
 public class Tab3Fragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -32,6 +35,7 @@ public class Tab3Fragment extends Fragment {
     private Button btnInit;
     private ListView listView;
     private StudentAdapter<ModelStudent> adapter;
+    private List<ModelStudent> data;
 
     public Tab3Fragment() {
     }
@@ -67,44 +71,48 @@ public class Tab3Fragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        edtName = inflatedView.findViewById(R.id.edt_name);
-        edtNumber = inflatedView.findViewById(R.id.edt_number);
-        edtDepartment = inflatedView.findViewById(R.id.edt_department);
-        btnAdd = inflatedView.findViewById(R.id.btn_add3);
+//        edtName = inflatedView.findViewById(R.id.edt_name);
+//        edtNumber = inflatedView.findViewById(R.id.edt_number);
+//        edtDepartment = inflatedView.findViewById(R.id.edt_department);
+//        btnAdd = inflatedView.findViewById(R.id.btn_add3);
         spinner = inflatedView.findViewById(R.id.spinner);
-        edtItem = inflatedView.findViewById(R.id.edt_item);
-        btnSearch = inflatedView.findViewById(R.id.btn_search);
-        btnSort = inflatedView.findViewById(R.id.btn_sort);
-        btnDelAll = inflatedView.findViewById(R.id.btn_del_all);
-        btnInit = inflatedView.findViewById(R.id.btn_init);
+//        edtItem = inflatedView.findViewById(R.id.edt_item);
+//        btnSearch = inflatedView.findViewById(R.id.btn_search);
+//        btnSort = inflatedView.findViewById(R.id.btn_sort);
+//        btnDelAll = inflatedView.findViewById(R.id.btn_del_all);
+//        btnInit = inflatedView.findViewById(R.id.btn_init);
 
-        ButtonListener buttonListener = new ButtonListener();
+        String[] items = {"이름", "학번", "학과"};
+//        ArrayAdapter<String> sAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, items);
+//        spinner.setAdapter(sAdapter);
 
-        btnAdd   .setOnClickListener(buttonListener);
-        btnSearch.setOnClickListener(buttonListener);
-        btnSort  .setOnClickListener(buttonListener);
-        btnDelAll.setOnClickListener(buttonListener);
-        btnInit  .setOnClickListener(buttonListener);
+//        ButtonListener buttonListener = new ButtonListener();
+//
+//        btnAdd   .setOnClickListener(buttonListener);
+//        btnSearch.setOnClickListener(buttonListener);
+//        btnSort  .setOnClickListener(buttonListener);
+//        btnDelAll.setOnClickListener(buttonListener);
+//        btnInit  .setOnClickListener(buttonListener);
 
 
 
     }
 
-    private class ButtonListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.btn_add3:
-                    break;
-                case R.id.btn_search:
-                    break;
-                case R.id.btn_sort:
-                    break;
-                case R.id.btn_del_all:
-                    break;
-                case R.id.btn_init:
-                    break;
-            }
-        }
-    }
+//    private class ButtonListener implements View.OnClickListener {
+//        @Override
+//        public void onClick(View view) {
+//            switch (view.getId()) {
+//                case R.id.btn_add3:
+//                    break;
+//                case R.id.btn_search:
+//                    break;
+//                case R.id.btn_sort:
+//                    break;
+//                case R.id.btn_del_all:
+//                    break;
+//                case R.id.btn_init:
+//                    break;
+//            }
+//        }
+//    }
 }

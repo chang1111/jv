@@ -94,6 +94,12 @@ public class ModelAttachFile {
         this.filesize = filesize;
         this.articleno = articleno;
     }
+    
+    public ModelAttachFile(Integer attachfileno) {
+        super();
+        this.attachfileno = attachfileno;
+    }
+    
     @Override
     public String toString() {
         return "ModelAttachFile [attachfileno=" + attachfileno

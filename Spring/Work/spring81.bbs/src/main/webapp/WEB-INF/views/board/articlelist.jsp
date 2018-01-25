@@ -16,11 +16,15 @@
     <script type="text/javascript" src="/resources/js/jquery-3.1.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function(event) {
-        	
+        	$('#bbs tr[articleno]').click(function(event) {
+        		var articleno = $(this).attr('articleno');
+        		location.href = "/board/articleview/${boardcd}/" + articleno;
+        	});
         });
         var goList = function( page ) {
         	window.location.href = "/board/articlelist/${boardcd}?searchWord=${searchWord}&curPage="+page;
         };
+        
     </script>
 </head>
 <body>
@@ -49,7 +53,7 @@
                 	</tr>
                 	<!--  반복 구간 시작 -->
                 	<c:forEach var="article" items="${articleList }" varStatus="status">	
-                	<tr>
+                	<tr articleno="${article.articleno }">
                 		<td style="text-align: center;">${no - status.index}</td>
                 		<td>
                 			<a href="javascript:goView('${article.articleno }')">${article.title }</a>

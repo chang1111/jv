@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -407,7 +408,7 @@ public class BoardController {
                 ModelAttachFile attachFile = new ModelAttachFile();
                 attachFile.setArticleno(insertedpk);
                 attachFile.setFilenameorig(fileName);
-                attachFile.setFilenametemp(newFile);
+                attachFile.setFilenametemp(tempName);
                 attachFile.setFilesize(serverFile.length());
                 attachFile.setFiletype(upload.getContentType());
                 int result = srvboard.insertAttachFile(attachFile);
@@ -417,4 +418,133 @@ public class BoardController {
         String url = String.format("redirect:/board/articleview/%s/%d", article.getBoardcd(), insertedpk);
         return url;
     }
+    
+    @RequestMapping(value = "/board/articlemodify/{boardcd}/{articleno}", method = RequestMethod.GET)
+    public String articlemodify( Model model
+            , @PathVariable String boardcd
+            , @PathVariable Integer articleno
+            , @RequestParam(defaultValue="1") Integer curPage
+            , @RequestParam(defaultValue="") String searchWord
+            , HttpServletRequest request) {
+        logger.info("/articlemodify : get");
+        
+        // boardnm
+        // actionurl
+        // boardcd
+        // articleno
+        // curPage
+        // searchWord
+        // thisArticle
+        // attachFileList
+        
+        model.addAttribute("actionurl", request.getRequestURL().toString());
+        
+        model.addAttribute("boardnm", srvboard.getBoardName(boardcd));
+        model.addAttribute("boardcd", boardcd);
+        model.addAttribute("articleno", articleno);
+        model.addAttribute("curPage", curPage);
+        model.addAttribute("searchWord", searchWord);
+        model.addAttribute("thisArticle", srvboard.getArticle(articleno));
+        model.addAttribute("attachFileList", srvboard.getAttachFileList(articleno));
+        
+        
+        return "board/articlemodify";
+    }
+    
+    @RequestMapping(value = "/board/articlemodify/{boardcd}/{articleno}", method = RequestMethod.POST)
+    public String articlemodify( Model model
+            , @ModelAttribute ModelArticle setValue
+            , @RequestParam(defaultValue="upload") MultipartFile upload
+            , @RequestParam(defaultValue="1") Integer curPage
+            , @RequestParam(defaultValue="") String searchWord) {
+        logger.info("/board/articlewrite : post");
+        
+        // 1. tb_bbs_article table insert, inserted pk값을 반환 받는다
+        // 2. client의 파일을 서버로 upload
+        // 3. tb_bbs_attachfile 테이블에 update 한다.
+        
+        // client의 파일을 서버로 upload
+        if (!upload.getOriginalFilename().isEmpty()) {
+            
+            // 서버 업로드 폴더 존재 여부 체크. 없으면 폴더 생성
+            java.io.File uploadDir = new java.io.File(WebConstants.UPLOAD_PATH);
+            if (uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+            
+            // 클라이언트의 파일을 서버로 복사
+            String fileName = upload.getOriginalFilename();
+            String tempName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+            String newFile = WebConstants.UPLOAD_PATH + tempName; // C:/upload/####
+            java.io.File serverFile = new java.io.File(newFile);
+            
+            // 실제로 파일 카피가 발생
+            try {
+                upload.transferTo(serverFile);
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+                
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                
+            }
+            
+            // 파일을 서버로 복사 성공 여부 체크.
+            // 성공한 경우만 tb_bbs_attachfile 테이블에 insert
+            if (serverFile.exists()) {
+                ModelAttachFile attachFile = new ModelAttachFile();
+                attachFile.setArticleno(setValue.getArticleno());
+                attachFile.setFilenameorig(fileName);
+                attachFile.setFilenametemp(tempName);
+                attachFile.setFilesize(serverFile.length());
+                attachFile.setFiletype(upload.getContentType());
+                int result = srvboard.insertAttachFile(attachFile);
+            }
+        }
+        
+        // tb_bbs_article table update, inserted pk값을 반환 받는다
+        ModelArticle whereValue = new ModelArticle(setValue.getArticleno());
+        int result = srvboard.updateArticle(setValue, whereValue);
+        
+        String url = String.format("redirect:/board/articleview/%s/%d", setValue.getBoardcd(), setValue.getArticleno());
+        return url;
+    }
+    
+    @RequestMapping(value = "/board/articledelete/{boardcd}/{articleno}", method = RequestMethod.POST)
+    public String articledelete( Model model
+            , @PathVariable String boardcd
+            , @PathVariable Integer articleno
+            , @RequestParam(defaultValue="1") Integer curPage
+            , @RequestParam(defaultValue="") String searchWord) {
+        logger.info("/board/articledelete : post");
+        
+        // transaction
+        
+        int result = srvboard.transDeleteArticle(articleno);
+        
+        return "redirect:/board/articlelist/{boardcd}";
+    }
+    
+    // REST 서비스
+    @RequestMapping(value = "/board/deleteattachfile", method = RequestMethod.POST)
+    @ResponseBody
+    public int deleteattachfile( Model model
+            ,@RequestParam Integer attachfileno) {
+        logger.info("/deleteattachfile : post");
+        
+        ModelAttachFile attachFile = new ModelAttachFile(attachfileno);
+        int result = srvboard.deleteAttachFile(attachFile);
+        // boardnm
+        // boardcd
+        // articleno
+        // curPage
+        // searchWord
+        // thisArticle
+        // attachFileList
+        
+        
+        return result;
+    }
+    
 }
