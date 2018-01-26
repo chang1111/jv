@@ -516,14 +516,26 @@ public class BoardController {
             , @PathVariable String boardcd
             , @PathVariable Integer articleno
             , @RequestParam(defaultValue="1") Integer curPage
-            , @RequestParam(defaultValue="") String searchWord) {
+            , @RequestParam(defaultValue="") String searchWord
+            , RedirectAttributes rttr) {
         logger.info("/board/articledelete : post");
         
         // transaction
         
         int result = srvboard.transDeleteArticle(articleno);
         
-        return "redirect:/board/articlelist/{boardcd}";
+        String url="";
+        
+        if (result == 1) {
+            url = String.format("redirect:/board/articlelist/%s?curPage=%d&searchWord=%s", boardcd, curPage, searchWord);
+        }
+        else {
+            rttr.addFlashAttribute("msg", WebConstants.MSG_FAIL_DELETE_ARTICLE);
+            rttr.addAttribute("curPage", curPage);
+            rttr.addAttribute("searchWord", searchWord);
+            url = String.format("redirect:/board/articleview/%s/%d", boardcd, articleno);
+        }
+        return url;
     }
     
     // REST 서비스

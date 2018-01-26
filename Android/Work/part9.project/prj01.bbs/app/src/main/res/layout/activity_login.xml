@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bbs.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+        
+            <ImageView
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="평창올림픽"
+                android:textColor="#ffffff"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"/>
+    
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="2018 평창 동계 올림픽"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+            
+        </LinearLayout>
+    
+        <EditText
+            android:id="@+id/edtID"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimary"
+            android:hint="아이디"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"/>
+    
+        <EditText
+            android:id="@+id/edtPW"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"/>
+    
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="로그인"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    
+</RelativeLayout>

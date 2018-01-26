@@ -168,7 +168,8 @@ public class DaoBoard implements IBoard {
 
     @Override
     public int insertComment(ModelComments comment) {
-        return  session.insert("mapper.mapperBoard.insertComment", comment );        
+        session.insert("mapper.mapperBoard.insertComment", comment );
+        return comment.getCommentno();
     }
 
     @Override

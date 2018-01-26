@@ -10,4 +10,5 @@ public class WebConstants {
     public static final String MSG_FAIL_DELETE_TABLE = "테이블 삭제 실패";
     public static final String MSG_FAIL_UPDATE_TABLE = "테이블 업데이트 실패";
     public static final String UPLOAD_PATH = "C:/upload/";
+    public static final Object MSG_FAIL_DELETE_ARTICLE = "게시글 삭제 실패";
 }

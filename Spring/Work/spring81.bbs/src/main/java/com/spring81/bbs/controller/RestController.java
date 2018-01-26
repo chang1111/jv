@@ -293,7 +293,7 @@ public class RestController {
         return boardsvr.getAttachFileList(articleno);
     }
     
-    @RequestMapping(value= "/insertattachfile", method = RequestMethod.GET)
+    @RequestMapping(value= "/insertattachfile", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public int insertattachfile(@ModelAttribute ModelAttachFile attachFile) {
         logger.info("/rest/insertattachfile");
@@ -301,7 +301,7 @@ public class RestController {
         return boardsvr.insertAttachFile(attachFile);
     }
     
-    @RequestMapping(value= "/deleteattachfile", method = RequestMethod.GET)
+    @RequestMapping(value= "/deleteattachfile", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public int deleteattachfile(@ModelAttribute ModelAttachFile attachFile) {
         logger.info("/rest/deleteattachfile");
@@ -309,7 +309,7 @@ public class RestController {
         return boardsvr.deleteAttachFile(attachFile);
     }
     
-    @RequestMapping(value= "/getcomment", method = RequestMethod.GET)
+    @RequestMapping(value= "/getcomment", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public ModelComments getcomment(@RequestParam(defaultValue="0")int commentNo) {
         logger.info("/rest/getcomment");
@@ -317,7 +317,7 @@ public class RestController {
         return boardsvr.getComment(commentNo);
     }
     
-    @RequestMapping(value= "/getcommentlist", method = RequestMethod.GET)
+    @RequestMapping(value= "/getcommentlist", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public List<ModelComments> getcommentlist(@RequestParam(defaultValue="0") int articleno) {
         logger.info("/rest/getcommentlist");
@@ -325,25 +325,37 @@ public class RestController {
         return boardsvr.getCommentList(articleno);
     }
     
-    @RequestMapping(value= "/insertcomment", method = RequestMethod.GET)
-    @ResponseBody
-    public int insertcomment(@ModelAttribute ModelComments comment) {
+    @RequestMapping(value= "/insertcomment", method = RequestMethod.POST)
+//    @ResponseBody
+    public String insertcomment(Model model, @RequestBody ModelComments comment) {
         logger.info("/rest/insertcomment");
         
-        return boardsvr.insertComment(comment);
+        // pk값을 반환
+        int commentno = boardsvr.insertComment(comment);
+        
+        ModelComments result = boardsvr.getComment(commentno);
+        model.addAttribute("comment", result);
+        
+        return "board/articleview-commentlistbody";
     }
     
-    @RequestMapping(value= "/updatecomment", method = RequestMethod.GET)
+    @RequestMapping(value= "/updatecomment", method = RequestMethod.POST)
     @ResponseBody
-    public int updatecomment(@RequestBody ModelComments setValue, @RequestBody ModelComments whereValue) {
+    public int updatecomment(@RequestBody ModelComments comment) {
         logger.info("/rest/updatecomment");
+        
+        ModelComments setValue = new ModelComments();
+        setValue.setMemo(comment.getMemo());
+        
+        ModelComments whereValue = new ModelComments();
+        whereValue.setCommentno(comment.getCommentno());
         
         return boardsvr.updateComment(setValue, whereValue);
     }
     
-    @RequestMapping(value= "/deletecomment", method = RequestMethod.GET)
+    @RequestMapping(value= "/deletecomment", method = RequestMethod.POST)
     @ResponseBody
-    public int deletecomment(@ModelAttribute ModelComments comment) {
+    public int deletecomment(@RequestBody ModelComments comment) {
         logger.info("/rest/deletecomment");
         
         return boardsvr.deleteComment(comment);

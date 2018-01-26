@@ -20,10 +20,10 @@
         		var articleno = $(this).attr('articleno');
         		location.href = "/board/articleview/${boardcd}/" + articleno;
         	});
+        	$('#list-menu input[type="button"]').click(function(event) {
+        		window.location.href = "/board/articlewrite/${boardcd}?curPage=${curPage}&searchWord=${searchWord}";        		
+        	});
         });
-        var goList = function( page ) {
-        	window.location.href = "/board/articlelist/${boardcd}?searchWord=${searchWord}&curPage="+page;
-        };
         
     </script>
 </head>
@@ -97,7 +97,7 @@
                 	</div>
                 
                 	<div id="list-menu" style="text-align:  right;">
-                		<input type="button" value="새글쓰기" onclick="goWrite()" />
+                		<input type="button" value="새글쓰기"/>
                 	</div>
                 
                 	<div id="search" style="text-align: center;">

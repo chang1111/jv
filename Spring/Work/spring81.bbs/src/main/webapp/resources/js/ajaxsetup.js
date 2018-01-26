@@ -1,7 +1,7 @@
 $(document).ajaxStart(function() {
 	// 통신이 시작되기 전
 	// beforeSend() 메서드와 같은 것
-	$('body').prepend('<img src="/resource/images/loading.gif"/>');
+	$('body').prepend('<img src="/resources/images/loading.gif"/>');
 });
 
 $(document).ajaxComplete(function(data, textStatus, xhr) {

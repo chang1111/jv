@@ -13,7 +13,14 @@
     <title>${boardnm }</title>
     
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
-   
+    <script type="text/javascript" src="/resources/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(event) {
+        	$('#goList').click(function(event) {
+        		window.location.href = '/board/articlelist/${boardcd}';
+        	});
+        });
+    </script>
 </head>
 <body>
 
@@ -57,7 +64,7 @@
 							<!-- <c:if test="${!empty articleno }">
 								<input type="button" value="상세보기" onclick="goView()" />
 							</c:if> -->
-							<input type="button" value="목록" onclick="goList()" />
+							<input type="button" value="목록" id="goList" />
 						</div>
 					</form>
 				</div>
