@@ -484,11 +484,19 @@
 	[
 		"/D/workspace/Lecture/JavaScript/Work",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/js",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/평가"
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/login.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/blog.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/contact.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/index.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/portfolio.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/services.html",
+		"/D/workspace/Lecture/JavaScript/Work/myfolder/myfile.html",
 		"/C/Users/Administrator/Downloads/151/15/index.html",
 		"/C/Users/Administrator/Downloads/151/15/login.html",
 		"/C/Users/Administrator/Downloads/15/index.html",
@@ -497,7 +505,6 @@
 		"/C/Users/Administrator/Downloads/modify/login.html",
 		"/D/workspace/Lecture/Spring/Work/spring65.phone/src/main/webapp/WEB-INF/views/writeOneForm.jsp",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-01.element설정.html",
-		"/D/workspace/Lecture/JavaScript/Work/myfolder/myfile.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/company3.html",
 		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/ch01.html/ht08-01.form태그.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
@@ -610,13 +617,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-03.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-17.forin.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-18.forin.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/평가/login.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/평가/register.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-01.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-02.표준입출력.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-01.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-03-1.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-04.html"
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/평가/login.html"
 	],
 	"find":
 	{
