@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         
 
@@ -25,5 +28,14 @@
                 </div>
             </div>
         </div>
-        <div style="position: absolute; left:90%; top: 25%; z-index: 1; display:inline; background-color:none"><a style="decoreation:none; color:white " href="login">로그인</a></div>
+        <div style="position: absolute; left:90%; top: 25%; z-index: 1; display:inline; background-color:none">
+            <c:choose>
+                <c:when test="${empty user}">
+                    <div><a style="decoreation:none; color:white " href="login">로그인</a></div>
+                </c:when>
+                <c:otherwise>
+                    <div style="display:none;"><a style="decoreation:none; color:white " href="logout">로그아웃</a></div>
+                </c:otherwise>
+            </c:choose>
+        </div>
     </nav>

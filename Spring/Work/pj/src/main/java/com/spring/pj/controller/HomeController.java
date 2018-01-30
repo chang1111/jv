@@ -1,6 +1,4 @@
-package com.spring.pj;
-
-import java.util.Locale;
+package com.spring.pj.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -20,12 +19,5 @@ public class HomeController {
 		
 		return "home";
 	}
-
-   @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model) {
-        logger.info("login");
-        
-        return "login";
-    }
 
 }

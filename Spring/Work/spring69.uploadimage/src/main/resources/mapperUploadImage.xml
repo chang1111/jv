@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperUploadImage">
+    <select id="getImageByte" parameterType="int" resultType="ModelUploadImage">
+        SELECT uploadImageNo, fileName, contentType, fileSize, imageBytes, imageBase64
+        FROM TB_Upload_Image
+        WHERE uploadImageNo = #{uploadImageNo}
+    </select>
+    <insert id="insertPhoto" parameterType="ModelUploadImage" useGeneratedKeys="true" keyProperty="uploadImageNo">
+        INSERT INTO
+        TB_Upload_Image(fileName, fileSize, contentType,imageBytes,imageBase64)
+        VALUES( #{fileName}, #{fileSize}, #{contentType}, #{imageBytes}, #{imageBase64} )
+    </insert>
+</mapper>

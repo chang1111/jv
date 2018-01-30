@@ -42,11 +42,6 @@
     <script type="text/javascript">
         $(document).ready(function(event) {
         	$('#login').click(function(event) {
-        		if ($('input[name="userid"]').val() === '') {
-        			alert('아이디를 입력하세요');
-        		} else if ($('input[name="passwd"]').val() === '') {
-        			alert('비밀번호를 입력하세요');
-        		}
         		$('form').submit();
         	});
             $('#registor').click(function(event) {
@@ -62,17 +57,37 @@
     <div style="height: 200px;">
         
     </div>
-    
-    <div align="center">
-        <c:if test="${not empty msg }">
-        <p style="color: red;">로그인에 실패했습니다.</p>
-        </c:if>      
-        <div class="login" style="display: inline-block; border: 2px solid green; padding: 30px 30px; margin : 100px;">
-            <form action="login" method="post" enctype="application/x-www-form-urlencoded">
-                <label>아이디</label><input type="text" name="userid" /><br>
-                <label>비밀번호</label><input type="password" name="passwd" /><br><br>
-                <input type="button" id="login" value="로그인">&nbsp;
-                <input type="button" id="registor" value="회원가입">
+    <div class="container" align="center">
+        <div class="register">
+        <h1>회원가입</h1>
+        <div style="width: 90%; padding: 40px">
+            <form action="register" method="post" enctype="application/x-www-form-urlencoded">
+                <table>
+                    <tr>
+                        <td><label>아이디</td>
+                        <td><input type="text" name="id" placeholder="아이디를 입력하세요"></td>
+                    </tr>
+                    <tr>
+                        <td><label>비밀번호</td>
+                        <td><input type="password" name="pw" placeholder="비밀번호를 입력하세요"></td>
+                    </tr>
+                    <tr>
+                        <td><label>이름</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label>이메일</td>
+                        <td><input type="text" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label>전화번호</td>
+                        <td><input type="text" name="tel"></td>
+                    </tr>
+                </table>
+                <div style="padding: 30px;">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="초기화">
+                </div>
             </form>
         </div>
     </div>

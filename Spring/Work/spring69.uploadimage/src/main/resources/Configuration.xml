@@ -12,13 +12,13 @@
 
     <!-- Model 클래스를 등록한다. --> 
     <typeAliases>
-        <package name="com.spring.pj.model" />
+        <package name="com.spring69.uploadimage.model" />
     </typeAliases>
 
 
     <!-- sql 이 저장되는 xml 파일 등록: 주의 사항은 경로로 설정해야 한다. -->
     <mappers>
-        <mapper resource="mapper/mapperUser.xml" />
+        <mapper resource="mapperUploadImage.xml" />
     </mappers>
     
 </configuration>
