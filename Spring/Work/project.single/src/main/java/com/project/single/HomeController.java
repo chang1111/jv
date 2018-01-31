@@ -1,23 +1,29 @@
-package com.spring69.uploadimage;
+package com.project.single;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
+import com.project.single.inf.IServicePost;
+import com.project.single.model.ModelPost;
+
 @Controller
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	@Autowired
+	private IServicePost srvpost;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -35,5 +41,16 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+
+   @RequestMapping(value = "/postview", method = RequestMethod.GET)
+    public String postview(Model model) {
+        logger.info("postview:get");
+        
+        List<ModelPost> post = srvpost.getPostList(1, 5);
+        
+        model.addAttribute("item", post);
+        
+        return "postview";
+    }
+
 }

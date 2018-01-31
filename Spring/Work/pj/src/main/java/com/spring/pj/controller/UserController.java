@@ -17,9 +17,9 @@ import com.spring.pj.inf.IServiceUser;
 import com.spring.pj.model.ModelUser;
 
 @Controller
-public class PjController {
+public class UserController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(PjController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	IServiceUser srvuser;
@@ -57,8 +57,10 @@ public class PjController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout(Model model) {
+    public String logout(Model model, HttpSession session) {
        logger.info("logout");
+       
+       session.removeAttribute(WebConstants.SESSION_NAME);
        
        return "redirect:/";
     }

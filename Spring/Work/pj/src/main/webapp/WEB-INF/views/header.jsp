@@ -34,7 +34,7 @@
                     <div><a style="decoreation:none; color:white " href="login">로그인</a></div>
                 </c:when>
                 <c:otherwise>
-                    <div style="display:none;"><a style="decoreation:none; color:white " href="logout">로그아웃</a></div>
+                    <div><a style="decoreation:none; color:white " href="logout">로그아웃</a></div>
                 </c:otherwise>
             </c:choose>
         </div>

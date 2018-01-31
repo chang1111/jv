@@ -2,6 +2,8 @@ package com.spring69.uploadimage.model;
 
 import java.util.Arrays;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class ModelUploadImage {
     private Integer uploadImageNo = null; //   `uploadImageNo` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     private String  fileName      = ""  ; //   `fileName` VARCHAR(50) NOT NULL,
@@ -9,6 +11,8 @@ public class ModelUploadImage {
     private String  contentType   = ""  ; //   `contentType` VARCHAR(30) NOT NULL,
     private byte[]  imageBytes    = null; //   `imageBytes` LONGBLOB NULL,
     private String  imageBase64   = ""  ; //   `imageBase64` LONGTEXT NULL,
+    
+    private CommonsMultipartFile image;
     
     public ModelUploadImage() {
         super();
@@ -48,6 +52,12 @@ public class ModelUploadImage {
     }
     public void setImageBase64(String imageBase64) {
         this.imageBase64 = imageBase64;
+    }
+    public CommonsMultipartFile getImage() {
+        return image;
+    }
+    public void setImage(CommonsMultipartFile image) {
+        this.image = image;
     }
     @Override
     public String toString() {

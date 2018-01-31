@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapperPost">
+    
+    <select id="getPostList" parameterType="java.util.Map" resultType="ModelPost">
+        select postno, author, regdate, content, countgood, countbad from
+        (select @RNUM:= @RNUM + 1 as r, a.* from postview a, (select @RNUM:=0) b
+        order by postno desc ) temp
+        where r between #{start} and #{end}
+    </select>  
+    
+    <insert id="insertPost" parameterType="ModelPost" useGeneratedKeys="true" keyProperty="postno" >
+        INSERT INTO 
+        postview (   author   , content   , regdate   , countgood, countbad )
+          VALUES ( #{author}, #{content}, #{regdate}, 0        , 0        )
+    </insert>   
+    
+    <delete id="deletePost" parameterType="ModelPost">
+        DELETE FROM postview 
+         WHERE postno = #{postno}
+    </delete>
+    
+    <select id="getAttachImage" parameterType="int" resultType="ModelAttachImage">
+        SELECT attachimageno, fileName, fileSize, contentType, imageBytes, imageBase64, postno
+          FROM attachimage
+         WHERE attachimageno = #{attachimageno}
+    </select>
+    
+    <select id="getAttachImageList" parameterType="int" resultType="ModelAttachImage">
+        SELECT attachimageno, fileName, fileSize, contentType, imageBytes, imageBase64, postno
+          FROM attachimage 
+         WHERE postno = #{postno}
+        ORDER BY attachfileno
+    </select>
+    
+    <insert id="insertAttachImage" parameterType="ModelAttachImage">
+        INSERT INTO 
+        attachimage ( fileName   , fileSize   , contentType   , imageBytes   , imageBase64   , postno    )
+        VALUES      ( #{fileName}, #{fileSize}, #{contentType}, #{imageBytes}, #{imageBase64}, #{postno} )
+    </insert>
+    
+    <delete id="deleteAttachImage" parameterType="ModelAttachImage">
+        DELETE FROM attachimage          
+         WHERE 1 = 1 
+          <if test="attachimageno != null and attachimageno != ''" >
+          AND attachimageno = #{attachimageno}
+          </if>
+          <if test="postno != null and postno != ''">
+          AND postno  = #{postno}
+          </if>
+    </delete>
+    
+    
+    <!-- <select id="getComment" parameterType="int" resultType="ModelComments">
+        SELECT commentno,articleno,email,memo,regdate 
+        FROM TB_BBS_Comments 
+        WHERE commentno = #{commentNo}
+    </select>
+    
+    <select id="getCommentList" parameterType="int" resultType="ModelComments">
+        SELECT commentno, articleno, email, memo, regdate
+        FROM TB_BBS_Comments
+        WHERE articleno = #{articleno}
+        ORDER BY commentno DESC
+    </select>
+    
+    
+    <insert id="insertComment" parameterType="ModelComments">
+        INSERT INTO TB_BBS_Comments ( articleno   , email   , memo   , regdate   , InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
+                             VALUES ( #{articleno}, #{email}, #{memo}, #{regdate}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
+    </insert>
+    
+    <update id="updateComment" parameterType="hashmap">
+        UPDATE TB_BBS_Comments 
+           SET memo      = #{updateValue.memo   } 
+             , regdate   = #{updateValue.regdate} 
+             , UseYN     = #{updateValue.UseYN  } 
+         WHERE  1 = 1 
+              <if test="searchValue.commentno != null and searchValue.commentno != ''" >
+              AND commentno = #{searchValue.commentno}
+              </if>
+              <if test="searchValue.articleno != null and searchValue.articleno != ''">
+              AND articleno = #{searchValue.articleno}
+              </if>
+              <if test="searchValue.email != null and searchValue.email != ''">
+              AND email     = #{searchValue.email}
+              </if>
+    </update>
+    
+    <delete id="deleteComment" parameterType="ModelComments">
+        DELETE FROM TB_BBS_Comments 
+        WHERE 1 = 1 
+          <if test="commentno != null and commentno != ''" >
+          AND commentno = #{commentno}
+          </if>
+          <if test="articleno != null and articleno != ''">
+          AND articleno  = #{articleno}
+          </if>
+          <if test="email != null and email != ''">
+          AND email    = #{email}
+          </if>
+          <if test="UseYN != null">
+          AND UseYN    = #{UseYN}
+          </if>
+    </delete> -->
+
+ </mapper>
