@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.single.inf.IDaoPost;
+import com.project.single.model.ModelAttachImage;
 import com.project.single.model.ModelPost;
 
 @Repository
@@ -27,11 +28,27 @@ public class DaoPost implements IDaoPost {
     
     @Override
     public int insertPost(ModelPost post) {
-        return session.insert("mapperPost.insertPost", post);
+        session.insert("mapperPost.insertPost", post);
+        return post.getPostno();
     }
     
     @Override
     public int deletePost(ModelPost post) {
         return session.delete("mapperPost.deletePost", post);
+    }
+
+    @Override
+    public ModelAttachImage getAttachImage(Integer postno) {
+        return session.selectOne("mapperPost.getAttachImage", postno);
+    }
+
+    @Override
+    public int insertAttachImage(ModelAttachImage image) {
+        return session.insert("mapperPost.insertAttachImage", image);
+    }
+
+    @Override
+    public int deleteAttachImage(ModelAttachImage image) {
+        return session.insert("mapperPost.deleteAttachImage", image);
     }
 }

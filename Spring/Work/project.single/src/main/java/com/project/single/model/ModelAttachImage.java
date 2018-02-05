@@ -2,15 +2,19 @@ package com.project.single.model;
 
 import java.util.Arrays;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class ModelAttachImage {
     private Integer attachimageno = null;  // `attachimageno` INT(10) NOT NULL,
     private String  fileName      = ""  ;  // `fileName` VARCHAR(50) NOT NULL,
-    private Integer fileSize      = null;  // `fileSize` INT(11) NOT NULL,
+    private Long    fileSize      = null;  // `fileSize` INT(11) NOT NULL,
     private String  contentType   = ""  ;  // `contentType` VARCHAR(30) NOT NULL,
     private byte[]  imageBytes    = null;  // `imageBytes` LONGBLOB NOT NULL,
     private String  imageBase64   = ""  ;  // `imageBase64` LONGTEXT NOT NULL,
     private Integer postno        = null;  // `postno` INT(10) NOT NULL,
     
+    private CommonsMultipartFile image;
+
     public ModelAttachImage() {
         super();
     }
@@ -31,11 +35,11 @@ public class ModelAttachImage {
         this.fileName = fileName;
     }
 
-    public Integer getFileSize() {
+    public Long getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(Integer fileSize) {
+    public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
     }
 
@@ -69,6 +73,12 @@ public class ModelAttachImage {
 
     public void setPostno(Integer postno) {
         this.postno = postno;
+    }
+    public CommonsMultipartFile getImage() {
+        return image;
+    }
+    public void setImage(CommonsMultipartFile image) {
+        this.image = image;
     }
 
     @Override

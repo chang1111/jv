@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"te",
+				"text-decoration-style"
+			],
+			[
 				"border-c",
 				"border-collapse"
 			],
@@ -403,6 +407,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "st03.JavaScript/js21.브라우저객체/js21-04.window객체.html",
+			"settings":
+			{
+				"buffer_size": 1695,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -483,13 +496,13 @@
 	"expanded_folders":
 	[
 		"/D/workspace/Lecture/JavaScript/Work",
-		"/D/workspace/Lecture/JavaScript/Work/myfolder",
-		"/D/workspace/Lecture/JavaScript/Work/myfolder/js",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Html&CSS/평가"
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체"
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02-ex1.임의의크기와위치,색깔.html",
+		"/D/javapj/pj/src/main/webapp/resources/css/bootstrap.css",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder/login.html",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder/blog.html",
 		"/D/workspace/Lecture/JavaScript/Work/myfolder/contact.html",
@@ -536,7 +549,6 @@
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-mi-01.랜덤스타일적용.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02.miscellaneous_traversing_method.html",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02-ex1.임의의크기와위치,색깔.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-02-ex1.slice.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-11.스크롤.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02.이미지를2배로.html",
@@ -616,8 +628,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-02.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-03.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-17.forin.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-18.forin.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/평가/login.html"
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-18.forin.html"
 	],
 	"find":
 	{
@@ -670,8 +681,217 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "st03.JavaScript/js21.브라우저객체/js21-04.window객체.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1695,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										14,
+										15
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/angle_bracket.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										14,
+										15
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/angle_bracket.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

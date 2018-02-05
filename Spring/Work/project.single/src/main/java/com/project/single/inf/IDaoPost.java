@@ -2,6 +2,7 @@ package com.project.single.inf;
 
 import java.util.List;
 
+import com.project.single.model.ModelAttachImage;
 import com.project.single.model.ModelPost;
 
 public interface IDaoPost {
@@ -12,4 +13,9 @@ public interface IDaoPost {
     
     int deletePost(ModelPost post);
     
+    ModelAttachImage getAttachImage(Integer postno);
+    
+    int insertAttachImage(ModelAttachImage image);
+    
+    int deleteAttachImage(ModelAttachImage image);
 }

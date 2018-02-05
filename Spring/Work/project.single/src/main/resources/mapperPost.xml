@@ -25,14 +25,7 @@
     <select id="getAttachImage" parameterType="int" resultType="ModelAttachImage">
         SELECT attachimageno, fileName, fileSize, contentType, imageBytes, imageBase64, postno
           FROM attachimage
-         WHERE attachimageno = #{attachimageno}
-    </select>
-    
-    <select id="getAttachImageList" parameterType="int" resultType="ModelAttachImage">
-        SELECT attachimageno, fileName, fileSize, contentType, imageBytes, imageBase64, postno
-          FROM attachimage 
          WHERE postno = #{postno}
-        ORDER BY attachfileno
     </select>
     
     <insert id="insertAttachImage" parameterType="ModelAttachImage">

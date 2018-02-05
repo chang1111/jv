@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.single.inf.IDaoPost;
 import com.project.single.inf.IServicePost;
+import com.project.single.model.ModelAttachImage;
 import com.project.single.model.ModelPost;
 
 @Service
@@ -56,6 +57,48 @@ public class ServicePost implements IServicePost {
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("deletePost " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public ModelAttachImage getAttachImage(Integer postno) {
+        ModelAttachImage result = null;
+        
+        try {
+            result = dao.getAttachImage(postno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("getAttachImage " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int insertAttachImage(ModelAttachImage image) {
+        int result = -1;
+        
+        try {
+            result = dao.insertAttachImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("insertAttachImage " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int deleteAttachImage(ModelAttachImage image) {
+        int result = -1;
+        
+        try {
+            result = dao.deleteAttachImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("deleteAttachImage " + e.getMessage() );
         }
         
         return result;
