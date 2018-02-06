@@ -1,6 +1,7 @@
 package com.project.single.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class ModelPost {
     private Integer postno    = null;   //`postno` INT(10) NOT NULL AUTO_INCREMENT,
@@ -9,6 +10,9 @@ public class ModelPost {
     private String  content   = ""  ;   //`content` MEDIUMTEXT NOT NULL,
     private Integer countgood = null;   //`countgood` INT(11) NOT NULL DEFAULT '0',
     private Integer countbad  = null;   //`countbad` INT(11) NOT NULL DEFAULT '0',
+    
+    private Integer commentNum = null;
+    private List<ModelComments> comment = null;
     
     public ModelPost() {
         super();
@@ -60,6 +64,22 @@ public class ModelPost {
 
     public void setCountbad(Integer countbad) {
         this.countbad = countbad;
+    }
+
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
+    }
+
+    public List<ModelComments> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<ModelComments> comment) {
+        this.comment = comment;
     }
 
     @Override

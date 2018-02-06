@@ -5,11 +5,31 @@
 <mapper namespace="mapperPost">
     
     <select id="getPostList" parameterType="java.util.Map" resultType="ModelPost">
-        select postno, author, regdate, content, countgood, countbad from
-        (select @RNUM:= @RNUM + 1 as r, a.* from postview a, (select @RNUM:=0) b
-        order by postno desc ) temp
-        where r between #{start} and #{end}
-    </select>  
+        SELECT postno, author, regdate, content, countgood, countbad, commentNum
+        FROM (
+            SELECT @RNUM := @RNUM + 1 AS r, a.* 
+            FROM (
+                    SELECT a.postno postno
+                         , a.author 
+                         , a.regdate
+                         , a.content
+                         , a.countgood
+                         , a.countbad
+                         , count(distinct(c.commentno)) commentNum
+                    FROM 
+                        postview a
+                        LEFT OUTER JOIN comments c ON a.postno = c.postno
+                    GROUP BY a.postno , a.author, a.regdate
+                    ORDER BY postno DESC
+                 ) a, (SELECT @RNUM:=0) b
+            ) temp
+        WHERE r BETWEEN #{start} AND #{end}
+    </select>
+    
+    <select id="getPostOne" parameterType="int" resultType="ModelPost">
+        SELECT * FROM postview
+        WHERE postno = #{postno}
+    </select>
     
     <insert id="insertPost" parameterType="ModelPost" useGeneratedKeys="true" keyProperty="postno" >
         INSERT INTO 
@@ -21,6 +41,18 @@
         DELETE FROM postview 
          WHERE postno = #{postno}
     </delete>
+    
+    <update id="addCountGood" parameterType="int">
+        UPDATE postview SET
+          countgood = countgood + 1
+         WHERE postno = #{postno}
+    </update>
+    
+    <update id="addCountBad" parameterType="int">
+        UPDATE postview SET
+          countbad = countbad + 1
+         WHERE postno = #{postno}
+    </update>
     
     <select id="getAttachImage" parameterType="int" resultType="ModelAttachImage">
         SELECT attachimageno, fileName, fileSize, contentType, imageBytes, imageBase64, postno
@@ -46,57 +78,47 @@
     </delete>
     
     
-    <!-- <select id="getComment" parameterType="int" resultType="ModelComments">
-        SELECT commentno,articleno,email,memo,regdate 
-        FROM TB_BBS_Comments 
-        WHERE commentno = #{commentNo}
+    <select id="getComment" parameterType="int" resultType="ModelComments">
+        SELECT * 
+        FROM comments 
+        WHERE commentno = #{commentno}
     </select>
     
     <select id="getCommentList" parameterType="int" resultType="ModelComments">
-        SELECT commentno, articleno, email, memo, regdate
-        FROM TB_BBS_Comments
-        WHERE articleno = #{articleno}
+        SELECT *
+        FROM comments
+        WHERE postno = #{postno}
         ORDER BY commentno DESC
     </select>
     
     
-    <insert id="insertComment" parameterType="ModelComments">
-        INSERT INTO TB_BBS_Comments ( articleno   , email   , memo   , regdate   , InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
-                             VALUES ( #{articleno}, #{email}, #{memo}, #{regdate}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
+    <insert id="insertComment" parameterType="ModelComments"  useGeneratedKeys="true" keyProperty="commentno" >
+        INSERT comments ( postno   , memo   , regdate    )
+                 VALUES ( #{postno}, #{memo}, #{regdate} )
     </insert>
     
-    <update id="updateComment" parameterType="hashmap">
-        UPDATE TB_BBS_Comments 
+    <update id="updateComment" parameterType="java.util.Map">
+        UPDATE comments 
            SET memo      = #{updateValue.memo   } 
              , regdate   = #{updateValue.regdate} 
-             , UseYN     = #{updateValue.UseYN  } 
          WHERE  1 = 1 
-              <if test="searchValue.commentno != null and searchValue.commentno != ''" >
+              <if test="searchValue.commentno != null" >
               AND commentno = #{searchValue.commentno}
               </if>
-              <if test="searchValue.articleno != null and searchValue.articleno != ''">
-              AND articleno = #{searchValue.articleno}
-              </if>
-              <if test="searchValue.email != null and searchValue.email != ''">
-              AND email     = #{searchValue.email}
+              <if test="searchValue.postno != null">
+              AND postno    = #{searchValue.postno}
               </if>
     </update>
     
     <delete id="deleteComment" parameterType="ModelComments">
-        DELETE FROM TB_BBS_Comments 
+        DELETE FROM comments 
         WHERE 1 = 1 
-          <if test="commentno != null and commentno != ''" >
+          <if test="commentno != null" >
           AND commentno = #{commentno}
           </if>
-          <if test="articleno != null and articleno != ''">
-          AND articleno  = #{articleno}
+          <if test="postno != null">
+          AND postno  = #{postno}
           </if>
-          <if test="email != null and email != ''">
-          AND email    = #{email}
-          </if>
-          <if test="UseYN != null">
-          AND UseYN    = #{UseYN}
-          </if>
-    </delete> -->
+    </delete>
 
  </mapper>

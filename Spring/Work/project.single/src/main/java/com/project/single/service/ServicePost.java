@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.project.single.inf.IDaoPost;
 import com.project.single.inf.IServicePost;
 import com.project.single.model.ModelAttachImage;
+import com.project.single.model.ModelComments;
 import com.project.single.model.ModelPost;
 
 @Service
@@ -29,6 +30,20 @@ public class ServicePost implements IServicePost {
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("getPostList " + e.getMessage() );
+        }
+        
+        return result;
+    }
+    
+    @Override
+    public ModelPost getPostOne(int postno) {
+        ModelPost result = null;
+        
+        try {
+            result = dao.getPostOne(postno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("getPostOne " + e.getMessage() );
         }
         
         return result;
@@ -99,6 +114,104 @@ public class ServicePost implements IServicePost {
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("deleteAttachImage " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public ModelComments getComment(int commentno) {
+        ModelComments result = null;
+        
+        try {
+            result = dao.getComment(commentno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("getComment " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public List<ModelComments> getCommentList(int postno) {
+        List<ModelComments> result = null;
+        
+        try {
+            result = dao.getCommentList(postno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("getCommentList " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int insertComment(ModelComments comment) {
+        int result = -1;
+        
+        try {
+            result = dao.insertComment(comment);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("insertComment " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int updateComment(ModelComments updateValue, ModelComments searchValue) {
+            int result = -1;
+    
+            try {
+                result = dao.updateComment(updateValue, searchValue);
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.error("updateComment " + e.getMessage() );
+            }
+            
+            return result;
+    }
+
+    @Override
+    public int deleteComment(ModelComments comment) {
+        int result = -1;
+        
+        try {
+            result = dao.deleteComment(comment);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("deleteComment " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int addCountGood(int postno) {
+        int result = -1;
+        
+        try {
+            result = dao.addCountGood(postno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("addCountGood " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int addCountBad(int postno) {
+        int result = -1;
+        
+        try {
+            result = dao.addCountBad(postno);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("addCountBad " + e.getMessage() );
         }
         
         return result;
