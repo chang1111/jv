@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,14 +37,18 @@ public class HomeController {
     public String postview(Model model) {
         logger.info("postview:get");
         
-        List<ModelPost> post = srvpost.getPostList(1, 5);
+        List<ModelPost> post = srvpost.getPostList(1, 1);
         
         for (ModelPost i : post) {
             List<ModelComments> comment = srvpost.getCommentList(i.getPostno());
+            ModelAttachImage image = srvpost.getAttachImage(i.getPostno());
             i.setComment(comment);
+            i.setImage(image);
         }
+        List<ModelPost> postsrv2 = srvpost.getPostList(1, 10000);
         
         model.addAttribute("item", post);
+        model.addAttribute("servercommentcount", postsrv2.size() );
         
         return "postview";
     }
@@ -58,7 +61,9 @@ public class HomeController {
      ModelPost post = srvpost.getPostList(num, num).get(0);
      
      List<ModelComments> comment = srvpost.getCommentList(post.getPostno());
+     ModelAttachImage image = srvpost.getAttachImage(post.getPostno());
      post.setComment(comment);
+     post.setImage(image);
      
      model.addAttribute("post", post);
      return "scrollautoadd";
@@ -81,10 +86,13 @@ public class HomeController {
        ModelPost post = new ModelPost();
        post.setAuthor(author);
        post.setRegdate(new Date());
-       content = content.replace("\n", "<br>");
        post.setContent(content);
        
        Integer postno = srvpost.insertPost(post);
+       
+       if (!image.getImage().getContentType().contains("image")) {
+           return "redirect:/";
+       }
        
        try {
            image.setFileName( image.getImage().getOriginalFilename() );
@@ -101,18 +109,6 @@ public class HomeController {
        }
 
        return "redirect:/";
-   }
-   
-   @RequestMapping(value = "/rest/imageload", method = RequestMethod.POST)
-   @ResponseBody
-   public ModelAttachImage imageload(Integer postno) {
-       logger.info("/rest/imageload:post");
-       
-       ModelAttachImage image = new ModelAttachImage();
-       
-       image = srvpost.getAttachImage(postno);
-       
-       return image;
    }
    
    @RequestMapping(value= "/rest/insertcomment", method = RequestMethod.POST)

@@ -11,6 +11,7 @@ public class ModelPost {
     private Integer countgood = null;   //`countgood` INT(11) NOT NULL DEFAULT '0',
     private Integer countbad  = null;   //`countbad` INT(11) NOT NULL DEFAULT '0',
     
+    private ModelAttachImage image = null;
     private Integer commentNum = null;
     private List<ModelComments> comment = null;
     
@@ -64,6 +65,14 @@ public class ModelPost {
 
     public void setCountbad(Integer countbad) {
         this.countbad = countbad;
+    }
+
+    public ModelAttachImage getImage() {
+        return image;
+    }
+
+    public void setImage(ModelAttachImage image) {
+        this.image = image;
     }
 
     public Integer getCommentNum() {

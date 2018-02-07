@@ -11,27 +11,27 @@
     <style>
         #container {
             width: 800px;
-            margin: auto;
+            margin: 40px auto 0;
         }
     </style>
     <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
-<!--     <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(event) {
-            CKEDITOR.replace('content');
-        });
-    </script> -->
+    <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <div id="container">
         <form action="writepost" enctype="multipart/form-data" method="post">
-            <label>작성자 : </label><input type="text" name="author" />
+            <input type="text" name="author" placeholder="작성자" />
             <br>
-            내용<br>
-            <textarea rows="6" cols="40" name="content"></textarea>
+            <br>
+            <textarea id="content" name="content"></textarea>
+            <script type="text/javascript">
+                CKEDITOR.replace('content', {
+                	height: '400px'
+                });
+            </script>
             <br />
+            사진 선택 <input type="file" name="image" />
             <br />
-            <input type="file" name="image" />
             <br />
             <input type="submit" value="글쓰기"/>
         </form>

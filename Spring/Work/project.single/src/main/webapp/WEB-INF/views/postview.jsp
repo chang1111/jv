@@ -54,7 +54,7 @@
         .commentbody a {
             text-decoration: none;
         }
-        .commentbody .strong {
+        .strong {
             font-weight: bold;
         }
         .comment > a {
@@ -71,37 +71,25 @@
     </style>
     <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
     <script type="text/javascript">
+        var count = 1;
+        window.onload = function(event) {
+            var windowHeight = $(window).height();
+            var height = $(document).height();
+            
+            if (height === windowHeight ) {
+                scrollautoadd(count++);
+            }
+        };
+        
         $(document).ready(function(event) {
-		    imageload($('div.post').eq(0).attr('postno'));
-		    imageload($('div.post').eq(1).attr('postno'));
-		    imageload($('div.post').eq(2).attr('postno'));
-		    imageload($('div.post').eq(3).attr('postno'));
-		    imageload($('div.post').eq(4).attr('postno'));
-		    var count = 5;
+		    
 		    
 		    $(window).scroll(function(event) {
                 var scrollTop = $(window).scrollTop();
                 var windowHeight = $(window).height();
                 var height = $(document).height();
-                if (height === scrollTop + windowHeight) {
-                	$.ajax({
-                	    url : '/rest/scrollautoadd',  // 호출되는 서버 주소.
-                	    data: {'num':count+1},  // 서버로 보내지는 데이터.사용하는 경우에는 { data1:'test1', data2:'test2' }
-                	    type: 'post',       // request method: get, post
-                	    timeout: 30000,    // 최대 대기 시간: 30초. 30초 이상이 되면 fail 부분이 실행됨.
-                	    dataType: 'html',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
-                	    beforeSend : function() {
-                	        // 통신이 시작되기 전에 이 함수를 타게 된다. 화면에 시계 표출.
-                	    }
-                	}).done( function(data, textStatus, xhr ){
-                	    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-                	    $('#container').append(data);
-                	    imageload($('div.post').eq(count++).attr('postno'));
-                	}).fail( function(xhr, textStatus, error ) {
-                	    // 통신이 실패했을 때 이 함수를 타게 된다.
-                	}).always( function(data, textStatus, xhr ) {
-                	    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다. 표출된 시계 감추기..
-                	});
+                if (height === scrollTop + windowHeight ) {
+                	scrollautoadd(count++);
                 }
 		    });
 		    $('#write').click(function(event) {
@@ -160,29 +148,39 @@
 		        var postno = $(this).parent('div').parent('.addComment').parent('.post').attr('postno');
                 var memo = $(this).parent('div').prev('div').children('textarea').val();
                 addComment(postno, memo);
+                $(this).parent('div').prev('div').children('textarea').val('');
+		    });
+		    $('#gotop').click(function(event) {
+                $('html').animate({scrollTop:0});
 		    });
 		    
         });
-        var imageload = function(postno) {
-        	$.ajax({
-        	    url : '/rest/imageload',  // 호출되는 서버 주소.
-        	    data: {'postno':Number(postno)},  // 서버로 보내지는 데이터.사용하는 경우에는 { data1:'test1', data2:'test2' }
-        	    type: 'post',       // request method: get, post
-        	    timeout: 30000,    // 최대 대기 시간: 30초. 30초 이상이 되면 fail 부분이 실행됨.
-        	    dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
-        	    beforeSend : function() {
-        	        // 통신이 시작되기 전에 이 함수를 타게 된다. 화면에 시계 표출.
-        	    }
-        	}).done( function(data, textStatus, xhr ){
-        	    if (data.attachimageno) {
-        	    	$('div.post[postno="' + data.postno + '"] .image').html('<img src="data:' + data.contentType + ';base64,' + data.imageBase64 + '" />');
-        	    }
-        	}).fail( function(xhr, textStatus, error ) {
-        	    // 통신이 실패했을 때 이 함수를 타게 된다.
-        	}).always( function(data, textStatus, xhr ) {
-        	    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다. 표출된 시계 감추기..
-        	});
-
+        var scrollautoadd = function(count) {
+            $.ajax({
+                url : '/rest/scrollautoadd',  // 호출되는 서버 주소.
+                data: {'num':count+1},  // 서버로 보내지는 데이터.사용하는 경우에는 { data1:'test1', data2:'test2' }
+                type: 'post',       // request method: get, post
+                timeout: 30000,    // 최대 대기 시간: 30초. 30초 이상이 되면 fail 부분이 실행됨.
+                dataType: 'html',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
+                beforeSend : function() {
+                    // 통신이 시작되기 전에 이 함수를 타게 된다. 화면에 시계 표출.
+                }
+            }).done( function(data, textStatus, xhr ){
+                // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                $('#container').append(data);
+//                imageload($('div.post').eq(count).attr('postno'));
+            }).fail( function(xhr, textStatus, error ) {
+                // 통신이 실패했을 때 이 함수를 타게 된다.
+            }).always( function(data, textStatus, xhr ) {
+                // 통신이 실패했어도 성공했어도 이 함수를 타게 된다. 표출된 시계 감추기..
+//                var scrollTop = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var height = $(document).height();
+                
+                if (height === windowHeight ) {
+                    scrollautoadd(count++);
+                }
+            });
         };
         var comments = function(postno) {
         	$('.post[postno="' + postno + '"] .commentbody').toggle();
@@ -288,13 +286,17 @@
                 </tr>
             </table>
             <hr>
-            <div class="image"></div>
+            <c:if test="${not empty post.image }">
+                <div class="image">
+                    <img src="data: ${ post.image.contentType } ;base64, ${post.image.imageBase64 }" />
+                </div>
+            </c:if>
             <div> ${post.content }</div>
             <hr>
             <div class="comment">
                 <a href="javascript:comments('${post.postno }')">댓글</a>
                 <c:if test="${post.commentNum > 0 }">
-                    <span>[<span class="commentNum">${post.commentNum }</span>]</span>
+                    <span class="strong">[<span class="commentNum">${post.commentNum }</span>]</span>
                 </c:if>
                 <div class="goodbad">
                     <a href="javascript:good()">Good</a><span class="good">${post.countgood }</span>

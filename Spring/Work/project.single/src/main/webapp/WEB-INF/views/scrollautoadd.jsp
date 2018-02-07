@@ -11,13 +11,17 @@
                 </tr>
             </table>
             <hr>
-            <div class="image"></div>
+            <c:if test="${not empty post.image }">
+                <div class="image">
+                    <img src="data: ${ post.image.contentType } ;base64, ${post.image.imageBase64 }" />
+                </div>
+            </c:if>
             <div> ${post.content }</div>
             <hr>
             <div class="comment">
                 <a href="javascript:comments('${post.postno }')">댓글</a>
                 <c:if test="${post.commentNum > 0 }">
-                    <span>[<span class="commentNum">${post.commentNum }</span>]</span>
+                    <span class="strong">[<span class="commentNum">${post.commentNum }</span>]</span>
                 </c:if>
                 <div class="goodbad">
                     <a href="javascript:good()">Good</a><span class="good">${post.countgood }</span>
