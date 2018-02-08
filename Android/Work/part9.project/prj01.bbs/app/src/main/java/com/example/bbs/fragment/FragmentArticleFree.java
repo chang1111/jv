@@ -1,12 +1,12 @@
 package com.example.bbs.fragment;
 
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,46 +15,34 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.bbs.R;
-import com.example.bbs.article.ArticleAdapter;
+import com.example.bbs.article.AdapterArticle;
 import com.example.bbs.model.ModelArticle;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentArticleFree#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentArticleFree extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private View mView;
-    private ListView mListView;
-    private ArticleAdapter mAdapter;
+
+    private View   mView;
+
+    private ListView           mListView;
+    private AdapterArticle mAdapter ;
     private List<ModelArticle> mData;
+
     private boolean flagGetData = false;
+
 
     public FragmentArticleFree() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentArticleFree.
-     */
-    // TODO: Rename and change types and number of parameters
+    
     public static FragmentArticleFree newInstance(String param1, String param2) {
         FragmentArticleFree fragment = new FragmentArticleFree();
         Bundle args = new Bundle();
@@ -72,14 +60,16 @@ public class FragmentArticleFree extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        getActivity().setTitle(mParam1);
+        // 타이틀 변경
+        getActivity().setTitle(  mParam1 );
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_article_free, container, false);
+        mView =  inflater.inflate(R.layout.fragment_article_free, container, false);
+
         return mView;
     }
 
@@ -90,11 +80,12 @@ public class FragmentArticleFree extends Fragment {
         // 위젯 찾기
         mListView = mView.findViewById(R.id.listview_free);
 
+
         // 데이터 만들기
         mData = makeData(0, 20);
 
         // adapter 생성
-        mAdapter = new ArticleAdapter(getContext(), R.layout.fragment_article_free, mData);
+        mAdapter = new AdapterArticle( getContext(), R.layout.listview_customview_article, mData);
 
         // adapter 연결
         mListView.setAdapter( mAdapter );
@@ -105,7 +96,7 @@ public class FragmentArticleFree extends Fragment {
                 // AlertDialog 로 출력하기
                 ModelArticle item = mData.get( position );
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
                 builder.setTitle( item.getTitle() );
                 builder.setMessage( item.toString() );
                 builder.setIcon( R.mipmap.ic_launcher );
@@ -156,7 +147,7 @@ public class FragmentArticleFree extends Fragment {
             super.onPreExecute();
 
             // Wait 동안 ProgressDialog 보여 주기
-            pdlg = new ProgressDialog(getContext());
+            pdlg = new ProgressDialog( getContext() );
             pdlg.setMessage("데이터 가져오는 중");
             pdlg.show();
         }
@@ -164,6 +155,7 @@ public class FragmentArticleFree extends Fragment {
         // 요청 중.
         @Override
         protected List<ModelArticle> doInBackground(Integer... integers) {
+
             List<ModelArticle> items = null;
 
             try {
@@ -205,13 +197,13 @@ public class FragmentArticleFree extends Fragment {
 
         Random r = new Random();
         for(int i=start; i<start + count; i++){
-            ModelArticle person = new ModelArticle();
-            person.setArticleno(i);
-            person.setTitle("name " + i);
-            person.setHit( 20 + r.nextInt( 3000));
-            person.setContent( getRandString() );
+            ModelArticle model = new ModelArticle();
+            model.setArticleno( i );
+            model.setTitle( "name " + i );
+            model.setHit( 20 + r.nextInt( 3000)  );
+            model.setContent( getRandString() );
 
-            newitems.add( person );
+            newitems.add( model );
         }
 
         return newitems;

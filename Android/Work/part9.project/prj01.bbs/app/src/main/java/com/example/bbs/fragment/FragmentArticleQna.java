@@ -11,47 +11,34 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.bbs.R;
+import com.example.bbs.article.AdapterPerson;
 import com.example.bbs.model.ModelPerson;
-import com.example.bbs.person.AdapterPerson;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentArticleQna#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentArticleQna extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private View mView;
+
+    private View   mView;
+
     private ListView mListView;
-    private AdapterPerson mAdapter;
+    private AdapterPerson mAdapter ;
     private List<ModelPerson> mData;
+
     private boolean flagGetData = false;
+
 
     public FragmentArticleQna() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentArticleQna.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FragmentArticleQna newInstance(String param1, String param2) {
         FragmentArticleQna fragment = new FragmentArticleQna();
         Bundle args = new Bundle();
@@ -69,8 +56,21 @@ public class FragmentArticleQna extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // Activity의 타이틀 변경
-        getActivity().setTitle(mParam1);
+        // Activity 타이틀 변경
+        getActivity().setTitle( mParam1);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        mView =  inflater.inflate(R.layout.fragment_artcile_qna, container, false);
+        return mView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         // 위젯 찾기
         mListView = mView.findViewById(R.id.listview_qna);
@@ -79,29 +79,21 @@ public class FragmentArticleQna extends Fragment {
         mData = makeData();
 
         // adatper 생성.
-        mAdapter = new AdapterPerson(getContext(), R.layout.listview_customview_person,  mData );
+        mAdapter = new AdapterPerson( getContext(), R.layout.listview_customview_person,  mData );
 
         // adapter 리스너 설정
 
         // listview와 adatpe 연결
         mListView.setAdapter( mAdapter );
 
+        // headerview 추가
+
+        // footerview 추가
+
+        // divier 추가
 
     }
 
-    @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_article_qna, container, false);
-
-        return mView;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
     private List<ModelPerson> makeData() {
         List<ModelPerson> items = new ArrayList<>();
 
@@ -123,7 +115,7 @@ public class FragmentArticleQna extends Fragment {
     }
 
     private int[] images = {
-            R.drawable.sample_0
+              R.drawable.sample_0
             , R.drawable.sample_1
             , R.drawable.sample_2
             , R.drawable.sample_3
@@ -132,5 +124,4 @@ public class FragmentArticleQna extends Fragment {
             , R.drawable.sample_6
             , R.drawable.sample_7
     };
-
 }

@@ -1,4 +1,4 @@
-package com.example.bbs.person;
+package com.example.bbs.article;
 
 import android.content.Context;
 import android.graphics.Color;

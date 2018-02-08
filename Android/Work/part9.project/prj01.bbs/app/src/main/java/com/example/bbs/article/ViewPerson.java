@@ -1,4 +1,4 @@
-package com.example.bbs.person;
+package com.example.bbs.article;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,10 +12,6 @@ import android.widget.TextView;
 
 import com.example.bbs.R;
 import com.example.bbs.model.ModelPerson;
-
-/**
- * Created by Administrator on 2018-01-09.
- */
 
 public class ViewPerson extends RelativeLayout {
 

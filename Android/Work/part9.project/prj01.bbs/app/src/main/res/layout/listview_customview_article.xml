@@ -4,43 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:text="no"
             android:layout_alignParentLeft="true"
-            android:text="no"/>
+            android:layout_weight="1" />
     
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/no"
+            android:layout_toEndOf="@+id/no"
             android:layout_weight="4"
             android:text="title"/>
         <TextView
             android:id="@+id/hit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_alignParentRight="true"
-            android:text="hit"/>
+            android:text="hit"
+            android:layout_weight="1"/>
     </RelativeLayout>
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="content"/>
+
 </LinearLayout>
-<!--
-    String  title     ;
-    String  content   ;
-    String  email     ;
-    Integer hit       ;
--->

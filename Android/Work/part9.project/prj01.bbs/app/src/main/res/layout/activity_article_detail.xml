@@ -6,9 +6,9 @@
                 tools:context="com.example.bbs.article.ArticleDetailActivity">
     
     <ListView
+        android:id="@+id/listview_article_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listview_detail"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
