@@ -281,7 +281,7 @@
         <div class="post" postno="${post.postno }">
             <table>
                 <tr>
-                    <td width="80%">작성자 : ${post.author }</td>
+                    <td width="80%">${post.author }</td>
                     <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${post.regdate }" /></td>
                 </tr>
             </table>

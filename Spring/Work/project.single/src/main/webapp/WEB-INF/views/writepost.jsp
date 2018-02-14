@@ -43,7 +43,7 @@
 <body>
     <div id="container">
         <form action="writepost" enctype="multipart/form-data" method="post">
-            <input type="text" name="author" placeholder="작성자" />
+            <input type="text" name="author" />
             <br>
             <br>
             <textarea id="content" name="content"></textarea>
