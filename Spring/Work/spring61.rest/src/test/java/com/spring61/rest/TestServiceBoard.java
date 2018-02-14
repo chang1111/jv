@@ -78,12 +78,11 @@ public class TestServiceBoard {
     @Test
     public void test06_getBoardPaging() {
 
-        String boardcd    = "";
         String searchWord = "";
         int    start = 1;
         int    end   = 3;
         
-        List<ModelBoard> result = service.getBoardPaging(boardcd, searchWord, start, end);
+        List<ModelBoard> result = service.getBoardPaging(searchWord, start, end);
         assertEquals(result.size(), 3-1+1);        
     }
 
@@ -292,7 +291,7 @@ public class TestServiceBoard {
     public void test43_insertAttachFile() {
         ModelAttachFile model = new ModelAttachFile();
         model.setArticleno(2);
-        model.setFilename("insert Attach File test");
+        model.setFilenameorig("insert Attach File test");
         model.setFilesize((long)2008);
         model.setFiletype("txt");
         model.setUseYN(true);        

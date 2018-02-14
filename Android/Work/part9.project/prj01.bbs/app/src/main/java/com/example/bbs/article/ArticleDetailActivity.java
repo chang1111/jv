@@ -3,6 +3,8 @@ package com.example.bbs.article;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.bbs.R;
+
 public class ArticleDetailActivity extends AppCompatActivity {
 
     @Override

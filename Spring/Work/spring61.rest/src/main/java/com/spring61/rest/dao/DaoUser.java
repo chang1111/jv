@@ -74,5 +74,13 @@ public class DaoUser implements IUser {
     public int checkuserid(String userid) {
         return session.selectOne("mapper.mapperUser.checkuserid", userid);
     }
+
+    @Override
+    public int checkpassword(String id, String curpw) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("id", id   );
+        map.put("pw", curpw);
+        return session.selectOne("mapper.mapperUser.checkpassword", map);
+    }
     
 }

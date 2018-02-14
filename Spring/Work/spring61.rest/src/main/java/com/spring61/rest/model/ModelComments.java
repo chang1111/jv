@@ -6,12 +6,12 @@ public class ModelComments {
     Integer commentno   ; // NUMBER(10)     generated as identity 
     Integer articleno   ; // NUMBER(10)     NOT NULL     
     String  email       ; // VARCHAR2(60)  
-    String  memo        ; // VARCHAR2(4000)
+    String  memo        ; // VARCHAR2(4000) NOT NULL    
     Date    regdate     ; // Date
     Boolean UseYN       ; // NUMBER(1)       DEFAULT 1 NOT NULL ENABLE
-    String  InsertUID   ; // VARCHAR(40)      NULL                            
+    String  InsertUID   ; // VARCHAR(40)  NULL                            
     Date    InsertDT    ; // Date         NULL
-    String  UpdateUID   ; // VARCHAR(40)      NULL                            
+    String  UpdateUID   ; // VARCHAR(40)  NULL                            
     Date    UpdateDT    ; // Date         NULL
 
     

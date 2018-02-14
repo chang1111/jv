@@ -1,6 +1,5 @@
 package com.spring61.rest.dao;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,10 +57,9 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+    public List<ModelBoard> getBoardPaging(String searchWord, int start, int end) {
         
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("boardcd"   , boardcd    );
         map.put("searchWord", searchWord );
         map.put("start"     , start      );
         map.put("end"       , end        );
@@ -103,7 +101,9 @@ public class DaoBoard implements IBoard {
 
     @Override
     public int insertArticle(ModelArticle article) {
-        return  session.insert("mapper.mapperBoard.insertArticle", article );        
+        session.insert("mapper.mapperBoard.insertArticle", article );
+        
+        return article.getArticleno(); // inserted primary key ���� ��ȯ�ȴ�.
     }
 
     @Override
@@ -167,7 +167,10 @@ public class DaoBoard implements IBoard {
 
     @Override
     public int insertComment(ModelComments comment) {
-        return  session.insert("mapper.mapperBoard.insertComment", comment );        
+        
+        // inserted �� primary key ��, commentno �� ��ȯ.
+        session.insert("mapper.mapperBoard.insertComment", comment );
+        return comment.getCommentno();
     }
 
     @Override

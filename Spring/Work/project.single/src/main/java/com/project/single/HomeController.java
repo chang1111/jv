@@ -3,9 +3,16 @@ package com.project.single;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +31,11 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+    private final String TOPIC = "JavaSampleApproach";
+    
+    @Autowired
+    AndroidPushNotificationsService androidPushNotificationsService;
+    
 	@Autowired
 	private IServicePost srvpost;
 	
@@ -45,10 +57,10 @@ public class HomeController {
             i.setComment(comment);
             i.setImage(image);
         }
-        List<ModelPost> postsrv2 = srvpost.getPostList(1, 10000);
+//        List<ModelPost> postsrv2 = srvpost.getPostList(1, 10000);
         
         model.addAttribute("item", post);
-        model.addAttribute("servercommentcount", postsrv2.size() );
+//        model.addAttribute("servercommentcount", postsrv2.size() );
         
         return "postview";
     }
@@ -90,23 +102,41 @@ public class HomeController {
        
        Integer postno = srvpost.insertPost(post);
        
-       if (!image.getImage().getContentType().contains("image")) {
-           return "redirect:/";
+       if (image.getImage().getContentType().contains("image")) {
+           try {
+               image.setFileName( image.getImage().getOriginalFilename() );
+               image.setFileSize( (Long)image.getImage().getSize() );
+               image.setContentType( image.getImage().getContentType() );
+               image.setImageBytes( image.getImage().getBytes() );
+               image.setImageBase64( Base64.getEncoder().encodeToString( image.getImage().getBytes() ) );
+               image.setPostno(postno);
+               srvpost.insertAttachImage(image);
+           } catch (Exception e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+           }
        }
        
+       JSONObject body = new JSONObject();
+       body.put("to", "/topics/" + TOPIC);
+       body.put("priority", "high");
+
+       HttpEntity<String> request = new HttpEntity<>(body.toString());
+
+       CompletableFuture<String> pushNotification = androidPushNotificationsService.send(request);
+       CompletableFuture.allOf(pushNotification).join();
+
        try {
-           image.setFileName( image.getImage().getOriginalFilename() );
-           image.setFileSize( (Long)image.getImage().getSize() );
-           image.setContentType( image.getImage().getContentType() );
-           image.setImageBytes( image.getImage().getBytes() );
-           image.setImageBase64( Base64.getEncoder().encodeToString( image.getImage().getBytes() ) );
-           image.setPostno(postno);
-           srvpost.insertAttachImage(image);
-       } catch (Exception e) {
-           // TODO Auto-generated catch block
-           e.printStackTrace();
+           String firebaseResponse = pushNotification.get();
            
+           new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       } catch (ExecutionException e) {
+           e.printStackTrace();
        }
+
+       new ResponseEntity<>("Push Notification ERROR!", HttpStatus.BAD_REQUEST);
 
        return "redirect:/";
    }

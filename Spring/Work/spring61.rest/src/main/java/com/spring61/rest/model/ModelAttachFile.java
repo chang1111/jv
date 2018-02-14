@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class ModelAttachFile {
     Integer attachfileno   ;
-    String  filename       ;
+    String  filenameorig   ;
+    String  filenametemp   ;
     String  filetype       ;
     Long    filesize       ;
     Integer articleno      ;
@@ -20,11 +21,17 @@ public class ModelAttachFile {
     public void setAttachfileno(Integer attachfileno) {
         this.attachfileno = attachfileno;
     }
-    public String getFilename() {
-        return filename;
+    public String getFilenameorig() {
+        return filenameorig;
     }
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFilenameorig(String filenameorig) {
+        this.filenameorig = filenameorig;
+    }
+    public String getFilenametemp() {
+        return filenametemp;
+    }
+    public void setFilenametemp(String filenametemp) {
+        this.filenametemp = filenametemp;
     }
     public String getFiletype() {
         return filetype;
@@ -35,8 +42,8 @@ public class ModelAttachFile {
     public Long getFilesize() {
         return filesize;
     }
-    public void setFilesize(Long l) {
-        this.filesize = l;
+    public void setFilesize(Long filesize) {
+        this.filesize = filesize;
     }
     public Integer getArticleno() {
         return articleno;
@@ -74,30 +81,28 @@ public class ModelAttachFile {
     public void setUpdateDT(Date updateDT) {
         UpdateDT = updateDT;
     }
-
+    @Override
+    public String toString() {
+        return "ModelAttachFile [attachfileno=" + attachfileno
+                + ", filenameorig=" + filenameorig + ", filenametemp="
+                + filenametemp + ", filetype=" + filetype + ", filesize="
+                + filesize + ", articleno=" + articleno + ", UseYN=" + UseYN
+                + ", InsertUID=" + InsertUID + ", InsertDT=" + InsertDT
+                + ", UpdateUID=" + UpdateUID + ", UpdateDT=" + UpdateDT + "]";
+    }
+    
     public ModelAttachFile() {
         super();
     }
-    
-    public ModelAttachFile(Integer articleno) {
+    public ModelAttachFile(Integer attachfileno) {
         super();
-        this.articleno = articleno;
-    }
-
-    public ModelAttachFile(String filename, String filetype, Long filesize, Integer articleno) {
+        this.attachfileno = attachfileno;
+    }    
+    public ModelAttachFile(String filenameorig, String filetype, Long filesize, Integer articleno) {
         super();
-        this.filename = filename;
+        this.filenameorig = filenameorig;
         this.filetype = filetype;
         this.filesize = filesize;
         this.articleno = articleno;
-    }
-    
-    @Override
-    public String toString() {
-        return "ModelAttachFile [attachfileno=" + attachfileno + ", filename="
-                + filename + ", filetype=" + filetype + ", filesize=" + filesize
-                + ", articleno=" + articleno + ", UseYN=" + UseYN
-                + ", InsertUID=" + InsertUID + ", InsertDT=" + InsertDT
-                + ", UpdateUID=" + UpdateUID + ", UpdateDT=" + UpdateDT + "]";
     }
 }

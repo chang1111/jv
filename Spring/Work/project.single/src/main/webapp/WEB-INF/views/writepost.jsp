@@ -16,6 +16,29 @@
     </style>
     <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(event) {
+        	$('input[type="button"]').click(function(event) {
+                $('form').submit();
+/*        		$.ajax({
+        		    url : '/fcm/send',  // 호출되는 서버 주소.
+        		    data: null,  // 서버로 보내지는 데이터.사용하는 경우에는 { data1:'test1', data2:'test2' }
+        		    type: 'get',       // request method: get, post
+        		    timeout: 30000,    // 최대 대기 시간: 30초. 30초 이상이 되면 fail 부분이 실행됨.
+        		    dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
+        		    beforeSend : function() {
+        		        // 통신이 시작되기 전에 이 함수를 타게 된다. 화면에 시계 표출.
+        		    }
+        		}).done( function(data, textStatus, xhr ){
+        		    // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+        		}).fail( function(xhr, textStatus, error ) {
+        		    // 통신이 실패했을 때 이 함수를 타게 된다.
+        		}).always( function(data, textStatus, xhr ) {
+        		    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다. 표출된 시계 감추기..
+        		}); */
+        	});
+        });
+    </script>
 </head>
 <body>
     <div id="container">
@@ -33,7 +56,7 @@
             사진 선택 <input type="file" name="image" />
             <br />
             <br />
-            <input type="submit" value="글쓰기"/>
+            <input type="button" value="글쓰기"/>
         </form>
     </div>
 </body>

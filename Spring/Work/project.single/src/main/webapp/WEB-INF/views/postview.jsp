@@ -71,13 +71,13 @@
     </style>
     <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
     <script type="text/javascript">
-        var count = 1;
+        var postcount = 1;
         window.onload = function(event) {
             var windowHeight = $(window).height();
             var height = $(document).height();
             
             if (height === windowHeight ) {
-                scrollautoadd(count++);
+                scrollautoadd(postcount++);
             }
         };
         
@@ -89,7 +89,7 @@
                 var windowHeight = $(window).height();
                 var height = $(document).height();
                 if (height === scrollTop + windowHeight ) {
-                	scrollautoadd(count++);
+                	scrollautoadd(postcount++);
                 }
 		    });
 		    $('#write').click(function(event) {
@@ -178,7 +178,7 @@
                 var height = $(document).height();
                 
                 if (height === windowHeight ) {
-                    scrollautoadd(count++);
+                    scrollautoadd(postcount++);
                 }
             });
         };

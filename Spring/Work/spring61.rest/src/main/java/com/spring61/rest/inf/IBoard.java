@@ -34,7 +34,7 @@ public interface IBoard {
      * 둘다 아닐시 1=1 조건 검색, boardcd,boardnm,UseYN 그룹묶음,boardcd 내림차순정렬
      * 마지막으로 start,end 범위 조회
      */
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end);
+    public List<ModelBoard> getBoardPaging(String searchWord, int start, int end);
     
     /*
      * Board테이블. 게시판 전체 리스트 구하기

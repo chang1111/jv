@@ -1,10 +1,12 @@
 package com.spring61.rest.inf;
 
-import java.util.List;
-import java.util.Map;
+import com.spring61.rest.model.ModelArticle;
 
 
 public interface IServiceBoard extends IBoard {
+    
+    ModelArticle transArticle(int articleno);
+    int transDeleteArticle(int articleno);
 
     /*
 	public int getListNo();
